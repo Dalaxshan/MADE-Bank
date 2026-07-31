@@ -136,7 +136,7 @@ export default function HeroSection() {
             >
               <button
                 onClick={() => handleNavClick("#services")}
-                className="group flex items-center gap-2 bg-[#3B72A6] text-[#F1EAD9] px-7 py-3.5 font-semibold text-[15px] hover:bg-[#4a84ba] transition-colors duration-300"
+                className="group flex items-center gap-2 bg-[var(--color-accent)] text-[#F1EAD9] px-7 py-3.5 font-semibold text-[15px] hover:bg-[var(--color-accent-light)] transition-colors duration-300"
                 style={{
                   clipPath: "polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 70%)",
                 }}
@@ -149,7 +149,7 @@ export default function HeroSection() {
               </button>
               <button
                 onClick={() => handleNavClick("#deposits")}
-                className="flex items-center gap-2 bg-[#FFD54F] text-[#1E2A38] px-7 py-3.5 font-semibold text-[15px] hover:bg-[#FBC02D]/20 transition-colors duration-300"
+                className="flex items-center gap-2 bg-[var(--color-primary)] text-[var(--color-primary-100)] px-7 py-3.5 font-semibold text-[15px] hover:bg-[var(--color-primary-light)] transition-colors duration-300"
                 style={{
                   clipPath:
                     "polygon(0 0, 100% 0, 100% 70%, calc(100% - 12px) 100%, 0 100%)",
@@ -157,13 +157,6 @@ export default function HeroSection() {
               >
                 <BanknoteArrowUp strokeWidth={1.25} />
                 Open a Deposit
-              </button>
-              <button
-                onClick={() => handleNavClick("#contact")}
-                className="flex items-center gap-2 text-[var(--color-primary)] px-4 py-3.5 font-semibold text-[15px] hover:text-[#3fb89a] transition-colors duration-300"
-              >
-                <Phone strokeWidth={1.25} />
-                Contact Us
               </button>
             </motion.div>
 

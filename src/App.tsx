@@ -6,9 +6,7 @@ import ServicesSection from './components/ServicesSection';
 import FarmerJourneySection from './components/FarmerJourneySection';
 import DepositSection from './components/DepositSection';
 import DepositCalculator from './components/DepositCalculator';
-import LoanCalculator from './components/LoanCalculator';
 import GroupMortgageLoans from './components/GroupMortgageLoans';
-import CompleteSupportSystem from './components/CompleteSupportSystem';
 import ExportNetwork from './components/ExportNetwork';
 import GallerySection from './components/GallerySection';
 import TestimonialsSection from './components/TestimonialsSection';
@@ -30,9 +28,8 @@ export default function App() {
         <FarmerJourneySection />
         <DepositSection />
         <DepositCalculator />
-        <LoanCalculator />
         <GroupMortgageLoans />
-        <CompleteSupportSystem />
+        {/* <CompleteSupportSystem /> */}
         <ExportNetwork />
         <GallerySection />
         <TestimonialsSection />

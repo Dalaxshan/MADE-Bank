@@ -10,11 +10,11 @@ import {
 import { Landmark } from "lucide-react";
 
 const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
-const INK = "#1E2A38";
-const PAPER = "#F3F7F5";
-const JADE = "#2E9C82";
-const STEEL = "#3B72A6";
-const INDIGO = "#2B3A67";
+const INK = "var(--color-gold)";
+const PAPER = "var(--color-primary-100)";
+const JADE = "var(--color-light-green)";
+const STEEL = "var(--color-secondary)";
+const INDIGO = "var(--color-primary-dark)";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -72,7 +72,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center tracking-wide">
           <span className="flex items-center gap-2">
-            <Landmark size={20} strokeWidth={1.25} className="text-[var(--color-primary)]" />
+            <Landmark size={20} strokeWidth={1.25} className="text-[var(--color-primary-100)]" />
             REGISTERED · COOPERATIVE SOCIETIES ACT NO. 10 OF 1990 · CENTRAL
             PROVINCIAL COUNCIL
           </span>
@@ -202,23 +202,23 @@ export default function Navbar() {
                     "polygon(0 0, 100% 0, 100% 70%, calc(100% - 8px) 100%, 0 100%)",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#5adbbd")
+                  (e.currentTarget.style.backgroundColor = "var(--color-primary-light)")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = JADE)
+                  (e.currentTarget.style.backgroundColor = "var(--color-primary)")
                 }
               >
                 Contact Us
               </button>
               <button
                 onClick={() => handleNavClick("#services")}
-                className="group flex items-center gap-2 text-sm font-semibold py-2.5 px-5 text-[#F3F7F5] transition-colors duration-300"
+                className="group flex items-center gap-2 text-sm font-semibold py-2.5 px-5 text-[#fff] transition-colors duration-300"
                 style={{
                   backgroundColor: STEEL,
                   clipPath: "polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 70%)",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#4a84ba")
+                  (e.currentTarget.style.backgroundColor = "var(--color-secondary-light)")
                 }
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.backgroundColor = STEEL)

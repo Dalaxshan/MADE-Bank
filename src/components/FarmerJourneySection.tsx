@@ -9,14 +9,14 @@ import { FaArrowDown, FaCheckCircle } from 'react-icons/fa';
 const FONT_DISPLAY = "'Fraunces', Georgia, serif";
 const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = '#1E2A38';
-const PAPER = '#F3F7F5';
-const JADE = '#2E9C82';
-const STEEL = '#3B72A6';
-const INDIGO = '#2B3A67';
+const PAPER = "var(--color-primary-100)";
+const JADE = "var(--color-light-green)";
+const STEEL = "var(--color-secondary)";
+const INDIGO = "var(--color-primary-dark)";
 
 // Deliberate steel → jade progression across the 7 steps — "cold problem"
 // resolving into "profit" — instead of an arbitrary rainbow per card.
-const stepColors = ['#3B72A6', '#3979A0', '#37809A', '#358794', '#328E8E', '#309588', '#2E9C82'];
+const stepColors = ['#1b5e20', '#187c2e', '#56a445', '#60b64d', '#77dd60', '#c6db44', '#d6ec48'];
 
 const journeySteps = [
   {
@@ -79,7 +79,7 @@ const problemSolution = [
 
 export default function FarmerJourneySection() {
   return (
-    <section className="py-24 overflow-hidden" style={{ backgroundColor: PAPER }}>
+    <section className="py-14 overflow-hidden" style={{ backgroundColor: PAPER }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

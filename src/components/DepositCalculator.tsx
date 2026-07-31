@@ -4,14 +4,31 @@ import {
   PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis,
   CartesianGrid, Tooltip, ResponsiveContainer, Legend
 } from 'recharts';
-import { FaCalculator, FaChartPie, FaChartLine } from 'react-icons/fa';
+import { FaChartPie, FaChartLine } from 'react-icons/fa';
+import { Calculator } from 'lucide-react';
 
-const COLORS = ['#2E7D32', '#81C784', '#F9A825'];
+
+const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
+const INK = '#1E2A38';
+const PAPER = "var(--color-primary-100)";
+const STEEL = "var(--color-light-green)";
+const JADE = "var(--color-secondary)";
+const INDIGO = "var(--color-primary-dark)";
+const COLORS = [STEEL, JADE];
+
+const rateTable: Record<number, { monthly: number | null; maturity: number }> = {
+  6: { monthly: null, maturity: 9.5 },
+  12: { monthly: 9.5, maturity: 10.0 },
+  24: { monthly: 10.0, maturity: 10.5 },
+  36: { monthly: 10.5, maturity: 11.0 },
+  48: { monthly: 11.0, maturity: 11.6 },
+  60: { monthly: 11.5, maturity: 12.2 },
+};
 
 const getInterestRate = (months: number, isMonthly: boolean): number => {
-  if (months === 6) return 9.5;
-  if (isMonthly) return 9.5;
-  return 10.0;
+  const entry = rateTable[months] ?? rateTable[12];
+  if (isMonthly) return entry.monthly ?? entry.maturity;
+  return entry.maturity;
 };
 
 export default function DepositCalculator() {
@@ -40,8 +57,8 @@ export default function DepositCalculator() {
     { name: 'Interest Earned', value: Math.round(totalInterest) },
   ];
 
-  // Line chart: year-by-year growth
-  const lineData = [];
+  // Line chart: growth over the term, using the correctly-selected rate
+  const lineData: { month: string; value: number }[] = [];
   for (let m = 0; m <= months; m += Math.max(1, Math.floor(months / 12))) {
     const yr = m / 12;
     const interest = (amount * rate * yr) / 100;
@@ -50,7 +67,6 @@ export default function DepositCalculator() {
       value: Math.round(amount + interest),
     });
   }
-  // Ensure final point
   if (lineData[lineData.length - 1]?.month !== `${months}m`) {
     lineData.push({ month: `${months}m`, value: Math.round(maturityAmount) });
   }
@@ -68,7 +84,7 @@ export default function DepositCalculator() {
   ];
 
   return (
-    <section id="deposit-calculator" className="py-24 bg-white">
+    <section id="deposit-calculator" className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -78,16 +94,25 @@ export default function DepositCalculator() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block bg-purple-100 text-purple-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            <FaCalculator className="inline mr-1" /> Deposit Calculator
+          <span
+            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
+            style={{ borderColor: `${JADE}80`, color: JADE, fontFamily: FONT_MONO }}
+          >
+           <Calculator strokeWidth={1.75} /> Deposit Calculator
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
+          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK}}>
             Calculate Your
             <br />
-            <span className="gradient-text">Deposit Returns</span>
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}
+            >
+              Deposit Returns
+            </span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto">
-            See exactly how much your savings will grow with MADECOOP's agricultural development deposits.
+          <p className="text-lg max-w-xl mx-auto" style={{ color: `${INK}99` }}>
+            See exactly how much your savings will grow with MADECOOP's agricultural
+            development deposits.
           </p>
         </motion.div>
 
@@ -98,17 +123,18 @@ export default function DepositCalculator() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-100"
+            className="p-8"
+            style={{ backgroundColor: PAPER, border: `1px solid ${INK}14` }}
           >
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <FaCalculator className="text-green-600" /> Input Your Details
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2" style={{ color: INK }}>
+             <Calculator strokeWidth={1.75}  style={{ color: STEEL }} />Input Your Details
             </h3>
 
             {/* Amount slider */}
             <div className="mb-8">
-              <label className="flex justify-between text-sm font-semibold text-gray-700 mb-3">
+              <label className="flex justify-between text-sm font-semibold mb-3" style={{ color: `${INK}CC` }}>
                 <span>Deposit Amount</span>
-                <span className="text-green-700">{formatCurrency(amount)}</span>
+                <span style={{ color: STEEL, fontFamily: FONT_MONO }}>{formatCurrency(amount)}</span>
               </label>
               <input
                 type="range"
@@ -117,9 +143,10 @@ export default function DepositCalculator() {
                 step={5000}
                 value={amount}
                 onChange={(e) => setAmount(Number(e.target.value))}
-                className="w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer accent-green-600"
+                className="w-full h-2 rounded-full appearance-none cursor-pointer"
+                style={{ backgroundColor: `${INK}1A`, accentColor: STEEL }}
               />
-              <div className="flex justify-between text-xs text-gray-400 mt-1">
+              <div className="flex justify-between text-xs mt-1" style={{ color: `${INK}66`, fontFamily: FONT_MONO }}>
                 <span>Rs. 5,000</span>
                 <span>Rs. 50,00,000</span>
               </div>
@@ -127,88 +154,112 @@ export default function DepositCalculator() {
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(Math.max(5000, Math.min(5000000, Number(e.target.value))))}
-                className="input-field mt-3"
+                className="w-full mt-3 px-4 py-2.5 text-sm focus:outline-none"
+                style={{ border: `1px solid ${INK}26`, backgroundColor: '#FFFFFF', color: INK, fontFamily: FONT_MONO }}
                 placeholder="Enter amount"
               />
             </div>
 
             {/* Period selection */}
             <div className="mb-8">
-              <label className="block text-sm font-semibold text-gray-700 mb-3">Deposit Period</label>
+              <label className="block text-sm font-semibold mb-3" style={{ color: `${INK}CC` }}>
+                Deposit Period
+              </label>
               <div className="grid grid-cols-3 gap-2">
-                {periodOptions.map((option) => (
-                  <button
-                    key={option.value}
-                    onClick={() => {
-                      setMonths(option.value);
-                      if (option.value === 6) setIsMonthly(false);
-                    }}
-                    className={`py-3 rounded-xl text-sm font-semibold transition-all ${
-                      months === option.value
-                        ? 'bg-green-600 text-white shadow-md'
-                        : 'bg-white text-gray-600 border border-gray-200 hover:border-green-300'
-                    }`}
-                  >
-                    {option.label}
-                  </button>
-                ))}
+                {periodOptions.map((option) => {
+                  const active = months === option.value;
+                  return (
+                    <button
+                      key={option.value}
+                      onClick={() => {
+                        setMonths(option.value);
+                        if (option.value === 6) setIsMonthly(false);
+                      }}
+                      className="py-3 text-sm font-semibold transition-all"
+                      style={
+                        active
+                          ? { backgroundColor: STEEL, color: PAPER }
+                          : { backgroundColor: '#FFFFFF', color: `${INK}99`, border: `1px solid ${INK}26` }
+                      }
+                    >
+                      {option.label}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             {/* Payout type */}
             <div className="mb-8">
-              <label className="block text-sm font-semibold text-gray-700 mb-3">Interest Payout</label>
+              <label className="block text-sm font-semibold mb-3" style={{ color: `${INK}CC` }}>
+                Interest Payout
+              </label>
               <div className="flex gap-3">
                 <button
                   onClick={() => setIsMonthly(false)}
-                  className={`flex-1 py-3 rounded-xl text-sm font-semibold border transition-all ${
+                  className="flex-1 py-3 text-sm font-semibold transition-all"
+                  style={
                     !isMonthly
-                      ? 'bg-green-600 text-white border-green-600'
-                      : 'bg-white text-gray-600 border-gray-200 hover:border-green-300'
-                  }`}
+                      ? { backgroundColor: STEEL, color: PAPER, border: `1px solid ${STEEL}` }
+                      : { backgroundColor: '#FFFFFF', color: `${INK}99`, border: `1px solid ${INK}26` }
+                  }
                 >
                   At Maturity ({getInterestRate(months, false)}%)
                 </button>
                 <button
                   onClick={() => setIsMonthly(true)}
                   disabled={months === 6}
-                  className={`flex-1 py-3 rounded-xl text-sm font-semibold border transition-all ${
+                  className="flex-1 py-3 text-sm font-semibold transition-all"
+                  style={
                     isMonthly && months !== 6
-                      ? 'bg-green-600 text-white border-green-600'
+                      ? { backgroundColor: STEEL, color: PAPER, border: `1px solid ${STEEL}` }
                       : months === 6
-                      ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
-                      : 'bg-white text-gray-600 border-gray-200 hover:border-green-300'
-                  }`}
+                      ? { backgroundColor: `${INK}0A`, color: `${INK}40`, border: `1px solid ${INK}14`, cursor: 'not-allowed' }
+                      : { backgroundColor: '#FFFFFF', color: `${INK}99`, border: `1px solid ${INK}26` }
+                  }
                 >
-                  Monthly (9.5%)
+                  Monthly ({rateTable[months]?.monthly ?? '—'}%)
                 </button>
               </div>
             </div>
 
             {/* Results */}
             <div className="grid grid-cols-1 gap-4">
-              <div className="bg-white rounded-2xl p-4 border border-green-100">
-                <div className="text-xs text-gray-500 mb-1">Interest Rate</div>
-                <div className="text-2xl font-black text-green-700">{rate}% p.a.</div>
+              <div className="p-4" style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}>
+                <div className="text-xs mb-1" style={{ color: `${INK}80`, fontFamily: FONT_MONO }}>
+                  Interest Rate
+                </div>
+                <div className="text-2xl font-black" style={{ color: JADE }}>
+                  {rate}% p.a.
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 {isMonthly && monthlyInterestAmount && (
-                  <div className="bg-blue-50 rounded-2xl p-4 border border-blue-100">
-                    <div className="text-xs text-gray-500 mb-1">Monthly Interest</div>
-                    <div className="text-lg font-black text-blue-700">
+                  <div className="p-4" style={{ backgroundColor: `${STEEL}0D`, border: `1px solid ${STEEL}33` }}>
+                    <div className="text-xs mb-1" style={{ color: `${INK}80`, fontFamily: FONT_MONO }}>
+                      Monthly Interest
+                    </div>
+                    <div className="text-lg font-black" style={{ color: STEEL }}>
                       {formatCurrency(Math.round(monthlyInterestAmount))}
                     </div>
                   </div>
                 )}
-                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-100">
-                  <div className="text-xs text-gray-500 mb-1">Total Interest</div>
-                  <div className="text-lg font-black text-amber-700">
+                <div className="p-4" style={{ backgroundColor: `${INDIGO}0D`, border: `1px solid ${INDIGO}33` }}>
+                  <div className="text-xs mb-1" style={{ color: `${INK}80`, fontFamily: FONT_MONO }}>
+                    Total Interest
+                  </div>
+                  <div className="text-lg font-black" style={{ color: INDIGO }}>
                     {formatCurrency(Math.round(totalInterest))}
                   </div>
                 </div>
-                <div className="bg-green-600 rounded-2xl p-4">
-                  <div className="text-xs text-green-200 mb-1">Maturity Amount</div>
-                  <div className="text-xl font-black text-white">
+                <div
+                  className="p-4"
+                  style={{ background: `linear-gradient(115deg, ${STEEL}, ${INDIGO})`, gridColumn: isMonthly && monthlyInterestAmount ? 'auto' : 'span 2 / span 2' }}
+                >
+                  <div className="text-xs mb-1 text-[#F3F7F5]/70" style={{ fontFamily: FONT_MONO }}>
+                    Maturity Amount
+                  </div>
+                  <div className="text-xl font-black text-[#F3F7F5]">
                     {formatCurrency(Math.round(maturityAmount))}
                   </div>
                 </div>
@@ -222,27 +273,30 @@ export default function DepositCalculator() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100"
+            className="p-8 shadow-lg"
+            style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}12` }}
           >
             {/* Tab switcher */}
             <div className="flex gap-2 mb-6">
               <button
                 onClick={() => setActiveTab('pie')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                className="flex items-center gap-2 px-4 py-2 text-sm font-semibold transition-all"
+                style={
                   activeTab === 'pie'
-                    ? 'bg-green-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
+                    ? { backgroundColor: STEEL, color: PAPER }
+                    : { backgroundColor: `${INK}0A`, color: `${INK}80` }
+                }
               >
                 <FaChartPie /> Breakdown
               </button>
               <button
                 onClick={() => setActiveTab('line')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                className="flex items-center gap-2 px-4 py-2 text-sm font-semibold transition-all"
+                style={
                   activeTab === 'line'
-                    ? 'bg-green-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
+                    ? { backgroundColor: STEEL, color: PAPER }
+                    : { backgroundColor: `${INK}0A`, color: `${INK}80` }
+                }
               >
                 <FaChartLine /> Growth
               </button>
@@ -265,17 +319,25 @@ export default function DepositCalculator() {
                         <Cell key={index} fill={COLORS[index % COLORS.length]} />
                       ))}
                     </Pie>
-                      <Tooltip formatter={(v: unknown) => formatCurrency(Number(v))} />
+                    <Tooltip formatter={(v: unknown) => formatCurrency(Number(v))} />
                     <Legend />
                   </PieChart>
                 </ResponsiveContainer>
                 <div className="grid grid-cols-2 gap-4 mt-4">
                   {pieData.map((item, i) => (
-                    <div key={item.name} className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                    <div
+                      key={item.name}
+                      className="flex items-center gap-3 p-3"
+                      style={{ backgroundColor: `${INK}05` }}
+                    >
                       <div className="w-4 h-4 rounded-full" style={{ background: COLORS[i] }} />
                       <div>
-                        <div className="text-xs text-gray-500">{item.name}</div>
-                        <div className="text-sm font-bold text-gray-900">{formatCurrency(Math.round(item.value))}</div>
+                        <div className="text-xs" style={{ color: `${INK}80` }}>
+                          {item.name}
+                        </div>
+                        <div className="text-sm font-bold" style={{ color: INK, fontFamily: FONT_MONO }}>
+                          {formatCurrency(Math.round(item.value))}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -285,36 +347,29 @@ export default function DepositCalculator() {
               <div>
                 <ResponsiveContainer width="100%" height={320}>
                   <LineChart data={lineData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                    <CartesianGrid strokeDasharray="3 3" stroke={`${INK}14`} />
                     <XAxis dataKey="month" tick={{ fontSize: 11 }} />
-                    <YAxis
-                      tick={{ fontSize: 11 }}
-                      tickFormatter={(v) => `${(v / 1000).toFixed(0)}K`}
-                    />
+                    <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}K`} />
                     <Tooltip
                       formatter={(v: unknown) => [formatCurrency(Number(v)), 'Value']}
-                      contentStyle={{ borderRadius: '12px', border: '1px solid #e0e0e0' }}
+                      contentStyle={{ border: `1px solid ${INK}26`, fontFamily: FONT_MONO }}
                     />
-                    <Line
-                      type="monotone"
-                      dataKey="value"
-                      stroke="#2E7D32"
-                      strokeWidth={3}
-                      dot={{ fill: '#2E7D32', r: 5 }}
-                    />
+                    <Line type="monotone" dataKey="value" stroke={STEEL} strokeWidth={3} dot={{ fill: STEEL, r: 5 }} />
                   </LineChart>
                 </ResponsiveContainer>
               </div>
             )}
 
             {/* Summary */}
-            <div className="mt-6 p-4 bg-green-50 rounded-2xl border border-green-100">
+            <div className="mt-6 p-4" style={{ backgroundColor: `${JADE}0D`, border: `1px solid ${JADE}33` }}>
               <div className="text-center">
-                <div className="text-sm text-gray-600 mb-1">Your money grows from</div>
-                <div className="text-lg font-bold text-gray-900">
+                <div className="text-sm mb-1" style={{ color: `${INK}80` }}>
+                  Your money grows from
+                </div>
+                <div className="text-lg font-bold" style={{ color: INK, fontFamily: FONT_MONO }}>
                   {formatCurrency(amount)} → {formatCurrency(Math.round(maturityAmount))}
                 </div>
-                <div className="text-sm text-green-700 font-semibold mt-1">
+                <div className="text-sm font-semibold mt-1" style={{ color: JADE }}>
                   +{((totalInterest / amount) * 100).toFixed(1)}% total return over {months} months
                 </div>
               </div>
