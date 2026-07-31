@@ -97,7 +97,7 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-2.5 text-gray-400 text-sm">
                 <FaMapMarkerAlt className="text-green-500 text-xs mt-0.5" />
-                <span>No. 123, Kandy Road, Matale,<br />Central Province, Sri Lanka</span>
+                <span> 3/4, Yelakkare Junction, Dangan Place,<br /> Yatawatta, Matale.</span>
               </div>
             </div>
 

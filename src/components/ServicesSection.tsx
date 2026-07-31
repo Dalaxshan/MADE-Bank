@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { CheckCircle, ClockCheck, Forklift, Landmark, LandPlot, Percent, Sprout, Tractor, Users } from 'lucide-react';
 import {
   FaLeaf, FaLandmark, FaTractor, FaTruck,
   FaPiggyBank, FaUsers, FaHome, FaArrowRight,
@@ -8,7 +9,7 @@ import {
 const services = [
   {
     id: 'export-loan',
-    icon: <FaLeaf className="text-3xl" />,
+    icon: <Sprout strokeWidth={1.25} />,
     title: 'Export Agriculture Loan',
     subtitle: 'For Export-Oriented Cultivation',
     desc: 'Financial assistance specifically designed for farmers engaged in export-quality crop cultivation including cinnamon, pepper, cardamom, and organic vegetables.',
@@ -22,7 +23,7 @@ const services = [
   },
   {
     id: 'land-loan',
-    icon: <FaLandmark className="text-3xl" />,
+    icon: <Landmark strokeWidth={1.25} />,
     title: 'Agriculture Land Purchasing Loan',
     subtitle: 'Expand Your Farming Land',
     desc: 'Helping farmers secure agricultural land for cultivation with affordable financing and flexible repayment terms tailored to farming income cycles.',
@@ -35,7 +36,7 @@ const services = [
   },
   {
     id: 'machinery-loan',
-    icon: <FaTractor className="text-3xl" />,
+    icon: <Forklift strokeWidth={1.25} />,
     title: 'Agricultural Machinery Loan',
     subtitle: 'Modernize Your Farm',
     desc: 'Loans for tractors, harvesters, irrigation equipment, water pumps, and modern agricultural machinery to increase productivity and efficiency.',
@@ -48,7 +49,7 @@ const services = [
   },
   {
     id: 'vehicle-loan',
-    icon: <FaTruck className="text-3xl" />,
+    icon: <Tractor strokeWidth={1.25} />,
     title: 'Agricultural Vehicle Loan',
     subtitle: 'Transport Your Harvest',
     desc: 'Vehicle financing for agricultural transport including lorries, mini-trucks, and specialized farming vehicles to ensure your harvest reaches markets efficiently.',
@@ -59,23 +60,23 @@ const services = [
     iconBg: 'bg-blue-100 text-blue-600',
     badge: null,
   },
-  {
-    id: 'deposit',
-    icon: <FaPiggyBank className="text-3xl" />,
-    title: 'Agricultural Development Deposits',
-    subtitle: 'Grow Your Savings',
-    desc: 'High-return savings plans designed for farmers and investors. Earn up to 10% interest annually with fixed-term deposits starting from 6 months.',
-    features: ['Up to 10% interest', '6 months to 5 years', 'Monthly or maturity payout', 'Insured deposits'],
-    color: 'from-purple-500 to-violet-600',
-    bg: 'bg-purple-50',
-    border: 'border-purple-200',
-    iconBg: 'bg-purple-100 text-purple-600',
-    badge: 'High Returns',
-    badgeColor: 'bg-purple-600',
-  },
+  // {
+  //   id: 'deposit',
+  //   icon: <FaPiggyBank className="text-3xl" />,
+  //   title: 'Agricultural Development Deposits',
+  //   subtitle: 'Grow Your Savings',
+  //   desc: 'High-return savings plans designed for farmers and investors. Earn up to 10% interest annually with fixed-term deposits starting from 6 months.',
+  //   features: ['Up to 10% interest', '6 months to 5 years', 'Monthly or maturity payout', 'Insured deposits'],
+  //   color: 'from-purple-500 to-violet-600',
+  //   bg: 'bg-purple-50',
+  //   border: 'border-purple-200',
+  //   iconBg: 'bg-purple-100 text-purple-600',
+  //   badge: 'High Returns',
+  //   badgeColor: 'bg-purple-600',
+  // },
   {
     id: 'group-loan',
-    icon: <FaUsers className="text-3xl" />,
+    icon: <Users strokeWidth={1.25} />,
     title: 'Group Loan',
     subtitle: 'Five-Member Farmer Groups',
     desc: 'Community-based lending for groups of five farmers. Mutual guarantee system enables access to credit for those without individual collateral.',
@@ -89,7 +90,7 @@ const services = [
   },
   {
     id: 'mortgage',
-    icon: <FaHome className="text-3xl" />,
+    icon: <LandPlot strokeWidth={1.25} />,
     title: 'Mortgage Loan',
     subtitle: 'Property-Backed Financing',
     desc: 'For larger financial requirements above Rs. 100,000. Secure substantial funding using property as collateral with competitive interest rates.',
@@ -189,30 +190,70 @@ export default function ServicesSection() {
         </div>
 
         {/* Bottom CTA Banner */}
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-green-700 to-green-600 rounded-3xl p-8 text-white text-center relative overflow-hidden"
+          className="relative overflow-hidden p-8 sm:p-10 text-center text-[#F3F7F5]"
+          style={{
+            background: 'linear-gradient(115deg, #4cd686c5 0%, #2B3A67 100%)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))',
+          }}
         >
-          <div className="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center opacity-10" />
+          {/* faint ledger-line texture, matching the hero */}
+          <div
+            className="absolute inset-0 opacity-[0.06] pointer-events-none"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)',
+            }}
+          />
+
+          {/* faint corner stamp watermark, tying back to the passbook seal */}
+          <svg
+            viewBox="0 0 200 200"
+            className="absolute -top-6 -right-6 w-40 h-40 opacity-[0.12] pointer-events-none"
+          >
+            <defs>
+              <path id="ctaStampCircle" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0" fill="none" />
+            </defs>
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#F3F7F5" strokeWidth="2" />
+            <circle cx="100" cy="100" r="72" fill="none" stroke="#F3F7F5" strokeWidth="1.5" />
+            <text fill="#F3F7F5" fontSize="11" letterSpacing="2">
+              <textPath href="#ctaStampCircle" startOffset="0%">
+                • MADECOOP · APPROVED · MADECOOP · APPROVED
+              </textPath>
+            </text>
+          </svg>
+
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-black mb-3">Ready to Transform Your Farm?</h3>
-            <p className="text-white/80 mb-6 text-lg">Visit our office or call us to discuss which loan product is right for you.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center gap-2 bg-white/20 rounded-2xl px-5 py-3">
-                <FaPercentage className="text-yellow-300" />
-                <span className="font-semibold">Competitive Interest Rates</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/20 rounded-2xl px-5 py-3">
-                <FaClock className="text-yellow-300" />
-                <span className="font-semibold">Quick Approval Process</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/20 rounded-2xl px-5 py-3">
-                <FaCheckCircle className="text-yellow-300" />
-                <span className="font-semibold">No Hidden Charges</span>
-              </div>
+            <h3
+              className="text-2xl md:text-3xl font-black mb-3"
+              style={{ fontFamily: "'Fraunces', Georgia, serif" }}
+            >
+              Ready to Transform Your Farm?
+            </h3>
+            <p className="text-[#F3F7F5]/75 mb-8 text-lg">
+              Visit our office or call us to discuss which loan product is right for you.
+            </p>
+
+            {/* ledger-tag chips, matching the hero's shipment tags */}
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                { icon: <Percent strokeWidth={1.75} />, label: 'Competitive Interest Rates' },
+                { icon: <ClockCheck strokeWidth={1.75} />, label: 'Quick Approval Process' },
+                { icon: <CheckCircle strokeWidth={1.75} />, label: 'No Hidden Charges' },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-center gap-2 bg-[#F3F7F5]/10 border border-[#F3F7F5]/20 px-5 py-3 text-sm"
+                  style={{ fontFamily: "'IBM Plex Mono', 'Courier New', monospace" }}
+                >
+                  <span className="text-[#F3F7F5]">{item.icon}</span>
+                  <span className="font-semibold tracking-wide">{item.label.toUpperCase()}</span>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>

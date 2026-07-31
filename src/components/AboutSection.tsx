@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
-import { BanknoteArrowDown, ChartNoAxesCombined, ChartSpline, Earth, Handshake, Leaf, Shield, Trophy, Users } from 'lucide-react';
+import { AwardIcon, BanknoteArrowDown, ChartNoAxesCombined, ChartSpline, Earth, Handshake, Leaf, Shield, Trophy, Users } from 'lucide-react';
 
 const stats = [
   { value: 5000, suffix: '+', label: 'Farmers Supported', icon: <Users strokeWidth={1.25} />, color: 'text-green-600' },
@@ -97,8 +97,8 @@ export default function AboutSection() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="stat-card group"
             >
-              <div className={`text-3xl mb-2 ${stat.color} flex justify-center`}>{stat.icon}</div>
-              <div className={`text-3xl font-black ${stat.color}`}>
+              <div className={`text-2xl mb-2 ${stat.color} flex justify-center`}>{stat.icon}</div>
+              <div className={`text-xl font-black ${stat.color}`}>
                 {inView ? (
                   <CountUp end={stat.value} duration={2} suffix={stat.suffix} separator="," />
                 ) : '0'}
@@ -148,7 +148,8 @@ export default function AboutSection() {
               transition={{ duration: 3.5, repeat: Infinity }}
               className="absolute -bottom-5 -right-5 bg-white rounded-2xl p-4 shadow-xl border border-yellow-100"
             >
-              <div className="text-2xl mb-1">🏆</div>
+             
+              <AwardIcon className="text-yellow-600 w-6 h-6 mb-1" strokeWidth={1.25} />
               <div className="text-xs text-gray-600 font-medium">Award-winning<br />Cooperative</div>
             </motion.div>
           </motion.div>

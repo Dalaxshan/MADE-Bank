@@ -1,7 +1,19 @@
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-import { ArrowRight, BanknoteArrowDown, BanknoteArrowUp, HandCoins, Handshake, Phone, Ship, Sprout, Tractor, Truck, UserStar } from "lucide-react";
+import {
+  ArrowRight,
+  BanknoteArrowDown,
+  BanknoteArrowUp,
+  HandCoins,
+  Handshake,
+  Phone,
+  Ship,
+  Sprout,
+  Tractor,
+  Truck,
+  UserStar,
+} from "lucide-react";
 
 const FONT_DISPLAY = "'Fraunces', Georgia, serif";
 const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
@@ -30,7 +42,7 @@ const ledgerEntries = [
     value: 1,
     suffix: "+",
     label: "Year of Service",
-    icon:  <UserStar strokeWidth={1.25} />,
+    icon: <UserStar strokeWidth={1.25} />,
   },
 ];
 
@@ -38,7 +50,11 @@ const shipmentTags = [
   { icon: <Sprout strokeWidth={1.25} />, label: "Organic Farming", rotate: -3 },
   { icon: <Truck strokeWidth={1.25} />, label: "Global Export", rotate: 2 },
   { icon: <Ship strokeWidth={1.25} />, label: "Modern Machinery", rotate: -2 },
-  { icon: <HandCoins strokeWidth={1.25} />, label: "Buy-Back Guarantee", rotate: 3 },
+  {
+    icon: <HandCoins strokeWidth={1.25} />,
+    label: "Buy-Back Guarantee",
+    rotate: 3,
+  },
 ];
 
 export default function HeroSection() {
@@ -65,10 +81,10 @@ export default function HeroSection() {
       />
 
       {/* Warm ambient glow behind headline */}
-      <div className="absolute -top-40 -left-20 w-[32rem] h-[32rem] bg-[#2E9C82] rounded-full blur-[140px] opacity-[0.18] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-[#3B72A6] rounded-full blur-[140px] opacity-[0.20] pointer-events-none" />
+      <div className="absolute -top-40 -left-20 w-[32rem] h-[32rem] bg-[var(--color-primary)] rounded-full blur-[140px] opacity-[0.18] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-[var(--color-secondary)] rounded-full blur-[140px] opacity-[0.20] pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-32 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-22 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* ---------------- Left: the pitch ---------------- */}
           <div>
@@ -77,11 +93,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 border border-dashed border-[#2E9C82]/50 rounded-sm px-4 py-1.5 mb-8 -rotate-1"
+              className="inline-flex items-center gap-2 border border-dashed border-[var(--color-primary)]/50 rounded-sm px-4 py-1.5 mb-8 -rotate-1"
               style={{ fontFamily: FONT_MONO }}
             >
-              <span className="w-1.5 h-1.5 bg-[#2E9C82] rounded-full" />
-              <span className="text-[#2E9C82] text-[11px] tracking-[0.2em] uppercase">
+              <span className="w-1.5 h-1.5 bg-[var(--color-primary)] rounded-full" />
+              <span className="text-[var(--color-primary)] text-[11px] tracking-[0.2em] uppercase">
                 Central Province · Cooperative Society
               </span>
             </motion.div>
@@ -95,9 +111,8 @@ export default function HeroSection() {
               style={{ fontFamily: FONT_DISPLAY }}
             >
               Every Harvest,{" "}
-              <span className="text-[#2E9C82] italic">Entered</span>
-              <br />
-              into the Ledger of <span className="text-[#3B72A6]">Trust.</span>
+              <span className="text-[var(--color-primary)] italic">Build </span>
+              on <span className="text-[var(--color-secondary)]">Trust.</span>
             </motion.h1>
 
             {/* Sub headline */}
@@ -127,22 +142,25 @@ export default function HeroSection() {
                 }}
               >
                 Apply for a Loan
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight
+                  size={16}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </button>
               <button
                 onClick={() => handleNavClick("#deposits")}
-                className="flex items-center gap-2 border border-[#1E2A38]/25 text-[#1E2A38] px-7 py-3.5 font-semibold text-[15px] hover:bg-[#1E2A38]/8 transition-colors duration-300"
+                className="flex items-center gap-2 bg-[#FFD54F] text-[#1E2A38] px-7 py-3.5 font-semibold text-[15px] hover:bg-[#FBC02D]/20 transition-colors duration-300"
                 style={{
                   clipPath:
                     "polygon(0 0, 100% 0, 100% 70%, calc(100% - 12px) 100%, 0 100%)",
                 }}
               >
-             <BanknoteArrowUp strokeWidth={1.25} />
+                <BanknoteArrowUp strokeWidth={1.25} />
                 Open a Deposit
               </button>
               <button
                 onClick={() => handleNavClick("#contact")}
-                className="flex items-center gap-2 text-[#2E9C82] px-4 py-3.5 font-semibold text-[15px] hover:text-[#3fb89a] transition-colors duration-300"
+                className="flex items-center gap-2 text-[var(--color-primary)] px-4 py-3.5 font-semibold text-[15px] hover:text-[#3fb89a] transition-colors duration-300"
               >
                 <Phone strokeWidth={1.25} />
                 Contact Us

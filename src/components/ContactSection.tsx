@@ -1,11 +1,17 @@
-import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
+import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
 import {
-  FaPhone, FaEnvelope, FaMapMarkerAlt,
-  FaClock, FaFacebook, FaWhatsapp, FaYoutube,
-  FaCheckCircle, FaPaperPlane
-} from 'react-icons/fa';
-import { useState } from 'react';
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaClock,
+  FaFacebook,
+  FaWhatsapp,
+  FaYoutube,
+  FaCheckCircle,
+  FaPaperPlane,
+} from "react-icons/fa";
+import { useState } from "react";
 
 type FormData = {
   name: string;
@@ -19,55 +25,60 @@ type FormData = {
 const contactInfo = [
   {
     icon: <FaPhone className="text-xl" />,
-    title: 'Phone',
-    lines: ['+94 66 222 2222', '+94 66 222 3333'],
-    color: 'bg-green-100 text-green-600',
-    href: 'tel:+94662222222',
+    title: "Phone",
+    lines: ["+94 66 222 2222", "+94 66 222 3333"],
+    color: "bg-green-100 text-green-600",
+    href: "tel:+94662222222",
   },
   {
     icon: <FaWhatsapp className="text-xl" />,
-    title: 'WhatsApp',
-    lines: ['+94 77 123 4567'],
-    color: 'bg-emerald-100 text-emerald-600',
-    href: 'https://wa.me/94771234567',
+    title: "WhatsApp",
+    lines: ["+94 77 123 4567"],
+    color: "bg-emerald-100 text-emerald-600",
+    href: "https://wa.me/94771234567",
   },
   {
     icon: <FaEnvelope className="text-xl" />,
-    title: 'Email',
-    lines: ['info@madecoop.lk', 'loans@madecoop.lk'],
-    color: 'bg-blue-100 text-blue-600',
-    href: 'mailto:info@madecoop.lk',
+    title: "Email",
+    lines: ["info@madecoop.lk", "loans@madecoop.lk"],
+    color: "bg-blue-100 text-blue-600",
+    href: "mailto:info@madecoop.lk",
   },
   {
     icon: <FaMapMarkerAlt className="text-xl" />,
-    title: 'Address',
-    lines: ['No. 123, Kandy Road,', 'Matale, Central Province, Sri Lanka'],
-    color: 'bg-red-100 text-red-600',
-    href: '#',
+    title: "Address",
+    lines: ["3/4, Yelakkare Junction, Dangan Place, Yatawatta, Matale."],
+    color: "bg-red-100 text-red-600",
+    href: "#",
   },
   {
     icon: <FaClock className="text-xl" />,
-    title: 'Office Hours',
-    lines: ['Monday–Friday: 8:30 AM – 4:30 PM', 'Saturday: 8:30 AM – 12:30 PM'],
-    color: 'bg-amber-100 text-amber-600',
-    href: '#',
+    title: "Office Hours",
+    lines: ["Monday–Friday: 8:30 AM – 4:30 PM", "Saturday: 8:30 AM – 12:30 PM"],
+    color: "bg-amber-100 text-amber-600",
+    href: "#",
   },
 ];
 
 const serviceOptions = [
-  'Export Agriculture Loan',
-  'Land Purchasing Loan',
-  'Machinery Loan',
-  'Vehicle Loan',
-  'Group Loan',
-  'Mortgage Loan',
-  'Deposit Account',
-  'General Inquiry',
+  "Export Agriculture Loan",
+  "Land Purchasing Loan",
+  "Machinery Loan",
+  "Vehicle Loan",
+  "Group Loan",
+  "Mortgage Loan",
+  "Deposit Account",
+  "General Inquiry",
 ];
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
     console.log(data);
@@ -96,7 +107,8 @@ export default function ContactSection() {
             <span className="gradient-text">We're Here to Help</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-xl mx-auto">
-            Our agricultural finance experts are ready to guide you through the process.
+            Our agricultural finance experts are ready to guide you through the
+            process.
           </p>
         </motion.div>
 
@@ -115,7 +127,9 @@ export default function ContactSection() {
                 href={info.href}
                 className="flex items-start gap-4 p-4 bg-gray-50 rounded-2xl hover:bg-green-50 border border-gray-100 hover:border-green-200 transition-all group"
               >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${info.color}`}>
+                <div
+                  className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${info.color}`}
+                >
                   {info.icon}
                 </div>
                 <div>
@@ -123,7 +137,9 @@ export default function ContactSection() {
                     {info.title}
                   </div>
                   {info.lines.map((line) => (
-                    <div key={line} className="text-gray-600 text-sm">{line}</div>
+                    <div key={line} className="text-gray-600 text-sm">
+                      {line}
+                    </div>
                   ))}
                 </div>
               </a>
@@ -131,7 +147,9 @@ export default function ContactSection() {
 
             {/* Social Media */}
             <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100">
-              <div className="font-bold text-gray-900 text-sm mb-3">Follow Us</div>
+              <div className="font-bold text-gray-900 text-sm mb-3">
+                Follow Us
+              </div>
               <div className="flex gap-3">
                 <a
                   href="https://www.facebook.com/madecoopsociety"
@@ -154,7 +172,9 @@ export default function ContactSection() {
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-md">
               <div className="bg-gradient-to-br from-green-100 to-emerald-100 h-48 flex flex-col items-center justify-center relative">
                 <div className="text-4xl mb-3">🗺️</div>
-                <div className="font-bold text-gray-900 text-sm">Matale, Central Province</div>
+                <div className="font-bold text-gray-900 text-sm">
+                  Matale, Central Province
+                </div>
                 <div className="text-gray-500 text-xs">Sri Lanka</div>
                 <a
                   href="https://maps.google.com/?q=Matale,+Sri+Lanka"
@@ -188,36 +208,56 @@ export default function ContactSection() {
                   className="text-center py-12"
                 >
                   <FaCheckCircle className="text-green-500 text-5xl mx-auto mb-4" />
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Message Sent Successfully!</h4>
-                  <p className="text-gray-600">Our team will contact you within 1 business day.</p>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">
+                    Message Sent Successfully!
+                  </h4>
+                  <p className="text-gray-600">
+                    Our team will contact you within 1 business day.
+                  </p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name *</label>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                        Full Name *
+                      </label>
                       <input
-                        {...register('name', { required: 'Name is required' })}
+                        {...register("name", { required: "Name is required" })}
                         className="input-field bg-white"
                         placeholder="Your full name"
                       />
-                      {errors.name && <span className="text-red-500 text-xs mt-1">{errors.name.message}</span>}
+                      {errors.name && (
+                        <span className="text-red-500 text-xs mt-1">
+                          {errors.name.message}
+                        </span>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Phone Number *</label>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                        Phone Number *
+                      </label>
                       <input
-                        {...register('phone', { required: 'Phone is required' })}
+                        {...register("phone", {
+                          required: "Phone is required",
+                        })}
                         className="input-field bg-white"
                         placeholder="+94 XX XXX XXXX"
                       />
-                      {errors.phone && <span className="text-red-500 text-xs mt-1">{errors.phone.message}</span>}
+                      {errors.phone && (
+                        <span className="text-red-500 text-xs mt-1">
+                          {errors.phone.message}
+                        </span>
+                      )}
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email Address</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                      Email Address
+                    </label>
                     <input
-                      {...register('email')}
+                      {...register("email")}
                       type="email"
                       className="input-field bg-white"
                       placeholder="your@email.com"
@@ -225,45 +265,69 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">I'm Interested In *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                      I'm Interested In *
+                    </label>
                     <select
-                      {...register('service', { required: 'Please select a service' })}
+                      {...register("service", {
+                        required: "Please select a service",
+                      })}
                       className="input-field bg-white appearance-none"
                     >
                       <option value="">Select a service...</option>
                       {serviceOptions.map((opt) => (
-                        <option key={opt} value={opt}>{opt}</option>
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
                       ))}
                     </select>
-                    {errors.service && <span className="text-red-500 text-xs mt-1">{errors.service.message}</span>}
+                    {errors.service && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.service.message}
+                      </span>
+                    )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Subject</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                      Subject
+                    </label>
                     <input
-                      {...register('subject')}
+                      {...register("subject")}
                       className="input-field bg-white"
                       placeholder="Brief subject"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Message *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                      Message *
+                    </label>
                     <textarea
-                      {...register('message', { required: 'Message is required' })}
+                      {...register("message", {
+                        required: "Message is required",
+                      })}
                       rows={4}
                       className="input-field bg-white resize-none"
                       placeholder="Tell us about your farming needs, loan requirements, or any questions..."
                     />
-                    {errors.message && <span className="text-red-500 text-xs mt-1">{errors.message.message}</span>}
+                    {errors.message && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.message.message}
+                      </span>
+                    )}
                   </div>
 
-                  <button type="submit" className="btn-primary w-full justify-center py-4 text-base">
+                  <button
+                    type="submit"
+                    className="btn-primary w-full justify-center py-4 text-base"
+                  >
                     <FaPaperPlane /> Send Message
                   </button>
 
                   <p className="text-gray-500 text-xs text-center mt-3">
-                    ✅ We respond within 1 business day. Your information is kept confidential.
+                    ✅ We respond within 1 business day. Your information is
+                    kept confidential.
                   </p>
                 </form>
               )}
@@ -279,11 +343,22 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="mt-10 bg-green-900 rounded-3xl p-6 text-white text-center"
         >
-          <div className="text-sm text-green-300 mb-1 font-semibold">Legal Registration</div>
+          <div className="text-sm text-green-300 mb-1 font-semibold">
+            Legal Registration
+          </div>
           <p className="text-white/80 text-sm max-w-3xl mx-auto">
-            <strong className="text-white">Matale District Agriculture Development and Export Cooperative Society Ltd. (MADECOOP)</strong>
-            {' '}is Registered under <strong className="text-green-300">Section 06 of the Cooperative Societies Act No. 10 of 1990</strong> of the
-            Central Provincial Council, as amended by the <strong className="text-green-300">Cooperative Societies (Amendment) Act No. 04 of 1993.</strong>
+            <strong className="text-white">
+              Matale District Agriculture Development and Export Cooperative
+              Society Ltd. (MADECOOP)
+            </strong>{" "}
+            is Registered under{" "}
+            <strong className="text-green-300">
+              Section 06 of the Cooperative Societies Act No. 10 of 1990
+            </strong>{" "}
+            of the Central Provincial Council, as amended by the{" "}
+            <strong className="text-green-300">
+              Cooperative Societies (Amendment) Act No. 04 of 1993.
+            </strong>
           </p>
         </motion.div>
       </div>
