@@ -177,7 +177,7 @@ export default function AboutSection() {
             <p className="text-gray-600 leading-relaxed mb-6">
               Our buy-back guarantee means farmers never worry about unsold harvests. Our export network connects
               Sri Lankan farmers directly to international markets, ensuring premium prices for quality produce
-              including cinnamon, pepper, cardamom, and fresh vegetables.
+              including cinnamon,Vanilla,pepper, cardamom, and fresh vegetables.
             </p>
 
             {/* Key points */}

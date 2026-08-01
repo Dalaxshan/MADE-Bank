@@ -30,7 +30,7 @@ const services = [
     icon: <Sprout strokeWidth={1.25} />,
     title: "Export Agriculture Loan",
     subtitle: "For Export-Oriented Cultivation",
-    desc: "Financial assistance specifically designed for farmers engaged in export-quality crop cultivation including cinnamon, pepper, cardamom, and organic vegetables.",
+    desc: "Financial assistance specifically designed for farmers engaged in export-quality crop cultivation including cinnamon, Vanilla,pepper, cardamom, and organic vegetables.",
     features: [
       "Up to Rs. 500,000",
       "Competitive interest rates",

@@ -1,72 +1,69 @@
 import { motion } from 'framer-motion';
-import { FaCalendar, FaMapMarkerAlt, FaArrowRight, FaNewspaper, FaGraduationCap, FaUsers } from 'react-icons/fa';
+import { FaCalendar, FaMapMarkerAlt, FaArrowRight, FaNewspaper, FaGraduationCap, FaUsers, FaEnvelope } from 'react-icons/fa';
+
+/**
+ * Shared design tokens — same as HeroSection.tsx / Navbar.tsx / CTABanner.tsx /
+ * FarmerJourneySection.tsx / DepositSection.tsx / DepositCalculator.tsx /
+ * CompleteSupportSystem.tsx / ExportNetwork.tsx.
+ */
+const FONT_DISPLAY = "'Fraunces', Georgia, serif";
+const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
+const INK = '#1E2A38';
+const PAPER = '#F3F7F5';
+const JADE = '#2E9C82';
+const STEEL = '#3B72A6';
+const INDIGO = '#2B3A67';
+
+// One color per category, not one per article — News/Training/Event each get
+// a consistent identity instead of a different random Tailwind color apiece.
+const typeStyles: Record<string, { color: string; icon: JSX.Element }> = {
+  News: { color: STEEL, icon: <FaNewspaper /> },
+  Training: { color: JADE, icon: <FaGraduationCap /> },
+  Event: { color: INDIGO, icon: <FaUsers /> },
+};
 
 const news = [
   {
     type: 'News',
-    typeColor: 'bg-blue-100 text-blue-700',
-    icon: <FaNewspaper />,
     date: 'December 15, 2024',
     title: 'MADECOOP Achieves Record Export Revenue of Rs. 118 Million in 2024',
-    excerpt: 'Matale District farmers celebrate a landmark year as MADECOOP\'s export partnerships delivered unprecedented returns, with cinnamon and pepper exports to Japan and Germany reaching new highs.',
-    emoji: '📰',
+    excerpt: "Matale District farmers celebrate a landmark year as MADECOOP's export partnerships delivered unprecedented returns, with cinnamon and pepper exports to Japan and Germany reaching new highs.",
     location: 'Matale',
-    color: 'border-blue-200 bg-blue-50',
   },
   {
     type: 'Training',
-    typeColor: 'bg-green-100 text-green-700',
-    icon: <FaGraduationCap />,
     date: 'January 10, 2025',
     title: 'Organic Farming Certification Workshop - January 2025',
     excerpt: 'A comprehensive 3-day workshop on organic farming certification for export markets. Learn how to qualify for premium organic export pricing through our certified partners.',
-    emoji: '🎓',
     location: 'MADECOOP Office, Matale',
-    color: 'border-green-200 bg-green-50',
   },
   {
     type: 'Event',
-    typeColor: 'bg-amber-100 text-amber-700',
-    icon: <FaUsers />,
     date: 'January 25, 2025',
     title: 'Annual Farmer Cooperative Meeting & Dividend Distribution',
-    excerpt: 'MADECOOP\'s annual general meeting where farmer-members receive their cooperative dividends and vote on policy decisions for 2025.',
-    emoji: '🤝',
+    excerpt: "MADECOOP's annual general meeting where farmer-members receive their cooperative dividends and vote on policy decisions for 2025.",
     location: 'Matale Town Hall',
-    color: 'border-amber-200 bg-amber-50',
   },
   {
     type: 'News',
-    typeColor: 'bg-purple-100 text-purple-700',
-    icon: <FaNewspaper />,
     date: 'February 5, 2025',
     title: 'New Partnership with Bio Foods to Expand Organic Export Range',
     excerpt: 'MADECOOP announces expanded partnership with Bio Foods International, adding organic vegetables, herbs, and spices to the export portfolio.',
-    emoji: '🌍',
     location: 'Colombo',
-    color: 'border-purple-200 bg-purple-50',
   },
   {
     type: 'Training',
-    typeColor: 'bg-teal-100 text-teal-700',
-    icon: <FaGraduationCap />,
     date: 'February 20, 2025',
     title: 'Agricultural Export Seminar - Market Trends & Opportunities',
     excerpt: 'Expert speakers from the Export Development Board and international buyers discuss 2025 global market trends and opportunities for Sri Lankan agricultural products.',
-    emoji: '📊',
     location: 'Hotel Matale',
-    color: 'border-teal-200 bg-teal-50',
   },
   {
     type: 'Event',
-    typeColor: 'bg-rose-100 text-rose-700',
-    icon: <FaUsers />,
     date: 'March 1, 2025',
     title: 'Group Loan Inauguration Ceremony - New Batch of Farmer Groups',
     excerpt: 'Welcoming 25 new 5-member farmer groups into the MADECOOP Group Loan program. Ceremony to be attended by Central Provincial Council representatives.',
-    emoji: '🎉',
     location: 'MADECOOP Office, Matale',
-    color: 'border-rose-200 bg-rose-50',
   },
 ];
 
@@ -78,9 +75,15 @@ const upcomingEvents = [
   { date: 'Mar 15', event: 'Machinery Loan Open Day', type: 'Event' },
 ];
 
+const achievements = [
+  { label: 'New Farmers Enrolled', value: '847', color: STEEL },
+  { label: 'Training Sessions', value: '24', color: JADE },
+  { label: 'Export Shipments', value: '48', color: INDIGO },
+];
+
 export default function NewsEvents() {
   return (
-    <section id="news" className="py-24 bg-white">
+    <section id="news" className="py-24" style={{ backgroundColor: PAPER }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -90,63 +93,91 @@ export default function NewsEvents() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            News & Events
+          <span
+            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
+            style={{ borderColor: `${JADE}80`, color: JADE, fontFamily: FONT_MONO }}
+          >
+            <FaNewspaper size={11} /> News & Events
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
+          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK, fontFamily: FONT_DISPLAY }}>
             Stay Updated with
             <br />
-            <span className="gradient-text">MADECOOP</span>
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}
+            >
+              MADECOOP
+            </span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto">
+          <p className="text-lg max-w-xl mx-auto" style={{ color: `${INK}99` }}>
             Latest agricultural news, training programs, export seminars, and farmer workshops.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* News Grid */}
+          {/* News Grid — gazette clippings */}
           <div className="lg:col-span-2 grid md:grid-cols-2 gap-5">
-            {news.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ y: -4 }}
-                className={`${item.color} border rounded-2xl p-5 cursor-pointer group`}
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${item.typeColor}`}>
-                    {item.type}
-                  </span>
-                  <span className="text-2xl">{item.emoji}</span>
-                </div>
-
-                <div className="flex items-center gap-2 text-gray-400 text-xs mb-3">
-                  <FaCalendar size={10} />
-                  <span>{item.date}</span>
-                </div>
-
-                <h3 className="font-bold text-gray-900 text-sm leading-tight mb-2 group-hover:text-green-700 transition-colors">
-                  {item.title}
-                </h3>
-
-                <p className="text-gray-600 text-xs leading-relaxed mb-4 line-clamp-3">
-                  {item.excerpt}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-gray-500 text-xs">
-                    <FaMapMarkerAlt size={10} />
-                    <span>{item.location}</span>
+            {news.map((item, i) => {
+              const style = typeStyles[item.type];
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  whileHover={{ y: -3 }}
+                  className="p-5 cursor-pointer group transition-all"
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    border: `1px solid ${INK}14`,
+                    borderLeftWidth: '3px',
+                    borderLeftColor: style.color,
+                  }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span
+                      className="text-[10px] font-bold px-2.5 py-1 tracking-widest flex items-center gap-1.5"
+                      style={{ backgroundColor: `${style.color}18`, color: style.color, fontFamily: FONT_MONO }}
+                    >
+                      {style.icon} {item.type.toUpperCase()}
+                    </span>
                   </div>
-                  <button className="text-green-700 text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read More <FaArrowRight size={10} />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
+
+                  <div
+                    className="flex items-center gap-2 text-xs mb-3"
+                    style={{ color: `${INK}66`, fontFamily: FONT_MONO }}
+                  >
+                    <FaCalendar size={10} />
+                    <span>{item.date}</span>
+                  </div>
+
+                  <h3
+                    className="font-bold text-sm leading-tight mb-2 transition-colors"
+                    style={{ color: INK }}
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs leading-relaxed mb-4 line-clamp-3" style={{ color: `${INK}80` }}>
+                    {item.excerpt}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1.5 text-xs" style={{ color: `${INK}66` }}>
+                      <FaMapMarkerAlt size={10} />
+                      <span>{item.location}</span>
+                    </div>
+                    <button
+                      className="text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all"
+                      style={{ color: style.color }}
+                    >
+                      Read More <FaArrowRight size={10} />
+                    </button>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Sidebar */}
@@ -157,62 +188,94 @@ export default function NewsEvents() {
             transition={{ duration: 0.6 }}
             className="space-y-5"
           >
-            {/* Upcoming Events */}
-            <div className="bg-green-700 rounded-3xl p-6 text-white">
-              <h3 className="font-bold text-lg mb-5 flex items-center gap-2">
-                <FaCalendar /> Upcoming Events
-              </h3>
-              <div className="space-y-3">
-                {upcomingEvents.map((event) => (
-                  <div key={event.event} className="flex gap-3 p-3 bg-white/10 rounded-xl">
-                    <div className="text-center min-w-12">
-                      <div className="text-xs text-green-300 font-bold">{event.date.split(' ')[0]}</div>
-                      <div className="text-sm font-black">{event.date.split(' ')[1]}</div>
+            {/* Upcoming Events — ledger tab block */}
+            <div
+              className="relative overflow-hidden p-6 text-[#F3F7F5]"
+              style={{
+                background: `linear-gradient(115deg, ${STEEL} 0%, ${INDIGO} 100%)`,
+                clipPath: 'polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
+              }}
+            >
+              <div
+                className="absolute inset-0 opacity-[0.06] pointer-events-none"
+                style={{
+                  backgroundImage:
+                    'repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)',
+                }}
+              />
+              <div className="relative z-10">
+                <h3 className="font-bold text-lg mb-5 flex items-center gap-2" style={{ fontFamily: FONT_DISPLAY }}>
+                  <FaCalendar size={16} /> Upcoming Events
+                </h3>
+                <div className="space-y-2.5">
+                  {upcomingEvents.map((event) => (
+                    <div
+                      key={event.event}
+                      className="flex gap-3 p-3"
+                      style={{ backgroundColor: '#F3F7F5' + '1A', border: '1px solid #F3F7F51F' }}
+                    >
+                      <div className="text-center min-w-12" style={{ fontFamily: FONT_MONO }}>
+                        <div className="text-xs opacity-70 font-bold">{event.date.split(' ')[0]}</div>
+                        <div className="text-sm font-black">{event.date.split(' ')[1]}</div>
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold leading-tight">{event.event}</div>
+                        <div className="text-xs opacity-70 mt-0.5" style={{ fontFamily: FONT_MONO }}>
+                          {event.type.toUpperCase()}
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-sm font-semibold leading-tight">{event.event}</div>
-                      <div className="text-xs text-green-300 mt-0.5">{event.type}</div>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Newsletter */}
-            <div className="bg-amber-50 border border-amber-200 rounded-3xl p-6">
-              <div className="text-2xl mb-2">📧</div>
-              <h3 className="font-bold text-gray-900 mb-2">Stay Informed</h3>
-              <p className="text-gray-600 text-sm mb-4">Get the latest farming tips, market prices, and MADECOOP updates.</p>
+            <div className="p-6" style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}>
+              <FaEnvelope size={22} style={{ color: STEEL }} className="mb-2" />
+              <h3 className="font-bold mb-2" style={{ color: INK }}>Stay Informed</h3>
+              <p className="text-sm mb-4" style={{ color: `${INK}80` }}>
+                Get the latest farming tips, market prices, and MADECOOP updates.
+              </p>
               <div className="space-y-2">
                 <input
                   type="email"
                   placeholder="Your email address"
-                  className="input-field text-sm"
+                  className="w-full px-4 py-2.5 text-sm focus:outline-none"
+                  style={{ border: `1px solid ${INK}26`, color: INK, fontFamily: FONT_MONO }}
                 />
-                <button className="btn-primary w-full justify-center text-sm py-3">
+                <button
+                  className="w-full flex items-center justify-center gap-2 text-sm font-semibold py-3 transition-colors"
+                  style={{
+                    backgroundColor: STEEL,
+                    color: PAPER,
+                    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 70%)',
+                  }}
+                >
                   Subscribe Newsletter
                 </button>
               </div>
             </div>
 
-            {/* Quick Stats */}
-            <div className="bg-gray-50 rounded-3xl p-5 border border-gray-100">
-              <h3 className="font-bold text-gray-900 mb-4 text-sm">2024 Achievements</h3>
-              {[
-                { label: 'New Farmers Enrolled', value: '847', color: 'bg-green-500' },
-                { label: 'Training Sessions', value: '24', color: 'bg-blue-500' },
-                { label: 'Export Shipments', value: '48', color: 'bg-purple-500' },
-              ].map((item) => (
-                <div key={item.label} className="mb-3">
-                  <div className="flex justify-between text-xs text-gray-600 mb-1">
-                    <span>{item.label}</span>
-                    <span className="font-bold">{item.value}</span>
+            {/* Achievements — ledger rows instead of a fake progress bar */}
+            <div className="p-5" style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}>
+              <h3
+                className="text-xs font-bold uppercase tracking-wider mb-4"
+                style={{ color: INK, fontFamily: FONT_MONO }}
+              >
+                2024 Achievements
+              </h3>
+              <div className="space-y-3">
+                {achievements.map((item) => (
+                  <div key={item.label} className="flex items-baseline gap-2">
+                    <span className="text-xs" style={{ color: `${INK}80` }}>{item.label}</span>
+                    <span className="flex-1 border-b border-dotted" style={{ borderColor: `${INK}26`, transform: 'translateY(-3px)' }} />
+                    <span className="text-lg font-black" style={{ color: item.color, fontFamily: FONT_MONO }}>
+                      {item.value}
+                    </span>
                   </div>
-                  <div className="h-1.5 bg-gray-200 rounded-full">
-                    <div className={`h-full ${item.color} rounded-full`} style={{ width: '75%' }} />
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

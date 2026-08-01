@@ -40,7 +40,7 @@ const testimonials = [
   {
     name: 'Priya Dissanayake',
     location: 'Rattota, Matale',
-    role: 'Tea & Vegetable Farmer',
+    role: 'Vanilla Farmer',
     emoji: '👩‍🌾',
     rating: 5,
     text: 'The agricultural deposit plan with 10% interest is excellent. I deposited my harvest earnings and they grew significantly. Now I use the returns to fund my next season\'s cultivation without borrowing!',

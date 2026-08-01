@@ -278,7 +278,7 @@ export default function FarmerJourneySection() {
                   className="flex items-center gap-2 bg-[#F3F7F5]/10 border border-[#F3F7F5]/20 px-4 py-2 text-sm font-semibold tracking-wide"
                   style={{ fontFamily: FONT_MONO }}
                 >
-                  <FaCheckCircle className="text-[var(--color-primary)]" /> {tag.toUpperCase()}
+                  <FaCheckCircle className="text-[#F3F7F5]" /> {tag.toUpperCase()}
                 </div>
               ))}
             </div>

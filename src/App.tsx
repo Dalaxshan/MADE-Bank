@@ -10,7 +10,6 @@ import GroupMortgageLoans from './components/GroupMortgageLoans';
 import ExportNetwork from './components/ExportNetwork';
 import GallerySection from './components/GallerySection';
 import TestimonialsSection from './components/TestimonialsSection';
-import StatsDashboard from './components/StatsDashboard';
 import NewsEvents from './components/NewsEvents';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
@@ -33,7 +32,7 @@ export default function App() {
         <ExportNetwork />
         <GallerySection />
         <TestimonialsSection />
-        <StatsDashboard />
+        {/* <StatsDashboard /> */}
         <NewsEvents />
         <FAQSection />
         <ContactSection />

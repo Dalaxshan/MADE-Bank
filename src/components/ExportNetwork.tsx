@@ -1,6 +1,5 @@
-import { Fragment } from "react";
 import { motion } from "framer-motion";
-import { FaGlobeAsia, FaShip, FaLeaf, FaArrowRight } from "react-icons/fa";
+import { FaGlobeAsia } from "react-icons/fa";
 import {
   BarChart,
   Bar,
@@ -15,7 +14,6 @@ import {
 } from "recharts";
 import { Ship, Sprout } from "lucide-react";
 
-const FONT_DISPLAY = "'Fraunces', Georgia, serif";
 const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = "#1E2A38";
 const PAPER = "var(--color-primary-100)";
@@ -23,24 +21,56 @@ const STEEL = "var(--color-light-green)";
 const JADE = "var(--color-secondary)";
 const INDIGO = "var(--color-primary-dark)";
 
-const exportCountries = [
-  { name: "Japan", flag: "🇯🇵", products: ["Cinnamon", "Pepper", "Cardamom"] },
-  { name: "Germany", flag: "🇩🇪", products: ["Organic Vegetables", "Spices"] },
-  { name: "United Kingdom", flag: "🇬🇧", products: ["Cinnamon", "Tea"] },
-  { name: "USA", flag: "🇺🇸", products: ["Organic Spices", "Pepper"] },
-  { name: "Australia", flag: "🇦🇺", products: ["Cinnamon", "Vanilla"] },
-  { name: "UAE", flag: "🇦🇪", products: ["Vegetables", "Fruits"] },
-  { name: "Netherlands", flag: "🇳🇱", products: ["Organic Produce", "Spices"] },
-  { name: "Canada", flag: "🇨🇦", products: ["Cardamom", "Cinnamon"] },
-];
+const agroLogo = "/images/agroventure.png";
+const bioFoodsLogo = "/images/biofoods.png";
+const elavareLogo = "/images/elevare.png";
+const exportLogo = "/images/export.png";
+const rathuLogo = "/images/rathuira.png";
+const vanillaLogo = "/images/vanilla-shop.png";
 
 const exportPartners = [
-  { name: "Bio Foods", type: "Organic Export", emoji: "🌿" },
-  { name: "Ceylon Spice Co.", type: "Spice Export", emoji: "🌶️" },
-  { name: "Lanka Organics", type: "Organic Farming", emoji: "🥦" },
-  { name: "Cinnamon Gardens", type: "Cinnamon Export", emoji: "🌿" },
-  { name: "Agri-Export Ltd.", type: "Agricultural Products", emoji: "🚢" },
-  { name: "Global Harvest", type: "International Trade", emoji: "🌍" },
+  {
+    name: "Bio Foods",
+    type: "Organic Export",
+    logo: bioFoodsLogo,
+    strength: "100% organic, chemical-free bridge to international buyers",
+    path: "https://www.biofoodsagro.com/"
+  },
+  {
+    name: "Agroventure Exports",
+    type: "Agricultural Exports",
+    logo: exportLogo,
+    strength: "Specialist exporter of premium Sri Lankan vanilla and spices",
+    path: "https://agroventuresexports.com/"
+  },
+  {
+    name: "Vanilla Shop",
+    type: "Specialty Retail",
+    logo: vanillaLogo,
+    strength: "Sri Lanka's first dedicated vanilla boutique & artisan goods",
+    path: "https://thevanillashop.lk/"
+  },
+  {
+    name: "Agroventures Plantations",
+    type: "Cinnamon & Spice Cultivation",
+    logo: agroLogo,
+    strength: "Pioneers in vanilla and export-grade spice cultivation",
+    path: "https://agroventures.lk/"
+  },
+  {
+    name: "Elevare",
+    type: "Business & Lifestyle Media",
+    logo: elavareLogo,
+    strength: "Sri Lanka's leading business & lifestyle magazine",
+    path:"https://elevare.lk/"
+  },
+  {
+    name: "Rathu Ira",
+    type: "National Press",
+    logo: rathuLogo,
+    strength: "Widely-read Sri Lankan newspaper, national reach",
+    path: "https://rathuiranewspaper.lk/"
+  },
 ];
 
 const exportData = [
@@ -56,59 +86,8 @@ const productData = [
   { product: "Cinnamon", value: 38 },
   { product: "Pepper", value: 22 },
   { product: "Cardamom", value: 15 },
-  { product: "Vegetables", value: 18 },
+  { product: "Vanilla", value: 18 },
   { product: "Others", value: 7 },
-];
-
-const supplyChain = [
-  {
-    step: "Farm",
-    icon: "🌱",
-    desc: "MADECOOP farmers grow export-quality produce",
-  },
-  {
-    step: "Collection",
-    icon: "🧺",
-    desc: "Organized collection centers across Matale District",
-  },
-  {
-    step: "Quality Check",
-    icon: "🔬",
-    desc: "Rigorous quality assessment and grading",
-  },
-  {
-    step: "Processing",
-    icon: "🏭",
-    desc: "Certified processing and packaging facilities",
-  },
-  {
-    step: "Export",
-    icon: "🚢",
-    desc: "Shipped to international buyers via Colombo Port",
-  },
-  {
-    step: "Payment",
-    icon: "💰",
-    desc: "Premium export prices paid directly to farmers",
-  },
-];
-
-const bottomStats = [
-  {
-    icon: "🌍",
-    title: "20+ Countries",
-    desc: "Our produce reaches markets across Asia, Europe, and beyond",
-  },
-  {
-    icon: "🏅",
-    title: "Quality Certified",
-    desc: "Export-grade products meeting international quality standards",
-  },
-  {
-    icon: "💱",
-    title: "Premium Prices",
-    desc: "Farmers earn 30-50% more through direct export partnerships",
-  },
 ];
 
 export default function ExportNetwork() {
@@ -139,7 +118,7 @@ export default function ExportNetwork() {
           </span>
           <h2
             className="text-4xl md:text-5xl font-black mb-5"
-            style={{ color: INK, fontFamily: FONT_DISPLAY }}
+            style={{ color: INK }}
           >
             From Sri Lankan Farms
             <br />
@@ -161,43 +140,6 @@ export default function ExportNetwork() {
             produce.
           </p>
         </motion.div>
-
-        {/* Export Countries Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          {exportCountries.map((country, i) => (
-            <motion.div
-              key={country.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              whileHover={{ y: -2 }}
-              className="p-4"
-              style={{
-                backgroundColor: "#FFFFFF",
-                border: `1px solid ${INK}14`,
-              }}
-            >
-              <div className="text-3xl mb-2">{country.flag}</div>
-              <div className="font-bold text-sm mb-2" style={{ color: INK }}>
-                {country.name}
-              </div>
-              <div className="space-y-1">
-                {country.products.map((p) => (
-                  <div key={p} className="flex items-center gap-1.5">
-                    <div
-                      className="w-1.5 h-1.5 rounded-full"
-                      style={{ backgroundColor: JADE }}
-                    />
-                    <span className="text-xs" style={{ color: `${INK}80` }}>
-                      {p}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
 
         {/* Export Performance Charts */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
@@ -259,7 +201,8 @@ export default function ExportNetwork() {
               className="font-bold mb-5 flex items-center gap-2"
               style={{ color: INK }}
             >
-              <Sprout strokeWidth={1.75} style={{ color: JADE }} /> Export Product Mix (%)
+              <Sprout strokeWidth={1.75} style={{ color: JADE }} /> Export
+              Product Mix (%)
             </h3>
             <ResponsiveContainer width="100%" height={240}>
               <BarChart data={productData} layout="vertical">
@@ -281,59 +224,7 @@ export default function ExportNetwork() {
           </motion.div>
         </div>
 
-        {/* Supply Chain */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <h3
-            className="text-2xl font-black text-center mb-8"
-            style={{ color: INK, fontFamily: FONT_DISPLAY }}
-          >
-            Farm-to-Export Supply Chain
-          </h3>
-          <div className="flex flex-wrap justify-center gap-2 items-center">
-            {supplyChain.map((step, i) => (
-              <Fragment key={step.step}>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="flex flex-col items-center p-5 w-36 text-center transition-all"
-                  style={{
-                    backgroundColor: "#FFFFFF",
-                    border: `1px solid ${INK}14`,
-                  }}
-                >
-                  <div className="text-3xl mb-2">{step.icon}</div>
-                  <div
-                    className="font-bold text-sm mb-1"
-                    style={{ color: INK }}
-                  >
-                    {step.step}
-                  </div>
-                  <div
-                    className="text-xs leading-relaxed"
-                    style={{ color: `${INK}80` }}
-                  >
-                    {step.desc}
-                  </div>
-                </motion.div>
-                {i < supplyChain.length - 1 && (
-                  <FaArrowRight
-                    className="hidden md:block text-lg"
-                    style={{ color: JADE }}
-                  />
-                )}
-              </Fragment>
-            ))}
-          </div>
-        </motion.div>
-
+        {/* Export Partners */}
         {/* Export Partners */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -342,71 +233,93 @@ export default function ExportNetwork() {
           transition={{ duration: 0.6 }}
         >
           <h3
-            className="text-2xl font-black text-center mb-8"
-            style={{ color: INK, fontFamily: FONT_DISPLAY }}
+            className="text-3xl md:text-4xl font-black text-center mb-3"
+            style={{ color: INK }}
           >
             Our Export Partners
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <p
+            className="text-base text-center max-w-xl mx-auto mb-10"
+            style={{ color: `${INK}80` }}
+          >
+            Trusted organisations that bring Sri Lankan produce to global
+            markets.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {exportPartners.map((partner, i) => (
-              <motion.div
+              <a
                 key={partner.name}
+                href={partner.path}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                whileHover={{ y: -2 }}
-                className="p-4 text-center transition-all cursor-pointer"
+                whileHover={{
+                  y: -4,
+                  boxShadow: "0 12px 32px rgba(30,42,56,0.10)",
+                }}
+                className="flex flex-col overflow-hidden transition-all"
                 style={{
                   backgroundColor: "#FFFFFF",
                   border: `1px solid ${INK}14`,
+                  boxShadow: "0 2px 12px rgba(30,42,56,0.05)",
                 }}
               >
-                <div className="text-3xl mb-2">{partner.emoji}</div>
-                <div className="font-bold text-xs mb-2" style={{ color: INK }}>
-                  {partner.name}
-                </div>
+                {/* Logo panel — letterhead style, bigger and given its own space */}
                 <div
-                  className="text-[10px] font-semibold px-2 py-0.5 inline-block tracking-wide"
+                  className="flex items-center justify-center px-6"
                   style={{
-                    backgroundColor: `${STEEL}1A`,
-                    color: STEEL,
-                    fontFamily: FONT_MONO,
+                    height: "132px",
+                    backgroundColor: `${INK}03`,
+                    borderBottom: `1px solid ${INK}0F`,
                   }}
                 >
-                  {partner.type.toUpperCase()}
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    style={{
+                      maxHeight: "90px",
+                      maxWidth: "72%",
+                      width: "auto",
+                      objectFit: "contain",
+                      mixBlendMode: "multiply",
+                    }}
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex flex-col gap-2">
+                  <div
+                    className="text-[11px] font-bold py-1 tracking-widest w-fit"
+                    style={{
+                      backgroundColor: `${JADE}18`,
+                      color: JADE,
+                      fontFamily: FONT_MONO,
+                      fontSize: "12px",
+                    }}
+                  >
+                    {partner.type.toUpperCase()}
+                  </div>
+                  <div className="text-lg font-black" style={{ color: INK }}>
+                    {partner.name}
+                  </div>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: `${INK}80` }}
+                  >
+                    {partner.strength}
+                  </p>
                 </div>
               </motion.div>
+              </a>
             ))}
           </div>
-        </motion.div>
-
-        {/* Bottom stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-16 grid md:grid-cols-3 gap-5"
-        >
-          {bottomStats.map((item) => (
-            <div
-              key={item.title}
-              className="p-6 shadow-md text-center"
-              style={{
-                backgroundColor: "#FFFFFF",
-                border: `1px solid ${INK}14`,
-              }}
-            >
-              <div className="text-4xl mb-3">{item.icon}</div>
-              <div className="font-bold mb-2" style={{ color: INK }}>
-                {item.title}
-              </div>
-              <div className="text-sm" style={{ color: `${INK}99` }}>
-                {item.desc}
-              </div>
-            </div>
-          ))}
         </motion.div>
       </div>
     </section>
