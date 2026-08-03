@@ -11,17 +11,8 @@ import {
   Users,
 } from "lucide-react";
 import {
-  FaLeaf,
-  FaLandmark,
-  FaTractor,
-  FaTruck,
-  FaPiggyBank,
-  FaUsers,
-  FaHome,
   FaArrowRight,
   FaCheckCircle,
-  FaPercentage,
-  FaClock,
 } from "react-icons/fa";
 
 const services = [
@@ -98,20 +89,6 @@ const services = [
     iconBg: "bg-blue-100 text-blue-600",
     badge: null,
   },
-  // {
-  //   id: 'deposit',
-  //   icon: <FaPiggyBank className="text-3xl" />,
-  //   title: 'Agricultural Development Deposits',
-  //   subtitle: 'Grow Your Savings',
-  //   desc: 'High-return savings plans designed for farmers and investors. Earn up to 10% interest annually with fixed-term deposits starting from 6 months.',
-  //   features: ['Up to 10% interest', '6 months to 5 years', 'Monthly or maturity payout', 'Insured deposits'],
-  //   color: 'from-purple-500 to-violet-600',
-  //   bg: 'bg-purple-50',
-  //   border: 'border-purple-200',
-  //   iconBg: 'bg-purple-100 text-purple-600',
-  //   badge: 'High Returns',
-  //   badgeColor: 'bg-purple-600',
-  // },
   {
     id: "group-loan",
     icon: <Users strokeWidth={1.25} />,
@@ -260,7 +237,8 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="relative overflow-hidden p-8 sm:p-10 text-center text-[#F3F7F5]"
           style={{
-            background: "linear-gradient(115deg,var(--color-primary) 0%, var(--color-secondary) 100%)",
+            background:
+              "var(--color-primary) ",
             clipPath:
               "polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))",
           }}

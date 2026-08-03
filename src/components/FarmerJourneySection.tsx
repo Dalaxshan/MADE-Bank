@@ -1,72 +1,78 @@
 import { motion } from 'framer-motion';
-import { Banknote, Flower2, HandCoins, Handshake, ShieldQuestionMark, Ship, Store } from 'lucide-react';
+import {
+  Banknote,
+  Flower2,
+  HandCoins,
+  Handshake,
+  ShieldQuestionMark,
+  Ship,
+  Sparkle,
+  Store,
+} from 'lucide-react';
 import { FaArrowDown, FaCheckCircle } from 'react-icons/fa';
 
-/**
- * Shared design tokens — same as HeroSection.tsx / Navbar.tsx / CTABanner.tsx.
- * Worth lifting into one theme file once a fourth component needs them.
- */
-const FONT_DISPLAY = "'Fraunces', Georgia, serif";
 const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = '#1E2A38';
 const PAPER = "var(--color-primary-100)";
 const JADE = "var(--color-light-green)";
 const STEEL = "var(--color-secondary)";
-const INDIGO = "var(--color-primary-dark)";
-
-// Deliberate steel → jade progression across the 7 steps — "cold problem"
-// resolving into "profit" — instead of an arbitrary rainbow per card.
-const stepColors = ['#1b5e20', '#187c2e', '#56a445', '#60b64d', '#77dd60', '#c6db44', '#d6ec48'];
 
 const journeySteps = [
   {
     step: 1,
-    icon: <ShieldQuestionMark strokeWidth={1.25} />,
+    icon: <ShieldQuestionMark strokeWidth={1.75} size={20} />,
     title: 'Farmer Problem',
-    desc: 'Traditional farmer lacks capital for cultivation. No access to credit, high-interest informal lenders, and no guaranteed market.',
-    badge: 'The Challenge',
+    desc: 'Traditional farmer lacks capital for cultivation — no access to credit, high-interest informal lenders, and no guaranteed market.',
+    badge: 'Phase 1',
+    color: '#16a34a',
   },
   {
     step: 2,
-    icon: <Banknote strokeWidth={1.25} />,
+    icon: <Banknote strokeWidth={1.75} size={20} />,
     title: 'MADECOOP Loan',
-    desc: 'Apply for an affordable agricultural loan. Quick approval, fair interest rates, and repayment aligned with harvest cycles.',
-    badge: 'Loan Approval',
+    desc: 'Apply for an affordable agricultural loan — quick approval, fair interest rates, repayment aligned with harvest cycles.',
+    badge: 'Phase 2',
+    color: '#2563eb',
   },
   {
     step: 3,
-    icon: <Flower2 strokeWidth={1.25} />,
+    icon: <Flower2 strokeWidth={1.75} size={20} />,
     title: 'Cultivation Begins',
-    desc: 'Farmer uses funds for seeds, fertilizers, irrigation, and labor. Technical guidance provided by MADECOOP agricultural officers.',
-    badge: 'Cultivation',
+    desc: 'Funds go toward seeds, fertilizer, irrigation, and labor, with technical guidance from MADECOOP agricultural officers.',
+    badge: 'Phase 3',
+    color: '#ea580c',
   },
   {
     step: 4,
-    icon: <Store strokeWidth={1.25} />,
+    icon: <Store strokeWidth={1.75} size={20} />,
     title: 'Harvest Collection',
-    desc: 'Bumper harvest achieved with proper farming practices. MADECOOP provides quality assessment and grading support.',
-    badge: 'Harvest',
+    desc: 'A bumper harvest is achieved with proper farming practices, backed by quality assessment and grading support.',
+    badge: 'Phase 4',
+    color: '#7c3aed',
   },
   {
     step: 5,
-    icon: <Handshake strokeWidth={1.25} />,
+    icon: <Handshake strokeWidth={1.75} size={20} />,
     title: 'MADECOOP Buy-Back',
-    desc: 'Guaranteed purchase of your entire harvest at pre-agreed fair market prices. No middlemen, no exploitation.',
-    badge: 'Buy-Back',
+    desc: 'Guaranteed purchase of the entire harvest at pre-agreed fair market prices — no middlemen, no exploitation.',
+    badge: 'Phase 5',
+    color: '#0d9488',
   },
   {
     step: 6,
-    icon: <Ship strokeWidth={1.25} />,
+    icon: <Ship strokeWidth={1.75} size={20} />,
     title: 'Global Export',
-    desc: 'MADECOOP exports your quality produce to international markets through partnerships with Bio Foods and global buyers.',
-    badge: 'Export',
+    desc: 'MADECOOP exports the quality produce to international markets through partnerships with Bio Foods and global buyers.',
+    badge: 'Phase 6',
+    color: '#db2777',
   },
   {
     step: 7,
-    icon: <HandCoins strokeWidth={1.25} />,
+    icon: <HandCoins strokeWidth={1.75} size={20} />,
     title: 'Farmer Profit',
-    desc: 'Premium export prices translate to higher income. Loan repaid from profits. Farmer reinvests in next season with confidence.',
-    badge: 'Success!',
+    desc: 'Premium export prices translate to higher income. The loan is repaid, and the farmer reinvests with confidence.',
+    badge: 'Phase 7',
+    color: '#d97706',
   },
 ];
 
@@ -76,6 +82,46 @@ const problemSolution = [
   { problem: 'Low Prices', solution: 'Export Premium Prices' },
   { problem: 'No Guidance', solution: 'Technical Support' },
 ];
+
+const ROW_HEIGHT = 236;
+const CARD_TOP_PAD = 8;
+const CARD_VCENTER_OFFSET = 74;
+const NODE_Y_OFFSET = 200;
+const TOTAL_HEIGHT = journeySteps.length * ROW_HEIGHT + 40;
+
+const roadmapCards = journeySteps.map((s, i) => ({
+  ...s,
+  side: i % 2 === 0 ? 'left' : 'right',
+  top: i * ROW_HEIGHT + CARD_TOP_PAD,
+  vcenter: i * ROW_HEIGHT + CARD_VCENTER_OFFSET,
+}));
+
+const roadmapNodes = journeySteps.slice(0, -1).map((s, i) => ({
+  color: s.color,
+  y: i * ROW_HEIGHT + NODE_Y_OFFSET,
+}));
+
+// Build one continuous smooth path: card-edge → node → card-edge → node → …
+type PathPoint = { x: number; y: number };
+const anchor = (card: (typeof roadmapCards)[number]): PathPoint => ({
+  x: card.side === 'left' ? 46 : 54,
+  y: card.vcenter,
+});
+
+const pathPoints: PathPoint[] = [];
+roadmapCards.forEach((card, i) => {
+  pathPoints.push(anchor(card));
+  if (i < roadmapNodes.length) pathPoints.push({ x: 50, y: roadmapNodes[i].y });
+});
+
+const roadmapPathD = pathPoints
+  .slice(1)
+  .reduce((d, p, idx) => {
+    const prev = pathPoints[idx];
+    const midY = prev.y + (p.y - prev.y) / 2;
+    return `${d} C ${prev.x},${midY} ${p.x},${midY} ${p.x},${p.y}`;
+  }, `M ${pathPoints[0].x},${pathPoints[0].y}`);
+// ---------------------------------------------------------------------------
 
 export default function FarmerJourneySection() {
   return (
@@ -90,15 +136,14 @@ export default function FarmerJourneySection() {
           className="text-center mb-16"
         >
           <span
-            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
-            style={{ borderColor: `${JADE}80`, color: JADE, fontFamily: FONT_MONO }}
+            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 text-xs font-bold uppercase tracking-[0.15em]"
+            style={{ backgroundColor: '#FDE9B8', color: '#8a5a05', fontFamily: FONT_MONO }}
           >
-            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: JADE }} />
-            Why Farmers Choose MADECOOP
+            Our Process
           </span>
           <h2
             className="text-4xl md:text-5xl font-black mb-5"
-            style={{ color: INK, fontFamily: FONT_DISPLAY }}
+            style={{ color: INK}}
           >
             The Complete{' '}
             <span
@@ -108,11 +153,11 @@ export default function FarmerJourneySection() {
               Farmer Support
             </span>
             <br />
-            System
+            Roadmap
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: `${INK}99` }}>
-            We solve every challenge a farmer faces — from access to finance to selling the
-            harvest at premium export prices.
+            A seamless journey from the first loan to premium export income — every phase
+            supported, every risk removed.
           </p>
         </motion.div>
 
@@ -142,7 +187,7 @@ export default function FarmerJourneySection() {
               </div>
               <div
                 className="text-sm font-semibold mb-3 line-through decoration-2"
-                style={{ color: `${INK}66`, textDecorationColor: `${INK}40` }}
+                style={{ color: `${INK}66`, textDecorationColor: `${INK}40`,backgroundColor: `var(--color-secondary)`, padding: '4px 8px', borderRadius: '4px' }}
               >
                 {item.problem}
               </div>
@@ -155,79 +200,93 @@ export default function FarmerJourneySection() {
           ))}
         </motion.div>
 
-        {/* Journey Timeline */}
-        <div className="relative">
-          {/* Vertical line for desktop — the steel → jade progression */}
-          <div
-            className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
-            style={{ background: `linear-gradient(to bottom, ${STEEL}, ${JADE})` }}
-          />
+        {/* ---------------- Roadmap: zigzag cards + curvy dashed connector ---------------- */}
 
-          <div className="space-y-8">
-            {journeySteps.map((step, i) => {
-              const color = stepColors[i];
-              return (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className={`lg:flex lg:items-center lg:gap-8 ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
-                >
-                  {/* Card */}
-                  <div className="lg:w-5/12">
-                    <motion.div
-                      whileHover={{ y: -2 }}
-                      className="p-6 relative"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        border: `1px solid ${INK}12`,
-                        borderLeftWidth: '4px',
-                        borderLeftColor: color,
-                      }}
-                    >
-                      <div
-                        className="absolute top-4 right-4 text-white text-[10px] font-bold px-2 py-1 tracking-wide"
-                        style={{ backgroundColor: color, fontFamily: FONT_MONO }}
-                      >
-                        ENTRY {String(step.step).padStart(2, '0')}
-                      </div>
-                      <div
-                        className="w-14 h-14 rounded-lg mb-4 flex items-center justify-center"
-                        style={{ backgroundColor: `${color}1A`, color }}
-                      >
-                        {step.icon}
-                      </div>
-                      <h3 className="text-xl font-bold mb-2" style={{ color: INK }}>
-                        {step.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed" style={{ color: `${INK}99` }}>
-                        {step.desc}
-                      </p>
-                    </motion.div>
-                  </div>
+        {/* Mobile / tablet — simple stacked list, no absolute geometry */}
+        <div className="space-y-6 lg:hidden">
+          {journeySteps.map((step) => (
+            <div
+              key={step.step}
+              className="p-6 rounded-2xl bg-white shadow-sm"
+              style={{ borderTop: `3px solid ${step.color}` }}
+            >
+              <div
+                className="text-xs font-bold uppercase tracking-[0.15em] mb-2"
+                style={{ color: step.color, fontFamily: FONT_MONO }}
+              >
+                {step.badge}
+              </div>
+              <h3 className="text-lg font-bold mb-1.5" style={{ color: INK }}>
+                {step.title}
+              </h3>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: `${INK}99` }}>
+                {step.desc}
+              </p>
+        
+            </div>
+          ))}
+        </div>
 
-                  {/* Center node */}
-                  <div className="hidden lg:flex lg:w-2/12 justify-center">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.1 + 0.2 }}
-                      className="w-14 h-14 rounded-full flex items-center justify-center text-white font-black text-lg z-10 shadow-md"
-                      style={{ backgroundColor: color }}
-                    >
-                      {step.step}
-                    </motion.div>
-                  </div>
+        {/* Desktop — cascading zigzag with dashed connector path */}
+        <div className="hidden lg:block relative" style={{ height: TOTAL_HEIGHT }}>
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            viewBox={`0 0 100 ${TOTAL_HEIGHT}`}
+            preserveAspectRatio="none"
+          >
+            <path
+              d={roadmapPathD}
+              fill="none"
+              stroke="#D1D5DB"
+              strokeWidth="1.75"
+              strokeDasharray="5 6"
+              strokeLinecap="round"
+              vectorEffect="non-scaling-stroke"
+            />
+          </svg>
 
-                  {/* Empty space for alternating */}
-                  <div className="lg:w-5/12" />
-                </motion.div>
-              );
-            })}
-          </div>
+          {roadmapCards.map((card, i) => (
+            <motion.div
+              key={card.step}
+              initial={{ opacity: 0, x: card.side === 'left' ? -40 : 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.08 }}
+              className="absolute w-[46%] rounded-2xl bg-white p-6 shadow-[0_10px_30px_-12px_rgba(30,42,56,0.15)]"
+              style={{
+                left: card.side === 'left' ? '0%' : '54%',
+                top: card.top,
+                borderTop: `3px solid ${card.color}`,
+              }}
+            >
+              <h3 className="text-lg font-bold mb-1.5" style={{ color: INK }}>
+                {card.title}
+              </h3>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: `${INK}99` }}>
+                {card.desc}
+              </p>
+            </motion.div>
+          ))}
+
+          {roadmapNodes.map((node, i) => (
+            <motion.div
+              key={i}
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 + 0.15 }}
+              className="absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-md flex items-center justify-center"
+              style={{ left: '50%', top: node.y, color: node.color }}
+            >
+              {journeySteps[i].icon}
+              <span
+                className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-white shadow-sm"
+                style={{ backgroundColor: INK }}
+              >
+                <Sparkle size={10} strokeWidth={2} fill="white" />
+              </span>
+            </motion.div>
+          ))}
         </div>
 
         {/* Bottom CTA — same treatment as the closing CTA banner elsewhere on the page */}
@@ -236,9 +295,9 @@ export default function FarmerJourneySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-16 relative overflow-hidden p-10 text-center text-[#F3F7F5]"
+          className="mt-0 relative overflow-hidden p-10 text-center text-[#F3F7F5]"
           style={{
-            background: `linear-gradient(115deg, ${STEEL} 0%, ${INDIGO} 100%)`,
+            background:"var(--color-accent)",
             clipPath: 'polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))',
           }}
         >
@@ -264,7 +323,7 @@ export default function FarmerJourneySection() {
 
           <div className="relative z-10">
             <div className="text-5xl mb-4"></div>
-            <h3 className="text-3xl font-black mb-3" style={{ fontFamily: FONT_DISPLAY }}>
+            <h3 className="text-3xl font-black mb-3" >
               Join 5000+ Successful Farmers
             </h3>
             <p className="text-lg mb-8 max-w-xl mx-auto text-[#F3F7F5]/80">

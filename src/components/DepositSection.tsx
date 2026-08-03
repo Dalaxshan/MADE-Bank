@@ -18,7 +18,7 @@ const INK = "#1E2A38";
 const PAPER = "var(--color-primary-100)";
 const JADE = "var(--color-light-green)";
 const STEEL = "var(--color-secondary)";
-const INDIGO = "var(--color-primary-dark)";
+const INDIGO = "var(--color-primary)";
 
 const depositPlans = [
   { period: "6 Months", months: 6, monthlyInterest: null, maturityInterest: 9.5 },
@@ -126,10 +126,10 @@ export default function DepositSection() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr style={{ background: `linear-gradient(90deg, ${STEEL}, ${INDIGO})` }}>
+                    <tr style={{ background: `linear-gradient(1deg, ${STEEL}, ${INDIGO})` }}>
                       <th
                         className="px-6 py-4 text-left text-xs font-bold cursor-pointer uppercase tracking-wider transition-colors hover:bg-white/10"
-                        style={{ color: PAPER, fontFamily: FONT_MONO }}
+                        style={{ color: PAPER}}
                         onClick={() => handleSort("period")}
                       >
                         <div className="flex items-center gap-2">
@@ -138,7 +138,7 @@ export default function DepositSection() {
                       </th>
                       <th
                         className="px-6 py-4 text-center text-xs font-bold cursor-pointer uppercase tracking-wider transition-colors hover:bg-white/10"
-                        style={{ color: PAPER, fontFamily: FONT_MONO }}
+                        style={{ color: PAPER }}
                         onClick={() => handleSort("monthlyInterest")}
                       >
                         <div className="flex items-center justify-center gap-2">
@@ -147,7 +147,7 @@ export default function DepositSection() {
                       </th>
                       <th
                         className="px-6 py-4 text-center text-xs font-bold cursor-pointer uppercase tracking-wider transition-colors hover:bg-white/10"
-                        style={{ color: PAPER, fontFamily: FONT_MONO }}
+                        style={{ color: PAPER }}
                         onClick={() => handleSort("maturityInterest")}
                       >
                         <div className="flex items-center justify-center gap-2">
@@ -175,7 +175,7 @@ export default function DepositSection() {
                           <div className="flex items-center gap-3">
                             <div
                               className="w-10 h-10 rounded-lg flex items-center justify-center"
-                              style={{ backgroundColor: `${STEEL}1A`, color: STEEL }}
+                              style={{ backgroundColor: `${STEEL}1A`, color: INDIGO }}
                             >
                               <BanknoteArrowUp size={20} strokeWidth={1.25} />
                             </div>
@@ -193,7 +193,7 @@ export default function DepositSection() {
                           {plan.monthlyInterest ? (
                             <span
                               className="inline-block font-bold text-sm px-3 py-1"
-                              style={{ backgroundColor: `${STEEL}1A`, color: STEEL, fontFamily: FONT_MONO }}
+                              style={{ backgroundColor: `${STEEL}1A`, color: INDIGO}}
                             >
                               {plan.monthlyInterest}% p.a.
                             </span>
@@ -206,7 +206,7 @@ export default function DepositSection() {
                         <td className="px-6 py-4 text-center">
                           <span
                             className="inline-block font-bold text-sm px-3 py-1"
-                            style={{ backgroundColor: `${JADE}1A`, color: JADE, fontFamily: FONT_MONO }}
+                            style={{ backgroundColor: `${JADE}1A`, color: INDIGO}}
                           >
                             {plan.maturityInterest}% p.a.
                           </span>
@@ -239,7 +239,7 @@ export default function DepositSection() {
             <div
               className="relative overflow-hidden p-6 text-[#F3F7F5]"
               style={{
-                background: `linear-gradient(115deg, ${STEEL} 0%, ${INDIGO} 100%)`,
+                background: `linear-gradient(205deg, ${STEEL} 0%, ${INDIGO} 60%)`,
                 clipPath: "polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
               }}
             >

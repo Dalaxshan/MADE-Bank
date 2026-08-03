@@ -96,7 +96,7 @@ export default function GroupMortgageLoans() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-[color:var(--color-secondary)]/60 to-[color:var(--color-secondary)]/410 rounded-3xl p-8 border border-teal-100"
+            className="bg-gradient-to-br from-[color:var(--color-secondary)]/80 to-[color:var(--color-secondary)]/410 rounded-3xl p-8 border border-teal-100"
           >
             {/* Header */}
             <div className="flex items-center gap-4 mb-6">

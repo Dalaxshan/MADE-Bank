@@ -1,47 +1,56 @@
-import { motion } from 'framer-motion';
-import { FaLeaf, FaFacebook, FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaYoutube, FaArrowUp } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import {
+  FaLeaf,
+  FaFacebook,
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaWhatsapp,
+  FaYoutube,
+  FaArrowUp,
+} from "react-icons/fa";
 
 const footerLinks = {
-  'Loan Services': [
-    'Export Agriculture Loan',
-    'Land Purchasing Loan',
-    'Machinery Loan',
-    'Vehicle Loan',
-    'Group Loan',
-    'Mortgage Loan',
+  "Loan Services": [
+    "Export Agriculture Loan",
+    "Land Purchasing Loan",
+    "Machinery Loan",
+    "Vehicle Loan",
+    "Group Loan",
+    "Mortgage Loan",
   ],
-  'Deposit Services': [
-    '6 Month Deposit',
-    '1 Year Deposit',
-    '2-5 Year Deposits',
-    'Monthly Interest Plans',
-    'Maturity Plans',
-    'Deposit Calculator',
+  "Deposit Services": [
+    "6 Month Deposit",
+    "1 Year Deposit",
+    "2-5 Year Deposits",
+    "Monthly Interest Plans",
+    "Maturity Plans",
+    "Deposit Calculator",
   ],
-  'Company': [
-    'About MADECOOP',
-    'Our Mission',
-    'Export Network',
-    'Farmer Stories',
-    'News & Events',
-    'Gallery',
+  Company: [
+    "About MADECOOP",
+    "Our Mission",
+    "Export Network",
+    "Farmer Stories",
+    "News & Events",
+    "Gallery",
   ],
-  'Support': [
-    'FAQ',
-    'Contact Us',
-    'Loan Calculator',
-    'Deposit Calculator',
-    'Privacy Policy',
-    'Terms & Conditions',
+  Support: [
+    "FAQ",
+    "Contact Us",
+    "Loan Calculator",
+    "Deposit Calculator",
+    "Privacy Policy",
+    "Terms & Conditions",
   ],
 };
 
 export default function Footer() {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleNavClick = (href: string) => {
     const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -51,8 +60,12 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-5">
             <div>
-              <h3 className="text-white font-bold text-lg">Stay Updated with MADECOOP</h3>
-              <p className="text-green-200 text-sm">Get farming tips, market prices, and exclusive updates.</p>
+              <h3 className="text-white font-bold text-lg">
+                Stay Updated with MADECOOP
+              </h3>
+              <p className="text-green-200 text-sm">
+                Get farming tips, market prices, and exclusive updates.
+              </p>
             </div>
             <div className="flex gap-3 w-full md:w-auto">
               <input
@@ -78,26 +91,42 @@ export default function Footer() {
                 <FaLeaf className="text-white text-xl" />
               </div>
               <div>
-                <div className="font-black text-white text-xl leading-tight">MADECOOP</div>
-                <div className="text-green-400 text-xs">Matale Agri. Dev. & Export</div>
+                <div className="font-black text-white text-xl leading-tight">
+                  MADECOOP
+                </div>
+                <div className="text-green-400 text-xs">
+                  Matale Agri. Dev. & Export
+                </div>
               </div>
             </div>
 
             <p className="text-gray-400 text-sm leading-relaxed mb-5">
-              Empowering Sri Lankan farmers with financial solutions, guaranteed harvest purchasing, and global export opportunities since 2009.
+              Empowering Sri Lankan farmers with financial solutions, guaranteed
+              harvest purchasing, and global export opportunities since 2009.
             </p>
 
             {/* Contact snippets */}
             <div className="space-y-2.5">
-              <a href="tel:+94662222222" className="flex items-center gap-2.5 text-gray-400 hover:text-green-400 transition-colors text-sm">
-                <FaPhone className="text-green-500 text-xs" /> +94 66 222 2222
+              <a
+                href="tel:+94704732926"
+                className="flex items-center gap-2.5 text-gray-400 hover:text-green-400 transition-colors text-sm"
+              >
+                <FaPhone className="text-green-500 text-xs" /> +94 70 473 2926
               </a>
-              <a href="mailto:info@madecoop.lk" className="flex items-center gap-2.5 text-gray-400 hover:text-green-400 transition-colors text-sm">
-                <FaEnvelope className="text-green-500 text-xs" /> info@madecoop.lk
+              <a
+                href="mailto:info@madecoopbank.com"
+                className="flex items-center gap-2.5 text-gray-400 hover:text-green-400 transition-colors text-sm"
+              >
+                <FaEnvelope className="text-green-500 text-xs" />{" "}
+                info@madecoopbank.com
               </a>
               <div className="flex items-start gap-2.5 text-gray-400 text-sm">
                 <FaMapMarkerAlt className="text-green-500 text-xs mt-0.5" />
-                <span> 3/4, Yelakkare Junction, Dangan Place,<br /> Yatawatta, Matale.</span>
+                <span>
+                  {" "}
+                  3/4, Yelakkare Junction, Dangan Place,
+                  <br /> Yatawatta, Matale.
+                </span>
               </div>
             </div>
 
@@ -137,7 +166,7 @@ export default function Footer() {
                 {links.map((link) => (
                   <li key={link}>
                     <button
-                      onClick={() => handleNavClick('#services')}
+                      onClick={() => handleNavClick("#services")}
                       className="text-gray-400 hover:text-green-400 transition-colors text-sm text-left"
                     >
                       {link}
@@ -152,21 +181,35 @@ export default function Footer() {
         {/* Registration */}
         <div className="mt-12 p-5 bg-green-900/30 border border-green-800/50 rounded-2xl">
           <p className="text-green-400 text-xs text-center leading-relaxed">
-            🛡️ Registered under <strong className="text-green-300">Section 06 of the Cooperative Societies Act No. 10 of 1990</strong> of the Central Provincial Council,
-            as amended by the <strong className="text-green-300">Cooperative Societies (Amendment) Act No. 04 of 1993.</strong>
-            All financial services are governed by Sri Lanka Cooperative Regulations.
+            🛡️ Registered under{" "}
+            <strong className="text-green-300">
+              Section 06 of the Cooperative Societies Act No. 10 of 1990
+            </strong>{" "}
+            of the Central Provincial Council, as amended by the{" "}
+            <strong className="text-green-300">
+              Cooperative Societies (Amendment) Act No. 04 of 1993.
+            </strong>
+            All financial services are governed by Sri Lanka Cooperative
+            Regulations.
           </p>
         </div>
 
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} MADECOOP - Matale District Agriculture Development and Export Cooperative Society Ltd. All rights reserved.
+            © {new Date().getFullYear()} MADECOOP - Matale District Agriculture
+            Development and Export Cooperative Society Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-5 text-xs text-gray-500">
-            <button className="hover:text-gray-300 transition-colors">Privacy Policy</button>
-            <button className="hover:text-gray-300 transition-colors">Terms & Conditions</button>
-            <button className="hover:text-gray-300 transition-colors">Cookie Policy</button>
+            <button className="hover:text-gray-300 transition-colors">
+              Privacy Policy
+            </button>
+            <button className="hover:text-gray-300 transition-colors">
+              Terms & Conditions
+            </button>
+            <button className="hover:text-gray-300 transition-colors">
+              Cookie Policy
+            </button>
           </div>
         </div>
       </div>

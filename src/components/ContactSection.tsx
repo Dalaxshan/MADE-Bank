@@ -26,23 +26,25 @@ const contactInfo = [
   {
     icon: <FaPhone className="text-xl" />,
     title: "Phone",
-    lines: ["+94 66 222 2222", "+94 66 222 3333"],
+    lines: ["+94 70 473 2926"],
     color: "bg-green-100 text-green-600",
-    href: "tel:+94662222222",
+    href: "tel:+94704732926",
   },
   {
     icon: <FaWhatsapp className="text-xl" />,
     title: "WhatsApp",
-    lines: ["+94 77 123 4567"],
+    lines: ["+94 70 473 2926"],
     color: "bg-emerald-100 text-emerald-600",
-    href: "https://wa.me/94771234567",
+    href: "https://wa.me/94704732926",
   },
   {
     icon: <FaEnvelope className="text-xl" />,
     title: "Email",
-    lines: ["info@madecoop.lk", "loans@madecoop.lk"],
+    lines: [
+      "info@madecoopbank.com"
+    ],
     color: "bg-blue-100 text-blue-600",
-    href: "mailto:info@madecoop.lk",
+    href: "mailto:info@madecoopbank.com",
   },
   {
     icon: <FaMapMarkerAlt className="text-xl" />,

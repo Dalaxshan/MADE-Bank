@@ -180,7 +180,7 @@ export default function FAQSection() {
             >
               Contact Us
             </button>
-            <a href="tel:+94662222222" className="btn-secondary">
+            <a href="tel:+94704732926" className="btn-secondary">
               📞 Call Now
             </a>
           </div>

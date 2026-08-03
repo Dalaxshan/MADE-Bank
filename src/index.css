@@ -30,8 +30,8 @@
   --color-cream: #ffffe3;
   --color-soft-green: #edfcdc;
 
-  --font-family-sans: "Fraunces", Georgia, serif;
-  --font-family-heading: "Fraunces", Georgia, serif;
+  --font-family-sans: "Playfair Display";
+  --font-family-heading: "Playfair Display";
 }
 
 * {
@@ -39,7 +39,7 @@
 }
 
 body {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "Playfair Display";
   background-color: #ffffff;
   color: #1a1a1a;
   -webkit-font-smoothing: antialiased;
@@ -52,7 +52,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "Playfair Display";
 }
 
 /* Custom scrollbar */

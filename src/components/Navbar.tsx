@@ -78,10 +78,10 @@ export default function Navbar() {
           </span>
           <div className="flex items-center gap-3">
             <a
-              href="tel:+94662222222"
+              href="tel:+94704732926"
               className="flex items-center gap-1.5 hover:text-[var(--color-primary)] transition-colors"
             >
-              <FaPhone size={10} /> +94 66 222 2222
+              <FaPhone size={10} /> +94 70 473 2926
             </a>
             <span className="text-[#F3F7F5]/25">|</span>
             <span className="text-[#F3F7F5]/70">MON–SAT · 8:30–4:30</span>
@@ -191,40 +191,22 @@ export default function Navbar() {
 
             {/* CTA Buttons — ledger tabs, same shape as the hero */}
             <div className="hidden lg:flex items-center gap-2.5">
+             
               <button
-                onClick={() => handleNavClick("#contact")}
-                className="text-sm font-semibold py-2.5 px-5 text-[#F3F7F5] 
-                transition-colors duration-300"
+                onClick={() => handleNavClick("#services")}
+                className="group flex items-center gap-2 text-sm font-semibold py-2.5 px-5 text-[#fff] transition-colors duration-300"
                 style={{
-                  backgroundColor: JADE,
-                  border: `1px solid ${INK}33`,
-                  clipPath:
-                    "polygon(0 0, 100% 0, 100% 70%, calc(100% - 8px) 100%, 0 100%)",
+                  backgroundColor:JADE,
+                  clipPath: "polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 70%)",
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.backgroundColor = "var(--color-primary-light)")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = "var(--color-primary)")
+                  (e.currentTarget.style.backgroundColor = JADE)
                 }
               >
-                Contact Us
-              </button>
-              <button
-                onClick={() => handleNavClick("#services")}
-                className="group flex items-center gap-2 text-sm font-semibold py-2.5 px-5 text-[#fff] transition-colors duration-300"
-                style={{
-                  backgroundColor: STEEL,
-                  clipPath: "polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 70%)",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = "var(--color-secondary-light)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = STEEL)
-                }
-              >
-                Apply for Loan
+                Start Our Loan
                 <FaArrowRight
                   size={11}
                   className="group-hover:translate-x-1 transition-transform"
@@ -296,7 +278,7 @@ export default function Navbar() {
                         "polygon(0 0, 100% 0, 100% 100%, 10px 100%, 0 70%)",
                     }}
                   >
-                    Apply for Loan <FaArrowRight size={11} />
+                    Start Our Loan <FaArrowRight size={11} />
                   </button>
                   <button
                     onClick={() => handleNavClick("#deposits")}

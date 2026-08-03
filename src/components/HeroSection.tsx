@@ -107,11 +107,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-[2.75rem] md:text-6xl lg:text-[4.5rem] font-black text-[#1E2A38] leading-[1.05] mb-6 tracking-tight"
-              style={{ fontFamily: FONT_DISPLAY }}
+              className="text-[2.75rem] md:text-7xl lg:text-[5rem] font-black text-[#1E2A38] leading-[1.05] mb-6 tracking-wide max-w-3xl"
+            
             >
               Every Harvest,{" "}
-              <span className="text-[var(--color-primary)] italic">Build </span>
+              <span className="text-[var(--color-primary)]">Build </span>
               on <span className="text-[var(--color-secondary)]">Trust.</span>
             </motion.h1>
 
