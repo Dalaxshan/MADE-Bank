@@ -1,20 +1,13 @@
 import { motion } from 'framer-motion';
 import { FaCalendar, FaMapMarkerAlt, FaArrowRight, FaNewspaper, FaGraduationCap, FaUsers, FaEnvelope } from 'react-icons/fa';
 
-/**
- * Shared design tokens — same as HeroSection.tsx / Navbar.tsx / CTABanner.tsx /
- * FarmerJourneySection.tsx / DepositSection.tsx / DepositCalculator.tsx /
- * CompleteSupportSystem.tsx / ExportNetwork.tsx.
- */
-const FONT_DISPLAY = "'Fraunces', Georgia, serif";
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = '#1E2A38';
 const PAPER = '#F3F7F5';
 const JADE = '#2E9C82';
 const STEEL = '#3B72A6';
 const INDIGO = '#2B3A67';
 
-// One color per category, not one per article — News/Training/Event each get
+// One color per category, not one per article - News/Training/Event each get
 // a consistent identity instead of a different random Tailwind color apiece.
 const typeStyles: Record<string, { color: string; icon: JSX.Element }> = {
   News: { color: STEEL, icon: <FaNewspaper /> },
@@ -95,11 +88,11 @@ export default function NewsEvents() {
         >
           <span
             className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
-            style={{ borderColor: `${JADE}80`, color: JADE, fontFamily: FONT_MONO }}
+            style={{ borderColor: `${JADE}80`, color: JADE }}
           >
             <FaNewspaper size={11} /> News & Events
           </span>
-          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK, fontFamily: FONT_DISPLAY }}>
+          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK }}>
             Stay Updated with
             <br />
             <span
@@ -115,7 +108,7 @@ export default function NewsEvents() {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* News Grid — gazette clippings */}
+          {/* News Grid - gazette clippings */}
           <div className="lg:col-span-2 grid md:grid-cols-2 gap-5">
             {news.map((item, i) => {
               const style = typeStyles[item.type];
@@ -138,7 +131,7 @@ export default function NewsEvents() {
                   <div className="flex items-center justify-between mb-3">
                     <span
                       className="text-[10px] font-bold px-2.5 py-1 tracking-widest flex items-center gap-1.5"
-                      style={{ backgroundColor: `${style.color}18`, color: style.color, fontFamily: FONT_MONO }}
+                      style={{ backgroundColor: `${style.color}18`, color: style.color }}
                     >
                       {style.icon} {item.type.toUpperCase()}
                     </span>
@@ -146,7 +139,7 @@ export default function NewsEvents() {
 
                   <div
                     className="flex items-center gap-2 text-xs mb-3"
-                    style={{ color: `${INK}66`, fontFamily: FONT_MONO }}
+                    style={{ color: `${INK}66` }}
                   >
                     <FaCalendar size={10} />
                     <span>{item.date}</span>
@@ -188,7 +181,7 @@ export default function NewsEvents() {
             transition={{ duration: 0.6 }}
             className="space-y-5"
           >
-            {/* Upcoming Events — ledger tab block */}
+            {/* Upcoming Events - ledger tab block */}
             <div
               className="relative overflow-hidden p-6 text-[#F3F7F5]"
               style={{
@@ -204,7 +197,7 @@ export default function NewsEvents() {
                 }}
               />
               <div className="relative z-10">
-                <h3 className="font-bold text-lg mb-5 flex items-center gap-2" style={{ fontFamily: FONT_DISPLAY }}>
+                <h3 className="font-bold text-lg mb-5 flex items-center gap-2">
                   <FaCalendar size={16} /> Upcoming Events
                 </h3>
                 <div className="space-y-2.5">
@@ -214,13 +207,13 @@ export default function NewsEvents() {
                       className="flex gap-3 p-3"
                       style={{ backgroundColor: '#F3F7F5' + '1A', border: '1px solid #F3F7F51F' }}
                     >
-                      <div className="text-center min-w-12" style={{ fontFamily: FONT_MONO }}>
+                      <div className="text-center min-w-12">
                         <div className="text-xs opacity-70 font-bold">{event.date.split(' ')[0]}</div>
                         <div className="text-sm font-black">{event.date.split(' ')[1]}</div>
                       </div>
                       <div>
                         <div className="text-sm font-semibold leading-tight">{event.event}</div>
-                        <div className="text-xs opacity-70 mt-0.5" style={{ fontFamily: FONT_MONO }}>
+                        <div className="text-xs opacity-70 mt-0.5">
                           {event.type.toUpperCase()}
                         </div>
                       </div>
@@ -242,7 +235,7 @@ export default function NewsEvents() {
                   type="email"
                   placeholder="Your email address"
                   className="w-full px-4 py-2.5 text-sm focus:outline-none"
-                  style={{ border: `1px solid ${INK}26`, color: INK, fontFamily: FONT_MONO }}
+                  style={{ border: `1px solid ${INK}26`, color: INK }}
                 />
                 <button
                   className="w-full flex items-center justify-center gap-2 text-sm font-semibold py-3 transition-colors"
@@ -257,11 +250,11 @@ export default function NewsEvents() {
               </div>
             </div>
 
-            {/* Achievements — ledger rows instead of a fake progress bar */}
+            {/* Achievements - ledger rows instead of a fake progress bar */}
             <div className="p-5" style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}>
               <h3
                 className="text-xs font-bold uppercase tracking-wider mb-4"
-                style={{ color: INK, fontFamily: FONT_MONO }}
+                style={{ color: INK }}
               >
                 2024 Achievements
               </h3>
@@ -270,7 +263,7 @@ export default function NewsEvents() {
                   <div key={item.label} className="flex items-baseline gap-2">
                     <span className="text-xs" style={{ color: `${INK}80` }}>{item.label}</span>
                     <span className="flex-1 border-b border-dotted" style={{ borderColor: `${INK}26`, transform: 'translateY(-3px)' }} />
-                    <span className="text-lg font-black" style={{ color: item.color, fontFamily: FONT_MONO }}>
+                    <span className="text-lg font-black" style={{ color: item.color}}>
                       {item.value}
                     </span>
                   </div>

@@ -9,11 +9,6 @@ import {
 } from "react-icons/fa";
 import { BanknoteArrowUp } from "lucide-react";
 
-/**
- * Shared design tokens — same as HeroSection.tsx / Navbar.tsx / CTABanner.tsx /
- * FarmerJourneySection.tsx. Worth lifting into one theme file.
- */
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = "#1E2A38";
 const PAPER = "var(--color-primary-100)";
 const JADE = "var(--color-light-green)";
@@ -92,7 +87,7 @@ export default function DepositSection() {
         >
           <span
             className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
-            style={{ borderColor: `${JADE}80`, color: JADE, fontFamily: FONT_MONO }}
+            style={{ borderColor: `${JADE}80`, color: JADE }}
           >
             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: JADE }} />
             Deposit Plans
@@ -113,22 +108,22 @@ export default function DepositSection() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Table — styled as a ledger book */}
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8">
+          {/* Table - styled as a ledger book */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
+            className="lg:col-span-2 w-full min-w-0"
           >
             <div className="bg-white shadow-lg overflow-hidden" style={{ border: `1px solid ${INK}12` }}>
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto -mx-0">
                 <table className="w-full">
                   <thead>
                     <tr style={{ background: `${JADE}` }}>
                       <th
-                        className="px-6 py-4 text-left text-xs font-bold cursor-pointer uppercase tracking-wider transition-colors hover:bg-white/10"
+                        className="px-3 sm:px-6 py-4 text-left text-xs font-bold cursor-pointer uppercase tracking-wider transition-colors hover:bg-white/10"
                         style={{ color: PAPER}}
                         onClick={() => handleSort("period")}
                       >
@@ -137,21 +132,21 @@ export default function DepositSection() {
                         </div>
                       </th>
                       <th
-                        className="px-6 py-4 text-center text-xs font-bold cursor-pointer uppercase tracking-wider transition-colors hover:bg-white/10"
+                        className="px-3 sm:px-6 py-4 text-center text-xs font-bold cursor-pointer uppercase tracking-wider transition-colors hover:bg-white/10"
                         style={{ color: PAPER }}
                         onClick={() => handleSort("monthlyInterest")}
                       >
                         <div className="flex items-center justify-center gap-2">
-                          Monthly Interest <SortIcon col="monthlyInterest" />
+                          Monthly <SortIcon col="monthlyInterest" />
                         </div>
                       </th>
                       <th
-                        className="px-6 py-4 text-center text-xs font-bold cursor-pointer uppercase tracking-wider transition-colors hover:bg-white/10"
+                        className="px-3 sm:px-6 py-4 text-center text-xs font-bold cursor-pointer uppercase tracking-wider transition-colors hover:bg-white/10"
                         style={{ color: PAPER }}
                         onClick={() => handleSort("maturityInterest")}
                       >
                         <div className="flex items-center justify-center gap-2">
-                          Maturity Interest <SortIcon col="maturityInterest" />
+                          Maturity <SortIcon col="maturityInterest" />
                         </div>
                       </th>
                     </tr>
@@ -171,44 +166,42 @@ export default function DepositSection() {
                           borderLeft: selected === i ? `4px solid ${STEEL}` : "4px solid transparent",
                         }}
                       >
-                        <td className="px-6 py-4">
-                          <div className="flex items-center gap-3">
+                        <td className="px-3 sm:px-6 py-4">
+                          <div className="flex items-center gap-2 sm:gap-3">
                             <div
-                              className="w-10 h-10 rounded-lg flex items-center justify-center"
+                              className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0"
                               style={{ backgroundColor: `${STEEL}1A`, color: INDIGO }}
                             >
-                              <BanknoteArrowUp size={20} strokeWidth={1.25} />
+                              <BanknoteArrowUp size={16} strokeWidth={1.25} />
                             </div>
                             <div>
-                              <div className="font-bold" style={{ color: INK }}>
+                              <div className="font-bold text-sm" style={{ color: INK }}>
                                 {plan.period}
                               </div>
-                              <div className="text-xs" style={{ color: `${INK}80`, fontFamily: FONT_MONO }}>
-                                {plan.months} months
+                              <div className="text-xs" style={{ color: `${INK}80` }}>
+                                {plan.months} mo.
                               </div>
                             </div>
                           </div>
                         </td>
-                        <td className="px-6 py-4 text-center">
+                        <td className="px-3 sm:px-6 py-4 text-center">
                           {plan.monthlyInterest ? (
                             <span
-                              className="inline-block font-bold text-sm px-3 py-1"
+                              className="inline-block font-bold text-xs sm:text-sm px-2 sm:px-3 py-1"
                               style={{ backgroundColor: `${STEEL}1A`, color: INDIGO}}
                             >
-                              {plan.monthlyInterest}% p.a.
+                              {plan.monthlyInterest}%
                             </span>
                           ) : (
-                            <span className="text-sm" style={{ color: `${INK}40` }}>
-                              —
-                            </span>
+                            <span className="text-sm" style={{ color: `${INK}40` }}>-</span>
                           )}
                         </td>
-                        <td className="px-6 py-4 text-center">
+                        <td className="px-3 sm:px-6 py-4 text-center">
                           <span
-                            className="inline-block font-bold text-sm px-3 py-1"
+                            className="inline-block font-bold text-xs sm:text-sm px-2 sm:px-3 py-1"
                             style={{ backgroundColor: `${JADE}1A`, color: INDIGO}}
                           >
-                            {plan.maturityInterest}% p.a.
+                            {plan.maturityInterest}%
                           </span>
                         </td>
                       </motion.tr>
@@ -233,9 +226,9 @@ export default function DepositSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-4"
+            className="space-y-4 w-full"
           >
-            {/* Highlight card — ledger tab shape + stamp watermark, matching the rest of the page */}
+            {/* Highlight card - ledger tab shape + stamp watermark, matching the rest of the page */}
             <div
               className="relative overflow-hidden p-6 text-[#F3F7F5]"
               style={{
@@ -259,15 +252,14 @@ export default function DepositSection() {
                   On maturity-based 5-year fixed deposits
                 </div>
 
-                {/* Example — ledger stub with dotted leaders, corrected to the 1-year maturity rate */}
+                {/* Example - ledger stub with dotted leaders, corrected to the 1-year maturity rate */}
                 <div className="bg-[#F3F7F5]/10 border border-[#F3F7F5]/20 p-4">
                   <div
                     className="text-xs font-semibold uppercase tracking-wider mb-2 text-[#F3F7F5]/80"
-                    style={{ fontFamily: FONT_MONO }}
                   >
-                    Example — 1-Year Maturity Plan
+                    Example - 1-Year Maturity Plan
                   </div>
-                  <div className="text-xs space-y-1.5" style={{ fontFamily: FONT_MONO }}>
+                  <div className="text-xs space-y-1.5">
                     <div className="flex justify-between">
                       <span className="text-[#F3F7F5]/70">Deposit</span>
                       <span>Rs. 100,000</span>
@@ -300,7 +292,7 @@ export default function DepositSection() {
             <div className="bg-white p-6 shadow-md" style={{ border: `1px solid ${INK}12` }}>
               <h4
                 className="text-xs font-bold uppercase tracking-wider mb-4"
-                style={{ color: INK, fontFamily: FONT_MONO }}
+                style={{ color: INK }}
               >
                 Deposit Benefits
               </h4>

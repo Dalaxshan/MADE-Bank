@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Expand } from "lucide-react";
 import { FaGlobeAsia } from "react-icons/fa";
 
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = "#1E2A38";
 const JADE = "var(--color-secondary)";
 const STEEL = "var(--color-light-green)";
@@ -64,7 +63,7 @@ export default function GallerySection() {
   return (
     <section
       id="gallery"
-      className="py-14 overflow-hidden"
+      className="py-4 overflow-hidden"
       style={{ backgroundColor: "var(--color-primary-100)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,7 +80,6 @@ export default function GallerySection() {
             style={{
               borderColor: `${JADE}80`,
               color: JADE,
-              fontFamily: FONT_MONO,
             }}
           >
             <FaGlobeAsia size={11} /> Our Gallery

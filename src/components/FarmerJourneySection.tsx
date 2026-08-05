@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 import { FaArrowDown, FaCheckCircle } from 'react-icons/fa';
 
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = '#1E2A38';
 const PAPER = "var(--color-primary-100)";
 const JADE = "var(--color-light-green)";
@@ -22,7 +21,7 @@ const journeySteps = [
     step: 1,
     icon: <ShieldQuestionMark strokeWidth={1.75} size={20} />,
     title: 'Farmer Problem',
-    desc: 'Traditional farmer lacks capital for cultivation — no access to credit, high-interest informal lenders, and no guaranteed market.',
+    desc: 'Traditional farmer lacks capital for cultivation - no access to credit, high-interest informal lenders, and no guaranteed market.',
     badge: 'Phase 1',
     color: '#16a34a',
   },
@@ -30,7 +29,7 @@ const journeySteps = [
     step: 2,
     icon: <Banknote strokeWidth={1.75} size={20} />,
     title: 'MADECOOP Loan',
-    desc: 'Apply for an affordable agricultural loan — quick approval, fair interest rates, repayment aligned with harvest cycles.',
+    desc: 'Apply for an affordable agricultural loan - quick approval, fair interest rates, repayment aligned with harvest cycles.',
     badge: 'Phase 2',
     color: '#2563eb',
   },
@@ -54,7 +53,7 @@ const journeySteps = [
     step: 5,
     icon: <Handshake strokeWidth={1.75} size={20} />,
     title: 'MADECOOP Buy-Back',
-    desc: 'Guaranteed purchase of the entire harvest at pre-agreed fair market prices — no middlemen, no exploitation.',
+    desc: 'Guaranteed purchase of the entire harvest at pre-agreed fair market prices - no middlemen, no exploitation.',
     badge: 'Phase 5',
     color: '#0d9488',
   },
@@ -137,7 +136,7 @@ export default function FarmerJourneySection() {
         >
           <span
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 text-xs font-bold uppercase tracking-[0.15em]"
-            style={{ backgroundColor: 'var(--color-secondary)',color: '#fff', fontFamily: FONT_MONO }}
+            style={{ backgroundColor: 'var(--color-secondary)', color: '#fff' }}
           >
             Our Process
           </span>
@@ -156,7 +155,7 @@ export default function FarmerJourneySection() {
             Roadmap
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: `${INK}99` }}>
-            A seamless journey from the first loan to premium export income — every phase
+            A seamless journey from the first loan to premium export income - every phase
             supported, every risk removed.
           </p>
         </motion.div>
@@ -181,7 +180,7 @@ export default function FarmerJourneySection() {
             >
               <div
                 className="text-[10px] uppercase tracking-[0.15em] mb-2"
-                style={{ color: `${INK}5C`, fontFamily: FONT_MONO }}
+                style={{ color: `${INK}5C`}}
               >
                 Entry {String(i + 1).padStart(2, '0')}
               </div>
@@ -202,7 +201,7 @@ export default function FarmerJourneySection() {
 
         {/* ---------------- Roadmap: zigzag cards + curvy dashed connector ---------------- */}
 
-        {/* Mobile / tablet — simple stacked list, no absolute geometry */}
+        {/* Mobile / tablet - simple stacked list, no absolute geometry */}
         <div className="space-y-6 lg:hidden">
           {journeySteps.map((step) => (
             <div
@@ -212,7 +211,7 @@ export default function FarmerJourneySection() {
             >
               <div
                 className="text-xs font-bold uppercase tracking-[0.15em] mb-2"
-                style={{ color: step.color, fontFamily: FONT_MONO }}
+                style={{ color: step.color }}
               >
                 {step.badge}
               </div>
@@ -227,7 +226,7 @@ export default function FarmerJourneySection() {
           ))}
         </div>
 
-        {/* Desktop — cascading zigzag with dashed connector path */}
+        {/* Desktop - cascading zigzag with dashed connector path */}
         <div className="hidden lg:block relative" style={{ height: TOTAL_HEIGHT }}>
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
@@ -289,7 +288,7 @@ export default function FarmerJourneySection() {
           ))}
         </div>
 
-        {/* Bottom CTA — same treatment as the closing CTA banner elsewhere on the page */}
+        {/* Bottom CTA - same treatment as the closing CTA banner elsewhere on the page */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -335,7 +334,6 @@ export default function FarmerJourneySection() {
                 <div
                   key={tag}
                   className="flex items-center gap-2 bg-[#F3F7F5]/10 border border-[#F3F7F5]/20 px-4 py-2 text-sm font-semibold tracking-wide"
-                  style={{ fontFamily: FONT_MONO }}
                 >
                   <FaCheckCircle className="text-[#F3F7F5]" /> {tag.toUpperCase()}
                 </div>

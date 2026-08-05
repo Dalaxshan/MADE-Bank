@@ -22,7 +22,6 @@ type FormData = {
   message: string;
 };
 
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = "#1E2A38";
 const JADE = "var(--color-light-green)";
 
@@ -348,7 +347,7 @@ export default function ContactSection() {
             backgroundColor: 'var(--color-primary-100)',
           }}
         >
-          {/* corner stamp ticks — echoes the ledger/seal motif used elsewhere */}
+          {/* corner stamp ticks - echoes the ledger/seal motif used elsewhere */}
           <span
             className="absolute top-3 left-3 w-2 h-2 border-t border-l"
             style={{ borderColor: `${JADE}80` }}
@@ -368,7 +367,7 @@ export default function ContactSection() {
 
           <div
             className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] mb-3"
-            style={{ color: JADE, fontFamily: FONT_MONO }}
+            style={{ color: JADE }}
           >
             <Shield size={12} />
             Legal Registration

@@ -8,43 +8,42 @@ import {
   FaArrowUp,
 } from "react-icons/fa";
 
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = "#1E2A38";
 const JADE = "var(--color-light-green)";
 const STEEL = "var(--color-secondary)";
 
-const footerLinks = {
+const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Loan Services": [
-    "Export Agriculture Loan",
-    "Land Purchasing Loan",
-    "Machinery Loan",
-    "Vehicle Loan",
-    "Group Loan",
-    "Mortgage Loan",
+    { label: "Export Agriculture Loan", href: "#services" },
+    { label: "Land Purchasing Loan", href: "#services" },
+    { label: "Machinery Loan", href: "#services" },
+    { label: "Vehicle Loan", href: "#services" },
+    { label: "Group Loan", href: "#group-loan" },
+    { label: "Mortgage Loan", href: "#mortgage-loan" },
   ],
   "Deposit Services": [
-    "6 Month Deposit",
-    "1 Year Deposit",
-    "2-5 Year Deposits",
-    "Monthly Interest Plans",
-    "Maturity Plans",
-    "Deposit Calculator",
+    { label: "6 Month Deposit", href: "#deposits" },
+    { label: "1 Year Deposit", href: "#deposits" },
+    { label: "2-5 Year Deposits", href: "#deposits" },
+    { label: "Monthly Interest Plans", href: "#deposits" },
+    { label: "Maturity Plans", href: "#deposits" },
+    { label: "Deposit Calculator", href: "#deposit-calculator" },
   ],
   Company: [
-    "About MADECOOP",
-    "Our Mission",
-    "Export Network",
-    "Farmer Stories",
-    "News & Events",
-    "Gallery",
+    { label: "About MADECOOP", href: "#about" },
+    { label: "Our Mission", href: "#about" },
+    { label: "Export Network", href: "#export-network" },
+    { label: "Farmer Stories", href: "#testimonials" },
+    { label: "News & Events", href: "#news" },
+    { label: "Gallery", href: "#gallery" },
   ],
   Support: [
-    "FAQ",
-    "Contact Us",
-    "Loan Calculator",
-    "Deposit Calculator",
-    "Privacy Policy",
-    "Terms & Conditions",
+    { label: "FAQ", href: "#faq" },
+    { label: "Contact Us", href: "#contact" },
+    { label: "Loan Calculator", href: "#services" },
+    { label: "Deposit Calculator", href: "#deposit-calculator" },
+    { label: "Privacy Policy", href: "#" },
+    { label: "Terms & Conditions", href: "#" },
   ],
 };
 
@@ -104,8 +103,6 @@ export default function Footer() {
             </textPath>
           </text>
         </svg>
-
-      
       </div>
 
       {/* Main footer */}
@@ -124,7 +121,7 @@ export default function Footer() {
               financial support to sell their products locally and globally.
             </p>
 
-            {/* Contact snippets — ledger-line style */}
+            {/* Contact snippets - ledger-line style */}
             <div className="space-y-3 border-t border-dashed border-white/15 pt-4">
               <a
                 href="tel:+94704732926"
@@ -191,24 +188,21 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4
-                className="text-white font-bold text-xs uppercase tracking-[0.12em] mb-4 pb-3 border-b border-dashed border-white/15"
-                style={{ fontFamily: FONT_MONO }}
-              >
+              <h4 className="text-white font-bold text-xs uppercase tracking-[0.12em] mb-4 pb-3 border-b border-dashed border-white/15">
                 {category}
               </h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <button
-                      onClick={() => handleNavClick("#services")}
+                      onClick={() => handleNavClick(link.href)}
                       className="text-gray-400 hover:text-white transition-colors text-sm text-left inline-flex items-center gap-1.5 group"
                     >
                       <span
                         className="w-1 h-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                         style={{ backgroundColor: JADE }}
                       />
-                      {link}
+                      {link.label}
                     </button>
                   </li>
                 ))}
@@ -219,21 +213,17 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} MADECOOP — Matale District Agriculture
+          <p className="text-gray-300 text-sm">
+            © {new Date().getFullYear()} MADECOOP - Matale District Agriculture
             Development and Export Cooperative Society Ltd. All rights reserved.
           </p>
-          <div
-            className="flex items-center gap-5 text-[11px] uppercase tracking-wide text-gray-500"
-            style={{ fontFamily: FONT_MONO }}
-          >
+          <div className="flex items-center gap-5 text-[11px] uppercase tracking-wide text-gray-300">
             <button className="hover:text-white transition-colors">
               Privacy Policy
             </button>
             <button className="hover:text-white transition-colors">
               Terms &amp; Conditions
             </button>
-           
           </div>
         </div>
       </div>
@@ -243,8 +233,8 @@ export default function Footer() {
         onClick={scrollToTop}
         whileHover={{ scale: 1.08, rotate: -4 }}
         whileTap={{ scale: 0.92 }}
-        className="fixed bottom-18 right-8 w-12 h-12 flex items-center justify-center shadow-xl z-20"
-        style={{ backgroundColor: JADE, color: INK }}
+        className="fixed bottom-18 right-18 w-12 h-12 flex items-center justify-center shadow-xl z-20"
+        style={{ backgroundColor: JADE, color: " #fff" }}
       >
         <FaArrowUp size={16} />
       </motion.button>

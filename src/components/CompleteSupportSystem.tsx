@@ -6,8 +6,6 @@ import {
   FaCheckCircle, FaStar, FaArrowRight
 } from 'react-icons/fa';
 
-
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const PAPER = '#F3F7F5';
 const JADE = '#2E9C82';
 const STEEL = '#3B72A6';
@@ -36,7 +34,7 @@ export default function CompleteSupportSystem() {
       className="py-28 relative overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #0F1626 0%, #1B2A44 45%, #101A2E 100%)' }}
     >
-      {/* Background decoration — steel/jade instead of green/emerald/yellow */}
+      {/* Background decoration - steel/jade instead of green/emerald/yellow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-96 h-96 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" style={{ backgroundColor: `${STEEL}1A` }} />
         <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl" style={{ backgroundColor: `${JADE}1A` }} />
@@ -62,7 +60,7 @@ export default function CompleteSupportSystem() {
         >
           <div
             className="inline-flex items-center gap-2 border px-5 py-2 mb-6 text-xs uppercase tracking-[0.15em]"
-            style={{ backgroundColor: `${PAPER}0D`, borderColor: `${PAPER}26`, color: `${PAPER}E6`, fontFamily: FONT_MONO }}
+            style={{ backgroundColor: `${PAPER}0D`, borderColor: `${PAPER}26`, color: `${PAPER}E6` }}
           >
             <FaStar size={11} style={{ color: JADE_LIGHT }} />
             Our Signature Program
@@ -84,7 +82,7 @@ export default function CompleteSupportSystem() {
           </h2>
 
           <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: `${PAPER}B3` }}>
-            From the moment a farmer needs money to the moment they receive export profits —
+            From the moment a farmer needs money to the moment they receive export profits -
             MADECOOP is with you at <strong style={{ color: PAPER }}>every single step</strong>.
           </p>
         </motion.div>
@@ -112,7 +110,7 @@ export default function CompleteSupportSystem() {
                   {/* Step tag */}
                   <div
                     className="absolute top-4 right-4 text-[10px] font-bold px-2 py-1 tracking-wide"
-                    style={{ backgroundColor: color, color: PAPER, fontFamily: FONT_MONO }}
+                    style={{ backgroundColor: color, color: PAPER }}
                   >
                     ENTRY {String(stage.step).padStart(2, '0')}
                   </div>

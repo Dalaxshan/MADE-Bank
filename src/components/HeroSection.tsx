@@ -7,7 +7,6 @@ import {
   BanknoteArrowUp,
   HandCoins,
   Handshake,
-  Phone,
   Ship,
   Sprout,
   Tractor,
@@ -16,7 +15,6 @@ import {
 } from "lucide-react";
 
 const FONT_DISPLAY = "'Fraunces', Georgia, serif";
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const FONT_BODY = "'Work Sans', system-ui, sans-serif";
 
 const ledgerEntries = [
@@ -94,7 +92,6 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 border border-dashed border-[var(--color-primary)]/50 rounded-sm px-4 py-1.5 mb-8 -rotate-1"
-              style={{ fontFamily: FONT_MONO }}
             >
               <span className="w-1.5 h-1.5 bg-[var(--color-primary)] rounded-full" />
               <span className="text-[var(--color-primary)] text-[11px] tracking-[0.2em] uppercase">
@@ -136,7 +133,7 @@ export default function HeroSection() {
             >
               <button
                 onClick={() => handleNavClick("#services")}
-                className="group flex items-center gap-2 bg-[var(--color-accent)] text-[#F1EAD9] px-7 py-3.5 font-semibold text-[15px] hover:bg-[var(--color-accent-light)] transition-colors duration-300"
+                className="group flex items-center gap-2 bg-[var(--color-accent)] text-[#fff] px-7 py-3.5 font-semibold text-[15px] hover:bg-[var(--color-accent-light)] transition-colors duration-300"
                 style={{
                   clipPath: "polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 70%)",
                 }}
@@ -149,7 +146,7 @@ export default function HeroSection() {
               </button>
               <button
                 onClick={() => handleNavClick("#deposits")}
-                className="flex items-center gap-2 bg-[var(--color-primary)] text-[var(--color-primary-100)] px-7 py-3.5 font-semibold text-[15px] hover:bg-[var(--color-primary-light)] transition-colors duration-300"
+                className="flex items-center gap-2 bg-[var(--color-primary)] text-[#fff] px-7 py-3.5 font-semibold text-[15px] hover:bg-[var(--color-primary-light)] transition-colors duration-300"
                 style={{
                   clipPath:
                     "polygon(0 0, 100% 0, 100% 70%, calc(100% - 12px) 100%, 0 100%)",
@@ -178,7 +175,6 @@ export default function HeroSection() {
                     ease: "easeInOut",
                   }}
                   className="relative flex items-center gap-2 bg-[#F3F7F5] text-[#1E2A38] pl-3 pr-4 py-2 text-xs font-semibold shadow-md"
-                  style={{ fontFamily: FONT_MONO }}
                 >
                   {/* tag hole, punched through to the page background */}
                   <span className="w-2.5 h-2.5 rounded-full bg-[#E1EEF3] shrink-0" />
@@ -216,13 +212,11 @@ export default function HeroSection() {
               <div className="flex items-baseline justify-between mb-1">
                 <span
                   className="text-[11px] tracking-[0.2em] uppercase text-[#2B3A67] font-semibold"
-                  style={{ fontFamily: FONT_MONO }}
                 >
                   Member Ledger
                 </span>
                 <span
                   className="text-[11px] text-[#1E2A38]/40"
-                  style={{ fontFamily: FONT_MONO }}
                 >
                   No. 000114
                 </span>
@@ -251,7 +245,6 @@ export default function HeroSection() {
                     <span className="flex-1 border-b-2 border-dotted border-[#1E2A38]/25 translate-y-[-3px]" />
                     <span
                       className="text-xl font-bold shrink-0"
-                      style={{ fontFamily: FONT_MONO }}
                     >
                       {inView ? (
                         <CountUp
@@ -268,10 +261,19 @@ export default function HeroSection() {
               </div>
 
               {/* Legal line */}
-              <p className="mt-8 pt-4 border-t border-[#1E2A38]/10 text-[10.5px] leading-relaxed text-[#1E2A38]/50">
-                Registered under Cooperative Societies Act No. 10 of 1990,
-                Central Provincial Council, as amended by Act No. 04 of 1993.
-              </p>
+              <div className="mt-8 pt-4 border-t border-[#1E2A38]/10">
+                <div
+                  className="flex items-start gap-2 px-3 py-2.5"
+                  style={{ backgroundColor: 'rgba(43,58,103,0.07)', borderLeft: '3px solid #2B3A67' }}
+                >
+                  <span className="text-[#2B3A67] font-black text-sm mt-0.5 shrink-0">✓</span>
+                  <p className="text-[12.5px] leading-relaxed" style={{ color: '#2B3A67', fontWeight: 'bold' }}>
+                    <strong>Registered</strong> under Cooperative Societies Act No. 10 of 1990,
+                    Central Provincial Council, as amended by Act No.{' '}
+                    <strong>04 of 1993.</strong>
+                  </p>
+                </div>
+              </div>
 
               {/* Ink stamp seal, pressed into the corner */}
               <motion.div

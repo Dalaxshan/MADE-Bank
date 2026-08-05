@@ -7,8 +7,6 @@ import {
 import { FaChartPie, FaChartLine } from 'react-icons/fa';
 import { Calculator } from 'lucide-react';
 
-
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = '#1E2A38';
 const PAPER = "var(--color-primary-100)";
 const STEEL = "var(--color-light-green)";
@@ -96,7 +94,7 @@ export default function DepositCalculator() {
         >
           <span
             className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
-            style={{ borderColor: `${JADE}80`, color: JADE, fontFamily: FONT_MONO }}
+            style={{ borderColor: `${JADE}80`, color: JADE }}
           >
            <Calculator strokeWidth={1.75} /> Deposit Calculator
           </span>
@@ -134,7 +132,7 @@ export default function DepositCalculator() {
             <div className="mb-8">
               <label className="flex justify-between text-sm font-semibold mb-3" style={{ color: `${INK}CC` }}>
                 <span>Deposit Amount</span>
-                <span style={{ color: STEEL, fontFamily: FONT_MONO }}>{formatCurrency(amount)}</span>
+                <span style={{ color: STEEL }}>{formatCurrency(amount)}</span>
               </label>
               <input
                 type="range"
@@ -146,7 +144,7 @@ export default function DepositCalculator() {
                 className="w-full h-2 rounded-full appearance-none cursor-pointer"
                 style={{ backgroundColor: `${INK}1A`, accentColor: STEEL }}
               />
-              <div className="flex justify-between text-xs mt-1" style={{ color: `${INK}66`, fontFamily: FONT_MONO }}>
+              <div className="flex justify-between text-xs mt-1" style={{ color: `${INK}66` }}>
                 <span>Rs. 5,000</span>
                 <span>Rs. 50,00,000</span>
               </div>
@@ -155,7 +153,7 @@ export default function DepositCalculator() {
                 value={amount}
                 onChange={(e) => setAmount(Math.max(5000, Math.min(5000000, Number(e.target.value))))}
                 className="w-full mt-3 px-4 py-2.5 text-sm focus:outline-none"
-                style={{ border: `1px solid ${INK}26`, backgroundColor: '#FFFFFF', color: INK, fontFamily: FONT_MONO }}
+                style={{ border: `1px solid ${INK}26`, backgroundColor: '#FFFFFF', color: INK }}
                 placeholder="Enter amount"
               />
             </div>
@@ -218,7 +216,7 @@ export default function DepositCalculator() {
                       : { backgroundColor: '#FFFFFF', color: `${INK}99`, border: `1px solid ${INK}26` }
                   }
                 >
-                  Monthly ({rateTable[months]?.monthly ?? '—'}%)
+                  Monthly ({rateTable[months]?.monthly ?? '-'}%)
                 </button>
               </div>
             </div>
@@ -226,7 +224,7 @@ export default function DepositCalculator() {
             {/* Results */}
             <div className="grid grid-cols-1 gap-4">
               <div className="p-4" style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}>
-                <div className="text-xs mb-1" style={{ color: `${INK}80`, fontFamily: FONT_MONO }}>
+                <div className="text-xs mb-1" style={{ color: `${INK}80` }}>
                   Interest Rate
                 </div>
                 <div className="text-2xl font-black" style={{ color: JADE }}>
@@ -236,7 +234,7 @@ export default function DepositCalculator() {
               <div className="grid grid-cols-2 gap-3">
                 {isMonthly && monthlyInterestAmount && (
                   <div className="p-4" style={{ backgroundColor: `${STEEL}0D`, border: `1px solid ${STEEL}33` }}>
-                    <div className="text-xs mb-1" style={{ color: `${INK}80`, fontFamily: FONT_MONO }}>
+                    <div className="text-xs mb-1" style={{ color: `${INK}80` }}>
                       Monthly Interest
                     </div>
                     <div className="text-lg font-black" style={{ color: STEEL }}>
@@ -245,7 +243,7 @@ export default function DepositCalculator() {
                   </div>
                 )}
                 <div className="p-4" style={{ backgroundColor: `${INDIGO}0D`, border: `1px solid ${INDIGO}33` }}>
-                  <div className="text-xs mb-1" style={{ color: `${INK}80`, fontFamily: FONT_MONO }}>
+                  <div className="text-xs mb-1" style={{ color: `${INK}80` }}>
                     Total Interest
                   </div>
                   <div className="text-lg font-black" style={{ color: INDIGO }}>
@@ -256,7 +254,7 @@ export default function DepositCalculator() {
                   className="p-4"
                   style={{ background: `linear-gradient(115deg, ${STEEL}, ${INDIGO})`, gridColumn: isMonthly && monthlyInterestAmount ? 'auto' : 'span 2 / span 2' }}
                 >
-                  <div className="text-xs mb-1 text-[#F3F7F5]/70" style={{ fontFamily: FONT_MONO }}>
+                  <div className="text-xs mb-1 text-[#F3F7F5]/70">
                     Maturity Amount
                   </div>
                   <div className="text-xl font-black text-[#F3F7F5]">
@@ -335,7 +333,7 @@ export default function DepositCalculator() {
                         <div className="text-xs" style={{ color: `${INK}80` }}>
                           {item.name}
                         </div>
-                        <div className="text-sm font-bold" style={{ color: INK, fontFamily: FONT_MONO }}>
+                        <div className="text-sm font-bold" style={{ color: INK }}>
                           {formatCurrency(Math.round(item.value))}
                         </div>
                       </div>
@@ -352,7 +350,7 @@ export default function DepositCalculator() {
                     <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}K`} />
                     <Tooltip
                       formatter={(v: unknown) => [formatCurrency(Number(v)), 'Value']}
-                      contentStyle={{ border: `1px solid ${INK}26`, fontFamily: FONT_MONO }}
+                      contentStyle={{ border: `1px solid ${INK}26` }}
                     />
                     <Line type="monotone" dataKey="value" stroke={STEEL} strokeWidth={3} dot={{ fill: STEEL, r: 5 }} />
                   </LineChart>
@@ -366,7 +364,7 @@ export default function DepositCalculator() {
                 <div className="text-sm mb-1" style={{ color: `${INK}80` }}>
                   Your money grows from
                 </div>
-                <div className="text-lg font-bold" style={{ color: INK, fontFamily: FONT_MONO }}>
+                <div className="text-lg font-bold" style={{ color: INK }}>
                   {formatCurrency(amount)} → {formatCurrency(Math.round(maturityAmount))}
                 </div>
                 <div className="text-sm font-semibold mt-1" style={{ color: JADE }}>

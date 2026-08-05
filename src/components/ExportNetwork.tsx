@@ -14,7 +14,6 @@ import {
 } from "recharts";
 import { Ship, Sprout } from "lucide-react";
 
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = "#1E2A38";
 const PAPER = "var(--color-primary-100)";
 const STEEL = "var(--color-light-green)";
@@ -61,7 +60,7 @@ const exportPartners = [
     name: "Elevare",
     type: "Business & Lifestyle Media",
     logo: elavareLogo,
-    strength: "Sri Lanka's leading business & lifestyle magazine",
+    strength: "Sri Lanka's leading business & lifestyle magazine with global reach",
     path:"https://elevare.lk/"
   },
   {
@@ -111,7 +110,6 @@ export default function ExportNetwork() {
             style={{
               borderColor: `${JADE}80`,
               color: JADE,
-              fontFamily: FONT_MONO,
             }}
           >
             <FaGlobeAsia size={11} /> Global Export Network
@@ -271,7 +269,7 @@ export default function ExportNetwork() {
                   boxShadow: "0 2px 12px rgba(30,42,56,0.05)",
                 }}
               >
-                {/* Logo panel — letterhead style, bigger and given its own space */}
+                {/* Logo panel - letterhead style, bigger and given its own space */}
                 <div
                   className="flex items-center justify-center px-6"
                   style={{
@@ -300,7 +298,6 @@ export default function ExportNetwork() {
                     style={{
                       backgroundColor: `${JADE}18`,
                       color: JADE,
-                      fontFamily: FONT_MONO,
                       fontSize: "12px",
                     }}
                   >

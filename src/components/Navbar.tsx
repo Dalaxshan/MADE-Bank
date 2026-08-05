@@ -9,7 +9,6 @@ import {
 } from "react-icons/fa";
 import { Landmark } from "lucide-react";
 
-const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
 const INK = "var(--color-gold)";
 const PAPER = "var(--color-primary-100)";
 const JADE = "var(--color-light-green)";
@@ -65,10 +64,10 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top bar — ink stamp strip */}
+      {/* Top bar - ink stamp strip */}
       <div
         className="text-[11px] py-2 px-4 hidden md:block"
-        style={{ backgroundColor: INDIGO, color: PAPER, fontFamily: FONT_MONO }}
+        style={{ backgroundColor: INDIGO, color: PAPER}}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center tracking-wide">
           <span className="flex items-center gap-2">
@@ -146,7 +145,7 @@ export default function Navbar() {
                     )}
                   </button>
 
-                  {/* Dropdown — ledger card */}
+                  {/* Dropdown - ledger card */}
                   <AnimatePresence>
                     {link.children && activeDropdown === link.label && (
                       <motion.div
@@ -169,7 +168,6 @@ export default function Navbar() {
                               color: `${INK}CC`,
                               borderTop:
                                 ci === 0 ? "none" : `1px dotted ${INK}14`,
-                              fontFamily: FONT_MONO,
                               fontSize: "12.5px",
                             }}
                           >
@@ -189,7 +187,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA Buttons — ledger tabs, same shape as the hero */}
+            {/* CTA Buttons - ledger tabs, same shape as the hero */}
             <div className="hidden lg:flex items-center gap-2.5">
              
               <button
@@ -257,7 +255,6 @@ export default function Navbar() {
                             className="w-full text-left px-4 py-2 text-sm transition-colors"
                             style={{
                               color: `${INK}99`,
-                              fontFamily: FONT_MONO,
                               fontSize: "12.5px",
                             }}
                           >
