@@ -315,9 +315,6 @@ export default function ServicesSection() {
                 <div
                   key={item.label}
                   className="flex items-center gap-2 bg-[#F3F7F5]/10 border border-[#F3F7F5]/20 px-5 py-3 text-sm"
-                  style={{
-                    fontFamily: "'IBM Plex Mono', 'Courier New', monospace",
-                  }}
                 >
                   <span className="text-[#F3F7F5]">{item.icon}</span>
                   <span className="font-semibold tracking-wide">

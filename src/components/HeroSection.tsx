@@ -14,8 +14,6 @@ import {
   UserStar,
 } from "lucide-react";
 
-const FONT_DISPLAY = "'Fraunces', Georgia, serif";
-const FONT_BODY = "'Work Sans', system-ui, sans-serif";
 
 const ledgerEntries = [
   {
@@ -66,9 +64,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#E9F0DC]"
-      style={{ fontFamily: FONT_BODY }}
-    >
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#E9F0DC]"    >
       {/* Ledger-line ambient texture */}
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -104,7 +100,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-[2.75rem] md:text-7xl lg:text-[5rem] font-black text-[#1E2A38] leading-[1.05] mb-6 tracking-wide max-w-3xl"
+              className="text-[2.75rem] md:text-7xl lg:text-[4.5rem] font-black text-[#1E2A38] leading-[1.05] mb-6 tracking-wide max-w-3xl"
             
             >
               Every Harvest,{" "}
@@ -223,7 +219,6 @@ export default function HeroSection() {
               </div>
               <h2
                 className="text-xl font-black mb-6 pb-4 border-b-2 border-[#1E2A38]/15"
-                style={{ fontFamily: FONT_DISPLAY }}
               >
                 Society Standing
               </h2>

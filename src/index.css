@@ -29,9 +29,6 @@
   /* Neutrals */
   --color-cream: #ffffe3;
   --color-soft-green: #edfcdc;
-
-  --font-family-sans: "Playfair Display";
-  --font-family-heading: "Playfair Display";
 }
 
 * {
@@ -39,21 +36,13 @@
 }
 
 body {
-  font-family: "Playfair Display";
+ 
   background-color: #ffffff;
   color: #1a1a1a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Playfair Display";
-}
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
