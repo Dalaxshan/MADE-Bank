@@ -126,7 +126,7 @@ export default function DepositSection() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr style={{ background: `linear-gradient(1deg, ${STEEL}, ${INDIGO})` }}>
+                    <tr style={{ background: `${JADE}` }}>
                       <th
                         className="px-6 py-4 text-left text-xs font-bold cursor-pointer uppercase tracking-wider transition-colors hover:bg-white/10"
                         style={{ color: PAPER}}
@@ -239,7 +239,7 @@ export default function DepositSection() {
             <div
               className="relative overflow-hidden p-6 text-[#F3F7F5]"
               style={{
-                background: `linear-gradient(205deg, ${STEEL} 0%, ${INDIGO} 60%)`,
+                background: `linear-gradient(205deg, ${JADE} 0%, ${INDIGO} 60%)`,
                 clipPath: "polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
               }}
             >

@@ -7,11 +7,11 @@ import {
   FaClock,
   FaFacebook,
   FaWhatsapp,
-  FaYoutube,
   FaCheckCircle,
   FaPaperPlane,
 } from "react-icons/fa";
 import { useState } from "react";
+import { Shield } from "lucide-react";
 
 type FormData = {
   name: string;
@@ -21,6 +21,10 @@ type FormData = {
   service: string;
   message: string;
 };
+
+const FONT_MONO = "'IBM Plex Mono', 'Courier New', monospace";
+const INK = "#1E2A38";
+const JADE = "var(--color-light-green)";
 
 const contactInfo = [
   {
@@ -40,9 +44,7 @@ const contactInfo = [
   {
     icon: <FaEnvelope className="text-xl" />,
     title: "Email",
-    lines: [
-      "info@madecoopbank.com"
-    ],
+    lines: ["info@madecoopbank.com"],
     color: "bg-blue-100 text-blue-600",
     href: "mailto:info@madecoopbank.com",
   },
@@ -161,31 +163,28 @@ export default function ContactSection() {
                 >
                   <FaFacebook /> Facebook
                 </a>
-                <a
-                  href="#"
-                  className="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-red-700 transition-colors"
-                >
-                  <FaYoutube /> YouTube
-                </a>
               </div>
             </div>
 
             {/* Map placeholder */}
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-md">
-              <div className="bg-gradient-to-br from-green-100 to-emerald-100 h-48 flex flex-col items-center justify-center relative">
-                <div className="text-4xl mb-3">🗺️</div>
-                <div className="font-bold text-gray-900 text-sm">
-                  Matale, Central Province
+              <div className="relative h-48">
+                <iframe
+                  title="3/4, Yelakkare Junction, Dangan Place, Yatawatta, Matale."
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.0374012657467!2d80.59133567351302!3d7.570901510109455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae34fb3103c4903%3A0x1e974f0b48795acf!2sDangan%20place!5e0!3m2!1sen!2slk!4v1785903215550!5m2!1sen!2slk"
+                  className="absolute inset-0 w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+              <div className="flex items-center justify-between px-4 py-2 bg-white">
+                <div>
+                  <div className="font-bold text-gray-900 text-sm">
+                    3/4, Yelakkare Junction, Dangan Place, Yatawatta, Matale.
+                  </div>
+                  <div className="text-gray-500 text-xs">Sri Lanka</div>
                 </div>
-                <div className="text-gray-500 text-xs">Sri Lanka</div>
-                <a
-                  href="https://maps.google.com/?q=Matale,+Sri+Lanka"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 bg-white text-green-700 font-semibold text-xs px-4 py-2 rounded-full border border-green-200 hover:bg-green-50 transition-colors"
-                >
-                  View on Google Maps →
-                </a>
               </div>
             </div>
           </motion.div>
@@ -343,22 +342,52 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-10 bg-green-900 rounded-3xl p-6 text-white text-center"
+          className="mt-10 relative overflow-hidden p-8 text-center"
+          style={{
+            border: `1px dashed ${JADE}66`,
+            backgroundColor: 'var(--color-primary-100)',
+          }}
         >
-          <div className="text-sm text-green-300 mb-1 font-semibold">
+          {/* corner stamp ticks — echoes the ledger/seal motif used elsewhere */}
+          <span
+            className="absolute top-3 left-3 w-2 h-2 border-t border-l"
+            style={{ borderColor: `${JADE}80` }}
+          />
+          <span
+            className="absolute top-3 right-3 w-2 h-2 border-t border-r"
+            style={{ borderColor: `${JADE}80` }}
+          />
+          <span
+            className="absolute bottom-3 left-3 w-2 h-2 border-b border-l"
+            style={{ borderColor: `${JADE}80` }}
+          />
+          <span
+            className="absolute bottom-3 right-3 w-2 h-2 border-b border-r"
+            style={{ borderColor: `${JADE}80` }}
+          />
+
+          <div
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] mb-3"
+            style={{ color: JADE, fontFamily: FONT_MONO }}
+          >
+            <Shield size={12} />
             Legal Registration
           </div>
-          <p className="text-white/80 text-sm max-w-3xl mx-auto">
-            <strong className="text-white">
+
+          <p
+            className="text-sm max-w-3xl mx-auto leading-relaxed"
+            style={{ color: `${INK}CC` }}
+          >
+            <strong style={{ color: INK }}>
               Matale District Agriculture Development and Export Cooperative
               Society Ltd. (MADECOOP)
             </strong>{" "}
-            is Registered under{" "}
-            <strong className="text-green-300">
+            is registered under{" "}
+            <strong style={{ color: JADE }}>
               Section 06 of the Cooperative Societies Act No. 10 of 1990
             </strong>{" "}
             of the Central Provincial Council, as amended by the{" "}
-            <strong className="text-green-300">
+            <strong style={{ color: JADE }}>
               Cooperative Societies (Amendment) Act No. 04 of 1993.
             </strong>
           </p>

@@ -96,11 +96,11 @@ export default function GroupMortgageLoans() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-[color:var(--color-secondary)]/80 to-[color:var(--color-secondary)]/410 rounded-3xl p-8 border border-teal-100"
+            className="bg-gradient-to-br from-[color:var(--color-secondary)]/20 to-[color:var(--color-secondary)]/15 rounded-3xl p-8 border border-teal-100"
           >
             {/* Header */}
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-[color:var(--color-secondary-light)]/60 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-2xl bg-[color:var(--color-secondary)] flex items-center justify-center">
                 {/* <FaUsers className="text-teal-600 text-3xl" /> */}
                 <UsersRound
                   strokeWidth={1.75}
@@ -111,7 +111,7 @@ export default function GroupMortgageLoans() {
                 <h3 className="text-2xl font-black text-gray-900">
                   Group Loan
                 </h3>
-                <span className="inline-block bg-[color:var(--color-secondary)]/60 border border-[color:var(--color-secondary)] text-white text-xs font-bold px-3 py-1 rounded-full mt-1">
+                <span className="inline-block bg-[color:var(--color-secondary)] border border-[color:var(--color-secondary)] text-white text-xs font-bold px-3 py-1 rounded-full mt-1">
                   No Collateral Required
                 </span>
               </div>
@@ -181,7 +181,7 @@ export default function GroupMortgageLoans() {
               onClick={() => handleNavClick("#contact")}
               className="btn-primary  w-full justify-center"
               style={{
-                background: "#63ac53",
+                background: "var(--color-secondary)",
               }}
             >
               Apply for Group Loan <FaArrowRight />
@@ -206,7 +206,7 @@ export default function GroupMortgageLoans() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex gap-4 p-4 bg-gray-50 rounded-2xl hover:bg-[color:var(--color-secondary)] transition-colors"
+                  className="flex gap-4 p-4 bg-gray-50 rounded-2xl hover:bg-[color:var(--color-secondary)]/20 transition-colors"
                 >
                   <div className="w-12 h-12 bg-[color:var(--color-secondary)] text-white rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">
                     {step.step}
@@ -222,7 +222,7 @@ export default function GroupMortgageLoans() {
             </div>
 
             {/* Solidarity lending concept */}
-            <div className="mt-6 p-5 bg-gradient-to-r from-[color:var(--color-secondary)] to-[color:var(--color-secondary-light)] rounded-2xl text-white">
+            <div className="mt-6 p-5 bg-gradient-to-r from-[color:var(--color-secondary)]/50 to-[color:var(--color-secondary)]/60 rounded-2xl text-white">
               <div className="flex items-center gap-3 mb-3">
                 <FaHandshake className="text-2xl text-[color:var(--color-secondary)]" />
                 <h4 className="font-bold text-black">Solidarity Lending</h4>
@@ -317,7 +317,7 @@ export default function GroupMortgageLoans() {
                   onClick={() => handleNavClick("#contact")}
                   className="btn-primary justify-center w-full"
                   style={{
-                    background: "#63ac53",
+                    background: "var(--color-primary)",
                   }}
                 >
                   Inquire About Mortgage Loan <FaArrowRight />

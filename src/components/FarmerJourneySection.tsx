@@ -137,7 +137,7 @@ export default function FarmerJourneySection() {
         >
           <span
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 text-xs font-bold uppercase tracking-[0.15em]"
-            style={{ backgroundColor: '#FDE9B8', color: '#8a5a05', fontFamily: FONT_MONO }}
+            style={{ backgroundColor: 'var(--color-secondary)',color: '#fff', fontFamily: FONT_MONO }}
           >
             Our Process
           </span>
@@ -187,7 +187,7 @@ export default function FarmerJourneySection() {
               </div>
               <div
                 className="text-sm font-semibold mb-3 line-through decoration-2"
-                style={{ color: `${INK}66`, textDecorationColor: `${INK}40`,backgroundColor: `var(--color-secondary)`, padding: '4px 8px', borderRadius: '4px' }}
+                style={{  color: '#fff', textDecorationColor: `${INK}60`,backgroundColor: `var(--color-secondary)`, padding: '4px 8px', borderRadius: '4px' }}
               >
                 {item.problem}
               </div>
