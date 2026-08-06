@@ -51,7 +51,7 @@ const exportPartners = [
   },
   {
     name: "Agroventures Plantations",
-    type: "Cinnamon & Spice Cultivation",
+    type: "Vanilla & Spice Cultivation",
     logo: agroLogo,
     strength: "Pioneers in vanilla and export-grade spice cultivation",
     path: "https://agroventures.lk/"
@@ -234,7 +234,7 @@ export default function ExportNetwork() {
             className="text-3xl md:text-4xl font-black text-center mb-3"
             style={{ color: INK }}
           >
-            Our Export Partners
+            Our Group Strength
           </h3>
           <p
             className="text-base text-center max-w-xl mx-auto mb-10"

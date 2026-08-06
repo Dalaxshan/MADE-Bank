@@ -10,85 +10,9 @@ import {
   Tractor,
   Users,
 } from "lucide-react";
-import {
-  FaArrowRight,
-  FaCheckCircle,
-} from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
 
 const services = [
-  {
-    id: "export-loan",
-    icon: <Sprout strokeWidth={1.25} />,
-    title: "Export Agriculture Loan",
-    subtitle: "For Export-Oriented Cultivation",
-    desc: "Financial assistance specifically designed for farmers engaged in export-quality crop cultivation including cinnamon, Vanilla,pepper, cardamom, and organic vegetables.",
-    features: [
-      "Up to Rs. 500,000",
-      "Competitive interest rates",
-      "Flexible repayment",
-      "Buy-back guaranteed",
-    ],
-    color: "from-green-500 to-emerald-600",
-    bg: "bg-green-50",
-    border: "border-green-200",
-    iconBg: "bg-green-100 text-green-600",
-    badge: "Most Popular",
-    badgeColor: "bg-green-600",
-  },
-  {
-    id: "land-loan",
-    icon: <Landmark strokeWidth={1.25} />,
-    title: "Agriculture Land Purchasing Loan",
-    subtitle: "Expand Your Farming Land",
-    desc: "Helping farmers secure agricultural land for cultivation with affordable financing and flexible repayment terms tailored to farming income cycles.",
-    features: [
-      "Agricultural land only",
-      "Long repayment period",
-      "Low interest rate",
-      "Title deed required",
-    ],
-    color: "from-brown-500 to-amber-700",
-    bg: "bg-amber-50",
-    border: "border-amber-200",
-    iconBg: "bg-amber-100 text-amber-700",
-    badge: null,
-  },
-  {
-    id: "machinery-loan",
-    icon: <Forklift strokeWidth={1.25} />,
-    title: "Agricultural Machinery Loan",
-    subtitle: "Modernize Your Farm",
-    desc: "Loans for tractors, harvesters, irrigation equipment, water pumps, and modern agricultural machinery to increase productivity and efficiency.",
-    features: [
-      "Tractors & harvesters",
-      "Irrigation systems",
-      "Water pumps",
-      "Processing equipment",
-    ],
-    color: "from-orange-500 to-red-500",
-    bg: "bg-orange-50",
-    border: "border-orange-200",
-    iconBg: "bg-orange-100 text-orange-600",
-    badge: null,
-  },
-  {
-    id: "vehicle-loan",
-    icon: <Tractor strokeWidth={1.25} />,
-    title: "Agricultural Vehicle Loan",
-    subtitle: "Transport Your Harvest",
-    desc: "Vehicle financing for agricultural transport including lorries, mini-trucks, and specialized farming vehicles to ensure your harvest reaches markets efficiently.",
-    features: [
-      "Agricultural vehicles",
-      "Transport logistics",
-      "Market connectivity",
-      "Flexible terms",
-    ],
-    color: "from-blue-500 to-indigo-600",
-    bg: "bg-blue-50",
-    border: "border-blue-200",
-    iconBg: "bg-blue-100 text-blue-600",
-    badge: null,
-  },
   {
     id: "group-loan",
     icon: <Users strokeWidth={1.25} />,
@@ -105,7 +29,7 @@ const services = [
     bg: "bg-teal-50",
     border: "border-teal-200",
     iconBg: "bg-teal-100 text-teal-600",
-    badge: "No Collateral",
+    badge: "Most Popular",
     badgeColor: "bg-teal-600",
   },
   {
@@ -127,14 +51,81 @@ const services = [
     badge: "Large Loans",
     badgeColor: "bg-rose-600",
   },
+  {
+    id: "export-loan",
+    icon: <Sprout strokeWidth={1.25} />,
+    title: "Export Agriculture Loan",
+    subtitle: "For Export-Oriented Cultivation",
+    desc: "Financial assistance specifically designed for farmers engaged in export-quality crop cultivation including cinnamon, Vanilla,pepper, cardamom, and organic vegetables.",
+    features: [
+      "Up to Rs. 500,000",
+      "Competitive interest rates",
+      "Flexible repayment",
+      "Buy-back guaranteed",
+    ],
+    color: "from-green-500 to-emerald-600",
+    bg: "bg-green-50",
+    border: "border-green-200",
+    iconBg: "bg-green-100 text-green-600",
+    badgeColor: "bg-green-600",
+  },
+  {
+    id: "land-loan",
+    icon: <Landmark strokeWidth={1.25} />,
+    title: "Agriculture Land Purchasing Loan",
+    subtitle: "Expand Your Farming Land",
+    desc: "Helping farmers secure agricultural land for cultivation with affordable financing and flexible repayment terms tailored to farming income cycles.",
+    features: [
+      "Agricultural land only",
+      "Long repayment period",
+      "Low interest rate",
+      "Title deed required",
+    ],
+    color: "from-brown-500 to-amber-700",
+    bg: "bg-amber-50",
+    border: "border-amber-200",
+    iconBg: "bg-amber-100 text-amber-700",
+     badge: "No Collateral",
+  },
+  {
+    id: "vehicle-loan",
+    icon: <Tractor strokeWidth={1.25} />,
+    title: "Agricultural Vehicle Loan",
+    subtitle: "Transport Your Harvest",
+    desc: "Vehicle financing for agricultural transport including lorries, mini-trucks, and specialized farming vehicles to ensure your harvest reaches markets efficiently.",
+    features: [
+      "Agricultural vehicles",
+      "Transport logistics",
+      "Market connectivity",
+      "Flexible terms",
+    ],
+    color: "from-blue-500 to-indigo-600",
+    bg: "bg-blue-50",
+    border: "border-blue-200",
+    iconBg: "bg-blue-100 text-blue-600",
+    badge: null,
+  },
+  {
+    id: "machinery-loan",
+    icon: <Forklift strokeWidth={1.25} />,
+    title: "Agricultural Machinery Loan",
+    subtitle: "Modernize Your Farm",
+    desc: "Loans for tractors, harvesters, irrigation equipment, water pumps, and modern agricultural machinery to increase productivity and efficiency.",
+    features: [
+      "Tractors & harvesters",
+      "Irrigation systems",
+      "Water pumps",
+      "Processing equipment",
+    ],
+    color: "from-orange-500 to-red-500",
+    bg: "bg-orange-50",
+    border: "border-orange-200",
+    iconBg: "bg-orange-100 text-orange-600",
+    badge: null,
+  },
 ];
 
 export default function ServicesSection() {
-  const handleNavClick = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section id="services" className="py-14 bg-section-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -216,15 +207,6 @@ export default function ServicesSection() {
                   </div>
                 ))}
               </div>
-
-              {/* CTA */}
-              <button
-                onClick={() => handleNavClick("#contact")}
-                className="flex items-center gap-2 text-sm font-semibold text-green-700 group-hover:text-green-800 transition-colors"
-              >
-                Apply Now{" "}
-                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </button>
             </motion.div>
           ))}
         </div>
@@ -237,8 +219,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="relative overflow-hidden p-8 sm:p-10 text-center text-[#F3F7F5]"
           style={{
-            background:
-              "var(--color-primary) ",
+            background: "var(--color-primary) ",
             clipPath:
               "polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))",
           }}

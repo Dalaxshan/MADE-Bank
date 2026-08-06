@@ -199,9 +199,6 @@ export default function FarmerJourneySection() {
           ))}
         </motion.div>
 
-        {/* ---------------- Roadmap: zigzag cards + curvy dashed connector ---------------- */}
-
-        {/* Mobile / tablet - simple stacked list, no absolute geometry */}
         <div className="space-y-6 lg:hidden">
           {journeySteps.map((step) => (
             <div
@@ -296,7 +293,7 @@ export default function FarmerJourneySection() {
           transition={{ duration: 0.6 }}
           className="mt-0 relative overflow-hidden p-10 text-center text-[#F3F7F5]"
           style={{
-            background:"var(--color-accent)",
+            backgroundColor: 'var(--color-light-green)',
             clipPath: 'polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))',
           }}
         >
