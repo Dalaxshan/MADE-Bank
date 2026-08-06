@@ -169,7 +169,7 @@ export default function Footer() {
                 <FaFacebook size={14} />
               </a>
               <a
-                href="https://wa.me/94771234567"
+                href="https://wa.me/94704732926"
                 className="w-9 h-9 border border-white/15 flex items-center justify-center text-gray-400 transition-all"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = JADE;
