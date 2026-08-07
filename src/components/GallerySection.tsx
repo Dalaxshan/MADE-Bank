@@ -10,47 +10,47 @@ const STEEL = "var(--color-light-green)";
 const galleryItems = [
   {
     id: 1,
-    src: "https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/mad7.jpg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad7.jpg",
     span: 1,
   },
   {
     id: 2,
-    src: "https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/mad5.jpg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad5.jpg",
     span: 2,
   },
   {
     id: 3,
-    src: "https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/mad17.jpg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad17.jpg",
     span: 1,
   },
   {
     id: 4,
-    src: "https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/mad14.jpg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad14.jpg",
     span: 1,
   },
   {
     id: 5,
-    src: "https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/mad15.jpg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad15.jpg",
     span: 1,
   },
   {
     id: 6,
-    src: "https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/mad16.jpeg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad16.jpeg",
     span: 2,
   },
   {
     id: 7,
-    src: "https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/mad6.jpg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad6.jpg",
     span: 1,
   },
   {
     id: 8,
-    src: "https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/mad10.jpg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad10.jpg",
     span: 2,
   },
   {
     id: 9,
-    src: "https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/mad7.jpg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad7.jpg",
     span: 1,
   },
 ];

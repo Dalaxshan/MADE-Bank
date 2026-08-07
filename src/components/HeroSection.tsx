@@ -75,7 +75,7 @@ export default function HeroSection() {
         style={{ zIndex: 0 }}
       >
         <source
-          src="https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/made-bank.mp4"
+          src="https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_made-bank.mp4"
           type="video/mp4"
         />
       </video>
