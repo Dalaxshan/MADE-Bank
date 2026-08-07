@@ -13,7 +13,7 @@ import { FaArrowDown, FaCheckCircle } from 'react-icons/fa';
 
 const INK = '#1E2A38';
 const PAPER = "var(--color-primary-100)";
-const JADE = "var(--color-light-green)";
+const JADE = "var(--color-primary)";
 const STEEL = "var(--color-secondary)";
 
 const journeySteps = [
@@ -182,11 +182,11 @@ export default function FarmerJourneySection() {
                 className="text-[10px] uppercase tracking-[0.15em] mb-2"
                 style={{ color: `${INK}5C`}}
               >
-                Entry {String(i + 1).padStart(2, '0')}
+                Problem {String(i + 1).padStart(2, '0')}
               </div>
               <div
-                className="text-sm font-semibold mb-3 line-through decoration-2"
-                style={{  color: '#fff', textDecorationColor: `${INK}60`,backgroundColor: `var(--color-secondary)`, padding: '4px 8px', borderRadius: '4px' }}
+                className="text-sm font-semibold mb-3 line-through decoration-1"
+                style={{  color: '#000', textDecorationColor: 'red',backgroundColor: `var(--color-primary-200)`, padding: '4px 8px', borderRadius: '4px' }}
               >
                 {item.problem}
               </div>
@@ -312,7 +312,7 @@ export default function FarmerJourneySection() {
             <circle cx="100" cy="100" r="72" fill="none" stroke="#F3F7F5" strokeWidth="1.5" />
             <text fill="#F3F7F5" fontSize="11" letterSpacing="2">
               <textPath href="#journeyStampCircle" startOffset="0%">
-                • 5000+ FARMERS · MADECOOP · 5000+ FARMERS
+                • 500+ FARMERS · MADECOOP · 500+ FARMERS
               </textPath>
             </text>
           </svg>
@@ -320,7 +320,7 @@ export default function FarmerJourneySection() {
           <div className="relative z-10">
             <div className="text-5xl mb-4"></div>
             <h3 className="text-3xl font-black mb-3" >
-              Join 5000+ Successful Farmers
+              Join 500+ Successful Farmers
             </h3>
             <p className="text-lg mb-8 max-w-xl mx-auto text-[#F3F7F5]/80">
               Start your journey from problem to profit with MADECOOP's complete farmer support

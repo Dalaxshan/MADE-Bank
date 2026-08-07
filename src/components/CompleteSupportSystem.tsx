@@ -112,7 +112,7 @@ export default function CompleteSupportSystem() {
                     className="absolute top-4 right-4 text-[10px] font-bold px-2 py-1 tracking-wide"
                     style={{ backgroundColor: color, color: PAPER }}
                   >
-                    ENTRY {String(stage.step).padStart(2, '0')}
+                    PROBLEM {String(stage.step).padStart(2, '0')}
                   </div>
 
                   <div className="flex items-center gap-5">
@@ -194,7 +194,7 @@ export default function CompleteSupportSystem() {
           className="mt-16 text-center"
         >
           <p className="text-lg mb-6" style={{ color: `${PAPER}B3` }}>
-            Ready to join 5000+ successful farmers?
+            Ready to join 500+ successful farmers?
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <button

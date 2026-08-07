@@ -160,31 +160,6 @@ export default function FAQSection() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-12 bg-white rounded-3xl p-8 shadow-lg border border-gray-100 text-center"
-        >
-          <div className="text-4xl mb-3">💬</div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Still Have Questions?</h3>
-          <p className="text-gray-600 mb-5">
-            Our friendly team is always ready to help. Contact us directly for personalized guidance.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary"
-            >
-              Contact Us
-            </button>
-            <a href="tel:+94704732926" className="btn-secondary">
-              📞 Call Now
-            </a>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

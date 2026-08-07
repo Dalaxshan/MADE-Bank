@@ -14,10 +14,9 @@ import {
   UserStar,
 } from "lucide-react";
 
-
 const ledgerEntries = [
   {
-    value: 5000,
+    value: 500,
     suffix: "+",
     label: "Farmers Supported",
     icon: <Tractor strokeWidth={1.25} />,
@@ -29,9 +28,9 @@ const ledgerEntries = [
     icon: <BanknoteArrowDown strokeWidth={1.25} />,
   },
   {
-    value: 20,
+    value: 6,
     suffix: "+",
-    label: "Export Partners",
+    label: "Group Partners",
     icon: <Handshake strokeWidth={1.25} />,
   },
   {
@@ -64,19 +63,52 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#E9F0DC]"    >
-      {/* Ledger-line ambient texture */}
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#E9F0DC]"
+    >
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        style={{ zIndex: 0 }}
+      >
+        <source
+          src="https://pub-99e17fed1d7345978ebaceb328549b8f.r2.dev/made-bank/made-bank.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      {/* Directional scrim: strong behind the copy (left), fading out over the video (right) */}
       <div
-        className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage:
-            "repeating-linear-gradient(to bottom, transparent 0px, transparent 37px, #1E2A38 38px)",
+          background:
+            "linear-gradient(100deg, rgba(233,240,220,0.96) 0%, rgba(233,240,220,0.90) 28%, rgba(233,240,220,0.55) 52%, rgba(233,240,220,0.22) 72%, rgba(233,240,220,0.08) 100%)",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Subtle vertical grounding so the video doesn't float against the header/footer */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(233,240,220,0.35) 0%, rgba(233,240,220,0) 18%, rgba(233,240,220,0) 78%, rgba(233,240,220,0.45) 100%)",
+          zIndex: 1,
         }}
       />
 
       {/* Warm ambient glow behind headline */}
-      <div className="absolute -top-40 -left-20 w-[32rem] h-[32rem] bg-[var(--color-primary)] rounded-full blur-[140px] opacity-[0.18] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-[var(--color-secondary)] rounded-full blur-[140px] opacity-[0.20] pointer-events-none" />
+      <div
+        className="absolute -top-40 -left-20 w-[32rem] h-[32rem] bg-[var(--color-primary)] rounded-full blur-[140px] opacity-[0.18] pointer-events-none"
+        style={{ zIndex: 2 }}
+      />
+      <div
+        className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-[var(--color-secondary)] rounded-full blur-[140px] opacity-[0.20] pointer-events-none"
+        style={{ zIndex: 2 }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-22 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -101,11 +133,10 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-[2.75rem] md:text-7xl lg:text-[4.5rem] font-black text-[#1E2A38] leading-[1.05] mb-6 tracking-wide max-w-3xl"
-            
             >
               Every Harvest,{" "}
               <span className="text-[var(--color-primary)]">Build </span>
-              on <span className="text-[var(--color-secondary)]">Trust.</span>
+              on <span className="text-[var(--color-accent-dark)]">Trust.</span>
             </motion.h1>
 
             {/* Sub headline */}
@@ -129,7 +160,7 @@ export default function HeroSection() {
             >
               <button
                 onClick={() => handleNavClick("#services")}
-                className="group flex items-center gap-2 bg-[var(--color-accent)] text-[#fff] px-7 py-3.5 font-semibold text-[15px] hover:bg-[var(--color-accent-light)] transition-colors duration-300"
+                className="group flex items-center gap-2 bg-[var(--color-secondary)] text-[#fff] px-7 py-3.5 font-semibold text-[15px] hover:bg-[var(--color-secondary-light)] transition-colors duration-300"
                 style={{
                   clipPath: "polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 70%)",
                 }}
@@ -153,12 +184,12 @@ export default function HeroSection() {
               </button>
             </motion.div>
 
-            {/* Shipment tags - replace the floating glass pills */}
+            {/* Shipment tags - desktop/tablet only */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.5 }}
-              className="flex flex-wrap gap-4"
+              className="hidden lg:flex flex-wrap gap-4"
             >
               {shipmentTags.map((tag, i) => (
                 <motion.div
@@ -181,10 +212,10 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* ---------------- Right: the passbook ---------------- */}
+          {/* ---------------- Right: the passbook (desktop/tablet only) ---------------- */}
           <div
             ref={ref}
-            className="relative flex justify-center lg:justify-end"
+            className="hidden lg:flex relative justify-center lg:justify-end"
           >
             <motion.div
               initial={{ opacity: 0, rotate: 6, y: 30 }}
@@ -206,20 +237,14 @@ export default function HeroSection() {
 
               {/* Passbook header */}
               <div className="flex items-baseline justify-between mb-1">
-                <span
-                  className="text-[11px] tracking-[0.2em] uppercase text-[#2B3A67] font-semibold"
-                >
+                <span className="text-[11px] tracking-[0.2em] uppercase text-[#2B3A67] font-semibold">
                   Member Ledger
                 </span>
-                <span
-                  className="text-[11px] text-[#1E2A38]/40"
-                >
+                <span className="text-[11px] text-[#1E2A38]/40">
                   No. 000114
                 </span>
               </div>
-              <h2
-                className="text-xl font-black mb-6 pb-4 border-b-2 border-[#1E2A38]/15"
-              >
+              <h2 className="text-xl font-black mb-6 pb-4 border-b-2 border-[#1E2A38]/15">
                 Society Standing
               </h2>
 
@@ -238,9 +263,7 @@ export default function HeroSection() {
                       {entry.label}
                     </span>
                     <span className="flex-1 border-b-2 border-dotted border-[#1E2A38]/25 translate-y-[-3px]" />
-                    <span
-                      className="text-xl font-bold shrink-0"
-                    >
+                    <span className="text-xl font-bold shrink-0">
                       {inView ? (
                         <CountUp
                           end={entry.value}
@@ -259,13 +282,21 @@ export default function HeroSection() {
               <div className="mt-8 pt-4 border-t border-[#1E2A38]/10">
                 <div
                   className="flex items-start gap-2 px-3 py-2.5"
-                  style={{ backgroundColor: 'rgba(43,58,103,0.07)', borderLeft: '3px solid #2B3A67' }}
+                  style={{
+                    backgroundColor: "rgba(43,58,103,0.07)",
+                    borderLeft: "3px solid #2B3A67",
+                  }}
                 >
-                  <span className="text-[#2B3A67] font-black text-sm mt-0.5 shrink-0">✓</span>
-                  <p className="text-[12.5px] leading-relaxed" style={{ color: '#2B3A67', fontWeight: 'bold' }}>
-                    <strong>Registered</strong> under Cooperative Societies Act No. 10 of 1990,
-                    Central Provincial Council, as amended by Act No.{' '}
-                    <strong>04 of 1993.</strong>
+                  <span className="text-[#2B3A67] font-black text-sm mt-0.5 shrink-0">
+                    ✓
+                  </span>
+                  <p
+                    className="text-[12.5px] leading-relaxed"
+                    style={{ color: "#2B3A67", fontWeight: "bold" }}
+                  >
+                    <strong>Registered</strong> under Cooperative Societies Act
+                    No. 10 of 1990, Central Provincial Council, as amended by
+                    Act No. <strong>04 of 1993.</strong>
                   </p>
                 </div>
               </div>

@@ -87,7 +87,7 @@ export default function ContactSection() {
     console.log(data);
     setSubmitted(true);
     reset();
-    setTimeout(() => setSubmitted(false), 5000);
+    setTimeout(() => setSubmitted(false), 500);
   };
 
   return (
