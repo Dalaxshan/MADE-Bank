@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   FaFacebook,
@@ -14,45 +15,44 @@ const STEEL = "var(--color-secondary)";
 
 const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Loan Services": [
-    { label: "Export Agriculture Loan", href: "#services" },
-    { label: "Land Purchasing Loan", href: "#services" },
-    { label: "Machinery Loan", href: "#services" },
-    { label: "Vehicle Loan", href: "#services" },
-    { label: "Group Loan", href: "#group-loan" },
-    { label: "Mortgage Loan", href: "#mortgage-loan" },
+    { label: "Export Agriculture Loan", href: "/services" },
+    { label: "Land Purchasing Loan", href: "/services" },
+    { label: "Machinery Loan", href: "/services" },
+    { label: "Vehicle Loan", href: "/services" },
+    { label: "Group Loan", href: "/services" },
+    { label: "Mortgage Loan", href: "/services" },
   ],
   "Deposit Services": [
-    { label: "6 Month Deposit", href: "#deposits" },
-    { label: "1 Year Deposit", href: "#deposits" },
-    { label: "2-5 Year Deposits", href: "#deposits" },
-    { label: "Monthly Interest Plans", href: "#deposits" },
-    { label: "Maturity Plans", href: "#deposits" },
-    { label: "Deposit Calculator", href: "#deposit-calculator" },
+    { label: "6 Month Deposit", href: "/deposits" },
+    { label: "1 Year Deposit", href: "/deposits" },
+    { label: "2-5 Year Deposits", href: "/deposits" },
+    { label: "Monthly Interest Plans", href: "/deposits" },
+    { label: "Maturity Plans", href: "/deposits" },
+    { label: "Deposit Calculator", href: "/deposits" },
   ],
-  Company: [
-    { label: "About MADECOOP", href: "#about" },
-    { label: "Our Mission", href: "#about" },
-    { label: "Export Network", href: "#export-network" },
-    { label: "Farmer Stories", href: "#testimonials" },
-    { label: "News & Events", href: "#news" },
-    { label: "Gallery", href: "#gallery" },
-  ],
+  // Company: [
+  //   { label: "About MADECOOP", href: "/about" },
+  //   { label: "Our Mission", href: "/about" },
+  //   { label: "Farmer Stories", href: "/" },
+  //   { label: "Gallery", href: "/gallery" },
+  // ],
   Support: [
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact Us", href: "#contact" },
-    { label: "Loan Calculator", href: "#services" },
-    { label: "Deposit Calculator", href: "#deposit-calculator" },
+    { label: "FAQ", href: "/contact" },
+    { label: "Contact Us", href: "/contact" },
     { label: "Privacy Policy", href: "#" },
     { label: "Terms & Conditions", href: "#" },
   ],
 };
 
 export default function Footer() {
+  const navigate = useNavigate();
+
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleNavClick = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (href === "#") return;
+    navigate(href);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -106,8 +106,8 @@ export default function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-10 lg:py-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
             <img
@@ -156,7 +156,6 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 border border-white/15 flex items-center justify-center text-gray-400 hover:border-transparent transition-all"
-                style={{ ["--hover-bg" as any]: STEEL }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = STEEL;
                   e.currentTarget.style.color = "#fff";

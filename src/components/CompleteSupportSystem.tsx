@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Trophy } from 'lucide-react';
 import {
   FaMoneyBillWave, FaSeedling, FaWarehouse,
@@ -29,6 +30,7 @@ const stages = [
 
 
 export default function CompleteSupportSystem() {
+  const navigate = useNavigate();
   return (
     <section
       className="py-28 relative overflow-hidden"
@@ -198,7 +200,7 @@ export default function CompleteSupportSystem() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <button
-              onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => { navigate('/services'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="group flex items-center gap-2 font-bold text-base px-8 py-4 transition-all"
               style={{
                 background: `linear-gradient(115deg, ${STEEL}, ${JADE})`,
@@ -210,7 +212,7 @@ export default function CompleteSupportSystem() {
               <FaArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
             </button>
             <button
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => { navigate('/contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="font-semibold text-base px-8 py-4 transition-all"
               style={{ backgroundColor: `${PAPER}14`, color: PAPER, border: `1px solid ${PAPER}4D` }}
             >

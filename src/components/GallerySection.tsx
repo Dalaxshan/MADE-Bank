@@ -163,19 +163,19 @@ export default function GallerySection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.88, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="relative max-w-3xl w-full overflow-hidden"
+              className="relative max-w-xl w-full overflow-hidden"
               style={{ borderRadius: "16px" }}
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={selected.src}
-                className="w-full object-cover"
+                className="w-full object-contain"
                 style={{ maxHeight: "75vh" }}
               />
             
               <button
                 onClick={() => setSelected(null)}
-                className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full transition-colors"
+                className="absolute top-0 right-0 w-9 h-9 flex items-center justify-center rounded-full transition-colors"
                 style={{
                   backgroundColor: "rgba(255,255,255,0.15)",
                   backdropFilter: "blur(4px)",

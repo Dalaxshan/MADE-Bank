@@ -6,6 +6,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+const INK = '#1E2A38';
+const PAPER = "var(--color-primary-100)";
+const STEEL = "var(--color-light-green)";
+const JADE = "var(--color-secondary)";
+
 const testimonials = [
   {
     name: 'Sunil Rathnayake',
@@ -15,7 +20,6 @@ const testimonials = [
     rating: 5,
     text: 'MADECOOP gave me a loan when no bank would help me. With that loan, I cultivated 2 acres of vegetables. They bought back my entire harvest at a fair price. Now I have expanded to 5 acres and my family income has tripled!',
     amount: 'Loan: Rs. 75,000',
-    color: 'bg-green-50 border-green-200',
   },
   {
     name: 'Kumari Perera',
@@ -23,9 +27,8 @@ const testimonials = [
     role: 'Cinnamon Farmer',
     emoji: '👩‍🌾',
     rating: 5,
-    text: 'As a woman farmer, I always struggled with market access. MADECOOP not only gave me a loan but also connected me with export buyers. My cinnamon now goes to Japan! The buy-back guarantee changed everything.',
+    text: "As a woman farmer, I always struggled with market access. MADECOOP not only gave me a loan but also connected me with export buyers. My cinnamon now goes to Japan! The buy-back guarantee changed everything.",
     amount: 'Loan: Rs. 50,000',
-    color: 'bg-amber-50 border-amber-200',
   },
   {
     name: 'Chaminda Silva',
@@ -33,9 +36,8 @@ const testimonials = [
     role: 'Pepper & Cardamom Farmer',
     emoji: '🧑‍🌾',
     rating: 5,
-    text: 'I joined MADECOOP\'s group loan program with four other farmers. We all cultivated pepper together and MADECOOP exported it to Europe. The premium export price was 40% higher than local market rates!',
+    text: "I joined MADECOOP's group loan program with four other farmers. We all cultivated pepper together and MADECOOP exported it to Europe. The premium export price was 40% higher than local market rates!",
     amount: 'Group Loan: Rs. 100,000',
-    color: 'bg-blue-50 border-blue-200',
   },
   {
     name: 'Priya Dissanayake',
@@ -43,9 +45,8 @@ const testimonials = [
     role: 'Vanilla Farmer',
     emoji: '👩‍🌾',
     rating: 5,
-    text: 'The agricultural deposit plan with 10% interest is excellent. I deposited my harvest earnings and they grew significantly. Now I use the returns to fund my next season\'s cultivation without borrowing!',
+    text: "The agricultural deposit plan with 10% interest is excellent. I deposited my harvest earnings and they grew significantly. Now I use the returns to fund my next season's cultivation without borrowing!",
     amount: 'Deposit: Rs. 200,000',
-    color: 'bg-purple-50 border-purple-200',
   },
   {
     name: 'Nimal Fernando',
@@ -55,7 +56,6 @@ const testimonials = [
     rating: 5,
     text: 'The machinery loan from MADECOOP helped me buy a water pump and tractor accessories. My cultivation efficiency improved by 60%. The flexible repayment schedule aligned perfectly with my harvest cycle.',
     amount: 'Machinery Loan: Rs. 150,000',
-    color: 'bg-teal-50 border-teal-200',
   },
   {
     name: 'Anoma Wickramasinghe',
@@ -65,21 +65,26 @@ const testimonials = [
     rating: 5,
     text: 'MADECOOP trained me in organic farming techniques and connected me with Bio Foods. Now my organic vegetables are certified and exported to the UK at premium prices. My income increased by 300%!',
     amount: 'Export Loan: Rs. 120,000',
-    color: 'bg-emerald-50 border-emerald-200',
   },
 ];
 
 const StarRating = ({ rating }: { rating: number }) => (
   <div className="flex gap-1 mb-3">
     {[...Array(5)].map((_, i) => (
-      <FaStar key={i} className={i < rating ? 'text-yellow-400' : 'text-gray-200'} size={14} />
+      <FaStar key={i} size={13} style={{ color: i < rating ? JADE : `${INK}1A` }} />
     ))}
   </div>
 );
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-24 bg-section-green overflow-hidden">
+    <section id="testimonials" className="py-14 overflow-hidden" style={{ backgroundColor: PAPER }}>
+      {/* Restyle Swiper's default pagination dots to match the palette */}
+      <style>{`
+        .testimonial-swiper .swiper-pagination-bullet { background: ${INK}33; opacity: 1; }
+        .testimonial-swiper .swiper-pagination-bullet-active { background: ${STEEL}; }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -89,20 +94,29 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span
+            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
+            style={{ borderColor: `${JADE}80`, color: JADE }}
+          >
             Farmer Success Stories
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
+          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK }}>
             Hear From Our
             <br />
-            <span className="gradient-text">Thriving Farmers</span>
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}
+            >
+              Thriving Farmers
+            </span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Real stories from real farmers whose lives have been transformed by MADECOOP's comprehensive support system.
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: `${INK}99` }}>
+            Real stories from real farmers whose lives have been transformed by MADECOOP's
+            comprehensive support system.
           </p>
         </motion.div>
 
-        {/* Swiper */}
+        {/* Swiper — signed testimony cards */}
         <Swiper
           modules={[Autoplay, Pagination, Navigation]}
           spaceBetween={20}
@@ -114,39 +128,50 @@ export default function TestimonialsSection() {
           autoplay={{ delay: 4000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
           loop={true}
-          className="pb-12"
+          className="pb-12 testimonial-swiper"
         >
           {testimonials.map((t) => (
             <SwiperSlide key={t.name}>
               <motion.div
-                whileHover={{ y: -5 }}
-                className={`${t.color} border rounded-3xl p-6 h-full relative overflow-hidden`}
+                whileHover={{ y: -4 }}
+                className="p-6 h-full relative overflow-hidden transition-all"
+                style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}
               >
-                {/* Quote icon */}
-                <FaQuoteLeft className="text-green-200 text-4xl absolute top-4 right-4" />
+                {/* Quote mark */}
+                <FaQuoteLeft className="absolute top-5 right-5 text-3xl" style={{ color: `${STEEL}14` }} />
 
                 {/* Rating */}
                 <StarRating rating={t.rating} />
 
                 {/* Text */}
-                <p className="text-gray-700 text-sm leading-relaxed mb-5 relative z-10">
+                <p className="text-sm leading-relaxed mb-5 relative z-10" style={{ color: `${INK}CC` }}>
                   "{t.text}"
                 </p>
 
-                {/* Loan info */}
-                <div className="bg-white/70 rounded-xl px-3 py-2 mb-4 inline-block">
-                  <span className="text-green-700 text-xs font-bold">{t.amount}</span>
+                {/* Loan info — ledger tag */}
+                <div
+                  className="px-3 py-1.5 mb-4 inline-block"
+                  style={{ backgroundColor: `${STEEL}14` }}
+                >
+                  <span className="text-xs font-bold" style={{ color: STEEL }}>
+                    {t.amount}
+                  </span>
                 </div>
 
-                {/* Author */}
-                <div className="flex items-center gap-3 pt-3 border-t border-white/50">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-sm">
+                {/* Author — signature line */}
+                <div className="flex items-center gap-3 pt-3" style={{ borderTop: `1px dotted ${INK}26` }}>
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
+                    style={{ backgroundColor: `${INK}05`, border: `1px solid ${INK}0F` }}
+                  >
                     {t.emoji}
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900 text-sm">{t.name}</div>
-                    <div className="text-gray-600 text-xs">{t.role}</div>
-                    <div className="text-gray-500 text-xs">{t.location}</div>
+                    <div className="font-bold text-sm" style={{ color: INK }}>
+                      {t.name}
+                    </div>
+                    <div className="text-xs" style={{ color: `${INK}80` }}>{t.role}</div>
+                    <div className="text-xs" style={{ color: `${INK}66` }}>{t.location}</div>
                   </div>
                 </div>
               </motion.div>
@@ -163,14 +188,20 @@ export default function TestimonialsSection() {
           className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            { value: '98%', label: 'Customer Satisfaction' },
-            { value: '95%', label: 'Loan Repayment Rate' },
-            { value: '300%', label: 'Avg. Income Growth' },
-            { value: '5★', label: 'Community Rating' },
+            { value: '98%', label: 'Customer Satisfaction', color: STEEL },
+            { value: '95%', label: 'Loan Repayment Rate', color: JADE },
+            { value: '300%', label: 'Avg. Income Growth', color: STEEL },
+            { value: '5★', label: 'Community Rating', color: JADE },
           ].map((stat) => (
-            <div key={stat.label} className="bg-white rounded-2xl p-5 text-center shadow-md border border-green-100">
-              <div className="text-2xl font-black text-green-700">{stat.value}</div>
-              <div className="text-gray-500 text-sm mt-1">{stat.label}</div>
+            <div
+              key={stat.label}
+              className="p-5 text-center shadow-sm"
+              style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}
+            >
+              <div className="text-2xl font-black" style={{ color: stat.color }}>
+                {stat.value}
+              </div>
+              <div className="text-sm mt-1" style={{ color: `${INK}80` }}>{stat.label}</div>
             </div>
           ))}
         </motion.div>

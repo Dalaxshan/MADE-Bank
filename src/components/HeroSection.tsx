@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import {
@@ -55,9 +56,10 @@ const shipmentTags = [
 export default function HeroSection() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
 
+  const navigate = useNavigate();
   const handleNavClick = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    navigate(href);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -132,7 +134,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-[2.75rem] md:text-7xl lg:text-[4.5rem] font-black text-[#1E2A38] leading-[1.05] mb-6 tracking-wide max-w-3xl"
+              className="text-[2.75rem] md:text-7xl lg:text-[3.5rem] font-black text-[#1E2A38] leading-[1.05] mb-6 tracking-wide max-w-3xl"
             >
               Every Harvest,{" "}
               <span className="text-[var(--color-primary)]">Build </span>
@@ -159,7 +161,7 @@ export default function HeroSection() {
               className="flex flex-wrap gap-3 mb-12"
             >
               <button
-                onClick={() => handleNavClick("#services")}
+                onClick={() => handleNavClick("/services")}
                 className="group flex items-center gap-2 bg-[var(--color-secondary)] text-[#fff] px-7 py-3.5 font-semibold text-[15px] hover:bg-[var(--color-secondary-light)] transition-colors duration-300"
                 style={{
                   clipPath: "polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 70%)",
@@ -172,7 +174,7 @@ export default function HeroSection() {
                 />
               </button>
               <button
-                onClick={() => handleNavClick("#deposits")}
+                onClick={() => handleNavClick("/deposits")}
                 className="flex items-center gap-2 bg-[var(--color-primary)] text-[#fff] px-7 py-3.5 font-semibold text-[15px] hover:bg-[var(--color-primary-light)] transition-colors duration-300"
                 style={{
                   clipPath:

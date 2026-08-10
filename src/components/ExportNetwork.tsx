@@ -93,7 +93,7 @@ export default function ExportNetwork() {
   return (
     <section
       id="export-network"
-      className="py-24 overflow-hidden"
+      className="py-14 overflow-hidden"
       style={{ backgroundColor: PAPER }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

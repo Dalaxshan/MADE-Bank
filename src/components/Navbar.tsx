@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaBars,
@@ -16,35 +17,22 @@ const STEEL = "var(--color-secondary)";
 const INDIGO = "var(--color-primary-dark)";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   {
-    label: "Services",
-    href: "#services",
-    children: [
-      { label: "Export Agriculture Loan", href: "#services" },
-      { label: "Land Purchasing Loan", href: "#services" },
-      { label: "Machinery Loan", href: "#services" },
-      { label: "Vehicle Loan", href: "#services" },
-      { label: "Group Loan", href: "#group-loan" },
-      { label: "Mortgage Loan", href: "#mortgage-loan" },
-    ],
+    label: "Loans",
+    href: "/loans",
   },
   {
     label: "Deposits",
-    href: "#deposits",
-    children: [
-      { label: "Deposit Plans", href: "#deposits" },
-      { label: "Deposit Calculator", href: "#deposit-calculator" },
-    ],
+    href: "/deposits",
   },
-  { label: "Loan Calculator", href: "#loan-calculator" },
-  { label: "Export Network", href: "#export-network" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -58,8 +46,8 @@ export default function Navbar() {
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     setActiveDropdown(null);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    navigate(href);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -67,11 +55,15 @@ export default function Navbar() {
       {/* Top bar - ink stamp strip */}
       <div
         className="text-[11px] py-2 px-4 hidden md:block"
-        style={{ backgroundColor: INDIGO, color: PAPER}}
+        style={{ backgroundColor: INDIGO, color: PAPER }}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center tracking-wide">
           <span className="flex items-center gap-2">
-            <Landmark size={20} strokeWidth={1.25} className="text-[var(--color-primary-100)]" />
+            <Landmark
+              size={20}
+              strokeWidth={1.25}
+              className="text-[var(--color-primary-100)]"
+            />
             REGISTERED · COOPERATIVE SOCIETIES ACT NO. 10 OF 1990 · CENTRAL
             PROVINCIAL COUNCIL
           </span>
@@ -99,18 +91,18 @@ export default function Navbar() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-18 py-3">
+          <div className="flex justify-between items-center h-19 py-3">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center gap-3 cursor-pointer"
-              onClick={() => handleNavClick("#home")}
+              onClick={() => handleNavClick("/")}
             >
               <img
                 src="images/logo.png"
                 alt="MADECOOP Logo"
-                className="w-22 h-22 object-contain"
+                className="w-22 h-20 object-contain"
               />
             </motion.div>
 
@@ -126,7 +118,7 @@ export default function Navbar() {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <button
-                    onClick={() => !link.children && handleNavClick(link.href)}
+                    onClick={() => handleNavClick(link.href)}
                     className="group flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors duration-200"
                     style={{ color: `${INK}B3` }}
                   >
@@ -189,16 +181,16 @@ export default function Navbar() {
 
             {/* CTA Buttons - ledger tabs, same shape as the hero */}
             <div className="hidden lg:flex items-center gap-2.5">
-             
               <button
-                onClick={() => handleNavClick("#services")}
+                onClick={() => handleNavClick("/services")}
                 className="group flex items-center gap-2 text-sm font-semibold py-2.5 px-5 text-[#fff] transition-colors duration-300"
                 style={{
-                  backgroundColor:JADE,
+                  backgroundColor: JADE,
                   clipPath: "polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 70%)",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = "var(--color-primary-light)")
+                  (e.currentTarget.style.backgroundColor =
+                    "var(--color-primary-light)")
                 }
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.backgroundColor = JADE)
@@ -215,7 +207,7 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               className="lg:hidden p-2"
-              style={{ color: INK }}
+              style={{ color: 'var(--color-primary)' }}
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
@@ -267,7 +259,7 @@ export default function Navbar() {
                 ))}
                 <div className="pt-3 flex flex-col gap-2.5">
                   <button
-                    onClick={() => handleNavClick("#services")}
+                    onClick={() => handleNavClick("/services")}
                     className="flex items-center justify-center gap-2 text-sm font-semibold py-3 text-[#F3F7F5]"
                     style={{
                       backgroundColor: STEEL,
@@ -278,7 +270,7 @@ export default function Navbar() {
                     Start Our Loan <FaArrowRight size={11} />
                   </button>
                   <button
-                    onClick={() => handleNavClick("#deposits")}
+                    onClick={() => handleNavClick("/deposits")}
                     className="flex items-center justify-center text-sm font-semibold py-3"
                     style={{ color: INK, border: `1px solid ${INK}33` }}
                   >

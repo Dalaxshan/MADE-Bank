@@ -138,7 +138,7 @@ export default function ServicesSection() {
           className="text-center mb-16"
         >
           <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            Our Services
+            Our Loans
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
             Complete Financial Solutions
