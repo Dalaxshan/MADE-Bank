@@ -246,7 +246,7 @@ export default function Navbar() {
                   (e.currentTarget.style.backgroundColor = JADE)
                 }
               >
-                Apply for a Loan
+             {t.nav.startLoan}
                 <FaArrowRight
                   size={11}
                   className="group-hover:translate-x-1 transition-transform"
