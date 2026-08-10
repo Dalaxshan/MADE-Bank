@@ -1,18 +1,8 @@
 import { motion } from "framer-motion";
 import { FaGlobeAsia } from "react-icons/fa";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  Legend,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Legend } from "recharts";
 import { Ship, Sprout } from "lucide-react";
+import { useLang } from "../i18n/LanguageContext";
 
 const INK = "#1E2A38";
 const PAPER = "var(--color-primary-100)";
@@ -20,56 +10,13 @@ const STEEL = "var(--color-light-green)";
 const JADE = "var(--color-secondary)";
 const INDIGO = "var(--color-primary-dark)";
 
-const agroLogo = "/images/agroventure.png";
-const bioFoodsLogo = "/images/biofoods.png";
-const elavareLogo = "/images/elevare.png";
-const exportLogo = "/images/export.png";
-const rathuLogo = "/images/rathuira.png";
-const vanillaLogo = "/images/vanilla-shop.png";
-
 const exportPartners = [
-  {
-    name: "Bio Foods",
-    type: "Organic Export",
-    logo: bioFoodsLogo,
-    strength: "100% organic, chemical-free bridge to international buyers",
-    path: "https://www.biofoodsagro.com/"
-  },
-  {
-    name: "Agroventure Exports",
-    type: "Agricultural Exports",
-    logo: exportLogo,
-    strength: "Specialist exporter of premium Sri Lankan vanilla and spices",
-    path: "https://agroventuresexports.com/"
-  },
-  {
-    name: "Vanilla Shop",
-    type: "Specialty Retail",
-    logo: vanillaLogo,
-    strength: "Sri Lanka's first dedicated vanilla boutique & artisan goods",
-    path: "https://thevanillashop.lk/"
-  },
-  {
-    name: "Agroventures Plantations",
-    type: "Vanilla & Spice Cultivation",
-    logo: agroLogo,
-    strength: "Pioneers in vanilla and export-grade spice cultivation",
-    path: "https://agroventures.lk/"
-  },
-  {
-    name: "Elevare",
-    type: "Business & Lifestyle Media",
-    logo: elavareLogo,
-    strength: "Sri Lanka's leading business & lifestyle magazine with global reach",
-    path:"https://elevare.lk/"
-  },
-  {
-    name: "Rathu Ira",
-    type: "National Press",
-    logo: rathuLogo,
-    strength: "Widely-read Sri Lankan newspaper, national reach",
-    path: "https://rathuiranewspaper.lk/"
-  },
+  { name: "Bio Foods", type: "Organic Export", logo: "/images/biofoods.png", strength: "100% organic, chemical-free bridge to international buyers", path: "https://www.biofoodsagro.com/" },
+  { name: "Agroventure Exports", type: "Agricultural Exports", logo: "/images/export.png", strength: "Specialist exporter of premium Sri Lankan vanilla and spices", path: "https://agroventuresexports.com/" },
+  { name: "Vanilla Shop", type: "Specialty Retail", logo: "/images/vanilla-shop.png", strength: "Sri Lanka's first dedicated vanilla boutique & artisan goods", path: "https://thevanillashop.lk/" },
+  { name: "Agroventures Plantations", type: "Vanilla & Spice Cultivation", logo: "/images/agroventure.png", strength: "Pioneers in vanilla and export-grade spice cultivation", path: "https://agroventures.lk/" },
+  { name: "Elevare", type: "Business & Lifestyle Media", logo: "/images/elevare.png", strength: "Sri Lanka's leading business & lifestyle magazine with global reach", path: "https://elevare.lk/" },
+  { name: "Rathu Ira", type: "National Press", logo: "/images/rathuira.png", strength: "Widely-read Sri Lankan newspaper, national reach", path: "https://rathuiranewspaper.lk/" },
 ];
 
 const exportData = [
@@ -90,14 +37,11 @@ const productData = [
 ];
 
 export default function ExportNetwork() {
+  const { t } = useLang();
+
   return (
-    <section
-      id="export-network"
-      className="py-14 overflow-hidden"
-      style={{ backgroundColor: PAPER }}
-    >
+    <section id="export-network" className="py-14 overflow-hidden" style={{ backgroundColor: PAPER }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,39 +51,19 @@ export default function ExportNetwork() {
         >
           <span
             className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
-            style={{
-              borderColor: `${JADE}80`,
-              color: JADE,
-            }}
+            style={{ borderColor: `${JADE}80`, color: JADE }}
           >
-            <FaGlobeAsia size={11} /> Global Export Network
+            <FaGlobeAsia size={11} /> {t.export.badge}
           </span>
-          <h2
-            className="text-4xl md:text-5xl font-black mb-5"
-            style={{ color: INK }}
-          >
-            From Sri Lankan Farms
-            <br />
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})`,
-              }}
-            >
-              To Global Markets
+          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK }}>
+            {t.export.title1}<br />
+            <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}>
+              {t.export.title2}
             </span>
           </h2>
-          <p
-            className="text-lg max-w-2xl mx-auto"
-            style={{ color: `${INK}99` }}
-          >
-            MADECOOP connects Sri Lankan farmers with international buyers
-            across 20+ countries, ensuring premium prices for export-quality
-            produce.
-          </p>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: `${INK}99` }}>{t.export.sub}</p>
         </motion.div>
 
-        {/* Export Performance Charts */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -149,40 +73,19 @@ export default function ExportNetwork() {
             className="p-6 shadow-md"
             style={{ backgroundColor: "#FFFFFF", border: `1px solid ${INK}12` }}
           >
-            <h3
-              className="font-bold mb-5 flex items-center gap-2"
-              style={{ color: INK }}
-            >
+            <h3 className="font-bold mb-5 flex items-center gap-2" style={{ color: INK }}>
               <Ship strokeWidth={1.75} style={{ color: STEEL }} />
-              Annual Export Performance (Million LKR)
+              {t.export.chartTitle1}
             </h3>
             <ResponsiveContainer width="100%" height={240}>
               <LineChart data={exportData}>
                 <CartesianGrid strokeDasharray="3 3" stroke={`${INK}14`} />
                 <XAxis dataKey="year" tick={{ fontSize: 12 }} />
                 <YAxis tick={{ fontSize: 12 }} />
-                <Tooltip
-                  formatter={(v: unknown) => [`Rs. ${Number(v)}M`]}
-                  contentStyle={{ border: `1px solid ${INK}26` }}
-                />
+                <Tooltip formatter={(v: unknown) => [`Rs. ${Number(v)}M`]} contentStyle={{ border: `1px solid ${INK}26` }} />
                 <Legend />
-                <Line
-                  type="monotone"
-                  dataKey="value"
-                  stroke={STEEL}
-                  strokeWidth={3}
-                  dot={{ fill: STEEL, r: 5 }}
-                  name="Actual"
-                />
-                <Line
-                  type="monotone"
-                  dataKey="target"
-                  stroke={INDIGO}
-                  strokeWidth={2}
-                  strokeDasharray="5 5"
-                  name="Target"
-                  dot={{ fill: INDIGO, r: 4 }}
-                />
+                <Line type="monotone" dataKey="value" stroke={STEEL} strokeWidth={3} dot={{ fill: STEEL, r: 5 }} name="Actual" />
+                <Line type="monotone" dataKey="target" stroke={INDIGO} strokeWidth={2} strokeDasharray="5 5" name="Target" dot={{ fill: INDIGO, r: 4 }} />
               </LineChart>
             </ResponsiveContainer>
           </motion.div>
@@ -195,124 +98,53 @@ export default function ExportNetwork() {
             className="p-6 shadow-md"
             style={{ backgroundColor: "#FFFFFF", border: `1px solid ${INK}12` }}
           >
-            <h3
-              className="font-bold mb-5 flex items-center gap-2"
-              style={{ color: INK }}
-            >
-              <Sprout strokeWidth={1.75} style={{ color: JADE }} /> Export
-              Product Mix (%)
+            <h3 className="font-bold mb-5 flex items-center gap-2" style={{ color: INK }}>
+              <Sprout strokeWidth={1.75} style={{ color: JADE }} /> {t.export.chartTitle2}
             </h3>
             <ResponsiveContainer width="100%" height={240}>
               <BarChart data={productData} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" stroke={`${INK}14`} />
                 <XAxis type="number" tick={{ fontSize: 12 }} />
-                <YAxis
-                  dataKey="product"
-                  type="category"
-                  tick={{ fontSize: 12 }}
-                  width={80}
-                />
-                <Tooltip
-                  formatter={(v: unknown) => [`${Number(v)}%`]}
-                  contentStyle={{ border: `1px solid ${INK}26` }}
-                />
+                <YAxis dataKey="product" type="category" tick={{ fontSize: 12 }} width={80} />
+                <Tooltip formatter={(v: unknown) => [`${Number(v)}%`]} contentStyle={{ border: `1px solid ${INK}26` }} />
                 <Bar dataKey="value" fill={STEEL} radius={[0, 2, 2, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </motion.div>
         </div>
 
-        {/* Export Partners */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3
-            className="text-3xl md:text-4xl font-black text-center mb-3"
-            style={{ color: INK }}
-          >
-            Our Group Strength
-          </h3>
-          <p
-            className="text-base text-center max-w-xl mx-auto mb-10"
-            style={{ color: `${INK}80` }}
-          >
-            Trusted organisations that bring Sri Lankan produce to global
-            markets.
-          </p>
+          <h3 className="text-3xl md:text-4xl font-black text-center mb-3" style={{ color: INK }}>{t.export.partnersTitle}</h3>
+          <p className="text-base text-center max-w-xl mx-auto mb-10" style={{ color: `${INK}80` }}>{t.export.partnersSub}</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {exportPartners.map((partner, i) => (
-              <a
-                key={partner.name}
-                href={partner.path}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                whileHover={{
-                  y: -4,
-                  boxShadow: "0 12px 32px rgba(30,42,56,0.10)",
-                }}
-                className="flex flex-col overflow-hidden transition-all"
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  border: `1px solid ${INK}14`,
-                  boxShadow: "0 2px 12px rgba(30,42,56,0.05)",
-                }}
-              >
-                {/* Logo panel - letterhead style, bigger and given its own space */}
-                <div
-                  className="flex items-center justify-center px-6"
-                  style={{
-                    height: "132px",
-                    backgroundColor: `${INK}03`,
-                    borderBottom: `1px solid ${INK}0F`,
-                  }}
+              <a key={partner.name} href={partner.path} target="_blank" rel="noopener noreferrer" className="block">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(30,42,56,0.10)" }}
+                  className="flex flex-col overflow-hidden transition-all"
+                  style={{ backgroundColor: "#FFFFFF", border: `1px solid ${INK}14`, boxShadow: "0 2px 12px rgba(30,42,56,0.05)" }}
                 >
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    style={{
-                      maxHeight: "90px",
-                      maxWidth: "72%",
-                      width: "auto",
-                      objectFit: "contain",
-                      mixBlendMode: "multiply",
-                    }}
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-6 flex flex-col gap-2">
-                  <div
-                    className="text-[11px] font-bold py-1 tracking-widest w-fit"
-                    style={{
-                      backgroundColor: `${JADE}18`,
-                      color: JADE,
-                      fontSize: "12px",
-                    }}
-                  >
-                    {partner.type.toUpperCase()}
+                  <div className="flex items-center justify-center px-6" style={{ height: "132px", backgroundColor: `${INK}03`, borderBottom: `1px solid ${INK}0F` }}>
+                    <img src={partner.logo} alt={`${partner.name} logo`} style={{ maxHeight: "90px", maxWidth: "72%", width: "auto", objectFit: "contain", mixBlendMode: "multiply" }} />
                   </div>
-                  <div className="text-lg font-black" style={{ color: INK }}>
-                    {partner.name}
+                  <div className="p-6 flex flex-col gap-2">
+                    <div className="text-[11px] font-bold py-1 tracking-widest w-fit" style={{ backgroundColor: `${JADE}18`, color: JADE, fontSize: "12px" }}>
+                      {partner.type.toUpperCase()}
+                    </div>
+                    <div className="text-lg font-black" style={{ color: INK }}>{partner.name}</div>
+                    <p className="text-sm leading-relaxed" style={{ color: `${INK}80` }}>{partner.strength}</p>
                   </div>
-                  <p
-                    className="text-sm leading-relaxed"
-                    style={{ color: `${INK}80` }}
-                  >
-                    {partner.strength}
-                  </p>
-                </div>
-              </motion.div>
+                </motion.div>
               </a>
             ))}
           </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Expand } from "lucide-react";
 import { FaGlobeAsia } from "react-icons/fa";
+import { useLang } from "@/i18n/LanguageContext";
 
 const INK = "#1E2A38";
 const JADE = "var(--color-secondary)";
@@ -59,7 +60,8 @@ type Item = (typeof galleryItems)[0];
 
 export default function GallerySection() {
   const [selected, setSelected] = useState<Item | null>(null);
-
+  const { t } = useLang();
+  
   return (
     <section
       id="gallery"
@@ -82,13 +84,13 @@ export default function GallerySection() {
               color: JADE,
             }}
           >
-            <FaGlobeAsia size={11} /> Our Gallery
+            <FaGlobeAsia size={11} /> {t.gallery.badge}
           </span>
           <h2
             className="text-4xl md:text-5xl font-black mb-4"
             style={{ color: INK }}
           >
-            Agriculture in Action
+           {t.gallery.title1}
             <br />
             <span
               className="bg-clip-text text-transparent"
@@ -96,12 +98,11 @@ export default function GallerySection() {
                 backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})`,
               }}
             >
-              The MADECOOP Story
+              {t.gallery.title2}
             </span>
           </h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: `${INK}99` }}>
-            A visual journey through the farms, harvests, and export operations
-            that define MADECOOP's work.
+          {t.gallery.sub}
           </p>
         </motion.div>
 

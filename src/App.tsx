@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LanguageProvider } from './i18n/LanguageContext';
 import ScrollProgress from './components/ScrollProgress';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -12,6 +13,7 @@ import LoansPage from './pages/LoansPage';
 
 export default function App() {
   return (
+    <LanguageProvider>
     <BrowserRouter>
       <div className="min-h-screen">
         <ScrollProgress />
@@ -30,5 +32,6 @@ export default function App() {
         <Footer />
       </div>
     </BrowserRouter>
+    </LanguageProvider>
   );
 }
