@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Trophy } from 'lucide-react';
 import {
-  FaMoneyBillWave, FaSeedling, FaWarehouse,
-  FaHandshake, FaShip, FaSmile, FaArrowDown,
-  FaCheckCircle, FaStar, FaArrowRight
-} from 'react-icons/fa';
+  Trophy, Wallet, FileCheck2, Sprout, Warehouse,
+  Handshake, Ship, TrendingUp, Star, ArrowDown,
+  CheckCircle2, ArrowRight
+} from 'lucide-react';
 
 const PAPER = '#F3F7F5';
 const JADE = '#2E9C82';
@@ -19,15 +18,14 @@ const JADE_LIGHT = '#5FCDAA';
 const stepColors = ['#3B72A6', '#3979A0', '#37809A', '#358794', '#328E8E', '#309588', '#2E9C82'];
 
 const stages = [
-  { step: 1, emoji: '💸', icon: <FaMoneyBillWave />, title: 'Need Money', desc: 'Farmer identifies cultivation opportunity but lacks capital' },
-  { step: 2, emoji: '✅', icon: <FaHandshake />, title: 'Loan Approval', desc: 'Quick, fair agricultural loan approved within 5-7 days' },
-  { step: 3, emoji: '🌱', icon: <FaSeedling />, title: 'Cultivation', desc: 'Farm with technical guidance from MADECOOP officers' },
-  { step: 4, emoji: '🌾', icon: <FaWarehouse />, title: 'Harvest', desc: 'Bumper harvest achieved with proper farming practices' },
-  { step: 5, emoji: '🤝', icon: <FaHandshake />, title: 'Guaranteed Purchase', desc: 'MADECOOP buys 100% of your harvest at fair prices' },
-  { step: 6, emoji: '🚢', icon: <FaShip />, title: 'Export', desc: 'Your produce shipped to global markets via export partners' },
-  { step: 7, emoji: '💰', icon: <FaSmile />, title: 'Profit', desc: 'Premium export income - repay loan, reinvest, prosper!' },
+  { step: 1, icon: Wallet, title: 'Need Money', desc: 'Farmer identifies cultivation opportunity but lacks capital' },
+  { step: 2, icon: FileCheck2, title: 'Loan Approval', desc: 'Quick, fair agricultural loan approved within 5-7 days' },
+  { step: 3, icon: Sprout, title: 'Cultivation', desc: 'Farm with technical guidance from MADECOOP officers' },
+  { step: 4, icon: Warehouse, title: 'Harvest', desc: 'Bumper harvest achieved with proper farming practices' },
+  { step: 5, icon: Handshake, title: 'Guaranteed Purchase', desc: 'MADECOOP buys 100% of your harvest at fair prices' },
+  { step: 6, icon: Ship, title: 'Export', desc: 'Your produce shipped to global markets via export partners' },
+  { step: 7, icon: TrendingUp, title: 'Profit', desc: 'Premium export income - repay loan, reinvest, prosper!' },
 ];
-
 
 export default function CompleteSupportSystem() {
   const navigate = useNavigate();
@@ -64,14 +62,14 @@ export default function CompleteSupportSystem() {
             className="inline-flex items-center gap-2 border px-5 py-2 mb-6 text-xs uppercase tracking-[0.15em]"
             style={{ backgroundColor: `${PAPER}0D`, borderColor: `${PAPER}26`, color: `${PAPER}E6` }}
           >
-            <FaStar size={11} style={{ color: JADE_LIGHT }} />
+            <Star size={13} style={{ color: JADE_LIGHT }} />
             Our Signature Program
-            <FaStar size={11} style={{ color: JADE_LIGHT }} />
+            <Star size={13} style={{ color: JADE_LIGHT }} />
           </div>
 
           <h2
             className="text-4xl md:text-6xl font-black mb-6 leading-tight"
-            style={{ color: PAPER }}
+            style={{ color: PAPER}}
           >
             Our Complete
             <br />
@@ -93,6 +91,7 @@ export default function CompleteSupportSystem() {
         <div className="flex flex-col items-center gap-0 mb-20">
           {stages.map((stage, i) => {
             const color = stepColors[i];
+            const Icon = stage.icon;
             return (
               <div key={stage.step} className="flex flex-col items-center w-full max-w-4xl">
                 <motion.div
@@ -114,16 +113,16 @@ export default function CompleteSupportSystem() {
                     className="absolute top-4 right-4 text-[10px] font-bold px-2 py-1 tracking-wide"
                     style={{ backgroundColor: color, color: PAPER }}
                   >
-                    PROBLEM {String(stage.step).padStart(2, '0')}
+                    STAGE {String(stage.step).padStart(2, '0')}
                   </div>
 
                   <div className="flex items-center gap-5">
                     {/* Icon */}
                     <div
-                      className="w-16 h-16 rounded-lg flex items-center justify-center text-3xl flex-shrink-0"
+                      className="w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: `${color}26`, color: PAPER }}
                     >
-                      {stage.emoji}
+                      <Icon size={28} strokeWidth={1.5} />
                     </div>
 
                     {/* Content */}
@@ -138,7 +137,7 @@ export default function CompleteSupportSystem() {
 
                     {/* Checkmark on hover */}
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-                      <FaCheckCircle className="text-2xl" style={{ color: JADE_LIGHT }} />
+                      <CheckCircle2 size={26} style={{ color: JADE_LIGHT }} />
                     </div>
                   </div>
                 </motion.div>
@@ -153,7 +152,7 @@ export default function CompleteSupportSystem() {
                     className="py-3 flex flex-col items-center"
                   >
                     <div className="w-px h-4" style={{ background: `${PAPER}33` }} />
-                    <FaArrowDown className="text-lg" style={{ color: JADE_LIGHT }} />
+                    <ArrowDown size={18} style={{ color: JADE_LIGHT }} />
                     <div className="w-px h-4" style={{ background: `${PAPER}33` }} />
                   </motion.div>
                 )}
@@ -177,7 +176,9 @@ export default function CompleteSupportSystem() {
               clipPath: 'polygon(0 0, 100% 0, 100% 100%, 24px 100%, 0 calc(100% - 24px))',
             }}
           >
-            <div className="text-5xl mb-2 flex ju"><Trophy size={40} strokeWidth={1.75} style={{ color: INDIGO }} /></div>
+            <div className="flex justify-center mb-3">
+              <Trophy size={40} strokeWidth={1.75} style={{ color: INDIGO }} />
+            </div>
             <div className="text-2xl font-black" style={{ color: INDIGO }}>
               Farmer's Dream Realized
             </div>
@@ -209,7 +210,7 @@ export default function CompleteSupportSystem() {
               }}
             >
               Apply for a Loan Today
-              <FaArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </button>
             <button
               onClick={() => { navigate('/contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}

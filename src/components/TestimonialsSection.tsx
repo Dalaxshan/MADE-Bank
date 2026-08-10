@@ -116,7 +116,7 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Swiper — signed testimony cards */}
+        {/* Swiper - signed testimony cards */}
         <Swiper
           modules={[Autoplay, Pagination, Navigation]}
           spaceBetween={20}
@@ -148,7 +148,7 @@ export default function TestimonialsSection() {
                   "{t.text}"
                 </p>
 
-                {/* Loan info — ledger tag */}
+                {/* Loan info - ledger tag */}
                 <div
                   className="px-3 py-1.5 mb-4 inline-block"
                   style={{ backgroundColor: `${STEEL}14` }}
@@ -158,7 +158,7 @@ export default function TestimonialsSection() {
                   </span>
                 </div>
 
-                {/* Author — signature line */}
+                {/* Author - signature line */}
                 <div className="flex items-center gap-3 pt-3" style={{ borderTop: `1px dotted ${INK}26` }}>
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"

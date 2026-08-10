@@ -1,11 +1,11 @@
 import AboutSection from '../components/AboutSection';
-import FarmerJourneySection from '../components/FarmerJourneySection';
+import OurVisionMission from '@/components/OurVisionMission';
 
 export default function AboutPage() {
   return (
     <>
       <AboutSection />
-      <FarmerJourneySection />
+      <OurVisionMission />
     </>
   );
 }

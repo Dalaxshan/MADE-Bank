@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
-import { AwardIcon, BanknoteArrowDown, ChartNoAxesCombined, ChartSpline, Earth, Handshake, Leaf, Quote, Shield, Trophy, Users } from 'lucide-react';
+import { AwardIcon, BanknoteArrowDown, ChartSpline, Earth, Leaf, Quote, Shield, Trophy, Users } from 'lucide-react';
 
 const stats = [
   { value: 500, suffix: '+', label: 'Farmers Supported', icon: <Users strokeWidth={1.25} />, color: 'text-green-600' },
@@ -12,56 +12,11 @@ const stats = [
   { value: 1000, suffix: '+', label: 'Acres Developed', icon: <Leaf strokeWidth={1.25} />, color: 'text-emerald-600' },
 ];
 
-const features = [
-  {
-    icon: <Handshake strokeWidth={1.25} className="text-2xl" />,
-    title: 'Supporting Traditional Farmers',
-    desc: 'We provide comprehensive support to traditional farmers, helping them modernize while preserving their agricultural heritage.',
-    color: 'bg-green-50',
-    iconBg: 'bg-green-100 text-green-600',
-  },
-  {
-    icon: <ChartNoAxesCombined strokeWidth={1.25} className="text-2xl" />,
-    title: 'Agriculture Financing',
-    desc: 'Affordable loans with competitive interest rates designed specifically for the agricultural community.',
-    color: 'bg-blue-50',
-    iconBg: 'bg-blue-100 text-blue-600',
-  },
-  {
-    icon: <Earth strokeWidth={1.25} className="text-2xl" />,
-    title: 'Export Partnerships',
-    desc: 'Direct partnerships with international buyers including Bio Foods, ensuring premium prices for quality produce.',
-    color: 'bg-purple-50',
-    iconBg: 'bg-purple-100 text-purple-600',
-  },
-  {
-    icon: <Shield strokeWidth={1.25} className="text-2xl" />,
-    title: 'Buy-Back Guarantee',
-    desc: 'MADECOOP guarantees to purchase your harvest at fair market prices, eliminating the risk of unsold produce.',
-    color: 'bg-amber-50',
-    iconBg: 'bg-amber-100 text-amber-700',
-  },
-  {
-    icon: <Leaf strokeWidth={1.25} className="text-2xl" />,
-    title: 'Sustainable Agriculture',
-    desc: 'Promoting environmentally responsible farming practices that benefit both farmers and future generations.',
-    color: 'bg-emerald-50',
-    iconBg: 'bg-emerald-100 text-emerald-600',
-  },
-  {
-    icon: <Users strokeWidth={1.25} className="text-2xl" />,
-    title: 'Rural Economic Development',
-    desc: 'Committed to uplifting rural communities through cooperative economics and shared prosperity.',
-    color: 'bg-rose-50',
-    iconBg: 'bg-rose-100 text-rose-600',
-  },
-];
-
 export default function AboutSection() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section id="about" className="py-24 bg-white">
+    <section id="about" className="py-14 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -277,25 +232,7 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, i) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`${feature.color} rounded-2xl p-6 card-hover border border-white`}
-            >
-              <div className={`feature-icon ${feature.iconBg}`}>
-                {feature.icon}
-              </div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-            </motion.div>
-          ))}
-        </div>
+       
       </div>
     </section>
   );
