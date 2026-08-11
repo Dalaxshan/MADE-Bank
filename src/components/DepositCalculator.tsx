@@ -50,8 +50,8 @@ export default function DepositCalculator() {
   const maturityAmount = amount + totalInterest;
 
   const pieData = [
-    { name: 'Principal', value: amount },
-    { name: 'Interest Earned', value: Math.round(totalInterest) },
+    { name: t.calculator.principal, value: amount },
+    { name: t.calculator.interest, value: Math.round(totalInterest) },
   ];
 
   const lineData: { month: string; value: number }[] = [];

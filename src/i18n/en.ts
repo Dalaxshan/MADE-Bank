@@ -372,6 +372,8 @@ const en = {
     p3y: "3 Years",
     p4y: "4 Years",
     p5y: "5 Years",
+     principal: "Principal",
+    interest: "Interest",
   },
   faq: {
     badge: "Frequently Asked Questions",
