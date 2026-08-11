@@ -111,7 +111,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-[2.75rem] md:text-7xl lg:text-[3.5rem] font-black text-[#1E2A38] leading-[1.05] mb-6 tracking-wide max-w-3xl"
+              className="text-[2.75rem] md:text-7xl lg:text-[3rem] font-black text-[#1E2A38] leading-[1.05] mb-6 tracking-wide max-w-3xl"
             >
               {t.hero.headline1}{" "}
               <span className="text-[var(--color-primary)]">{t.hero.headline2} </span>
@@ -123,7 +123,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-[#1E2A38]/70 text-lg leading-relaxed mb-10 max-w-lg"
+              className="text-[#1E2A38]/70 text-md leading-relaxed mb-10 max-w-lg"
             >
               {t.hero.sub}
             </motion.p>

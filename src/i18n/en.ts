@@ -126,6 +126,12 @@ const en = {
     groupDes4: "Vanilla & Spice Cultivation Farmers & Exporters.",
     groupDes5: "Widely Read Sri Lankan Weekly Business & Lifestyle Magazine.",
     groupDes6: "Nationwide National Press Coverage.",
+     spieces1: "Cinnamon",
+    spieces2: "Vanilla",
+    spieces3: "Pepper",
+    spieces4: "Cardamom",
+    spieces5: "Others",
+
   },
   testimonials: {
     badge: "Farmer Success Stories",
@@ -456,7 +462,7 @@ const en = {
     tagline:
       "Empowering Sri Lankan farmers with agricultural loans and financial support to sell their products locally and globally.",
     loanServices: "Loan Services",
-    addressLine:"3/4, Yelakkare Junction, Dangan Place, Yatawatta, Matale.",
+    addressLine: "3/4, Yelakkare Junction, Dangan Place, Yatawatta, Matale.",
     depositServices: "Deposit Services",
     support: "Support",
     privacy: "Privacy Policy",

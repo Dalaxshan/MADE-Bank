@@ -114,7 +114,7 @@ export default function FarmerJourneySection() {
               className="p-5"
               style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}
             >
-              <div className="text-[10px] uppercase tracking-[0.15em] mb-2" style={{ color: `${INK}5C` }}>
+              <div className="text-[10px] uppercase tracking-[0.4em] mb-2" style={{ color: `${INK}` }}>
                 {t.journey.problem} {String(i + 1).padStart(2, '0')}
               </div>
               <div
@@ -123,7 +123,7 @@ export default function FarmerJourneySection() {
               >
                 {item.problem}
               </div>
-              <FaArrowDown size={12} className="mx-auto my-1" style={{ color: `${INK}33` }} />
+              <FaArrowDown size={12} className="mx-auto my-1" style={{ color: `${INK}` }} />
               <div className="flex items-center justify-center gap-1.5 text-sm font-bold mt-2" style={{ color: JADE }}>
                 <FaCheckCircle size={13} />
                 {item.solution}

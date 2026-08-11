@@ -10,16 +10,12 @@ const STEEL = "var(--color-light-green)";
 const JADE = "var(--color-secondary)";
 const INDIGO = "var(--color-primary-dark)";
 
-const exportPartners = [
-  { name: "Bio Foods", type: "Organic Export", logo: "/images/biofoods.png", strength: "100% organic, chemical-free bridge to international buyers", path: "https://www.biofoodsagro.com/" },
-  { name: "Agroventure Exports", type: "Agricultural Exports", logo: "/images/export.png", strength: "Specialist exporter of premium Sri Lankan vanilla and spices", path: "https://agroventuresexports.com/" },
-  { name: "Vanilla Shop", type: "Specialty Retail", logo: "/images/vanilla-shop.png", strength: "Sri Lanka's first dedicated vanilla boutique & artisan goods", path: "https://thevanillashop.lk/" },
-  { name: "Agroventures Plantations", type: "Vanilla & Spice Cultivation", logo: "/images/agroventure.png", strength: "Pioneers in vanilla and export-grade spice cultivation", path: "https://agroventures.lk/" },
-  { name: "Elevare", type: "Business & Lifestyle Media", logo: "/images/elevare.png", strength: "Sri Lanka's leading business & lifestyle magazine with global reach", path: "https://elevare.lk/" },
-  { name: "Rathu Ira", type: "National Press", logo: "/images/rathuira.png", strength: "Widely-read Sri Lankan newspaper, national reach", path: "https://rathuiranewspaper.lk/" },
-];
 
-const exportData = [
+export default function ExportNetwork() {
+  const { t } = useLang();
+
+
+  const exportData = [
   { year: "2019", value: 45, target: 40 },
   { year: "2020", value: 52, target: 50 },
   { year: "2021", value: 61, target: 58 },
@@ -29,15 +25,21 @@ const exportData = [
 ];
 
 const productData = [
-  { product: "Cinnamon", value: 38 },
-  { product: "Pepper", value: 22 },
-  { product: "Cardamom", value: 15 },
-  { product: "Vanilla", value: 18 },
-  { product: "Others", value: 7 },
+  { product: t.export.spieces1, value: 38 },
+  { product: t.export.spieces2, value: 22 },
+  { product: t.export.spieces3, value: 15 },
+  { product: t.export.spieces4, value: 18 },
+  { product: t.export.spieces5, value: 7 },
+  ];
+  
+  const exportPartners = [
+  { name: "Bio Foods", type:t.export.groupTag1, logo: "/images/biofoods.png", strength: t.export.groupDes1, path: "https://www.biofoodsagro.com/" },
+  { name: "Agroventure Exports", type: t.export.groupTag2, logo: "/images/export.png", strength: t.export.groupDes2, path: "https://agroventuresexports.com/" },
+  { name: "Vanilla Shop", type: t.export.groupTag3, logo: "/images/vanilla-shop.png", strength: t.export.groupDes3, path: "https://thevanillashop.lk/" },
+  { name: "Agroventures Plantations", type: t.export.groupTag4, logo: "/images/agroventure.png", strength: t.export.groupDes4, path: "https://agroventures.lk/" },
+  { name: "Elevare", type: t.export.groupTag5, logo: "/images/elevare.png", strength: t.export.groupDes5, path: "https://elevare.lk/" },
+  { name: "Rathu Ira", type: t.export.groupTag6, logo: "/images/rathuira.png", strength: t.export.groupDes6, path: "https://rathuiranewspaper.lk/" },
 ];
-
-export default function ExportNetwork() {
-  const { t } = useLang();
 
   return (
     <section id="export-network" className="py-14 overflow-hidden" style={{ backgroundColor: PAPER }}>
