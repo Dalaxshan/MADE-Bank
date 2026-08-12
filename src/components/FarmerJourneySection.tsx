@@ -185,7 +185,7 @@ export default function FarmerJourneySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-0 relative overflow-hidden p-10 text-center text-[#F3F7F5]"
+          className="mt-10 relative overflow-hidden p-10 text-center text-[#F3F7F5]"
           style={{ backgroundColor: 'var(--color-light-green)', clipPath: 'polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))' }}
         >
           <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)' }} />

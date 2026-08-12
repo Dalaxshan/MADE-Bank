@@ -12,15 +12,6 @@ const PAPER = "var(--color-primary-100)";
 const STEEL = "var(--color-light-green)";
 const JADE = "var(--color-secondary)";
 
-const testimonials = [
-  { name: 'Sunil Rathnayake', location: 'Matale, Central Province', role: 'Vegetable Farmer', emoji: '👨🌾', rating: 5, text: 'MADECOOP gave me a loan when no bank would help me. With that loan, I cultivated 2 acres of vegetables. They bought back my entire harvest at a fair price. Now I have expanded to 5 acres and my family income has tripled!', amount: 'Loan: Rs. 75,000' },
-  { name: 'Kumari Perera', location: 'Dambulla, Matale', role: 'Cinnamon Farmer', emoji: '👩🌾', rating: 5, text: "As a woman farmer, I always struggled with market access. MADECOOP not only gave me a loan but also connected me with export buyers. My cinnamon now goes to Japan! The buy-back guarantee changed everything.", amount: 'Loan: Rs. 50,000' },
-  { name: 'Chaminda Silva', location: 'Ukuwela, Matale', role: 'Pepper & Cardamom Farmer', emoji: '🧑🌾', rating: 5, text: "I joined MADECOOP's group loan program with four other farmers. We all cultivated pepper together and MADECOOP exported it to Europe. The premium export price was 40% higher than local market rates!", amount: 'Group Loan: Rs. 100,000' },
-  { name: 'Priya Dissanayake', location: 'Rattota, Matale', role: 'Vanilla Farmer', emoji: '👩🌾', rating: 5, text: "The agricultural deposit plan with 10% interest is excellent. I deposited my harvest earnings and they grew significantly. Now I use the returns to fund my next season's cultivation without borrowing!", amount: 'Deposit: Rs. 200,000' },
-  { name: 'Nimal Fernando', location: 'Naula, Matale', role: 'Mixed Crop Farmer', emoji: '👨🌾', rating: 5, text: 'The machinery loan from MADECOOP helped me buy a water pump and tractor accessories. My cultivation efficiency improved by 60%. The flexible repayment schedule aligned perfectly with my harvest cycle.', amount: 'Machinery Loan: Rs. 150,000' },
-  { name: 'Anoma Wickramasinghe', location: 'Galewela, Matale', role: 'Organic Vegetable Farmer', emoji: '👩🌾', rating: 5, text: 'MADECOOP trained me in organic farming techniques and connected me with Bio Foods. Now my organic vegetables are certified and exported to the UK at premium prices. My income increased by 300%!', amount: 'Export Loan: Rs. 120,000' },
-];
-
 const StarRating = ({ rating }: { rating: number }) => (
   <div className="flex gap-1 mb-3">
     {[...Array(5)].map((_, i) => (
@@ -31,6 +22,16 @@ const StarRating = ({ rating }: { rating: number }) => (
 
 export default function TestimonialsSection() {
   const { t } = useLang();
+
+  const testimonials = [
+  { name: t.comments.name1, location: t.comments.location1, role: t.comments.role1, emoji: '👨🌾', rating: 5, text: t.comments.text1, amount: t.comments.amount1 },
+  { name: t.comments.name2, location: t.comments.location2, role: t.comments.role2, emoji: '👩🌾', rating: 5, text: t.comments.text2, amount: t.comments.amount2 },
+  { name: t.comments.name3, location: t.comments.location3, role: t.comments.role3, emoji: '🧑🌾', rating: 5, text: t.comments.text3, amount: t.comments.amount3 },
+  { name: t.comments.name4, location: t.comments.location4, role: t.comments.role4, emoji: '👩🌾', rating: 5, text: t.comments.text4, amount: t.comments.amount4 },
+  { name: t.comments.name5, location: t.comments.location5, role: t.comments.role5, emoji: '👨🌾', rating: 5, text: t.comments.text5, amount: t.comments.amount5 },
+  { name: t.comments.name6, location: t.comments.location6, role: t.comments.role6, emoji: '👩🌾', rating: 5, text: t.comments.text6, amount: t.comments.amount6 },
+];
+
 
   return (
     <section id="testimonials" className="py-14 overflow-hidden" style={{ backgroundColor: PAPER }}>

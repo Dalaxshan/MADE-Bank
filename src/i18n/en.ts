@@ -126,12 +126,11 @@ const en = {
     groupDes4: "Vanilla & Spice Cultivation Farmers & Exporters.",
     groupDes5: "Widely Read Sri Lankan Weekly Business & Lifestyle Magazine.",
     groupDes6: "Nationwide National Press Coverage.",
-     spieces1: "Cinnamon",
+    spieces1: "Cinnamon",
     spieces2: "Vanilla",
     spieces3: "Pepper",
     spieces4: "Cardamom",
     spieces5: "Others",
-
   },
   testimonials: {
     badge: "Farmer Success Stories",
@@ -143,6 +142,43 @@ const en = {
     income: "Avg. Income Growth",
     rating: "Community Rating",
   },
+  comments: {
+  name1: "Sunil Rathnayake",
+  location1: "Matale, Central Province",
+  role1: "Vegetable Farmer",
+  text1: "No bank was willing to provide me with a loan, but MADECOOP gave me the support I needed. With that loan, I cultivated 2 acres of vegetables. They bought my entire harvest at a fair price. Now I have expanded my cultivation to 5 acres, and my family income has tripled!",
+  amount1: "Loan: Rs. 75,000",
+
+  name2: "Kumari Perera",
+  location2: "Dambulla, Matale",
+  role2: "Cinnamon Farmer",
+  text2: "As a woman farmer, I always struggled to access the market. MADECOOP not only provided me with a loan but also connected me with export buyers. Now my cinnamon is exported to Japan! The buy-back guarantee changed everything for me.",
+  amount2: "Loan: Rs. 50,000",
+
+  name3: "Chaminda Silva",
+  location3: "Ukuwela, Matale",
+  role3: "Pepper & Cardamom Farmer",
+  text3: "I joined MADECOOP's group loan program with four other farmers. We cultivated pepper together, and MADECOOP exported it to Europe. The premium export price was 40% higher than the local market price!",
+  amount3: "Group Loan: Rs. 100,000",
+
+  name4: "Priya Dissanayake",
+  location4: "Rattota, Matale",
+  role4: "Vanilla Farmer",
+  text4: "The agricultural deposit plan offering 10% interest is excellent. I deposited my harvest earnings, and they grew significantly. Now I use the returns to fund my next cultivation season without taking a loan!",
+  amount4: "Deposit: Rs. 200,000",
+
+  name5: "Nimal Fernando",
+  location5: "Naula, Matale",
+  role5: "Mixed Crop Farmer",
+  text5: "The machinery loan from MADECOOP helped me purchase a water pump and tractor accessories. This improved my cultivation efficiency by 60%. The flexible repayment schedule aligned perfectly with my harvest cycle.",
+  amount5: "Machinery Loan: Rs. 150,000",
+
+  name6: "Anoma Wickramasinghe",
+  location6: "Galewela, Matale",
+  role6: "Organic Vegetable Farmer",
+  text6: "MADECOOP trained me in organic farming techniques and connected me with Bio Foods. Now my organic vegetables are certified and exported to the United Kingdom at premium prices. My income has increased by 300%!",
+  amount6: "Export Loan: Rs. 120,000",
+},
   about: {
     badge: "About MADECOOP",
     title1: "Rooted in Agriculture,",
@@ -372,7 +408,7 @@ const en = {
     p3y: "3 Years",
     p4y: "4 Years",
     p5y: "5 Years",
-     principal: "Principal",
+    principal: "Principal",
     interest: "Interest",
   },
   faq: {

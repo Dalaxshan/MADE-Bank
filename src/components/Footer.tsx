@@ -233,7 +233,7 @@ export default function Footer() {
         onClick={scrollToTop}
         whileHover={{ scale: 1.08, rotate: -4 }}
         whileTap={{ scale: 0.92 }}
-        className="fixed bottom-18 right-18 w-12 h-12 flex items-center justify-center shadow-xl z-20"
+        className="fixed bottom-4 right-4 w-12 h-12 flex items-center justify-center shadow-xl z-20"
         style={{ backgroundColor: JADE, color: " #fff" }}
       >
         <FaArrowUp size={16} />
