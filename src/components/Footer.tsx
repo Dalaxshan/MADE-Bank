@@ -8,33 +8,27 @@ import {
   FaWhatsapp,
   FaArrowUp,
 } from "react-icons/fa";
-import { useLang } from "../i18n/LanguageContext";
 
 const INK = "#1E2A38";
 const JADE = "var(--color-light-green)";
 const STEEL = "var(--color-secondary)";
 
-export default function Footer() {
-  const navigate = useNavigate();
-  const { t } = useLang();
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-  const footerLinks: Record<string, { label: string; href: string }[]> = {
+const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Loan Services": [
-    { label: t.footer.exportLoan, href: "/services" },
-    { label: t.footer.landLoan, href: "/services" },
-    { label: t.footer.machineryLoan, href: "/services" },
-    { label: t.footer.vehicleLoan, href: "/services" },
-    { label: t.footer.groupLoan, href: "/services" },
-    { label: t.footer.mortgageLoan, href: "/services" },
+    { label: "Export Agriculture Loan", href: "/services" },
+    { label: "Land Purchasing Loan", href: "/services" },
+    { label: "Machinery Loan", href: "/services" },
+    { label: "Vehicle Loan", href: "/services" },
+    { label: "Group Loan", href: "/services" },
+    { label: "Mortgage Loan", href: "/services" },
   ],
   "Deposit Services": [
-    { label: t.footer.deposit6m, href: "/deposits" },
-    { label: t.footer.deposit1y, href: "/deposits" },
-    { label: t.footer.deposit25y, href: "/deposits" },
-    { label: t.footer.monthlyInterest, href: "/deposits" },
-    { label: t.footer.maturityPlans, href: "/deposits" },
-    { label: t.footer.calculator, href: "/deposits" },
+    { label: "6 Month Deposit", href: "/deposits" },
+    { label: "1 Year Deposit", href: "/deposits" },
+    { label: "2-5 Year Deposits", href: "/deposits" },
+    { label: "Monthly Interest Plans", href: "/deposits" },
+    { label: "Maturity Plans", href: "/deposits" },
+    { label: "Deposit Calculator", href: "/deposits" },
   ],
   // Company: [
   //   { label: "About MADECOOP", href: "/about" },
@@ -43,13 +37,17 @@ export default function Footer() {
   //   { label: "Gallery", href: "/gallery" },
   // ],
   Support: [
-    { label: t.footer.faq, href: "/contact" },
-    { label: t.footer.contactUs, href: "/contact" },
-    { label: t.footer.privacy, href: "#" },
-    { label: t.footer.terms, href: "#" },
+    { label: "FAQ", href: "/contact" },
+    { label: "Contact Us", href: "/contact" },
+    { label: "Privacy Policy", href: "#" },
+    { label: "Terms & Conditions", href: "#" },
   ],
 };
 
+export default function Footer() {
+  const navigate = useNavigate();
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleNavClick = (href: string) => {
     if (href === "#") return;
@@ -119,7 +117,8 @@ export default function Footer() {
             />
 
             <p className="text-gray-400 text-sm leading-relaxed mb-5">
-              {t.footer.tagline}
+              Empowering Sri Lankan farmers with agricultural loans and
+              financial support to sell their products locally and globally.
             </p>
 
             {/* Contact snippets - ledger-line style */}

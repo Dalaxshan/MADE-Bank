@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -8,8 +8,7 @@ import {
   FaChevronDown,
   FaArrowRight,
 } from "react-icons/fa";
-import { Landmark, Globe } from "lucide-react";
-import { useLang, Lang } from "../i18n/LanguageContext";
+import { Landmark } from "lucide-react";
 
 const INK = "var(--color-gold)";
 const PAPER = "var(--color-primary-100)";
@@ -17,38 +16,26 @@ const JADE = "var(--color-light-green)";
 const STEEL = "var(--color-secondary)";
 const INDIGO = "var(--color-primary-dark)";
 
-const LANGUAGES: { code: Lang; label: string }[] = [
-  { code: "en", label: "English" },
-  { code: "tm", label: "தமிழ்" },
-  { code: "si", label: "සිංහල" },
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  {
+    label: "Loans",
+    href: "/loans",
+  },
+  {
+    label: "Deposits",
+    href: "/deposits",
+  },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const { lang, setLang, t } = useLang();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [langOpen, setLangOpen] = useState(false);
-  const langRef = useRef<HTMLDivElement>(null);
-
-  const navLinks = [
-    { label: t.nav.home, href: "/" },
-    { label: t.nav.about, href: "/about" },
-    { label: t.nav.loans, href: "/loans" },
-    { label: t.nav.deposits, href: "/deposits" },
-    { label: t.nav.gallery, href: "/gallery" },
-    { label: t.nav.contact, href: "/contact" },
-  ];
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (langRef.current && !langRef.current.contains(e.target as Node))
-        setLangOpen(false);
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -77,7 +64,8 @@ export default function Navbar() {
               strokeWidth={1.25}
               className="text-[var(--color-primary-100)]"
             />
-           {t.nav.registered}
+            REGISTERED · COOPERATIVE SOCIETIES ACT NO. 10 OF 1990 · CENTRAL
+            PROVINCIAL COUNCIL
           </span>
           <div className="flex items-center gap-3">
             <a
@@ -87,7 +75,7 @@ export default function Navbar() {
               <FaPhone size={10} /> +94 70 473 2926
             </a>
             <span className="text-[#F3F7F5]/25">|</span>
-            <span className="text-[#F3F7F5]/70">{t.nav.hours}</span>
+            <span className="text-[#F3F7F5]/70">MON–SAT · 8:30–4:30</span>
           </div>
         </div>
       </div>
@@ -193,44 +181,6 @@ export default function Navbar() {
 
             {/* CTA Buttons - ledger tabs, same shape as the hero */}
             <div className="hidden lg:flex items-center gap-2.5">
-              {/* Language Switcher */}
-              <div className="relative" ref={langRef}>
-                <button
-                  onClick={() => setLangOpen(!langOpen)}
-                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors duration-200"
-                  style={{ color: `${INK}B3` }}
-                >
-                  <Globe size={14} />
-                  {LANGUAGES.find((l) => l.code === lang)?.label}
-                  <FaChevronDown size={9} className={`transition-transform ${langOpen ? "rotate-180" : ""}`} />
-                </button>
-                <AnimatePresence>
-                  {langOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-1 w-36 py-1 z-50 shadow-xl"
-                      style={{ backgroundColor: PAPER, border: `1px solid ${INK}14` }}
-                    >
-                      {LANGUAGES.map((l) => (
-                        <button
-                          key={l.code}
-                          onClick={() => { setLang(l.code); setLangOpen(false); }}
-                          className="w-full text-left px-4 py-2 text-sm transition-colors hover:text-[var(--color-primary)]"
-                          style={{
-                            color: lang === l.code ? "var(--color-primary)" : `${INK}CC`,
-                            fontWeight: lang === l.code ? 600 : 400,
-                          }}
-                        >
-                          {l.label}
-                        </button>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
               <button
                 onClick={() => handleNavClick("/services")}
                 className="group flex items-center gap-2 text-sm font-semibold py-2.5 px-5 text-[#fff] transition-colors duration-300"
@@ -246,7 +196,7 @@ export default function Navbar() {
                   (e.currentTarget.style.backgroundColor = JADE)
                 }
               >
-                Apply for a Loan
+                Start Our Loan
                 <FaArrowRight
                   size={11}
                   className="group-hover:translate-x-1 transition-transform"
@@ -307,23 +257,6 @@ export default function Navbar() {
                     )}
                   </div>
                 ))}
-                {/* Mobile Language Switcher */}
-                <div className="flex gap-2 pt-2 pb-1">
-                  {LANGUAGES.map((l) => (
-                    <button
-                      key={l.code}
-                      onClick={() => setLang(l.code)}
-                      className="flex-1 py-2 text-xs font-medium transition-colors"
-                      style={{
-                        color: lang === l.code ? "var(--color-primary)" : `${INK}99`,
-                        border: `1px solid ${lang === l.code ? "var(--color-primary)" : `${INK}22`}`,
-                        fontWeight: lang === l.code ? 600 : 400,
-                      }}
-                    >
-                      {l.label}
-                    </button>
-                  ))}
-                </div>
                 <div className="pt-3 flex flex-col gap-2.5">
                   <button
                     onClick={() => handleNavClick("/services")}

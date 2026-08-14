@@ -1,25 +1,24 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
-import { AwardIcon, BanknoteArrowDown, ChartSpline, Earth, Leaf, Quote, Trophy, Users } from 'lucide-react';
-import { useLang } from '../i18n/LanguageContext';
+import { AwardIcon, BanknoteArrowDown, ChartSpline, Earth, Leaf, Quote, Shield, Trophy, Users } from 'lucide-react';
+
+const stats = [
+  { value: 500, suffix: '+', label: 'Farmers Supported', icon: <Users strokeWidth={1.25} />, color: 'text-green-600' },
+  { value: 100, suffix: '+', label: 'Loans Issued', icon: <BanknoteArrowDown strokeWidth={1.25} />, color: 'text-blue-600' },
+  { value: 6, suffix: '+', label: ' Group Partners', icon: <Earth strokeWidth={1.25} />, color: 'text-purple-600' },
+  { value: 1, suffix: '+', label: 'Years of Service', icon: <Trophy strokeWidth={1.25} />, color: 'text-yellow-600' },
+  { value: 500, suffix: 'M+', label: 'LKR Loans Disbursed', icon: <ChartSpline strokeWidth={1.25} />, color: 'text-red-600' },
+  { value: 1000, suffix: '+', label: 'Acres Developed', icon: <Leaf strokeWidth={1.25} />, color: 'text-emerald-600' },
+];
 
 export default function AboutSection() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
-  const { t } = useLang();
-
-  const stats = [
-    { value: 500, suffix: '+', label: t.about.farmers, icon: <Users strokeWidth={1.25} />, color: 'text-green-600' },
-    { value: 100, suffix: '+', label: t.about.loans, icon: <BanknoteArrowDown strokeWidth={1.25} />, color: 'text-blue-600' },
-    { value: 6, suffix: '+', label: t.about.partners, icon: <Earth strokeWidth={1.25} />, color: 'text-purple-600' },
-    { value: 1, suffix: '+', label: t.about.years, icon: <Trophy strokeWidth={1.25} />, color: 'text-yellow-600' },
-    { value: 500, suffix: 'M+', label: t.about.disbursed, icon: <ChartSpline strokeWidth={1.25} />, color: 'text-red-600' },
-    { value: 1000, suffix: '+', label: t.about.acres, icon: <Leaf strokeWidth={1.25} />, color: 'text-emerald-600' },
-  ];
 
   return (
     <section id="about" className="py-14 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,15 +27,21 @@ export default function AboutSection() {
           className="text-center mb-16"
         >
           <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            {t.about.badge}
+            About MADECOOP
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
-            {t.about.title1}<br />
-            <span className="gradient-text">{t.about.title2}</span>
+            Rooted in Agriculture,
+            <br />
+            <span className="gradient-text">Growing Together</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">{t.about.sub}</p>
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+            Matale District Agriculture Development and Export Cooperative Society Ltd. (MADECOOP) has been the backbone
+            of traditional farming communities in Central Province for over 1+ year - providing financial empowerment,
+            market access, and sustainable growth pathways.
+          </p>
         </motion.div>
 
+        {/* Animated Stats */}
         <div ref={ref} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-20">
           {stats.map((stat, i) => (
             <motion.div
@@ -49,45 +54,94 @@ export default function AboutSection() {
             >
               <div className={`text-2xl mb-2 ${stat.color} flex justify-center`}>{stat.icon}</div>
               <div className={`text-xl font-black ${stat.color}`}>
-                {inView ? <CountUp end={stat.value} duration={2} suffix={stat.suffix} separator="," /> : '0'}
+                {inView ? (
+                  <CountUp end={stat.value} duration={2} suffix={stat.suffix} separator="," />
+                ) : '0'}
               </div>
               <div className="text-gray-500 text-xs mt-1 font-medium">{stat.label}</div>
             </motion.div>
           ))}
         </div>
 
+        {/* Two-column layout: Image + Our Story */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="relative">
+          {/* Left: Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative"
+          >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img src="/images/about-team.jpg" alt="MADECOOP farmer" className="w-full h-[480px] object-cover" />
+              <img
+                src="/images/about-team.jpg"
+                alt="MADECOOP farmer"
+                className="w-full h-[480px] object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="glass rounded-2xl p-4">
-                  <div className="text-white font-bold text-lg">{t.about.trusted}</div>
-                  <div className="text-white/80 text-sm">{t.about.trustedSub}</div>
+                  <div className="text-white font-bold text-lg">Trusted by 500+ Farmers</div>
+                  <div className="text-white/80 text-sm">Across Matale District, Central Province</div>
                 </div>
               </div>
             </div>
-            <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 3, repeat: Infinity }} className="absolute -top-5 -right-5 bg-white rounded-2xl p-4 shadow-xl border border-green-100">
+
+            {/* Floating badge */}
+            <motion.div
+              animate={{ y: [-5, 5, -5] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="absolute -top-5 -right-5 bg-white rounded-2xl p-4 shadow-xl border border-green-100"
+            >
               <div className="text-3xl font-black text-green-700">1+</div>
-              <div className="text-xs text-gray-500 font-medium">{t.about.yearsServing}<br />{t.about.farmers}</div>
+              <div className="text-xs text-gray-500 font-medium">Years Serving<br />Farmers</div>
             </motion.div>
-            <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 3.5, repeat: Infinity }} className="absolute -bottom-5 -right-5 bg-white rounded-2xl p-4 shadow-xl border border-yellow-100">
+
+            <motion.div
+              animate={{ y: [5, -5, 5] }}
+              transition={{ duration: 3.5, repeat: Infinity }}
+              className="absolute -bottom-5 -right-5 bg-white rounded-2xl p-4 shadow-xl border border-yellow-100"
+            >
               <AwardIcon className="text-yellow-600 w-6 h-6 mb-1" strokeWidth={1.25} />
-              <div className="text-xs text-gray-600 font-medium">{t.about.award}</div>
+              <div className="text-xs text-gray-600 font-medium">Award-winning<br />Cooperative</div>
             </motion.div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">{t.about.storyBadge}</span>
+          {/* Right: Text */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+              Our Story
+            </span>
             <h3 className="text-3xl font-black text-gray-900 mb-5 leading-tight">
-              {t.about.storyTitle1}<br />
-              <span className="gradient-text">{t.about.storyTitle2}</span>
+              A Cooperative Built
+              <br />
+              <span className="gradient-text">For Farmers, By Farmers</span>
             </h3>
-            <p className="text-gray-600 leading-relaxed mb-5">{t.about.storyP1}</p>
-            <p className="text-gray-600 leading-relaxed mb-6">{t.about.storyP2}</p>
+            <p className="text-gray-600 leading-relaxed mb-5">
+              MADECOOP was founded with a singular vision: to break the cycle of poverty that traps traditional farmers.
+              By combining financial services with guaranteed market access and export partnerships, we create a complete
+              ecosystem where farmers can thrive.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Our buy-back guarantee means farmers never worry about unsold harvests. Our export network connects
+              Sri Lankan farmers directly to international markets, ensuring premium prices for quality produce
+              including cinnamon,Vanilla,pepper, cardamom, and fresh vegetables.
+            </p>
+
+            {/* Key points */}
             <div className="space-y-3">
-              {[t.about.kp1, t.about.kp2, t.about.kp3, t.about.kp4].map((point) => (
+              {[
+                'Registered Cooperative under CPC Act No. 10 of 1990',
+                'Transparent interest rates with flexible repayment',
+                'Direct farm-to-export supply chain management',
+                'Community-based group lending programs',
+              ].map((point) => (
                 <div key={point} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <div className="w-2 h-2 rounded-full bg-green-600" />
@@ -99,45 +153,86 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
+        {/* Chairman's Message - sits directly below Our Story, mirrored layout for rhythm */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="order-2 lg:order-1">
-            <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">{t.about.chairmanBadge}</span>
+          {/* Left: Message */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="order-2 lg:order-1"
+          >
+            <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+              Chairman&apos;s Message
+            </span>
             <h3 className="text-3xl font-black text-gray-900 mb-5 leading-tight">
-              {t.about.chairmanTitle1}<br />
-              <span className="gradient-text">{t.about.chairmanTitle2}</span>
+              A Word From
+              <br />
+              <span className="gradient-text">Our Chairman</span>
             </h3>
+
             <div className="relative pl-6 border-l-4 border-green-200 mb-6">
               <Quote className="absolute -left-[22px] -top-2 w-9 h-9 text-green-600 bg-white" strokeWidth={1.25} />
-              <p className="text-gray-600 leading-relaxed italic">{t.about.chairmanQuote}</p>
+              <p className="text-gray-600 leading-relaxed italic">
+                When we started MADECOOP, our farmers had land, skill, and generations of knowledge - but no fair
+                path to a market that valued it. Today, every loan we issue and every harvest we buy back is a
+                promise kept. Our strength has never been our capital; it is the trust our farmers place in us,
+                season after season.
+              </p>
             </div>
+
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-green-100 flex-shrink-0">
-                <img src="/images/logo.png" alt="Director, MADECOOP" className="w-full h-full object-cover" />
+                <img
+                  src="/images/logo.png"
+                  alt="Director, MADECOOP"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
-                <div className="font-bold text-gray-900">{t.about.chairmanName}</div>
-                <div className="text-gray-500 text-sm">{t.about.chairmanRole}</div>
+                <div className="font-bold text-gray-900">Mr.Nilanga Karunarathne</div>
+                <div className="text-gray-500 text-sm">Chairman, MADECOOP</div>
               </div>
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="relative order-1 lg:order-2">
+          {/* Right: Photo */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative order-1 lg:order-2"
+          >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img src="/images/director.png" alt="MADECOOP Director" className="w-full h-[480px] object-cover" />
+              <img
+                src="/images/director.png"
+                alt="MADECOOP Director"
+                className="w-full h-[480px] object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="glass rounded-2xl p-4">
-                  <div className="text-white font-bold text-lg">{t.about.leadingPurpose}</div>
-                  <div className="text-white/80 text-sm">{t.about.leadingSub}</div>
+                  <div className="text-white font-bold text-lg">Leading With Purpose</div>
+                  <div className="text-white/80 text-sm">Since the founding of MADECOOP</div>
                 </div>
               </div>
             </div>
-            <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 3, repeat: Infinity }} className="absolute -top-5 -left-5 bg-white rounded-2xl p-4 shadow-xl border border-green-100">
+
+            {/* Floating signature badge */}
+            <motion.div
+              animate={{ y: [-5, 5, -5] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="absolute -top-5 -left-5 bg-white rounded-2xl p-4 shadow-xl border border-green-100"
+            >
               <Quote className="text-green-600 w-6 h-6 mb-1" strokeWidth={1.25} />
-              <div className="text-xs text-gray-500 font-medium">{t.about.chairmanBadge}</div>
+              <div className="text-xs text-gray-500 font-medium">Chairman&apos;s<br />Message</div>
             </motion.div>
           </motion.div>
         </div>
+
+       
       </div>
     </section>
   );
