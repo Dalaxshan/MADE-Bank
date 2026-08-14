@@ -460,7 +460,7 @@ export default function LoanApplicationSection() {
                       className="mt-0.5 flex-shrink-0"
                       style={{ color: "#5FCDAA" }}
                     />
-                    <span>+94 66 222 2222</span>
+                    <span>+94 70 473 2926</span>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <MapPin
