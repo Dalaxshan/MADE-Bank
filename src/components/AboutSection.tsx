@@ -70,7 +70,7 @@ export default function AboutSection() {
             </div>
             <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 3, repeat: Infinity }} className="absolute -top-5 -right-5 bg-white rounded-2xl p-4 shadow-xl border border-green-100">
               <div className="text-3xl font-black text-green-700">1+</div>
-              <div className="text-xs text-gray-500 font-medium">{t.about.yearsServing}<br />{t.about.farmers}</div>
+              <div className="text-xs text-gray-500 font-medium">{t.about.yearsServing}</div>
             </motion.div>
             <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 3.5, repeat: Infinity }} className="absolute -bottom-5 -right-5 bg-white rounded-2xl p-4 shadow-xl border border-yellow-100">
               <AwardIcon className="text-yellow-600 w-6 h-6 mb-1" strokeWidth={1.25} />

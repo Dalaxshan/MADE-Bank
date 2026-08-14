@@ -12,12 +12,13 @@ import {
 } from "react-icons/fa";
 import { useState } from "react";
 import { Shield } from "lucide-react";
+import { useLang } from "@/i18n/LanguageContext";
 
-type FormData = {
+type ContactFormData = {
   name: string;
   email: string;
   phone: string;
-  subject: string;
+  title: string;
   service: string;
   message: string;
 };
@@ -25,69 +26,84 @@ type FormData = {
 const INK = "#1E2A38";
 const JADE = "var(--color-light-green)";
 
-const contactInfo = [
-  {
-    icon: <FaPhone className="text-xl" />,
-    title: "Phone",
-    lines: ["+94 70 473 2926"],
-    color: "bg-green-100 text-green-600",
-    href: "tel:+94704732926",
-  },
-  {
-    icon: <FaWhatsapp className="text-xl" />,
-    title: "WhatsApp",
-    lines: ["+94 70 473 2926"],
-    color: "bg-emerald-100 text-emerald-600",
-    href: "https://wa.me/94704732926",
-  },
-  {
-    icon: <FaEnvelope className="text-xl" />,
-    title: "Email",
-    lines: ["info@madecoopbank.com"],
-    color: "bg-blue-100 text-blue-600",
-    href: "mailto:info@madecoopbank.com",
-  },
-  {
-    icon: <FaMapMarkerAlt className="text-xl" />,
-    title: "Address",
-    lines: ["3/4, Yelakkare Junction, Dangan Place, Yatawatta, Matale."],
-    color: "bg-red-100 text-red-600",
-    href: "#",
-  },
-  {
-    icon: <FaClock className="text-xl" />,
-    title: "Office Hours",
-    lines: ["Monday–Friday: 8:30 AM – 4:30 PM", "Saturday: 8:30 AM – 12:30 PM"],
-    color: "bg-amber-100 text-amber-600",
-    href: "#",
-  },
-];
-
-const serviceOptions = [
-  "Export Agriculture Loan",
-  "Land Purchasing Loan",
-  "Machinery Loan",
-  "Vehicle Loan",
-  "Group Loan",
-  "Mortgage Loan",
-  "Deposit Account",
-  "General Inquiry",
-];
-
 export default function ContactSection() {
+  const { t } = useLang();
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {
     register,
-    handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormData>();
+  } = useForm<ContactFormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    setSubmitted(true);
-    reset();
-    setTimeout(() => setSubmitted(false), 500);
+  const contactInfo = [
+    {
+      icon: <FaPhone className="text-xl" />,
+      title: t.contact.phone,
+      lines: ["+94 70 473 2926"],
+      color: "bg-green-100 text-green-600",
+      href: "tel:+94704732926",
+    },
+    {
+      icon: <FaWhatsapp className="text-xl" />,
+      title: t.contact.whatsapp,
+      lines: ["+94 70 473 2926"],
+      color: "bg-emerald-100 text-emerald-600",
+      href: "https://wa.me/94704732926",
+    },
+    {
+      icon: <FaEnvelope className="text-xl" />,
+      title: t.contact.email,
+      lines: ["info@madecoopbank.com"],
+      color: "bg-blue-100 text-blue-600",
+      href: "mailto:info@madecoopbank.com",
+    },
+    {
+      icon: <FaMapMarkerAlt className="text-xl" />,
+      title: t.contact.address,
+      lines: [t.contact.addressLine],
+      color: "bg-red-100 text-red-600",
+      href: "#",
+    },
+    {
+      icon: <FaClock className="text-xl" />,
+      title: t.contact.hours,
+      lines: [t.contact.hoursLine1, t.contact.hoursLine2],
+      color: "bg-amber-100 text-amber-600",
+      href: "#",
+    },
+  ];
+
+  const serviceOptions = [
+    t.contact.s1,
+    t.contact.s2,
+    t.contact.s3,
+    t.contact.s4,
+    t.contact.s5,
+    t.contact.s6,
+    t.contact.s7,
+    t.contact.s8,
+  ];
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setLoading(true);
+    const formData = new FormData(event.currentTarget);
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY ?? "");
+    formData.append("subject", "New Contact Form Submission");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+    setLoading(false);
+    if (result.success) {
+      setSubmitted(true);
+      reset();
+      setTimeout(() => setSubmitted(false), 5000);
+    }
   };
 
   return (
@@ -102,16 +118,15 @@ export default function ContactSection() {
           className="text-center mb-16"
         >
           <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            Contact Us
+            {t.contact.badge}
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
-            Get In Touch
+            {t.contact.title1}
             <br />
-            <span className="gradient-text">We're Here to Help</span>
+            <span className="gradient-text">{t.contact.title2}</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-xl mx-auto">
-            Our agricultural finance experts are ready to guide you through the
-            process.
+            {t.contact.sub}
           </p>
         </motion.div>
 
@@ -180,9 +195,8 @@ export default function ContactSection() {
               <div className="flex items-center justify-between px-4 py-2 bg-white">
                 <div>
                   <div className="font-bold text-gray-900 text-sm">
-                    3/4, Yelakkare Junction, Dangan Place, Yatawatta, Matale.
+                    {t.contact.addressLine}
                   </div>
-                  <div className="text-gray-500 text-xs">Sri Lanka</div>
                 </div>
               </div>
             </div>
@@ -209,23 +223,23 @@ export default function ContactSection() {
                 >
                   <FaCheckCircle className="text-green-500 text-5xl mx-auto mb-4" />
                   <h4 className="text-xl font-bold text-gray-900 mb-2">
-                    Message Sent Successfully!
+                    {t.contact.successTitle}
                   </h4>
                   <p className="text-gray-600">
-                    Our team will contact you within 1 business day.
+                    {t.contact.successSub}
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={onSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                        Full Name *
+                        {t.contact.fullName}
                       </label>
                       <input
                         {...register("name", { required: "Name is required" })}
                         className="input-field bg-white"
-                        placeholder="Your full name"
+                        placeholder={t.contact.fullNamePlaceholder}
                       />
                       {errors.name && (
                         <span className="text-red-500 text-xs mt-1">
@@ -235,11 +249,11 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                        Phone Number *
+                        {t.contact.phoneLabel}
                       </label>
                       <input
                         {...register("phone", {
-                          required: "Phone is required",
+                          required: t.contact.errPhone,
                         })}
                         className="input-field bg-white"
                         placeholder="+94 XX XXX XXXX"
@@ -254,7 +268,7 @@ export default function ContactSection() {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      Email Address
+                      {t.contact.emailLabel}
                     </label>
                     <input
                       {...register("email")}
@@ -266,15 +280,15 @@ export default function ContactSection() {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      I'm Interested In *
+                      {t.contact.interestedIn}
                     </label>
                     <select
                       {...register("service", {
-                        required: "Please select a service",
+                        required: t.contact.errService,
                       })}
                       className="input-field bg-white appearance-none"
                     >
-                      <option value="">Select a service...</option>
+                      <option value="">{t.contact.selectService}</option>
                       {serviceOptions.map((opt) => (
                         <option key={opt} value={opt}>
                           {opt}
@@ -290,26 +304,26 @@ export default function ContactSection() {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      Subject
+                     {t.contact.subject}
                     </label>
                     <input
-                      {...register("subject")}
+                      {...register("title")}
                       className="input-field bg-white"
-                      placeholder="Brief subject"
+                      placeholder={t.contact.subjectPlaceholder}
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      Message *
+                      {t.contact.message}
                     </label>
                     <textarea
                       {...register("message", {
-                        required: "Message is required",
+                        required: t.contact.errMessage,
                       })}
                       rows={4}
                       className="input-field bg-white resize-none"
-                      placeholder="Tell us about your farming needs, loan requirements, or any questions..."
+                      placeholder={t.contact.messagePlaceholder}
                     />
                     {errors.message && (
                       <span className="text-red-500 text-xs mt-1">
@@ -320,14 +334,14 @@ export default function ContactSection() {
 
                   <button
                     type="submit"
-                    className="btn-primary w-full justify-center py-4 text-base"
+                    disabled={loading}
+                    className="btn-primary w-full justify-center py-4 text-base disabled:opacity-60"
                   >
-                    <FaPaperPlane /> Send Message
+                    <FaPaperPlane /> {loading ? "Sending…" : t.contact.send}
                   </button>
 
                   <p className="text-gray-500 text-xs text-center mt-3">
-                    ✅ We respond within 1 business day. Your information is
-                    kept confidential.
+                    {t.contact.responseNote}
                   </p>
                 </form>
               )}
@@ -344,7 +358,7 @@ export default function ContactSection() {
           className="mt-10 relative overflow-hidden p-8 text-center"
           style={{
             border: `1px dashed ${JADE}66`,
-            backgroundColor: 'var(--color-primary-100)',
+            backgroundColor: "var(--color-primary-100)",
           }}
         >
           {/* corner stamp ticks - echoes the ledger/seal motif used elsewhere */}
@@ -370,7 +384,7 @@ export default function ContactSection() {
             style={{ color: JADE }}
           >
             <Shield size={12} />
-            Legal Registration
+            {t.contact.legalBadge}
           </div>
 
           <p
@@ -378,17 +392,9 @@ export default function ContactSection() {
             style={{ color: `${INK}CC` }}
           >
             <strong style={{ color: INK }}>
-              Matale District Agriculture Development and Export Cooperative
-              Society Ltd. (MADECOOP)
+              {t.contact.legalText}
             </strong>{" "}
-            is registered under{" "}
-            <strong style={{ color: JADE }}>
-              Section 06 of the Cooperative Societies Act No. 10 of 1990
-            </strong>{" "}
-            of the Central Provincial Council, as amended by the{" "}
-            <strong style={{ color: JADE }}>
-              Cooperative Societies (Amendment) Act No. 04 of 1993.
-            </strong>
+            
           </p>
         </motion.div>
       </div>

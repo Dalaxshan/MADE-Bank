@@ -114,7 +114,7 @@ export default function FarmerJourneySection() {
               className="p-5"
               style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}
             >
-              <div className="text-[10px] uppercase tracking-[0.15em] mb-2" style={{ color: `${INK}5C` }}>
+              <div className="text-[10px] uppercase tracking-[0.4em] mb-2" style={{ color: `${INK}` }}>
                 {t.journey.problem} {String(i + 1).padStart(2, '0')}
               </div>
               <div
@@ -123,7 +123,7 @@ export default function FarmerJourneySection() {
               >
                 {item.problem}
               </div>
-              <FaArrowDown size={12} className="mx-auto my-1" style={{ color: `${INK}33` }} />
+              <FaArrowDown size={12} className="mx-auto my-1" style={{ color: `${INK}` }} />
               <div className="flex items-center justify-center gap-1.5 text-sm font-bold mt-2" style={{ color: JADE }}>
                 <FaCheckCircle size={13} />
                 {item.solution}
@@ -185,7 +185,7 @@ export default function FarmerJourneySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-0 relative overflow-hidden p-10 text-center text-[#F3F7F5]"
+          className="mt-10 relative overflow-hidden p-10 text-center text-[#F3F7F5]"
           style={{ backgroundColor: 'var(--color-light-green)', clipPath: 'polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))' }}
         >
           <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)' }} />

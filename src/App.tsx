@@ -10,6 +10,7 @@ import ExportNetworkPage from './pages/ExportNetworkPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import LoansPage from './pages/LoansPage';
+import ApplyLoanPage from './pages/ApplyLoanPage';
 
 export default function App() {
   return (
@@ -26,7 +27,8 @@ export default function App() {
             <Route path="/deposits" element={<DepositsPage />} />
             <Route path="/export-network" element={<ExportNetworkPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/apply-loan" element={<ApplyLoanPage />} />
           </Routes>
         </main>
         <Footer />

@@ -144,8 +144,8 @@ export default function Footer() {
                   className="text-xs mt-0.5"
                 />
                 <span>
-                  3/4, Yelakkare Junction, Dangan Place,
-                  <br /> Yatawatta, Matale.
+                 {t.contact.addressLine} <br />
+                
                 </span>
               </div>
             </div>
@@ -219,10 +219,10 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-5 text-[11px] uppercase tracking-wide text-gray-300">
             <button className="hover:text-white transition-colors">
-              Privacy Policy
+             {t.footer.privacy}
             </button>
             <button className="hover:text-white transition-colors">
-              Terms &amp; Conditions
+              {t.footer.terms}
             </button>
           </div>
         </div>
@@ -233,7 +233,7 @@ export default function Footer() {
         onClick={scrollToTop}
         whileHover={{ scale: 1.08, rotate: -4 }}
         whileTap={{ scale: 0.92 }}
-        className="fixed bottom-18 right-18 w-12 h-12 flex items-center justify-center shadow-xl z-20"
+        className="fixed bottom-4 right-4 w-12 h-12 flex items-center justify-center shadow-xl z-20"
         style={{ backgroundColor: JADE, color: " #fff" }}
       >
         <FaArrowUp size={16} />

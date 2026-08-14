@@ -3,23 +3,23 @@ import en from "./en";
 import tm from "./tm";
 import si from "./si";
 
-const translations = { en, tm, si } as const;
+const translations = { si,en, tm } as const;
 export type Lang = keyof typeof translations;
 
 interface LangCtx {
   lang: Lang;
   setLang: (l: Lang) => void;
-  t: typeof en;
+  t: typeof si;
 }
 
 const LanguageContext = createContext<LangCtx>({
-  lang: "en",
+  lang: "si",
   setLang: () => {},
-  t: en,
+  t: si,
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("si");
 
   const handleSetLang = (l: Lang) => {
     setLang(l);

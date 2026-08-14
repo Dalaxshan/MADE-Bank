@@ -14,7 +14,6 @@ import { useLang, Lang } from "../i18n/LanguageContext";
 const INK = "var(--color-gold)";
 const PAPER = "var(--color-primary-100)";
 const JADE = "var(--color-light-green)";
-const STEEL = "var(--color-secondary)";
 const INDIGO = "var(--color-primary-dark)";
 
 const LANGUAGES: { code: Lang; label: string }[] = [
@@ -232,7 +231,7 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
               <button
-                onClick={() => handleNavClick("/services")}
+                onClick={() => handleNavClick("/apply-loan")}
                 className="group flex items-center gap-2 text-sm font-semibold py-2.5 px-5 text-[#fff] transition-colors duration-300"
                 style={{
                   backgroundColor: JADE,
@@ -246,7 +245,7 @@ export default function Navbar() {
                   (e.currentTarget.style.backgroundColor = JADE)
                 }
               >
-                Apply for a Loan
+             {t.nav.startLoan}
                 <FaArrowRight
                   size={11}
                   className="group-hover:translate-x-1 transition-transform"
@@ -329,20 +328,14 @@ export default function Navbar() {
                     onClick={() => handleNavClick("/services")}
                     className="flex items-center justify-center gap-2 text-sm font-semibold py-3 text-[#F3F7F5]"
                     style={{
-                      backgroundColor: STEEL,
+                      backgroundColor: JADE,
                       clipPath:
                         "polygon(0 0, 100% 0, 100% 100%, 10px 100%, 0 70%)",
                     }}
                   >
-                    Start Our Loan <FaArrowRight size={11} />
+                   {t.nav.startLoan} <FaArrowRight size={11} />
                   </button>
-                  <button
-                    onClick={() => handleNavClick("/deposits")}
-                    className="flex items-center justify-center text-sm font-semibold py-3"
-                    style={{ color: INK, border: `1px solid ${INK}33` }}
-                  >
-                    Open Deposit
-                  </button>
+                 
                 </div>
               </div>
             </motion.div>
