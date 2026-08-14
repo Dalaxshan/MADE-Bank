@@ -14,11 +14,11 @@ import { useState } from "react";
 import { Shield } from "lucide-react";
 import { useLang } from "@/i18n/LanguageContext";
 
-type FormData = {
+type ContactFormData = {
   name: string;
   email: string;
   phone: string;
-  subject: string;
+  title: string;
   service: string;
   message: string;
 };
@@ -27,14 +27,14 @@ const INK = "#1E2A38";
 const JADE = "var(--color-light-green)";
 
 export default function ContactSection() {
+  const { t } = useLang();
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {
     register,
-    handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormData>();
-  const { t } = useLang();
+  } = useForm<ContactFormData>();
 
   const contactInfo = [
     {
@@ -85,11 +85,25 @@ export default function ContactSection() {
     t.contact.s8,
   ];
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    setSubmitted(true);
-    reset();
-    setTimeout(() => setSubmitted(false), 500);
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setLoading(true);
+    const formData = new FormData(event.currentTarget);
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY ?? "");
+    formData.append("subject", "New Contact Form Submission");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+    setLoading(false);
+    if (result.success) {
+      setSubmitted(true);
+      reset();
+      setTimeout(() => setSubmitted(false), 5000);
+    }
   };
 
   return (
@@ -216,7 +230,7 @@ export default function ContactSection() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={onSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1.5">
@@ -293,7 +307,7 @@ export default function ContactSection() {
                      {t.contact.subject}
                     </label>
                     <input
-                      {...register("subject")}
+                      {...register("title")}
                       className="input-field bg-white"
                       placeholder={t.contact.subjectPlaceholder}
                     />
@@ -320,9 +334,10 @@ export default function ContactSection() {
 
                   <button
                     type="submit"
-                    className="btn-primary w-full justify-center py-4 text-base"
+                    disabled={loading}
+                    className="btn-primary w-full justify-center py-4 text-base disabled:opacity-60"
                   >
-                    <FaPaperPlane /> {t.contact.send}
+                    <FaPaperPlane /> {loading ? "Sending…" : t.contact.send}
                   </button>
 
                   <p className="text-gray-500 text-xs text-center mt-3">

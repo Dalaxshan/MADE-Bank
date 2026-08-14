@@ -177,7 +177,7 @@ export default function GroupMortgageLoans() {
             </div>
 
             <button
-              onClick={() => handleNavClick("/contact")}
+              onClick={() => handleNavClick("/apply-loan")}
               className="btn-primary"
               style={{ background: "var(--color-secondary)" }}
             >
@@ -302,7 +302,7 @@ export default function GroupMortgageLoans() {
                 </div>
 
                 <button
-                  onClick={() => handleNavClick("/contact")}
+                  onClick={() => handleNavClick("/apply-loan")}
                   className="btn-primary justify-center w-full"
                   style={{ background: "var(--color-primary)" }}
                 >

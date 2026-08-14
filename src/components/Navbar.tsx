@@ -231,7 +231,7 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
               <button
-                onClick={() => handleNavClick("/services")}
+                onClick={() => handleNavClick("/apply-loan")}
                 className="group flex items-center gap-2 text-sm font-semibold py-2.5 px-5 text-[#fff] transition-colors duration-300"
                 style={{
                   backgroundColor: JADE,
@@ -333,7 +333,7 @@ export default function Navbar() {
                         "polygon(0 0, 100% 0, 100% 100%, 10px 100%, 0 70%)",
                     }}
                   >
-                    Start Our Loan <FaArrowRight size={11} />
+                   {t.nav.startLoan} <FaArrowRight size={11} />
                   </button>
                  
                 </div>
