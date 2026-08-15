@@ -17,7 +17,6 @@ const STEEL = "var(--color-secondary)";
 export default function Footer() {
   const navigate = useNavigate();
   const { t } = useLang();
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Loan Services": [
@@ -229,7 +228,7 @@ export default function Footer() {
       </div>
 
       {/* Scroll to top */}
-      <motion.button
+      {/* <motion.button
         onClick={scrollToTop}
         whileHover={{ scale: 1.08, rotate: -4 }}
         whileTap={{ scale: 0.92 }}
@@ -237,7 +236,7 @@ export default function Footer() {
         style={{ backgroundColor: JADE, color: " #fff" }}
       >
         <FaArrowUp size={16} />
-      </motion.button>
+      </motion.button> */}
     </footer>
   );
 }

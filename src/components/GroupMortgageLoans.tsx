@@ -77,7 +77,7 @@ export default function GroupMortgageLoans() {
           <span className="inline-block bg-teal-100 text-teal-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             {t.groupMortgage.badge}
           </span>
-          <h2 className="text-4xl font-semibold md:text-5xl font-black text-gray-900 mb-5">
+          <h2 className="text-4xl font-semibold md:text-5xl fornt-semibold text-gray-900 mb-5">
             {t.groupMortgage.title1}
             <br />
             <span className="gradient-text">{t.groupMortgage.title2}</span>
@@ -106,7 +106,7 @@ export default function GroupMortgageLoans() {
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-black text-gray-900">
+                <h3 className="text-2xl font-semibold text-gray-900">
                   {t.groupMortgage.groupTitle}
                 </h3>
                 <span className="inline-block bg-[color:var(--color-secondary)] border border-[color:var(--color-secondary)] text-white text-xs font-bold px-3 py-1 rounded-full mt-1">
@@ -117,7 +117,7 @@ export default function GroupMortgageLoans() {
 
             <div className="grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-4 mb-6">
               <div className="bg-white rounded-2xl p-4 text-center border border-teal-100">
-                <div className="text-2xl font-black text-[color:var(--color-secondary)]">
+                <div className="text-2xl fornt-semibold text-[color:var(--color-secondary)]">
                   5
                 </div>
                 <div className="text-xs text-gray-500 font-medium mt-1">
@@ -125,7 +125,7 @@ export default function GroupMortgageLoans() {
                 </div>
               </div>
               <div className="bg-white rounded-2xl p-4 text-center border border-teal-100">
-                <div className="text-2xl font-black text-[color:var(--color-secondary)]">
+                <div className="text-2xl fornt-semibold text-[color:var(--color-secondary)]">
                   21%
                 </div>
                 <div className="text-xs text-gray-500 font-medium mt-1">
@@ -133,7 +133,7 @@ export default function GroupMortgageLoans() {
                 </div>
               </div>
               <div className="bg-white rounded-2xl p-4 text-center border border-teal-100">
-                <div className="text-2xl font-black text-[color:var(--color-secondary)]">
+                <div className="text-2xl fornt-semibold text-[color:var(--color-secondary)]">
                   1Y
                 </div>
                 <div className="text-xs text-gray-500 font-medium mt-1">
@@ -151,7 +151,7 @@ export default function GroupMortgageLoans() {
                   <div className="text-xs text-gray-400">
                     {t.groupMortgage.minimum}
                   </div>
-                  <div className="text-xl font-black text-gray-900">
+                  <div className="text-xl font-semibold text-gray-900">
                     Rs. 25,000
                   </div>
                 </div>
@@ -160,7 +160,7 @@ export default function GroupMortgageLoans() {
                   <div className="text-xs text-gray-400">
                     {t.groupMortgage.maximum}
                   </div>
-                  <div className="text-xl font-black text-gray-900">
+                  <div className="text-xl fornt-semibold text-gray-900">
                     Rs. 100,000
                   </div>
                 </div>
@@ -204,7 +204,7 @@ export default function GroupMortgageLoans() {
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                   className="flex gap-4 p-4 bg-gray-50 rounded-2xl hover:bg-[color:var(--color-secondary)]/20 transition-colors"
                 >
-                  <div className="w-12 h-12 bg-[color:var(--color-secondary)] text-white rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">
+                  <div className="w-12 h-12 bg-[color:var(--color-secondary)] text-white rounded-xl flex items-center justify-center fornt-semibold text-sm flex-shrink-0">
                     {step.step}
                   </div>
                   <div>
@@ -246,7 +246,7 @@ export default function GroupMortgageLoans() {
                     <House strokeWidth={1.75} className="text-white text-3xl" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-black text-gray-900">
+                    <h3 className="text-2xl fornt-semibold text-gray-900">
                       {t.groupMortgage.mortgageTitle}
                     </h3>
                     <span className="inline-block bg-[color:var(--color-light-green)] text-white text-xs font-bold px-3 py-1 rounded-full mt-1">
@@ -257,7 +257,7 @@ export default function GroupMortgageLoans() {
 
                 <div className="grid md:grid-cols-1 lg:grid-cols-3 sm:grid-cols-1 gap-4 mb-6">
                   <div className="bg-white rounded-2xl p-4 text-center border border-rose-100">
-                    <div className="text-lg font-black text-[color:var(--color-light-green)]">
+                    <div className="text-lg fornt-semibold text-[color:var(--color-light-green)]">
                       100K+
                     </div>
                     <div className="text-xs text-gray-500 font-medium mt-1">
@@ -265,7 +265,7 @@ export default function GroupMortgageLoans() {
                     </div>
                   </div>
                   <div className="bg-white rounded-2xl p-4 text-center border border-rose-100">
-                    <div className="text-lg font-black text-[color:var(--color-light-green)]">
+                    <div className="text-lg fornt-semibold text-[color:var(--color-light-green)]">
                       10,000K
                     </div>
                     <div className="text-xs text-gray-500 font-medium mt-1">
@@ -273,7 +273,7 @@ export default function GroupMortgageLoans() {
                     </div>
                   </div>
                   <div className="bg-white rounded-2xl p-4 text-center border border-rose-100">
-                    <div className="text-lg font-black text-[color:var(--color-light-green)]">
+                    <div className="text-lg fornt-semibold text-[color:var(--color-light-green)]">
                       17%
                     </div>
                     <div className="text-xs text-gray-500 font-medium mt-1">

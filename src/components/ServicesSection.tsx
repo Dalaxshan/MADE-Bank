@@ -64,7 +64,7 @@ export default function ServicesSection() {
           <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             {t.services.badge}
           </span>
-          <h2 className="text-4xl font-semibold md:text-5xl font-black text-gray-900 mb-5">
+          <h2 className="text-4xl font-semibold md:text-5xl fornt-semibold text-gray-900 mb-5">
             {t.services.title1}<br />
             <span className="gradient-text">{t.services.title2}</span>
           </h2>
@@ -122,7 +122,7 @@ export default function ServicesSection() {
             </text>
           </svg>
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-black mb-3">{t.services.ctaTitle}</h3>
+            <h3 className="text-2xl md:text-3xl fornt-semibold mb-3">{t.services.ctaTitle}</h3>
             <p className="text-[#F3F7F5]/75 mb-8 text-lg">{t.services.ctaSub}</p>
             <div className="flex flex-wrap justify-center gap-3">
               {[
