@@ -177,7 +177,7 @@ export default function LoanApplicationSection() {
             style={{ color: INK }}
           >
             <span
-              className="bg-clip-text text-transparent"
+              className="bg-clip-text font-semibold text-transparent"
               style={{
                 backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})`,
               }}
