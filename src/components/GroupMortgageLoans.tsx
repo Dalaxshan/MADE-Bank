@@ -77,7 +77,7 @@ export default function GroupMortgageLoans() {
           <span className="inline-block bg-teal-100 text-teal-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             {t.groupMortgage.badge}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
+          <h2 className="text-4xl font-semibold md:text-5xl font-black text-gray-900 mb-5">
             {t.groupMortgage.title1}
             <br />
             <span className="gradient-text">{t.groupMortgage.title2}</span>

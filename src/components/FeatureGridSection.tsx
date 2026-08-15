@@ -35,7 +35,7 @@ export default function FeatureGridSection() {
             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: JADE }} />
             {t.features.badge}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK }}>
+          <h2 className="text-4xl font-semibold md:text-5xl font-black mb-5 font-semibold" style={{ color: INK }}>
             {t.features.title1}<br />
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}>
               {t.features.title2}

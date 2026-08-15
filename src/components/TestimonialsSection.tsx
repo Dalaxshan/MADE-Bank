@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
           >
             {t.testimonials.badge}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK }}>
+          <h2 className="text-4xl font-semibold md:text-5xl font-black mb-5" style={{ color: INK }}>
             {t.testimonials.title1}<br />
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}>
               {t.testimonials.title2}

@@ -120,7 +120,7 @@ export default function ContactSection() {
           <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             {t.contact.badge}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
+          <h2 className="text-4xl font-semibold font-semibold md:text-5xl font-black text-gray-900 mb-5">
             {t.contact.title1}
             <br />
             <span className="gradient-text">{t.contact.title2}</span>

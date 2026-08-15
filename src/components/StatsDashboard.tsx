@@ -71,7 +71,7 @@ export default function StatsDashboard() {
           <span className="inline-block bg-green-900/50 text-green-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4 border border-green-700/50">
             Statistics Dashboard
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
+          <h2 className="text-4xl font-semibold md:text-5xl font-black text-white mb-5">
             Our Impact in
             <br />
             <span className="bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">

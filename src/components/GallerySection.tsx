@@ -87,7 +87,7 @@ export default function GallerySection() {
             <FaGlobeAsia size={11} /> {t.gallery.badge}
           </span>
           <h2
-            className="text-4xl md:text-5xl font-black mb-4"
+            className="text-4xl font-semibold md:text-5xl font-black mb-4"
             style={{ color: INK }}
           >
            {t.gallery.title1}

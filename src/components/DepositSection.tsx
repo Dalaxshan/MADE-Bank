@@ -68,7 +68,7 @@ export default function DepositSection() {
             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: JADE }} />
             {t.deposits.badge}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK }}>
+          <h2 className="text-4xl font-semibold md:text-5xl font-black mb-5" style={{ color: INK }}>
             {t.deposits.title1}<br />
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}>
               {t.deposits.title2}

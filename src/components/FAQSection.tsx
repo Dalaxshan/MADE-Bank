@@ -91,7 +91,7 @@ export default function FAQSection() {
           <span className="inline-block bg-amber-100 text-amber-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             <FaQuestionCircle className="inline mr-1" />{t.faq.badge}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
+          <h2 className="text-4xl font-semibold md:text-5xl font-black text-gray-900 mb-5">
            {t.faq.title1}
             <br />
             <span className="gradient-text">{t.faq.title2}</span>

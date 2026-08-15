@@ -30,7 +30,7 @@ export default function AboutSection() {
           <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             {t.about.badge}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
+          <h2 className="text-4xl font-semibold md:text-5xl font-black text-gray-900 mb-5 font-semibold">
             {t.about.title1}<br />
             <span className="gradient-text">{t.about.title2}</span>
           </h2>
@@ -80,7 +80,7 @@ export default function AboutSection() {
 
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">{t.about.storyBadge}</span>
-            <h3 className="text-3xl font-black text-gray-900 mb-5 leading-tight">
+            <h3 className="text-3xl font-semibold text-gray-900 mb-5 leading-tight">
               {t.about.storyTitle1}<br />
               <span className="gradient-text">{t.about.storyTitle2}</span>
             </h3>
@@ -102,7 +102,7 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="order-2 lg:order-1">
             <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">{t.about.chairmanBadge}</span>
-            <h3 className="text-3xl font-black text-gray-900 mb-5 leading-tight">
+            <h3 className="text-3xl font-semibold text-gray-900 mb-5 leading-tight">
               {t.about.chairmanTitle1}<br />
               <span className="gradient-text">{t.about.chairmanTitle2}</span>
             </h3>

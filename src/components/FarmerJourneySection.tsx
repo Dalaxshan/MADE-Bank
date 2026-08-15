@@ -84,7 +84,7 @@ export default function FarmerJourneySection() {
           >
             {t.journey.badge}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK }}>
+          <h2 className="text-4xl font-semibold md:text-5xl font-black mb-5" style={{ color: INK }}>
             {t.journey.title1}{' '}
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}>
               {t.journey.title2}

@@ -92,7 +92,7 @@ export default function NewsEvents() {
           >
             <FaNewspaper size={11} /> News & Events
           </span>
-          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK }}>
+          <h2 className="text-4xl font-semibold md:text-5xl font-black mb-5" style={{ color: INK }}>
             Stay Updated with
             <br />
             <span

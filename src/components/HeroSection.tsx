@@ -111,11 +111,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-[2.75rem] md:text-7xl lg:text-[3rem] font-black text-[#1E2A38] leading-[1.05] mb-6 tracking-wide max-w-3xl"
+              className="text-[2.75rem] md:text-7xl lg:text-[3.5rem] font-black font-semibold text-[#1E2A38] leading-[1.05] mb-6 max-w-3xl"
             >
-              {t.hero.headline1}{" "}
-              <span className="text-[var(--color-primary)]">{t.hero.headline2} </span>
-              {t.hero.headline3} <span className="text-[var(--color-accent-dark)]">{t.hero.headline4}</span>
+              {t.hero.headline1}<br/>
+              <span className="text-[var(--color-primary)]">{t.hero.headline2}  {t.hero.headline3} </span>
+            
             </motion.h1>
 
             {/* Sub headline */}

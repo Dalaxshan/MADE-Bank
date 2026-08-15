@@ -89,7 +89,7 @@ export default function DepositCalculator() {
           <span className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]" style={{ borderColor: `${JADE}80`, color: JADE }}>
             <Calculator strokeWidth={1.75} /> {t.calculator.badge}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK }}>
+          <h2 className="text-4xl font-semibold md:text-5xl font-black mb-5" style={{ color: INK }}>
             {t.calculator.title1}<br />
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}>
               {t.calculator.title2}
