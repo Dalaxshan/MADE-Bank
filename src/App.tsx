@@ -11,7 +11,9 @@ import GalleryPage from "./pages/GalleryPage";
 import ContactPage from "./pages/ContactPage";
 import LoansPage from "./pages/LoansPage";
 import ApplyLoanPage from "./pages/ApplyLoanPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import Chatbot from "./components/Chatbot";
+import CookieConsent from "./components/CookieConsent";
 
 export default function App() {
   return (
@@ -30,10 +32,12 @@ export default function App() {
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/apply-loan" element={<ApplyLoanPage />} />
+              <Route path="/privacy" element={<PrivacyPolicyPage />} />
             </Routes>
           </main>
           <Footer />
           <Chatbot />
+          <CookieConsent />
         </div>
       </BrowserRouter>
     </LanguageProvider>

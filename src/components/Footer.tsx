@@ -1,12 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import {
   FaFacebook,
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
   FaWhatsapp,
-  FaArrowUp,
 } from "react-icons/fa";
 import { useLang } from "../i18n/LanguageContext";
 
@@ -19,36 +17,29 @@ export default function Footer() {
   const { t } = useLang();
 
   const footerLinks: Record<string, { label: string; href: string }[]> = {
-  "Loan Services": [
-    { label: t.footer.exportLoan, href: "/services" },
-    { label: t.footer.landLoan, href: "/services" },
-    { label: t.footer.machineryLoan, href: "/services" },
-    { label: t.footer.vehicleLoan, href: "/services" },
-    { label: t.footer.groupLoan, href: "/services" },
-    { label: t.footer.mortgageLoan, href: "/services" },
-  ],
-  "Deposit Services": [
-    { label: t.footer.deposit6m, href: "/deposits" },
-    { label: t.footer.deposit1y, href: "/deposits" },
-    { label: t.footer.deposit25y, href: "/deposits" },
-    { label: t.footer.monthlyInterest, href: "/deposits" },
-    { label: t.footer.maturityPlans, href: "/deposits" },
-    { label: t.footer.calculator, href: "/deposits" },
-  ],
-  // Company: [
-  //   { label: "About MADECOOP", href: "/about" },
-  //   { label: "Our Mission", href: "/about" },
-  //   { label: "Farmer Stories", href: "/" },
-  //   { label: "Gallery", href: "/gallery" },
-  // ],
-  Support: [
-    { label: t.footer.faq, href: "/contact" },
-    { label: t.footer.contactUs, href: "/contact" },
-    { label: t.footer.privacy, href: "#" },
-    { label: t.footer.terms, href: "#" },
-  ],
-};
+    "Loan Services": [
+      { label: t.footer.exportLoan, href: "/services" },
+      { label: t.footer.landLoan, href: "/services" },
+      { label: t.footer.machineryLoan, href: "/services" },
+      { label: t.footer.vehicleLoan, href: "/services" },
+      { label: t.footer.groupLoan, href: "/services" },
+      { label: t.footer.mortgageLoan, href: "/services" },
+    ],
+    "Deposit Services": [
+      { label: t.footer.deposit6m, href: "/deposits" },
+      { label: t.footer.deposit1y, href: "/deposits" },
+      { label: t.footer.deposit25y, href: "/deposits" },
+      { label: t.footer.monthlyInterest, href: "/deposits" },
+      { label: t.footer.maturityPlans, href: "/deposits" },
+      { label: t.footer.calculator, href: "/deposits" },
+    ],
 
+    Support: [
+      { label: t.footer.faq, href: "/contact" },
+      { label: t.footer.contactUs, href: "/contact" },
+      { label: t.footer.privacy, href: "/privacy" },
+    ],
+  };
 
   const handleNavClick = (href: string) => {
     if (href === "#") return;
@@ -143,8 +134,7 @@ export default function Footer() {
                   className="text-xs mt-0.5"
                 />
                 <span>
-                 {t.contact.addressLine} <br />
-                
+                  {t.contact.addressLine} <br />
                 </span>
               </div>
             </div>
@@ -211,19 +201,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-300 text-sm">
+        <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col items-center gap-4">
+          <p className="text-gray-300 text-sm text-center">
             © {new Date().getFullYear()} MADECOOP - Matale District Agriculture
             Development and Export Cooperative Society Ltd. All rights reserved.
           </p>
-          <div className="flex items-center gap-5 text-[11px] uppercase tracking-wide text-gray-300">
-            <button className="hover:text-white transition-colors">
-             {t.footer.privacy}
-            </button>
-            <button className="hover:text-white transition-colors">
-              {t.footer.terms}
-            </button>
-          </div>
         </div>
       </div>
 
