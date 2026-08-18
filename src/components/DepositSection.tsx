@@ -16,7 +16,7 @@ const depositPlans = [
   { months: 24, monthlyInterest: 10.0, maturityInterest: 10.5 },
   { months: 36, monthlyInterest: 10.5, maturityInterest: 11.0 },
   { months: 48, monthlyInterest: 11.0, maturityInterest: 11.6 },
-  { months: 60, monthlyInterest: 11.5, maturityInterest: 12.2 },
+  { months: 60, monthlyInterest: 11.5, maturityInterest: 12.0 },
 ];
 
 type SortKey = "period" | "monthlyInterest" | "maturityInterest";
@@ -157,7 +157,7 @@ export default function DepositSection() {
             <div className="relative overflow-hidden p-6 text-[#F3F7F5]" style={{ background: `linear-gradient(205deg, ${JADE} 0%, ${INDIGO} 60%)`, clipPath: "polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px))" }}>
               <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)" }} />
               <div className="relative z-10">
-                <div className="text-5xl font-black mb-2">12.2%</div>
+                <div className="text-5xl font-black mb-2">12.0%</div>
                 <div className="text-lg font-semibold mb-1">{t.deposits.maxInterest}</div>
                 <div className="text-[#F3F7F5]/70 text-sm mb-4">{t.deposits.maxInterestSub}</div>
                 <div className="bg-[#F3F7F5]/10 border border-[#F3F7F5]/20 p-4">
