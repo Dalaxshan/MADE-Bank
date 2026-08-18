@@ -21,7 +21,7 @@ const depositPlans = [
   { period: "2 Years", months: 24, monthlyInterest: 10.0, maturityInterest: 10.5 },
   { period: "3 Years", months: 36, monthlyInterest: 10.5, maturityInterest: 11.0 },
   { period: "4 Years", months: 48, monthlyInterest: 11.0, maturityInterest: 11.6 },
-  { period: "5 Years", months: 60, monthlyInterest: 11.5, maturityInterest: 12.2 },
+  { period: "5 Years", months: 60, monthlyInterest: 11.5, maturityInterest: 12.0 },
 ];
 
 const depositFeatures = [
@@ -103,7 +103,7 @@ export default function DepositSection() {
             </span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: `${INK}99` }}>
-            Earn up to <strong style={{ color: INK }}>12.2% annual interest</strong> on your
+            Earn up to <strong style={{ color: INK }}>12.0% annual interest</strong> on your
             deposits with our flexible agricultural development savings plans.
           </p>
         </motion.div>
@@ -245,7 +245,7 @@ export default function DepositSection() {
               />
               <div className="relative z-10">
                 <div className="text-5xl font-black mb-2" >
-                  12.2%
+                  12.0%
                 </div>
                 <div className="text-lg font-semibold mb-1">Maximum Annual Interest</div>
                 <div className="text-[#F3F7F5]/70 text-sm mb-4">
