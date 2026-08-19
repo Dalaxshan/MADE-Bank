@@ -95,8 +95,8 @@ const en = {
   },
   features: {
     badge: "What Sets Us Apart",
-    title1: "Built Around",
-    title2: "The Farmer, Not the Bank",
+    title1: "Built Around The Farmer",
+    title2: "Not the Bank",
     sub: "Six commitments that shape everything MADECOOP does - from the first loan application to the final export shipment.",
     agriFinanceTitle: "Agriculture Financing",
     agriFinanceDesc:
@@ -115,7 +115,7 @@ const en = {
       "Committed to uplifting rural communities through cooperative economics and shared prosperity.",
     sustainableTitle: "Sustainable Agriculture",
     sustainableDesc:
-      "Promoting environmentally responsible farming practices that benefit both farmers and future generations.",
+      "Promoting environmentally responsible farming practices that benefit both farmer and future generations.",
   },
   journey: {
     badge: "Our Process",
@@ -263,7 +263,7 @@ const en = {
     storyP1:
       "MADECOOP was founded with a singular vision: to break the cycle of poverty that traps traditional farmers. By combining financial services with guaranteed market access and export partnerships, we create a complete ecosystem where farmers can thrive.",
     storyP2:
-      "Our buy-back guarantee means farmers never worry about unsold harvests. Our export network connects Sri Lankan farmers directly to international markets, ensuring premium prices for quality produce including cinnamon, Vanilla, pepper, cardamom, and fresh vegetables.",
+      "Our buy-back guarantee means farmers never worry about unsold harvests. Our export network connects Sri Lankan farmers directly to international markets, ensuring premium prices for quality produce including cinnamon, vanilla, pepper, cardamom, and fresh vegetables.",
     kp1: "Registered Cooperative under CPC Act No. 10 of 1990",
     kp2: "Transparent interest rates with flexible repayment",
     kp3: "Direct farm-to-export supply chain management",
@@ -313,7 +313,7 @@ const en = {
     groupTitle: "Group Loan",
     groupSubtitle: "Five-Member Farmer Groups",
     groupDesc:
-      "Community-based lending for groups of five farmers. Mutual guarantee system enables access to credit for those without individual collateral.",
+      "Community-based lending for groups of 5 farmers. Mutual guarantee system enables access to credit for those without individual collateral.",
     groupF1: "5-member groups",
     groupF2: "Rs. 25,000–100,000",
     groupF3: "21% interest rate",
@@ -336,7 +336,7 @@ const en = {
     exportF2: "Competitive interest rates",
     exportF3: "Flexible repayment",
     exportF4: "Buy-back guaranteed",
-    landTitle: "Agriculture Land Purchasing Loan",
+    landTitle: "Agricultural Land Purchasing Loan",
     landSubtitle: "Expand Your Farming Land",
     landDesc:
       "Helping farmers secure agricultural land for cultivation with affordable financing and flexible repayment terms tailored to farming income cycles.",
@@ -411,7 +411,7 @@ const en = {
       "Residential land, agricultural land, buildings - registered in borrower's name",
     inquireMortgage: "Inquire About Mortgage Loan",
     eligibilityTitle: "Eligibility Requirements",
-    mf1: "Loan amount: Above Rs. 200,000",
+    mf1: "Loan amount: Above Rs. 100,000.",
     mf2: "Period of 1 year to 5 years.",
     mf3: "Extent of the Exposure - 75% of the market value.",
     mf4: "Interest rate 17% per annum.",
@@ -466,7 +466,7 @@ const en = {
     totalReturn: "total return over",
     months: "months",
     p6m: "6 Months",
-    p1y: "1 Year",
+    p1y: "Year",
     p2y: "2 Years",
     p3y: "3 Years",
     p4y: "4 Years",
@@ -570,7 +570,8 @@ const en = {
     badge: "Legal",
     title: "Privacy Policy",
     lastUpdated: "Last Updated: January 2025",
-    intro: "Matale District Agriculture Development and Export Cooperative Society Ltd. (MADECOOP) is committed to protecting your personal information. This policy explains how we collect, use, and safeguard your data.",
+    intro:
+      "Matale District Agriculture Development and Export Cooperative Society Ltd. (MADECOOP) is committed to protecting your personal information. This policy explains how we collect, use, and safeguard your data.",
     s1Title: "Information We Collect",
     s1: "We collect personal information you provide when applying for loans, opening deposit accounts, or contacting us - including your name, NIC number, phone number, address, and financial details.",
     s2Title: "How We Use Your Information",

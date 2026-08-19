@@ -22,10 +22,30 @@ export default function HeroSection() {
   const navigate = useNavigate();
 
   const ledgerEntries = [
-    { value: 500, suffix: "+", label: t.hero.ledger.farmerSupported, icon: <Tractor strokeWidth={1.25} /> },
-    { value: 1000, suffix: "+", label: t.hero.ledger.loansIssued, icon: <BanknoteArrowDown strokeWidth={1.25} /> },
-    { value: 6, suffix: "+", label: t.hero.ledger.groupPartners, icon: <Handshake strokeWidth={1.25} /> },
-    { value: 1, suffix: "+", label: t.hero.ledger.yearOfService, icon: <UserStar strokeWidth={1.25} /> },
+    {
+      value: 500,
+      suffix: "+",
+      label: t.hero.ledger.farmerSupported,
+      icon: <Tractor strokeWidth={1.25} />,
+    },
+    {
+      value: 1000,
+      suffix: "+",
+      label: t.hero.ledger.loansIssued,
+      icon: <BanknoteArrowDown strokeWidth={1.25} />,
+    },
+    {
+      value: 6,
+      suffix: "+",
+      label: t.hero.ledger.groupPartners,
+      icon: <Handshake strokeWidth={1.25} />,
+    },
+    {
+      value: 1,
+      suffix: "+",
+      label: t.hero.ledger.yearOfService,
+      icon: <UserStar strokeWidth={1.25} />,
+    },
   ];
 
   const shipmentTags = [
@@ -89,7 +109,7 @@ export default function HeroSection() {
         style={{ zIndex: 2 }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-22 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-10 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* ---------------- Left: the pitch ---------------- */}
           <div>
@@ -113,9 +133,11 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-[2.75rem] md:text-7xl lg:text-[3.5rem] font-black font-semibold text-[#1E2A38] leading-[1.05] mb-6 max-w-3xl"
             >
-              {t.hero.headline1}<br/>
-              <span className="text-[var(--color-primary)]">{t.hero.headline2}  {t.hero.headline3} </span>
-            
+              {t.hero.headline1}
+              <br />
+              <span className="text-[var(--color-primary)]">
+                {t.hero.headline2} {t.hero.headline3}{" "}
+              </span>
             </motion.h1>
 
             {/* Sub headline */}
@@ -199,7 +221,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, rotate: -2, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               whileHover={{ rotate: 0 }}
-              className="relative w-full max-w-md bg-[#F3F7F5] text-[#1E2A38] shadow-2xl shadow-black/40 pl-8 pr-7 py-8"
+              className="relative w-full max-w-md bg-[#F3F7F5]/80 text-[#1E2A38] shadow-2xl shadow-black/40 pl-8 pr-7 py-8"
             >
               {/* perforation holes along the binding edge */}
               <div className="absolute left-0 top-0 bottom-0 w-8 flex flex-col justify-evenly items-center py-4">

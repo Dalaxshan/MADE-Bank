@@ -10,12 +10,48 @@ const JADE = "var(--color-secondary)";
 export default function FeatureGridSection() {
   const { t } = useLang();
   const features = [
-    { icon: <ChartNoAxesCombined strokeWidth={1.25} size={26} />, title: t.features.agriFinanceTitle, desc: t.features.agriFinanceDesc, accent: STEEL },
-    { icon: <Handshake strokeWidth={1.25} size={26} />, title: t.features.tradFarmersTitle, desc: t.features.tradFarmersDesc, accent: JADE },
-    { icon: <Earth strokeWidth={1.25} size={26} />, title: t.features.exportPartnerTitle, desc: t.features.exportPartnerDesc, accent: STEEL },
-    { icon: <Shield strokeWidth={1.25} size={26} />, title: t.features.buyBackTitle, desc: t.features.buyBackDesc, accent: JADE },
-    { icon: <Users strokeWidth={1.25} size={26} />, title: t.features.ruralDevTitle, desc: t.features.ruralDevDesc, accent: STEEL },
-    { icon: <Leaf strokeWidth={1.25} size={26} />, title: t.features.sustainableTitle, desc: t.features.sustainableDesc, accent: JADE },
+    {
+      icon: <ChartNoAxesCombined strokeWidth={1.25} size={20} />,
+      title: t.features.agriFinanceTitle,
+      desc: t.features.agriFinanceDesc,
+      accent: STEEL,
+      image: 'https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/6.jpg',
+    },
+    {
+      icon: <Handshake strokeWidth={1.25} size={20} />,
+      title: t.features.tradFarmersTitle,
+      desc: t.features.tradFarmersDesc,
+      accent: JADE,
+      image: 'https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02236.webp',
+    },
+    {
+      icon: <Earth strokeWidth={1.25} size={20} />,
+      title: t.features.exportPartnerTitle,
+      desc: t.features.exportPartnerDesc,
+      accent: STEEL,
+      image: 'https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/5.webp',
+    },
+    {
+      icon: <Shield strokeWidth={1.25} size={20} />,
+      title: t.features.buyBackTitle,
+      desc: t.features.buyBackDesc,
+      accent: JADE,
+      image: 'https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02719.webp',
+    },
+    {
+      icon: <Users strokeWidth={1.25} size={20} />,
+      title: t.features.ruralDevTitle,
+      desc: t.features.ruralDevDesc,
+      accent: STEEL,
+      image: 'https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02957.webp',
+    },
+    {
+      icon: <Leaf strokeWidth={1.25} size={20} />,
+      title: t.features.sustainableTitle,
+      desc: t.features.sustainableDesc,
+      accent: JADE,
+      image: 'https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02352.webp',
+    },
   ];
 
   return (
@@ -53,14 +89,36 @@ export default function FeatureGridSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -3 }}
-              className="p-6 transition-all"
+              className="group overflow-hidden transition-all"
               style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14`, borderTopWidth: '3px', borderTopColor: feature.accent }}
             >
-              <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: `${feature.accent}1A`, color: feature.accent }}>
-                {feature.icon}
+              {/* Image header */}
+              <div className="relative h-66 w-full overflow-hidden">
+                <img
+                  src={feature.image}
+                  alt={feature.title}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                {/* Gradient overlay so the icon badge stays legible on any photo */}
+                <div
+                  className="absolute inset-0"
+                  style={{ background: `linear-gradient(180deg, ${INK}00 40%, ${INK}B3 100%)` }}
+                />
+                {/* Icon badge */}
+                <div
+                  className="absolute bottom-3 left-4 w-10 h-10 rounded-lg flex items-center justify-center backdrop-blur-sm"
+                  style={{ backgroundColor: `${feature.accent}E6`, color: '#FFFFFF' }}
+                >
+                  {feature.icon}
+                </div>
               </div>
-              <h4 className="text-lg font-bold mb-2" style={{ color: INK }}>{feature.title}</h4>
-              <p className="text-sm leading-relaxed" style={{ color: `${INK}99` }}>{feature.desc}</p>
+
+              {/* Text */}
+              <div className="p-6">
+                <h4 className="text-lg font-bold mb-2" style={{ color: INK }}>{feature.title}</h4>
+                <p className="text-sm leading-relaxed" style={{ color: `${INK}99` }}>{feature.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -69,7 +69,7 @@ export default function FarmerJourneySection() {
     }, `M ${pathPoints[0].x},${pathPoints[0].y}`);
 
   return (
-    <section className="py-14 overflow-hidden" style={{ backgroundColor: PAPER }}>
+    <section className="py-4 overflow-hidden" style={{ backgroundColor: PAPER }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -85,12 +85,12 @@ export default function FarmerJourneySection() {
             {t.journey.badge}
           </span>
           <h2 className="text-4xl font-semibold md:text-5xl font-black mb-5" style={{ color: INK }}>
-            {t.journey.title1}{' '}
+            {t.journey.title1}  {t.journey.title2}  <br />
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}>
-              {t.journey.title2}
+              {t.journey.title3}
             </span>
-            <br />
-            {t.journey.title3}
+          
+           
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: `${INK}99` }}>
             {t.journey.sub}

@@ -157,7 +157,7 @@ export default function ExportNetwork() {
                 <Legend />
                 <Line
                   type="monotone"
-                  dataKey="value"
+                  dataKey="target"
                   stroke={STEEL}
                   strokeWidth={3}
                   dot={{ fill: STEEL, r: 5 }}
@@ -165,7 +165,7 @@ export default function ExportNetwork() {
                 />
                 <Line
                   type="monotone"
-                  dataKey="target"
+                  dataKey="value"
                   stroke={INDIGO}
                   strokeWidth={2}
                   strokeDasharray="5 5"
