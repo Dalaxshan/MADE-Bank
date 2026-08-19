@@ -146,10 +146,6 @@ export default function TestimonialsSection() {
                   "{t.text}"
                 </p>
 
-                {/* Loan info - ledger tag */}
-              
-                </div>
-
                 {/* Author - signature line */}
                 <div className="flex items-center gap-3 pt-3" style={{ borderTop: `1px dotted ${INK}26` }}>
                   <div
