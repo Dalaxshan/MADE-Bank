@@ -19,7 +19,6 @@ const testimonials = [
     emoji: '👨‍🌾',
     rating: 5,
     text: 'MADECOOP gave me a loan when no bank would help me. With that loan, I cultivated 2 acres of vegetables. They bought back my entire harvest at a fair price. Now I have expanded to 5 acres and my family income has tripled!',
-    amount: 'Loan: Rs. 75,000',
   },
   {
     name: 'Kumari Perera',
@@ -28,7 +27,7 @@ const testimonials = [
     emoji: '👩‍🌾',
     rating: 5,
     text: "As a woman farmer, I always struggled with market access. MADECOOP not only gave me a loan but also connected me with export buyers. My cinnamon now goes to Japan! The buy-back guarantee changed everything.",
-    amount: 'Loan: Rs. 50,000',
+ 
   },
   {
     name: 'Chaminda Silva',
@@ -37,7 +36,7 @@ const testimonials = [
     emoji: '🧑‍🌾',
     rating: 5,
     text: "I joined MADECOOP's group loan program with four other farmers. We all cultivated pepper together and MADECOOP exported it to Europe. The premium export price was 40% higher than local market rates!",
-    amount: 'Group Loan: Rs. 100,000',
+   
   },
   {
     name: 'Priya Dissanayake',
@@ -46,7 +45,7 @@ const testimonials = [
     emoji: '👩‍🌾',
     rating: 5,
     text: "The agricultural deposit plan with 10% interest is excellent. I deposited my harvest earnings and they grew significantly. Now I use the returns to fund my next season's cultivation without borrowing!",
-    amount: 'Deposit: Rs. 200,000',
+
   },
   {
     name: 'Nimal Fernando',
@@ -55,7 +54,6 @@ const testimonials = [
     emoji: '👨‍🌾',
     rating: 5,
     text: 'The machinery loan from MADECOOP helped me buy a water pump and tractor accessories. My cultivation efficiency improved by 60%. The flexible repayment schedule aligned perfectly with my harvest cycle.',
-    amount: 'Machinery Loan: Rs. 150,000',
   },
   {
     name: 'Anoma Wickramasinghe',
@@ -64,7 +62,7 @@ const testimonials = [
     emoji: '👩‍🌾',
     rating: 5,
     text: 'MADECOOP trained me in organic farming techniques and connected me with Bio Foods. Now my organic vegetables are certified and exported to the UK at premium prices. My income increased by 300%!',
-    amount: 'Export Loan: Rs. 120,000',
+   
   },
 ];
 
@@ -149,13 +147,7 @@ export default function TestimonialsSection() {
                 </p>
 
                 {/* Loan info - ledger tag */}
-                <div
-                  className="px-3 py-1.5 mb-4 inline-block"
-                  style={{ backgroundColor: `${STEEL}14` }}
-                >
-                  <span className="text-xs font-bold" style={{ color: STEEL }}>
-                    {t.amount}
-                  </span>
+              
                 </div>
 
                 {/* Author - signature line */}
