@@ -54,9 +54,9 @@ export default function ContactSection() {
     {
       icon: <FaEnvelope className="text-xl" />,
       title: t.contact.email,
-      lines: ["info@madecoopbank.com"],
+      lines: ["info@MADE Co-opbank.com"],
       color: "bg-blue-100 text-blue-600",
-      href: "mailto:info@madecoopbank.com",
+      href: "mailto:info@MADE Co-opbank.com",
     },
     {
       icon: <FaMapMarkerAlt className="text-xl" />,
@@ -170,7 +170,7 @@ export default function ContactSection() {
               </div>
               <div className="flex gap-3">
                 <a
-                  href="https://www.facebook.com/madecoopsociety"
+                  href="https://www.facebook.com/MADE Co-opsociety"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors"

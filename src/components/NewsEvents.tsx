@@ -19,8 +19,8 @@ const news = [
   {
     type: 'News',
     date: 'December 15, 2024',
-    title: 'MADECOOP Achieves Record Export Revenue of Rs. 118 Million in 2024',
-    excerpt: "Matale District farmers celebrate a landmark year as MADECOOP's export partnerships delivered unprecedented returns, with cinnamon and pepper exports to Japan and Germany reaching new highs.",
+    title: 'MADE Co-op Achieves Record Export Revenue of Rs. 118 Million in 2024',
+    excerpt: "Matale District farmers celebrate a landmark year as MADE Co-op's export partnerships delivered unprecedented returns, with cinnamon and pepper exports to Japan and Germany reaching new highs.",
     location: 'Matale',
   },
   {
@@ -28,20 +28,20 @@ const news = [
     date: 'January 10, 2025',
     title: 'Organic Farming Certification Workshop - January 2025',
     excerpt: 'A comprehensive 3-day workshop on organic farming certification for export markets. Learn how to qualify for premium organic export pricing through our certified partners.',
-    location: 'MADECOOP Office, Matale',
+    location: 'MADE Co-op Office, Matale',
   },
   {
     type: 'Event',
     date: 'January 25, 2025',
     title: 'Annual Farmer Cooperative Meeting & Dividend Distribution',
-    excerpt: "MADECOOP's annual general meeting where farmer-members receive their cooperative dividends and vote on policy decisions for 2025.",
+    excerpt: "MADE Co-op's annual general meeting where farmer-members receive their cooperative dividends and vote on policy decisions for 2025.",
     location: 'Matale Town Hall',
   },
   {
     type: 'News',
     date: 'February 5, 2025',
     title: 'New Partnership with Bio Foods to Expand Organic Export Range',
-    excerpt: 'MADECOOP announces expanded partnership with Bio Foods International, adding organic vegetables, herbs, and spices to the export portfolio.',
+    excerpt: 'MADE Co-op announces expanded partnership with Bio Foods International, adding organic vegetables, herbs, and spices to the export portfolio.',
     location: 'Colombo',
   },
   {
@@ -55,8 +55,8 @@ const news = [
     type: 'Event',
     date: 'March 1, 2025',
     title: 'Group Loan Inauguration Ceremony - New Batch of Farmer Groups',
-    excerpt: 'Welcoming 25 new 5-member farmer groups into the MADECOOP Group Loan program. Ceremony to be attended by Central Provincial Council representatives.',
-    location: 'MADECOOP Office, Matale',
+    excerpt: 'Welcoming 25 new 5-member farmer groups into the MADE Co-op Group Loan program. Ceremony to be attended by Central Provincial Council representatives.',
+    location: 'MADE Co-op Office, Matale',
   },
 ];
 
@@ -99,7 +99,7 @@ export default function NewsEvents() {
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}
             >
-              MADECOOP
+              MADE Co-op
             </span>
           </h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: `${INK}99` }}>
@@ -228,7 +228,7 @@ export default function NewsEvents() {
               <FaEnvelope size={22} style={{ color: STEEL }} className="mb-2" />
               <h3 className="font-bold mb-2" style={{ color: INK }}>Stay Informed</h3>
               <p className="text-sm mb-4" style={{ color: `${INK}80` }}>
-                Get the latest farming tips, market prices, and MADECOOP updates.
+                Get the latest farming tips, market prices, and MADE Co-op updates.
               </p>
               <div className="space-y-2">
                 <input

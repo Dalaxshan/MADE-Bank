@@ -12,18 +12,6 @@ const PAPER = "var(--color-primary-100)";
 const STEEL = "var(--color-light-green)";
 const JADE = "var(--color-secondary)";
 
-const StarRating = ({ rating }: { rating: number }) => (
-  <div className="flex gap-1 mb-3">
-    {[...Array(5)].map((_, i) => (
-      <FaStar
-        key={i}
-        size={13}
-        style={{ color: i < rating ? JADE : `${INK}1A` }}
-      />
-    ))}
-  </div>
-);
-
 export default function TestimonialsSection() {
   const { t } = useLang();
 
@@ -32,8 +20,6 @@ export default function TestimonialsSection() {
       name: t.comments.name1,
       location: t.comments.location1,
       role: t.comments.role1,
-      emoji: "👨🌾",
-      rating: 5,
       text: t.comments.text1,
       amount: t.comments.amount1,
     },
@@ -41,8 +27,6 @@ export default function TestimonialsSection() {
       name: t.comments.name2,
       location: t.comments.location2,
       role: t.comments.role2,
-      emoji: "👩🌾",
-      rating: 5,
       text: t.comments.text2,
       amount: t.comments.amount2,
     },
@@ -50,8 +34,6 @@ export default function TestimonialsSection() {
       name: t.comments.name3,
       location: t.comments.location3,
       role: t.comments.role3,
-      emoji: "🧑🌾",
-      rating: 5,
       text: t.comments.text3,
       amount: t.comments.amount3,
     },
@@ -59,8 +41,6 @@ export default function TestimonialsSection() {
       name: t.comments.name4,
       location: t.comments.location4,
       role: t.comments.role4,
-      emoji: "👩🌾",
-      rating: 5,
       text: t.comments.text4,
       amount: t.comments.amount4,
     },
@@ -68,8 +48,6 @@ export default function TestimonialsSection() {
       name: t.comments.name5,
       location: t.comments.location5,
       role: t.comments.role5,
-      emoji: "👨🌾",
-      rating: 5,
       text: t.comments.text5,
       amount: t.comments.amount5,
     },
@@ -77,8 +55,6 @@ export default function TestimonialsSection() {
       name: t.comments.name6,
       location: t.comments.location6,
       role: t.comments.role6,
-      emoji: "👩🌾",
-      rating: 5,
       text: t.comments.text6,
       amount: t.comments.amount6,
     },
@@ -125,7 +101,7 @@ export default function TestimonialsSection() {
             </span>
           </h2>
           <p
-            className="text-lg max-w-2xl mx-auto"
+            className="text-lg max-w-3xl mx-auto"
             style={{ color: `${INK}99` }}
           >
             {t.testimonials.sub}
@@ -159,7 +135,6 @@ export default function TestimonialsSection() {
                   className="absolute top-5 right-5 text-3xl"
                   style={{ color: `${STEEL}14` }}
                 />
-                <StarRating rating={item.rating} />
                 <p
                   className="text-sm leading-relaxed mb-5 relative z-10"
                   style={{ color: `${INK}CC` }}
@@ -177,7 +152,11 @@ export default function TestimonialsSection() {
                       border: `1px solid ${INK}0F`,
                     }}
                   >
-                    {item.emoji}
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                      alt="User Avatar"
+                      className="w-8 h-8 rounded-full"
+                    />
                   </div>
                   <div>
                     <div className="font-bold text-sm" style={{ color: INK }}>

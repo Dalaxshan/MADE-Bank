@@ -123,7 +123,7 @@ export default function AboutSection() {
             />
             <text fill="#F3F7F5" fontSize="9" letterSpacing="2.5">
               <textPath href="#aboutStamp" startOffset="0%">
-                • EST. 2025 · MADECOOP · MATALE ·
+                • EST. 2025 · MADE Co-op · MATALE ·
               </textPath>
             </text>
           </motion.svg>
@@ -213,7 +213,7 @@ export default function AboutSection() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/images/about-team.jpg"
-                  alt="MADECOOP farmer"
+                  alt="MADE Co-op farmer"
                   className="w-full h-[480px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 via-transparent to-transparent" />
@@ -318,7 +318,7 @@ export default function AboutSection() {
                 <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-green-100 flex-shrink-0">
                   <img
                     src="/images/logo.png"
-                    alt="Director, MADECOOP"
+                    alt="Director, MADE Co-op"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -343,7 +343,7 @@ export default function AboutSection() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/images/director.png"
-                  alt="MADECOOP Director"
+                  alt="MADE Co-op Director"
                   className="w-full h-[480px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 via-transparent to-transparent" />

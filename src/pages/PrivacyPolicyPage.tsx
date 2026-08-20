@@ -62,8 +62,8 @@ export default function PrivacyPolicyPage() {
             </div>
             <div className="flex items-center gap-2">
               <FaEnvelope style={{ color: JADE }} />
-              <a href={`mailto:info@madecoopbank.com`} className="hover:text-white transition-colors">
-               info@madecoopbank.com
+              <a href={`mailto:info@MADE Co-opbank.com`} className="hover:text-white transition-colors">
+               info@MADE Co-opbank.com
               </a>
             </div>
             <div className="flex items-start gap-2">

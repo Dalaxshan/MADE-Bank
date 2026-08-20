@@ -118,7 +118,7 @@ export default function ServicesSection() {
             <circle cx="100" cy="100" r="90" fill="none" stroke="#F3F7F5" strokeWidth="2" />
             <circle cx="100" cy="100" r="72" fill="none" stroke="#F3F7F5" strokeWidth="1.5" />
             <text fill="#F3F7F5" fontSize="11" letterSpacing="2">
-              <textPath href="#ctaStampCircle" startOffset="0%">• MADECOOP · APPROVED · MADECOOP · APPROVED</textPath>
+              <textPath href="#ctaStampCircle" startOffset="0%">• MADE Co-op · APPROVED · MADE Co-op · APPROVED</textPath>
             </text>
           </svg>
           <div className="relative z-10">

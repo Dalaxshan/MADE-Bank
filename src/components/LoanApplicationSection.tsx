@@ -78,7 +78,7 @@ export default function LoanApplicationSection() {
 
     const formData = new FormData(event.currentTarget);
     formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY ?? "");
-    formData.append("subject", `MADECOOP Loan Application - ${ref}`);
+    formData.append("subject", `MADE Co-op Loan Application - ${ref}`);
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -170,7 +170,7 @@ export default function LoanApplicationSection() {
             className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
-            <FileText size={11} /> MADECOOP · {t.loanApplication.title1}
+            <FileText size={11} /> MADE Co-op · {t.loanApplication.title1}
           </span>
           <h1
             className="text-4xl md:text-5xl font-black mb-3"

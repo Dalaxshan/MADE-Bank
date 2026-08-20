@@ -184,31 +184,24 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Shipment tags - desktop/tablet only */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+            <div
+            
               className="hidden lg:flex flex-wrap gap-4"
             >
               {shipmentTags.map((tag, i) => (
-                <motion.div
+                <div
                   key={tag.label}
-                  initial={{ rotate: tag.rotate }}
-                  animate={{ rotate: [tag.rotate, tag.rotate + 3, tag.rotate] }}
-                  transition={{
-                    duration: 4 + i * 0.4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                 
+                 
                   className="relative flex items-center gap-2 bg-[#F3F7F5] text-[#1E2A38] pl-3 pr-4 py-2 text-xs font-semibold shadow-md"
                 >
                   {/* tag hole, punched through to the page background */}
                   <span className="w-2.5 h-2.5 rounded-full bg-[#E1EEF3] shrink-0" />
                   <span className="text-[#3B72A6]">{tag.icon}</span>
                   {tag.label.toUpperCase()}
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {/* ---------------- Right: the passbook (desktop/tablet only) ---------------- */}

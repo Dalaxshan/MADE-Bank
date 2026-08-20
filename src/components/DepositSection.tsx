@@ -44,8 +44,8 @@ export default function DepositSection() {
   const sorted = [...depositPlans].sort((a, b) => {
     let aVal: number, bVal: number;
     if (sortKey === "period") { aVal = a.months; bVal = b.months; }
-    else if (sortKey === "monthlyInterest") { aVal = a.monthlyInterest ?? 0; bVal = b.monthlyInterest ?? 0; }
-    else { aVal = a.maturityInterest; bVal = b.maturityInterest; }
+    else if (sortKey === "monthlyInterest") { aVal = a.monthlyInterest ? parseFloat(a.monthlyInterest) : 0; bVal = b.monthlyInterest ? parseFloat(b.monthlyInterest) : 0; }
+    else { aVal = parseFloat(a.maturityInterest); bVal = parseFloat(b.maturityInterest); }
     return sortDir === "asc" ? aVal - bVal : bVal - aVal;
   });
 
@@ -66,6 +66,11 @@ export default function DepositSection() {
         >
           <span className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]" style={{ borderColor: `${JADE}80`, color: JADE }}>
             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: JADE }} />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+              alt="User Avatar"
+              className="w-4 h-4 rounded-full"
+            />
             {t.deposits.badge}
           </span>
           <h2 className="text-4xl font-semibold md:text-5xl mb-5" style={{ color: INK }}>
@@ -157,7 +162,7 @@ export default function DepositSection() {
             <div className="relative overflow-hidden p-6 text-[#F3F7F5]" style={{ background: `linear-gradient(205deg, ${JADE} 0%, ${INDIGO} 60%)`, clipPath: "polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px))" }}>
               <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)" }} />
               <div className="relative z-10">
-                <div className="text-5xl font-black mb-2">12.0%</div>
+                <div className="text-5xl font-black mb-2">12.2%</div>
                 <div className="text-lg font-semibold mb-1">{t.deposits.maxInterest}</div>
                 <div className="text-[#F3F7F5]/70 text-sm mb-4">{t.deposits.maxInterestSub}</div>
                 <div className="bg-[#F3F7F5]/10 border border-[#F3F7F5]/20 p-4">

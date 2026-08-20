@@ -91,7 +91,7 @@ export default function Footer() {
           />
           <text fill="#F3F7F5" fontSize="11" letterSpacing="2">
             <textPath href="#footerStampCircle" startOffset="0%">
-              • EST. 2025 · MADECOOP · MATALE ·
+              • EST. 2025 · MADE Co-op · MATALE ·
             </textPath>
           </text>
         </svg>
@@ -104,7 +104,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <img
               src="/images/logo-white.png"
-              alt="MADECOOP Logo"
+              alt="MADE Co-op Logo"
               className="w-42 h-42"
             />
 
@@ -122,11 +122,11 @@ export default function Footer() {
                 473 2926
               </a>
               <a
-                href="mailto:info@madecoopbank.com"
+                href="mailto:info@MADE Co-opbank.com"
                 className="flex items-center gap-2.5 text-gray-400 hover:text-white transition-colors text-sm"
               >
                 <FaEnvelope style={{ color: JADE }} className="text-xs" />{" "}
-                info@madecoopbank.com
+                info@MADE Co-opbank.com
               </a>
               <div className="flex items-start gap-2.5 text-gray-400 text-sm">
                 <FaMapMarkerAlt
@@ -142,7 +142,7 @@ export default function Footer() {
             {/* Social */}
             <div className="flex gap-3 mt-5">
               <a
-                href="https://www.facebook.com/madecoopsociety"
+                href="https://www.facebook.com/MADE Co-opsociety"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 border border-white/15 flex items-center justify-center text-gray-400 hover:border-transparent transition-all"
@@ -203,7 +203,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col items-center gap-4">
           <p className="text-gray-300 text-sm text-center">
-            © {new Date().getFullYear()} MADECOOP - Matale District Agriculture
+            © {new Date().getFullYear()} MADE Co-op - Matale District Agriculture
             Development and Export Cooperative Society Ltd. All rights reserved.
           </p>
         </div>
