@@ -12,42 +12,42 @@ export default function ServicesSection() {
       title: t.services.groupTitle, subtitle: t.services.groupSubtitle, desc: t.services.groupDesc,
       features: [t.services.groupF1, t.services.groupF2, t.services.groupF3, t.services.groupF4],
       color: "from-teal-500 to-cyan-600", bg: "bg-teal-50", border: "border-teal-200", iconBg: "bg-teal-100 text-teal-600",
-      badge: t.services.groupBadge, badgeColor: "bg-teal-600",
+      badge: t.services.groupBadge, badgeColor: "bg-teal-600", checkColor: "text-teal-700",
     },
     {
       id: "mortgage", icon: <LandPlot strokeWidth={1.25} />,
       title: t.services.mortgageTitle, subtitle: t.services.mortgageSubtitle, desc: t.services.mortgageDesc,
       features: [t.services.mortgageF1, t.services.mortgageF2, t.services.mortgageF3, t.services.mortgageF4],
       color: "from-rose-500 to-pink-600", bg: "bg-rose-50", border: "border-rose-200", iconBg: "bg-rose-100 text-rose-600",
-      badge: t.services.mortgageBadge, badgeColor: "bg-rose-600",
+      badge: t.services.mortgageBadge, badgeColor: "bg-rose-600", checkColor: "text-rose-700",
     },
     {
       id: "export-loan", icon: <Sprout strokeWidth={1.25} />,
       title: t.services.exportTitle, subtitle: t.services.exportSubtitle, desc: t.services.exportDesc,
       features: [t.services.exportF1, t.services.exportF2, t.services.exportF3, t.services.exportF4],
       color: "from-green-500 to-emerald-600", bg: "bg-green-50", border: "border-green-200", iconBg: "bg-green-100 text-green-600",
-      badge: null, badgeColor: "bg-green-600",
+      badge: null, badgeColor: "bg-green-600", checkColor: "text-green-700",
     },
     {
       id: "land-loan", icon: <Landmark strokeWidth={1.25} />,
       title: t.services.landTitle, subtitle: t.services.landSubtitle, desc: t.services.landDesc,
       features: [t.services.landF1, t.services.landF2, t.services.landF3, t.services.landF4],
       color: "from-brown-500 to-amber-700", bg: "bg-amber-50", border: "border-amber-200", iconBg: "bg-amber-100 text-amber-700",
-      badge: t.services.landBadge, badgeColor: "bg-amber-600",
+      badge: t.services.landBadge, badgeColor: "bg-amber-600", checkColor: "text-amber-700",
     },
     {
       id: "vehicle-loan", icon: <Tractor strokeWidth={1.25} />,
       title: t.services.vehicleTitle, subtitle: t.services.vehicleSubtitle, desc: t.services.vehicleDesc,
       features: [t.services.vehicleF1, t.services.vehicleF2, t.services.vehicleF3, t.services.vehicleF4],
       color: "from-blue-500 to-indigo-600", bg: "bg-blue-50", border: "border-blue-200", iconBg: "bg-blue-100 text-blue-600",
-      badge: null, badgeColor: "",
+      badge: null, badgeColor: "", checkColor: "text-blue-700",
     },
     {
       id: "machinery-loan", icon: <Forklift strokeWidth={1.25} />,
       title: t.services.machineryTitle, subtitle: t.services.machinerySubtitle, desc: t.services.machineryDesc,
       features: [t.services.machineryF1, t.services.machineryF2, t.services.machineryF3, t.services.machineryF4],
       color: "from-orange-500 to-red-500", bg: "bg-orange-50", border: "border-orange-200", iconBg: "bg-orange-100 text-orange-600",
-      badge: null, badgeColor: "",
+      badge: null, badgeColor: "", checkColor: "text-orange-700",
     },
   ];
 
@@ -95,7 +95,7 @@ export default function ServicesSection() {
               <div className="space-y-2 mb-6">
                 {service.features.map((feature) => (
                   <div key={feature} className="flex items-center gap-2">
-                    <FaCheckCircle className="text-green-500 text-xs flex-shrink-0" />
+                    <FaCheckCircle className={`${service.checkColor} text-xs flex-shrink-0`} />
                     <span className="text-gray-700 text-sm">{feature}</span>
                   </div>
                 ))}
@@ -118,7 +118,7 @@ export default function ServicesSection() {
             <circle cx="100" cy="100" r="90" fill="none" stroke="#F3F7F5" strokeWidth="2" />
             <circle cx="100" cy="100" r="72" fill="none" stroke="#F3F7F5" strokeWidth="1.5" />
             <text fill="#F3F7F5" fontSize="11" letterSpacing="2">
-              <textPath href="#ctaStampCircle" startOffset="0%">• MADE Co-op · APPROVED · MADE Co-op · APPROVED</textPath>
+              <textPath href="#ctaStampCircle" startOffset="0%">• MADE Co-op Society · APPROVED · MADE Co-op Society · APPROVED</textPath>
             </text>
           </svg>
           <div className="relative z-10">

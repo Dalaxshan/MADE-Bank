@@ -39,7 +39,7 @@ const qaData = {
     },
     {
       q: ["buy back", "buyback guarantee", "buy-back", "harvest purchase"],
-      a: "When you take an Export Agriculture Loan, MADE Co-op guarantees to purchase your entire harvest at pre-agreed market prices — no middlemen, no unsold produce risk.",
+      a: "When you take an Export Agriculture Loan, MADE Co-op Society guarantees to purchase your entire harvest at pre-agreed market prices — no middlemen, no unsold produce risk.",
     },
     {
       q: ["what crops", "which crops", "crops covered", "buy back crops"],
@@ -55,7 +55,7 @@ const qaData = {
     },
     {
       q: ["loan against deposit", "deposit loan", "borrow against deposit"],
-      a: "Yes! MADE Co-op offers loans up to 90% of your deposit value, with the deposit as collateral.",
+      a: "Yes! MADE Co-op Society offers loans up to 90% of your deposit value, with the deposit as collateral.",
     },
     {
       q: ["who can join", "eligibility", "who is eligible", "membership"],
@@ -110,12 +110,12 @@ const qaData = {
       a: "You can reach us by phone or WhatsApp. Visit our Contact page for the latest numbers.",
     },
     {
-      q: ["about MADE Co-op", "what is MADE Co-op", "who are you"],
-      a: "MADE Co-op (Matale District Agriculture Development and Export Cooperative Society Ltd.) is a registered cooperative under CPC Act No. 10 of 1990. We provide loans, buy-back guarantees, and export partnerships to Sri Lankan farmers.",
+      q: ["about MADE Co-op Society", "what is MADE Co-op Society", "who are you"],
+      a: "MADE Co-op Society (Matale District Agriculture Development and Export Cooperative Society Ltd.) is a registered cooperative under CPC Act No. 10 of 1990. We provide loans, buy-back guarantees, and export partnerships to Sri Lankan farmers.",
     },
     {
       q: ["hello", "hi", "hey", "good morning", "good afternoon"],
-      a: "Hello! Welcome to MADE Co-op. How can I help you today? You can ask about loans, deposits, buy-back programs, or eligibility.",
+      a: "Hello! Welcome to MADE Co-op Society. How can I help you today? You can ask about loans, deposits, buy-back programs, or eligibility.",
     },
   ],
   si: [
@@ -133,7 +133,7 @@ const qaData = {
     },
     {
       q: ["නැවත මිලදී ගැනීම", "buy back", "අස්වැන්න"],
-      a: "MADE Co-op ඔබේ සම්පූර්ණ අස්වැන්න කලින් එකඟ වූ මිලට මිලදී ගැනීමට සහතික වේ. අතරමැදියන් නැත.",
+      a: "MADE Co-op Society ඔබේ සම්පූර්ණ අස්වැන්න කලින් එකඟ වූ මිලට මිලදී ගැනීමට සහතික වේ. අතරමැදියන් නැත.",
     },
     {
       q: ["අවම තැන්පතු", "තැන්පතු මුදල", "කීයද"],
@@ -145,7 +145,7 @@ const qaData = {
     },
     {
       q: ["තැන්පතු ණය", "ඇපකරය", "90%"],
-      a: "ඔව්! MADE Co-op ඔබේ තැන්පතු වටිනාකමෙන් 90% දක්වා ණය ලබා දේ.",
+      a: "ඔව්! MADE Co-op Society ඔබේ තැන්පතු වටිනාකමෙන් 90% දක්වා ණය ලබා දේ.",
     },
     {
       q: ["සාමාජිකත්වය", "සුදුසුකම්", "කවුරුන්"],
@@ -165,7 +165,7 @@ const qaData = {
     },
     {
       q: ["හෙලෝ", "ආයුබෝවන්", "ආයුබෝ"],
-      a: "ආයුබෝවන්! MADE Co-op වෙත සාදරයෙන් පිළිගනිමු. ණය, තැන්පතු, නැවත මිලදී ගැනීම හෝ සුදුසුකම් ගැන ඔබට ප්රශ්න ඇසිය හැකිය.",
+      a: "ආයුබෝවන්! MADE Co-op Society වෙත සාදරයෙන් පිළිගනිමු. ණය, තැන්පතු, නැවත මිලදී ගැනීම හෝ සුදුසුකම් ගැන ඔබට ප්රශ්න ඇසිය හැකිය.",
     },
   ],
   tm: [
@@ -183,7 +183,7 @@ const qaData = {
     },
     {
       q: ["மீள்கொள்முதல்", "buy back", "அறுவடை கொள்முதல்"],
-      a: "MADE Co-op உங்கள் முழு அறுவடையையும் முன் ஒப்புக்கொள்ளப்பட்ட விலையில் வாங்க உத்தரவாதம் அளிக்கிறது.",
+      a: "MADE Co-op Society உங்கள் முழு அறுவடையையும் முன் ஒப்புக்கொள்ளப்பட்ட விலையில் வாங்க உத்தரவாதம் அளிக்கிறது.",
     },
     {
       q: ["குறைந்தபட்ச வைப்பு", "வைப்பு தொகை", "எவ்வளவு"],
@@ -195,7 +195,7 @@ const qaData = {
     },
     {
       q: ["வைப்பு கடன்", "90%", "பிணையம்"],
-      a: "ஆம்! MADE Co-op உங்கள் வைப்புத்தொகையில் 90% வரை கடன் வழங்குகிறது.",
+      a: "ஆம்! MADE Co-op Society உங்கள் வைப்புத்தொகையில் 90% வரை கடன் வழங்குகிறது.",
     },
     {
       q: ["தகுதி", "யார் சேரலாம்", "உறுப்பினர்"],
@@ -215,7 +215,7 @@ const qaData = {
     },
     {
       q: ["வணக்கம்", "hello", "hi"],
-      a: "வணக்கம்! MADE Co-op-க்கு வரவேற்கிறோம். கடன்கள், வைப்புத்தொகைகள், மீள்கொள்முதல் திட்டம் பற்றி கேட்கலாம்.",
+      a: "வணக்கம்! MADE Co-op Society-க்கு வரவேற்கிறோம். கடன்கள், வைப்புத்தொகைகள், மீள்கொள்முதல் திட்டம் பற்றி கேட்கலாம்.",
     },
   ],
 };
@@ -257,15 +257,15 @@ const placeholder = {
 };
 
 const title = {
-  en: "MADE Co-op Assistant",
-  si: "MADE Co-op සහායක",
-  tm: "MADE Co-op உதவியாளர்",
+  en: "MADE Co-op Society Assistant",
+  si: "MADE Co-op Society සහායක",
+  tm: "MADE Co-op Society உதவியாளர்",
 };
 
 const greeting = {
-  en: "Hi! I'm the MADE Co-op assistant. Ask me about loans, deposits, buy-back programs, or eligibility.",
-  si: "ආයුබෝවන්! මම MADE Co-op සහායකයා. ණය, තැන්පතු, නැවත මිලදී ගැනීම හෝ සුදුසුකම් ගැන අසන්න.",
-  tm: "வணக்கம்! நான் MADE Co-op உதவியாளர். கடன்கள், வைப்புத்தொகைகள், மீள்கொள்முதல் திட்டம் பற்றி கேட்கலாம்.",
+  en: "Hi! I'm the MADE Co-op Society assistant. Ask me about loans, deposits, buy-back programs, or eligibility.",
+  si: "ආයුබෝවන්! මම MADE Co-op Society සහායකයා. ණය, තැන්පතු, නැවත මිලදී ගැනීම හෝ සුදුසුකම් ගැන අසන්න.",
+  tm: "வணக்கம்! நான் MADE Co-op Society உதவியாளர். கடன்கள், வைப்புத்தொகைகள், மீள்கொள்முதல் திட்டம் பற்றி கேட்கலாம்.",
 };
 
 function findAnswer(input: string, lang: "en" | "si" | "tm") {

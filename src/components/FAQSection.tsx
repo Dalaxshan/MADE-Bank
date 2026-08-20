@@ -88,7 +88,7 @@ export default function FAQSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block bg-amber-100 text-amber-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             <FaQuestionCircle className="inline mr-1" />{t.faq.badge}
           </span>
           <h2 className="text-4xl font-semibold md:text-5xl font-black text-gray-900 mb-5">
@@ -157,9 +157,9 @@ export default function FAQSection() {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.2 }}
                           >
-                            <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
-                              {item.a}
-                            </div>
+                            <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4"
+                              dangerouslySetInnerHTML={{ __html: item.a }}
+                            />
                           </motion.div>
                         )}
                       </AnimatePresence>

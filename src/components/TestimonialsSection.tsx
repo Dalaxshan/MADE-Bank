@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import {  FaQuoteLeft } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -80,7 +80,7 @@ export default function TestimonialsSection() {
           className="text-center mb-16"
         >
           <span
-            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
+            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 text-xs uppercase tracking-[0.15em]"
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
             {t.testimonials.badge}
@@ -131,10 +131,7 @@ export default function TestimonialsSection() {
                   border: `1px solid ${INK}14`,
                 }}
               >
-                <FaQuoteLeft
-                  className="absolute top-5 right-5 text-3xl"
-                  style={{ color: `${STEEL}14` }}
-                />
+         
                 <p
                   className="text-sm leading-relaxed mb-5 relative z-10"
                   style={{ color: `${INK}CC` }}
@@ -186,7 +183,7 @@ export default function TestimonialsSection() {
             { value: "98%", label: t.testimonials.satisfaction, color: STEEL },
             { value: "95%", label: t.testimonials.repayment, color: JADE },
             { value: "300%", label: t.testimonials.income, color: STEEL },
-            { value: "5★", label: t.testimonials.rating, color: JADE },
+            { value: "★★★★★", label: t.testimonials.rating, color: JADE },
           ].map((stat) => (
             <div
               key={stat.label}

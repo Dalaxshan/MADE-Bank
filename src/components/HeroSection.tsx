@@ -118,7 +118,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 border border-dashed border-[var(--color-primary)]/50 rounded-sm px-4 py-1.5 mb-8 -rotate-1"
+              className="inline-flex items-center gap-2 border border-dashed border-[var(--color-primary)]/50 rounded-sm px-4 py-1.5 mb-8"
             >
               <span className="w-1.5 h-1.5 bg-[var(--color-primary)] rounded-full" />
               <span className="text-[var(--color-primary)] text-[11px] tracking-[0.2em] uppercase">

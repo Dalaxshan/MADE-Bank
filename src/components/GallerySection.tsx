@@ -16,7 +16,7 @@ const galleryItems = [
   },
   {
     id: 2,
-    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02352.webp",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/1.webp",
     span: 2,
   },
   {
@@ -69,12 +69,12 @@ const galleryItems = [
   },
   {
     id: 12,
-    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02811.webp",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/paralax6.webp",
     span: 1,
   },
   {
     id: 13,
-    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02957.webp",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/p23.webp",
     span: 2,
   },
   {

@@ -43,14 +43,14 @@ export default function FeatureGridSection() {
       title: t.features.ruralDevTitle,
       desc: t.features.ruralDevDesc,
       accent: STEEL,
-      image: 'https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02957.webp',
+      image: 'https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/p23.webp',
     },
     {
       icon: <Leaf strokeWidth={1.25} size={20} />,
       title: t.features.sustainableTitle,
       desc: t.features.sustainableDesc,
       accent: JADE,
-      image: 'https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02352.webp',
+      image: 'https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA03371.webp',
     },
   ];
 
@@ -65,7 +65,7 @@ export default function FeatureGridSection() {
           className="text-center mb-16"
         >
           <span
-            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
+            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 text-xs uppercase tracking-[0.15em]"
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: JADE }} />

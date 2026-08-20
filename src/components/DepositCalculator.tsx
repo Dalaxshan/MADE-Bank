@@ -111,7 +111,7 @@ export default function DepositCalculator() {
           className="text-center mb-16"
         >
           <span
-            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
+            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 text-xs uppercase tracking-[0.15em]"
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
             <Calculator strokeWidth={1.75} /> {t.calculator.badge}

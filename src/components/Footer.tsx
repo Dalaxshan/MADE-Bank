@@ -91,20 +91,20 @@ export default function Footer() {
           />
           <text fill="#F3F7F5" fontSize="11" letterSpacing="2">
             <textPath href="#footerStampCircle" startOffset="0%">
-              • EST. 2025 · MADE Co-op · MATALE ·
+              • EST. 2025 · MADE Co-op Society · MATALE ·
             </textPath>
           </text>
         </svg>
       </div>
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-10 lg:py-5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-10 lg:py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
             <img
               src="/images/logo-white.png"
-              alt="MADE Co-op Logo"
+              alt="MADE Co-op Society Logo"
               className="w-42 h-42"
             />
 
@@ -126,7 +126,7 @@ export default function Footer() {
                 className="flex items-center gap-2.5 text-gray-400 hover:text-white transition-colors text-sm"
               >
                 <FaEnvelope style={{ color: JADE }} className="text-xs" />{" "}
-                info@MADE Co-opbank.com
+                info@madecoopbank.com
               </a>
               <div className="flex items-start gap-2.5 text-gray-400 text-sm">
                 <FaMapMarkerAlt
@@ -203,7 +203,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col items-center gap-4">
           <p className="text-gray-300 text-sm text-center">
-            © {new Date().getFullYear()} MADE Co-op - Matale District Agriculture
+            © {new Date().getFullYear()} MADE Co-op Society - Matale District Agriculture
             Development and Export Cooperative Society Ltd. All rights reserved.
           </p>
         </div>

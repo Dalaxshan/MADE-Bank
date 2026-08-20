@@ -21,7 +21,7 @@ export default function OurVisionMission() {
           className="text-center mb-16"
         >
           <span
-            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
+            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 text-xs uppercase tracking-[0.15em]"
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: JADE }} />
@@ -45,10 +45,10 @@ export default function OurVisionMission() {
             className="p-8 md:p-10"
             style={{ backgroundColor: "#FFFFFF", border: `1px solid ${INK}14`, borderTopWidth: "3px", borderTopColor: STEEL }}
           >
-            <div className="text-[22px] font-bold uppercase mb-5" style={{ color: STEEL }}>{t.vision.visionLabel}</div>
-            <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: `${STEEL}1A`, color: STEEL }}>
+            <div className="text-[22px] font-bold uppercase mb-2" style={{ color: STEEL }}>{t.vision.visionLabel}</div>
+            {/* <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: `${STEEL}1A`, color: STEEL }}>
               <Eye strokeWidth={1.25} size={28} />
-            </div>
+            </div> */}
             <h3 className="text-2xl font-semibold mb-4" style={{ color: INK }}>{t.vision.visionTitle}</h3>
             <p className="text-base leading-relaxed" style={{ color: `${INK}99` }}>{t.vision.visionText}</p>
           </motion.div>
@@ -68,9 +68,9 @@ export default function OurVisionMission() {
             style={{ backgroundColor: "#FFFFFF", border: `1px solid ${INK}14`, borderTopWidth: "3px", borderTopColor: JADE }}
           >
             <div className="text-[22px] font-bold uppercase mb-5" style={{ color: JADE }}>{t.vision.missionLabel}</div>
-            <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: `${JADE}1A`, color: JADE }}>
+            {/* <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: `${JADE}1A`, color: JADE }}>
               <Target strokeWidth={1.25} size={28} />
-            </div>
+            </div> */}
             <h3 className="text-2xl font-semibold mb-4" style={{ color: INK }}>{t.vision.missionTitle}</h3>
             <p className="text-base leading-relaxed" style={{ color: `${INK}99` }}>{t.vision.missionText}</p>
           </motion.div>

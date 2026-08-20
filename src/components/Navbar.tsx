@@ -112,7 +112,7 @@ export default function Navbar() {
             >
               <img
                 src="images/logo.png"
-                alt="MADE Co-op Logo"
+                alt="MADE Co-op Society Logo"
                 className="w-22 h-20 object-contain"
               />
             </motion.div>

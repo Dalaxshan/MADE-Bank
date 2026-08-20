@@ -186,7 +186,7 @@ export default function FarmerJourneySection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mt-10 relative overflow-hidden p-10 text-center text-[#F3F7F5]"
-          style={{ backgroundColor: 'var(--color-light-green)', clipPath: 'polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))' }}
+          style={{ backgroundColor: 'var(--color-primary)', clipPath: 'polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))' }}
         >
           <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)' }} />
           <svg viewBox="0 0 200 200" className="absolute -top-8 -right-8 w-44 h-44 opacity-[0.12] pointer-events-none">
@@ -194,7 +194,7 @@ export default function FarmerJourneySection() {
             <circle cx="100" cy="100" r="90" fill="none" stroke="#F3F7F5" strokeWidth="2" />
             <circle cx="100" cy="100" r="72" fill="none" stroke="#F3F7F5" strokeWidth="1.5" />
             <text fill="#F3F7F5" fontSize="11" letterSpacing="2">
-              <textPath href="#journeyStampCircle" startOffset="0%">• 500+ FARMERS · MADE Co-op · 500+ FARMERS</textPath>
+              <textPath href="#journeyStampCircle" startOffset="0%">• 500+ FARMERS · MADE Co-op Society · 500+ FARMERS</textPath>
             </text>
           </svg>
           <div className="relative z-10">

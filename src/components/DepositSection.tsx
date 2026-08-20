@@ -64,13 +64,9 @@ export default function DepositSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]" style={{ borderColor: `${JADE}80`, color: JADE }}>
+          <span className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 text-xs uppercase tracking-[0.15em]" style={{ borderColor: `${JADE}80`, color: JADE }}>
             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: JADE }} />
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-              alt="User Avatar"
-              className="w-4 h-4 rounded-full"
-            />
+           
             {t.deposits.badge}
           </span>
           <h2 className="text-4xl font-semibold md:text-5xl mb-5" style={{ color: INK }}>

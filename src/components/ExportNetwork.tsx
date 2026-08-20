@@ -42,13 +42,21 @@ export default function ExportNetwork() {
   ];
 
   const exportPartners = [
+     {
+      name: "Agroventures Plantations",
+      type: t.export.groupTag4,
+      logo: "/images/agroventure.png",
+      strength: t.export.groupDes4,
+      path: "https://agroventures.lk/",
+    },
     {
-      name: "Bio Foods",
+      name: "Bio Foods Agroventures",
       type: t.export.groupTag1,
       logo: "/images/biofoods.png",
       strength: t.export.groupDes1,
       path: "https://www.biofoodsagro.com/",
     },
+  
     {
       name: "Agroventure Exports",
       type: t.export.groupTag2,
@@ -57,26 +65,21 @@ export default function ExportNetwork() {
       path: "https://agroventuresexports.com/",
     },
     {
-      name: "Vanilla Shop",
-      type: t.export.groupTag3,
-      logo: "/images/vanilla-shop.png",
-      strength: t.export.groupDes3,
-      path: "https://thevanillashop.lk/",
-    },
-    {
-      name: "Agroventures Plantations",
-      type: t.export.groupTag4,
-      logo: "/images/agroventure.png",
-      strength: t.export.groupDes4,
-      path: "https://agroventures.lk/",
-    },
-    {
-      name: "Elevare",
+      name: "ELEVARE",
       type: t.export.groupTag5,
       logo: "/images/elevare.png",
       strength: t.export.groupDes5,
       path: "https://elevare.lk/",
     },
+   
+    {
+      name: "The Vanilla Shop",
+      type: t.export.groupTag3,
+      logo: "/images/vanilla-shop.png",
+      strength: t.export.groupDes3,
+      path: "https://thevanillashop.lk/",
+    },
+    
     {
       name: "Rathu Ira",
       type: t.export.groupTag6,
@@ -101,7 +104,7 @@ export default function ExportNetwork() {
           className="text-center mb-16"
         >
           <span
-            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
+            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 text-xs uppercase tracking-[0.15em]"
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
             <FaGlobeAsia size={11} /> {t.export.badge}
@@ -168,7 +171,7 @@ export default function ExportNetwork() {
                   dataKey="value"
                   stroke={INDIGO}
                   strokeWidth={2}
-                  strokeDasharray="5 5"
+                
                   name="Target"
                   dot={{ fill: INDIGO, r: 4 }}
                 />
@@ -238,14 +241,14 @@ export default function ExportNetwork() {
             {t.export.partnersSub}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {exportPartners.map((partner, i) => (
               <a
                 key={partner.name}
                 href={partner.path}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="block h-full"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -256,7 +259,7 @@ export default function ExportNetwork() {
                     y: -4,
                     boxShadow: "0 12px 32px rgba(30,42,56,0.10)",
                   }}
-                  className="flex flex-col overflow-hidden transition-all"
+                  className="flex flex-col overflow-hidden transition-all h-full"
                   style={{
                     backgroundColor: "#FFFFFF",
                     border: `1px solid ${INK}14`,

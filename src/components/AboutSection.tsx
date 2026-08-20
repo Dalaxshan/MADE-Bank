@@ -123,7 +123,7 @@ export default function AboutSection() {
             />
             <text fill="#F3F7F5" fontSize="9" letterSpacing="2.5">
               <textPath href="#aboutStamp" startOffset="0%">
-                • EST. 2025 · MADE Co-op · MATALE ·
+                • EST. 2025 · MADE Co-op Society · MATALE ·
               </textPath>
             </text>
           </motion.svg>
@@ -137,7 +137,7 @@ export default function AboutSection() {
             className="max-w-3.5xl"
           >
             <span
-              className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-6 text-xs uppercase tracking-[0.18em] -rotate-1"
+              className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-6 text-xs uppercase tracking-[0.18em]"
               style={{
                 borderColor: "rgba(86,164,69,0.6)",
                 color: "var(--color-light-green)",
@@ -152,7 +152,7 @@ export default function AboutSection() {
             >
               {t.about.title1}
               <br />
-              <span style={{ color: "var(--color-light-green)" }}>
+              <span style={{ color: "var(--color-primary)" }}>
                 {t.about.title2}
               </span>
             </h1>
@@ -213,7 +213,7 @@ export default function AboutSection() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/images/about-team.jpg"
-                  alt="MADE Co-op farmer"
+                  alt="MADE Co-op Society farmer"
                   className="w-full h-[480px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 via-transparent to-transparent" />
@@ -306,10 +306,10 @@ export default function AboutSection() {
                 <span className="gradient-text">{t.about.chairmanTitle2}</span>
               </h3>
               <div className="relative pl-6 border-l-4 border-green-200 mb-6">
-                <Quote
+                {/* <Quote
                   className="absolute -left-[22px] -top-2 w-9 h-9 text-green-600 bg-white"
                   strokeWidth={1.25}
-                />
+                /> */}
                 <p className="text-gray-600 leading-relaxed italic">
                   {t.about.chairmanQuote}
                 </p>
@@ -318,7 +318,7 @@ export default function AboutSection() {
                 <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-green-100 flex-shrink-0">
                   <img
                     src="/images/logo.png"
-                    alt="Director, MADE Co-op"
+                    alt="Director, MADE Co-op Society"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -343,7 +343,7 @@ export default function AboutSection() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/images/director.png"
-                  alt="MADE Co-op Director"
+                  alt="MADE Co-op Society Director"
                   className="w-full h-[480px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 via-transparent to-transparent" />
