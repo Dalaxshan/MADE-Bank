@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
-import { CheckCircle, ClockCheck, Forklift, Landmark, LandPlot, Percent, Sprout, Tractor, Users } from "lucide-react";
+import {
+  CheckCircle,
+  ClockCheck,
+  Forklift,
+  Landmark,
+  LandPlot,
+  Percent,
+  Sprout,
+  Tractor,
+  Users,
+} from "lucide-react";
 import { FaCheckCircle } from "react-icons/fa";
-import { useLang } from "../i18n/LanguageContext";
-
-export default function ServicesSection() {
-  const { t } = useLang();
 
   const services = [
     {
@@ -51,9 +57,11 @@ export default function ServicesSection() {
     },
   ];
 
+export default function ServicesSection() {
   return (
     <section id="services" className="py-14 bg-section-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,15 +70,20 @@ export default function ServicesSection() {
           className="text-center mb-16"
         >
           <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            {t.services.badge}
+            Our Loans
           </span>
           <h2 className="text-4xl font-semibold md:text-5xl fornt-semibold text-gray-900 mb-5">
             {t.services.title1}<br />
             <span className="gradient-text">{t.services.title2}</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t.services.sub}</p>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            From cultivation loans to export support, MADECOOP provides
+            end-to-end financial services tailored to the agricultural
+            community.
+          </p>
         </motion.div>
 
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {services.map((service, i) => (
             <motion.div
@@ -82,16 +95,41 @@ export default function ServicesSection() {
               whileHover={{ y: -8 }}
               className={`relative ${service.bg} border ${service.border} rounded-3xl p-6 cursor-pointer group overflow-hidden`}
             >
+              {/* Badge */}
               {service.badge && (
-                <div className={`absolute top-4 right-4 ${service.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full`}>
+                <div
+                  className={`absolute top-4 right-4 ${service.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full`}
+                >
                   {service.badge}
                 </div>
               )}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-3xl`} />
-              <div className={`feature-icon ${service.iconBg} w-16 h-16 rounded-2xl`}>{service.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-1">{service.title}</h3>
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">{service.subtitle}</p>
-              <p className="text-gray-600 text-sm leading-relaxed mb-5">{service.desc}</p>
+
+              {/* Hover gradient bg */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-3xl`}
+              />
+
+              {/* Icon */}
+              <div
+                className={`feature-icon ${service.iconBg} w-16 h-16 rounded-2xl`}
+              >
+                {service.icon}
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-gray-900 mb-1">
+                {service.title}
+              </h3>
+              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                {service.subtitle}
+              </p>
+
+              {/* Description */}
+              <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                {service.desc}
+              </p>
+
+              {/* Features */}
               <div className="space-y-2 mb-6">
                 {service.features.map((feature) => (
                   <div key={feature} className="flex items-center gap-2">
@@ -104,35 +142,87 @@ export default function ServicesSection() {
           ))}
         </div>
 
+        {/* Bottom CTA Banner */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="relative overflow-hidden p-8 sm:p-10 text-center text-[#F3F7F5]"
-          style={{ background: "var(--color-primary)", clipPath: "polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))" }}
+          style={{
+            background: "var(--color-primary) ",
+            clipPath:
+              "polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px))",
+          }}
         >
-          <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)" }} />
-          <svg viewBox="0 0 200 200" className="absolute -top-6 -right-6 w-40 h-40 opacity-[0.12] pointer-events-none">
-            <defs><path id="ctaStampCircle" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0" fill="none" /></defs>
-            <circle cx="100" cy="100" r="90" fill="none" stroke="#F3F7F5" strokeWidth="2" />
-            <circle cx="100" cy="100" r="72" fill="none" stroke="#F3F7F5" strokeWidth="1.5" />
+          {/* faint ledger-line texture, matching the hero */}
+          <div
+            className="absolute inset-0 opacity-[0.06] pointer-events-none"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)",
+            }}
+          />
+
+          {/* faint corner stamp watermark, tying back to the passbook seal */}
+          <svg
+            viewBox="0 0 200 200"
+            className="absolute -top-6 -right-6 w-40 h-40 opacity-[0.12] pointer-events-none"
+          >
+            <defs>
+              <path
+                id="ctaStampCircle"
+                d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"
+                fill="none"
+              />
+            </defs>
+            <circle
+              cx="100"
+              cy="100"
+              r="90"
+              fill="none"
+              stroke="#F3F7F5"
+              strokeWidth="2"
+            />
+            <circle
+              cx="100"
+              cy="100"
+              r="72"
+              fill="none"
+              stroke="#F3F7F5"
+              strokeWidth="1.5"
+            />
             <text fill="#F3F7F5" fontSize="11" letterSpacing="2">
               <textPath href="#ctaStampCircle" startOffset="0%">• MADE Co-op Society · APPROVED · MADE Co-op Society · APPROVED</textPath>
             </text>
           </svg>
+
           <div className="relative z-10">
             <h3 className="text-2xl md:text-3xl fornt-semibold mb-3">{t.services.ctaTitle}</h3>
             <p className="text-[#F3F7F5]/75 mb-8 text-lg">{t.services.ctaSub}</p>
             <div className="flex flex-wrap justify-center gap-3">
               {[
-                { icon: <Percent strokeWidth={1.75} />, label: t.services.cta1 },
-                { icon: <ClockCheck strokeWidth={1.75} />, label: t.services.cta2 },
-                { icon: <CheckCircle strokeWidth={1.75} />, label: t.services.cta3 },
+                {
+                  icon: <Percent strokeWidth={1.75} />,
+                  label: "Competitive Interest Rates",
+                },
+                {
+                  icon: <ClockCheck strokeWidth={1.75} />,
+                  label: "Quick Approval Process",
+                },
+                {
+                  icon: <CheckCircle strokeWidth={1.75} />,
+                  label: "No Hidden Charges",
+                },
               ].map((item) => (
-                <div key={item.label} className="flex items-center gap-2 bg-[#F3F7F5]/10 border border-[#F3F7F5]/20 px-5 py-3 text-sm">
+                <div
+                  key={item.label}
+                  className="flex items-center gap-2 bg-[#F3F7F5]/10 border border-[#F3F7F5]/20 px-5 py-3 text-sm"
+                >
                   <span className="text-[#F3F7F5]">{item.icon}</span>
-                  <span className="font-semibold tracking-wide">{item.label.toUpperCase()}</span>
+                  <span className="font-semibold tracking-wide">
+                    {item.label.toUpperCase()}
+                  </span>
                 </div>
               ))}
             </div>

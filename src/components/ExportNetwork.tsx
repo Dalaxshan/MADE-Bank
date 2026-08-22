@@ -12,8 +12,19 @@ import {
   Line,
   Legend,
 } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  Legend,
+} from "recharts";
 import { Ship, Sprout } from "lucide-react";
-import { useLang } from "../i18n/LanguageContext";
 
 const INK = "#1E2A38";
 const PAPER = "var(--color-primary-100)";
@@ -95,7 +106,13 @@ export default function ExportNetwork() {
       className="py-14 overflow-hidden"
       style={{ backgroundColor: PAPER }}
     >
+    <section
+      id="export-network"
+      className="py-14 overflow-hidden"
+      style={{ backgroundColor: PAPER }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +124,7 @@ export default function ExportNetwork() {
             className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 text-xs uppercase tracking-[0.15em]"
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
-            <FaGlobeAsia size={11} /> {t.export.badge}
+            <FaGlobeAsia size={11} /> Global Export Network
           </span>
           <h2
             className="text-4xl font-semibold md:text-5xl font-black mb-5"
@@ -132,6 +149,7 @@ export default function ExportNetwork() {
           </p>
         </motion.div>
 
+        {/* Export Performance Charts */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -145,14 +163,22 @@ export default function ExportNetwork() {
               className="font-bold mb-5 flex items-center gap-2"
               style={{ color: INK }}
             >
+            <h3
+              className="font-bold mb-5 flex items-center gap-2"
+              style={{ color: INK }}
+            >
               <Ship strokeWidth={1.75} style={{ color: STEEL }} />
-              {t.export.chartTitle1}
+              Annual Export Performance (Million LKR)
             </h3>
             <ResponsiveContainer width="100%" height={240}>
               <LineChart data={exportData}>
                 <CartesianGrid strokeDasharray="3 3" stroke={`${INK}14`} />
                 <XAxis dataKey="year" tick={{ fontSize: 12 }} />
                 <YAxis tick={{ fontSize: 12 }} />
+                <Tooltip
+                  formatter={(v: unknown) => [`Rs. ${Number(v)}M`]}
+                  contentStyle={{ border: `1px solid ${INK}26` }}
+                />
                 <Tooltip
                   formatter={(v: unknown) => [`Rs. ${Number(v)}M`]}
                   contentStyle={{ border: `1px solid ${INK}26` }}
@@ -208,12 +234,23 @@ export default function ExportNetwork() {
                   formatter={(v: unknown) => [`${Number(v)}%`]}
                   contentStyle={{ border: `1px solid ${INK}26` }}
                 />
+                <YAxis
+                  dataKey="product"
+                  type="category"
+                  tick={{ fontSize: 12 }}
+                  width={80}
+                />
+                <Tooltip
+                  formatter={(v: unknown) => [`${Number(v)}%`]}
+                  contentStyle={{ border: `1px solid ${INK}26` }}
+                />
                 <Bar dataKey="value" fill={STEEL} radius={[0, 2, 2, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </motion.div>
         </div>
 
+        {/* Export Partners */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

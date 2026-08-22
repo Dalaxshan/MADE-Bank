@@ -1,18 +1,28 @@
 import { motion } from "framer-motion";
 import { Eye, Target, Compass } from "lucide-react";
-import { useLang } from "../i18n/LanguageContext";
 
 const INK = "#1E2A38";
 const PAPER = "var(--color-primary-100)";
 const STEEL = "var(--color-light-green)";
 const JADE = "var(--color-secondary)";
 
-export default function OurVisionMission() {
-  const { t } = useLang();
+const coreValues = [
+  "Integrity",
+  "Farmer-First",
+  "Transparency",
+  "Sustainability",
+  "Community",
+];
 
+export default function OurVisionMission() {
   return (
-    <section id="vision-mission" className="py-24" style={{ backgroundColor: PAPER }}>
+    <section
+      id="vision-mission"
+      className="py-24"
+      style={{ backgroundColor: PAPER }}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,8 +34,11 @@ export default function OurVisionMission() {
             className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 text-xs uppercase tracking-[0.15em]"
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
-            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: JADE }} />
-            {t.vision.badge}
+            <span
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: JADE }}
+            />
+            Our Charter
           </span>
           <h2 className="text-4xl font-semibold md:text-5xl font-black mb-5" style={{ color: INK }}>
             {t.vision.title1}{" "}
@@ -33,17 +46,29 @@ export default function OurVisionMission() {
               {t.vision.title2}
             </span>
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: `${INK}99` }}>{t.vision.sub}</p>
+          <p
+            className="text-lg max-w-2xl mx-auto"
+            style={{ color: `${INK}99` }}
+          >
+            The two commitments every MADECOOP decision is measured against.
+          </p>
         </motion.div>
 
+        {/* Two charter articles */}
         <div className="relative grid md:grid-cols-2 gap-6 md:gap-0">
+          {/* Vision */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="p-8 md:p-10"
-            style={{ backgroundColor: "#FFFFFF", border: `1px solid ${INK}14`, borderTopWidth: "3px", borderTopColor: STEEL }}
+            style={{
+              backgroundColor: "#FFFFFF",
+              border: `1px solid ${INK}14`,
+              borderTopWidth: "3px",
+              borderTopColor: STEEL,
+            }}
           >
             <div className="text-[22px] font-bold uppercase mb-2" style={{ color: STEEL }}>{t.vision.visionLabel}</div>
             {/* <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: `${STEEL}1A`, color: STEEL }}>
@@ -53,19 +78,33 @@ export default function OurVisionMission() {
             <p className="text-base leading-relaxed" style={{ color: `${INK}99` }}>{t.vision.visionText}</p>
           </motion.div>
 
+          {/* Center emblem, desktop only */}
           <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: "#FFFFFF", border: `2px solid ${PAPER}`, color: INK }}>
+            <div
+              className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg"
+              style={{
+                backgroundColor: "#FFFFFF",
+                border: `2px solid ${PAPER}`,
+                color: INK,
+              }}
+            >
               <Compass strokeWidth={1.5} size={26} />
             </div>
           </div>
 
+          {/* Mission */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="p-8 md:p-10"
-            style={{ backgroundColor: "#FFFFFF", border: `1px solid ${INK}14`, borderTopWidth: "3px", borderTopColor: JADE }}
+            style={{
+              backgroundColor: "#FFFFFF",
+              border: `1px solid ${INK}14`,
+              borderTopWidth: "3px",
+              borderTopColor: JADE,
+            }}
           >
             <div className="text-[22px] font-bold uppercase mb-5" style={{ color: JADE }}>{t.vision.missionLabel}</div>
             {/* <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: `${JADE}1A`, color: JADE }}>
@@ -76,6 +115,7 @@ export default function OurVisionMission() {
           </motion.div>
         </div>
 
+        {/* Core values */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,11 +123,15 @@ export default function OurVisionMission() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-2.5 mt-10"
         >
-          {t.vision.values.map((value) => (
+          {coreValues.map((value) => (
             <span
               key={value}
               className="text-xs font-semibold px-3.5 py-1.5 tracking-wide"
-              style={{ backgroundColor: `${INK}08`, color: `${INK}CC`, border: `1px solid ${INK}14` }}
+              style={{
+                backgroundColor: `${INK}08`,
+                color: `${INK}CC`,
+                border: `1px solid ${INK}14`,
+              }}
             >
               {value.toUpperCase()}
             </span>

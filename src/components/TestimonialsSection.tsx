@@ -72,6 +72,7 @@ export default function TestimonialsSection() {
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +84,7 @@ export default function TestimonialsSection() {
             className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 text-xs uppercase tracking-[0.15em]"
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
-            {t.testimonials.badge}
+            Farmer Success Stories
           </span>
           <h2
             className="text-4xl font-semibold md:text-5xl font-black mb-5"
@@ -108,10 +109,15 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
+        {/* Swiper - signed testimony cards */}
         <Swiper
           modules={[Autoplay, Pagination, Navigation]}
           spaceBetween={20}
           slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
           breakpoints={{
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
@@ -121,8 +127,8 @@ export default function TestimonialsSection() {
           loop={true}
           className="pb-12 testimonial-swiper"
         >
-          {testimonials.map((item) => (
-            <SwiperSlide key={item.name}>
+          {testimonials.map((t) => (
+            <SwiperSlide key={t.name}>
               <motion.div
                 whileHover={{ y: -4 }}
                 className="p-6 h-full relative overflow-hidden transition-all"
@@ -172,6 +178,7 @@ export default function TestimonialsSection() {
           ))}
         </Swiper>
 
+        {/* Stats row */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
