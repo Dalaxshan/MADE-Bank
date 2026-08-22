@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {  X, Send, Bot, BotMessageSquare } from "lucide-react";
+import { X, Send, Bot, BotMessageSquare } from "lucide-react";
 import { useLang } from "../i18n/LanguageContext";
 
 interface Message {
@@ -16,11 +16,14 @@ const qaData = {
         "apply loan",
         "loan application",
         "get a loan",
+        "loan process",
+        "loan",
       ],
       a: "Visit our office in Matale with your NIC, land documents, and income proof. Fill the loan application form and our officer will guide you. Group loan applicants must come with all 5 members.",
     },
     {
       q: [
+        "documents",
         "documents required",
         "what documents",
         "required documents",
@@ -46,7 +49,7 @@ const qaData = {
       a: "Our Buy-Back program covers: Cinnamon, Black Pepper, Cardamom, Vanilla, Fresh Vegetables (export-quality), and certified Organic Produce.",
     },
     {
-      q: ["minimum deposit", "deposit amount", "how much deposit"],
+      q: ["minimum deposit", "deposit amount", "how much deposit", "deposit"],
       a: "Minimum deposit is Rs. 5,000. No maximum limit. Deposits can be made in cash or cheque at our office.",
     },
     {
@@ -94,7 +97,7 @@ const qaData = {
       a: "Agriculture Land Purchasing Loans help farmers secure agricultural land with affordable financing and flexible repayment aligned to farming income cycles.",
     },
     {
-      q: ["deposit interest", "savings interest", "deposit rate"],
+      q: ["deposit", "deposit interest", "savings interest", "deposit rate"],
       a: "Deposit rates: 6 months – up to 9%, 1 year – up to 10%, 2 years – up to 11%, 3–5 years – up to 12.2% per annum. Monthly or maturity payout options available.",
     },
     {
@@ -110,7 +113,11 @@ const qaData = {
       a: "You can reach us by phone or WhatsApp. Visit our Contact page for the latest numbers.",
     },
     {
-      q: ["about MADE Co-op Society", "what is MADE Co-op Society", "who are you"],
+      q: [
+        "about MADE Co-op Society",
+        "what is MADE Co-op Society",
+        "who are you",
+      ],
       a: "MADE Co-op Society (Matale District Agriculture Development and Export Cooperative Society Ltd.) is a registered cooperative under CPC Act No. 10 of 1990. We provide loans, buy-back guarantees, and export partnerships to Sri Lankan farmers.",
     },
     {
