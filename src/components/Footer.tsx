@@ -6,6 +6,7 @@ import {
   FaMapMarkerAlt,
   FaWhatsapp,
 } from "react-icons/fa";
+import { useLang } from "../i18n/LanguageContext";
 
 const INK = "#1E2A38";
 const JADE = "var(--color-light-green)";
@@ -108,8 +109,7 @@ export default function Footer() {
             />
 
             <p className="text-gray-400 text-sm leading-relaxed mb-5">
-              Empowering Sri Lankan farmers with agricultural loans and
-              financial support to sell their products locally and globally.
+              {t.footer.tagline}
             </p>
 
             {/* Contact snippets - ledger-line style */}
@@ -214,7 +214,7 @@ export default function Footer() {
         onClick={scrollToTop}
         whileHover={{ scale: 1.08, rotate: -4 }}
         whileTap={{ scale: 0.92 }}
-        className="fixed bottom-18 right-18 w-12 h-12 flex items-center justify-center shadow-xl z-20"
+        className="fixed bottom-4 right-4 w-12 h-12 flex items-center justify-center shadow-xl z-20"
         style={{ backgroundColor: JADE, color: " #fff" }}
       >
         <FaArrowUp size={16} />

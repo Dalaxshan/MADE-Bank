@@ -41,6 +41,7 @@ const getInterestRate = (months: number, isMonthly: boolean): number => {
 };
 
 export default function DepositCalculator() {
+  const { t } = useLang();
   const [amount, setAmount] = useState(100000);
   const [months, setMonths] = useState(12);
   const [isMonthly, setIsMonthly] = useState(false);
@@ -62,11 +63,10 @@ export default function DepositCalculator() {
   const maturityAmount = amount + totalInterest;
 
   const pieData = [
-    { name: 'Principal', value: amount },
-    { name: 'Interest Earned', value: Math.round(totalInterest) },
+    { name: t.calculator.principal, value: amount },
+    { name: t.calculator.interest, value: Math.round(totalInterest) },
   ];
 
-  // Line chart: growth over the term, using the correctly-selected rate
   const lineData: { month: string; value: number }[] = [];
   for (let m = 0; m <= months; m += Math.max(1, Math.floor(months / 12))) {
     const yr = m / 12;
@@ -88,12 +88,12 @@ export default function DepositCalculator() {
     }).format(val);
 
   const periodOptions = [
-    { label: '6 Months', value: 6 },
-    { label: '1 Year', value: 12 },
-    { label: '2 Years', value: 24 },
-    { label: '3 Years', value: 36 },
-    { label: '4 Years', value: 48 },
-    { label: '5 Years', value: 60 },
+    { label: t.calculator.p6m, value: 6 },
+    { label: t.calculator.p1y, value: 12 },
+    { label: t.calculator.p2y, value: 24 },
+    { label: t.calculator.p3y, value: 36 },
+    { label: t.calculator.p4y, value: 48 },
+    { label: t.calculator.p5y, value: 60 },
   ];
 
   return (
@@ -103,7 +103,6 @@ export default function DepositCalculator() {
       style={{ backgroundColor: "#FFFFFF" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -138,7 +137,6 @@ export default function DepositCalculator() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-10">
-          {/* Calculator Inputs */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -155,7 +153,6 @@ export default function DepositCalculator() {
               {t.calculator.inputTitle}
             </h3>
 
-            {/* Amount slider */}
             <div className="mb-8">
               <label
                 className="flex justify-between text-sm font-semibold mb-3"
@@ -197,7 +194,6 @@ export default function DepositCalculator() {
               />
             </div>
 
-            {/* Period selection */}
             <div className="mb-8">
               <label
                 className="block text-sm font-semibold mb-3"
@@ -233,7 +229,6 @@ export default function DepositCalculator() {
               </div>
             </div>
 
-            {/* Payout type */}
             <div className="mb-8">
               <label
                 className="block text-sm font-semibold mb-3"
@@ -291,7 +286,6 @@ export default function DepositCalculator() {
               </div>
             </div>
 
-            {/* Results */}
             <div className="grid grid-cols-1 gap-4">
               <div
                 className="p-4"
@@ -362,7 +356,6 @@ export default function DepositCalculator() {
             </div>
           </motion.div>
 
-          {/* Charts */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -371,7 +364,6 @@ export default function DepositCalculator() {
             className="p-8 shadow-lg"
             style={{ backgroundColor: "#FFFFFF", border: `1px solid ${INK}12` }}
           >
-            {/* Tab switcher */}
             <div className="flex gap-2 mb-6">
               <button
                 onClick={() => setActiveTab("pie")}

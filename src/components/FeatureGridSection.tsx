@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ChartNoAxesCombined, Earth, Handshake, Leaf, Shield, Users } from 'lucide-react';
+import { useLang } from '../i18n/LanguageContext';
 
 const INK = "#1E2A38";
 const PAPER = "var(--color-primary-100)";
@@ -7,6 +8,7 @@ const STEEL = "var(--color-light-green)";
 const JADE = "var(--color-secondary)";
 
 export default function FeatureGridSection() {
+  const { t } = useLang();
   const features = [
     {
       icon: <ChartNoAxesCombined strokeWidth={1.25} size={20} />,
@@ -55,7 +57,6 @@ export default function FeatureGridSection() {
   return (
     <section id="features" className="py-24" style={{ backgroundColor: PAPER }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +69,7 @@ export default function FeatureGridSection() {
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: JADE }} />
-            What Sets Us Apart
+            {t.features.badge}
           </span>
           <h2 className="text-4xl font-semibold md:text-5xl font-black mb-5 font-semibold" style={{ color: INK }}>
             {t.features.title1}<br />
@@ -76,13 +77,9 @@ export default function FeatureGridSection() {
               {t.features.title2}
             </span>
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: `${INK}99` }}>
-            Six commitments that shape everything MADECOOP does - from the first loan
-            application to the final export shipment.
-          </p>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: `${INK}99` }}>{t.features.sub}</p>
         </motion.div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map((feature, i) => (
             <motion.div

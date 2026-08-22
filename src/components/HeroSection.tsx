@@ -14,48 +14,11 @@ import {
   Truck,
   UserStar,
 } from "lucide-react";
-
-const ledgerEntries = [
-  {
-    value: 500,
-    suffix: "+",
-    label: "Farmers Supported",
-    icon: <Tractor strokeWidth={1.25} />,
-  },
-  {
-    value: 1000,
-    suffix: "+",
-    label: "Loans Issued",
-    icon: <BanknoteArrowDown strokeWidth={1.25} />,
-  },
-  {
-    value: 6,
-    suffix: "+",
-    label: "Group Partners",
-    icon: <Handshake strokeWidth={1.25} />,
-  },
-  {
-    value: 1,
-    suffix: "+",
-    label: "Year of Service",
-    icon: <UserStar strokeWidth={1.25} />,
-  },
-];
-
-const shipmentTags = [
-  { icon: <Sprout strokeWidth={1.25} />, label: "Organic Farming", rotate: -3 },
-  { icon: <Truck strokeWidth={1.25} />, label: "Global Export", rotate: 2 },
-  { icon: <Ship strokeWidth={1.25} />, label: "Modern Machinery", rotate: -2 },
-  {
-    icon: <HandCoins strokeWidth={1.25} />,
-    label: "Buy-Back Guarantee",
-    rotate: 3,
-  },
-];
+import { useLang } from "../i18n/LanguageContext";
 
 export default function HeroSection() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
-
+  const { t } = useLang();
   const navigate = useNavigate();
 
   const ledgerEntries = [
@@ -159,7 +122,7 @@ export default function HeroSection() {
             >
               <span className="w-1.5 h-1.5 bg-[var(--color-primary)] rounded-full" />
               <span className="text-[var(--color-primary)] text-[11px] tracking-[0.2em] uppercase">
-                Central Province · Cooperative Society
+                {t.hero.eyebrow}
               </span>
             </motion.div>
 
@@ -182,11 +145,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-[#1E2A38]/70 text-lg leading-relaxed mb-10 max-w-lg"
+              className="text-[#1E2A38]/70 text-md leading-relaxed mb-10 max-w-lg"
             >
-              Affordable loans, guaranteed harvest purchasing, and a direct line
-              to international buyers - built for Sri Lankan farmers who keep
-              their word season after season.
+              {t.hero.sub}
             </motion.p>
 
             {/* CTA row - clipped "ledger tab" buttons */}
@@ -203,7 +164,7 @@ export default function HeroSection() {
                   clipPath: "polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 70%)",
                 }}
               >
-                Apply for a Loan
+                {t.hero.applyLoan}
                 <ArrowRight
                   size={16}
                   className="group-hover:translate-x-1 transition-transform"
@@ -218,7 +179,7 @@ export default function HeroSection() {
                 }}
               >
                 <BanknoteArrowUp strokeWidth={1.25} />
-                Open a Deposit
+                {t.hero.openDeposit}
               </button>
             </motion.div>
 
@@ -269,14 +230,14 @@ export default function HeroSection() {
               {/* Passbook header */}
               <div className="flex items-baseline justify-between mb-1">
                 <span className="text-[11px] tracking-[0.2em] uppercase text-[#2B3A67] font-semibold">
-                  Member Ledger
+                  {t.hero.ledger.title}
                 </span>
                 <span className="text-[11px] text-[#1E2A38]/40">
                   No. 000114
                 </span>
               </div>
               <h2 className="text-xl font-black mb-6 pb-4 border-b-2 border-[#1E2A38]/15">
-                Society Standing
+                {t.hero.ledger.standing}
               </h2>
 
               {/* Ledger rows */}
@@ -325,9 +286,7 @@ export default function HeroSection() {
                     className="text-[12.5px] leading-relaxed"
                     style={{ color: "#2B3A67", fontWeight: "bold" }}
                   >
-                    <strong>Registered</strong> under Cooperative Societies Act
-                    No. 10 of 1990, Central Provincial Council, as amended by
-                    Act No. <strong>04 of 1993.</strong>
+                    {t.hero.ledger.registered}
                   </p>
                 </div>
               </div>
