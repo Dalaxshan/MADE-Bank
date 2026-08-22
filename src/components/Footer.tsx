@@ -1,53 +1,45 @@
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import {
   FaFacebook,
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
   FaWhatsapp,
-  FaArrowUp,
 } from "react-icons/fa";
+import { useLang } from "../i18n/LanguageContext";
 
 const INK = "#1E2A38";
 const JADE = "var(--color-light-green)";
 const STEEL = "var(--color-secondary)";
 
-const footerLinks: Record<string, { label: string; href: string }[]> = {
-  "Loan Services": [
-    { label: "Export Agriculture Loan", href: "/services" },
-    { label: "Land Purchasing Loan", href: "/services" },
-    { label: "Machinery Loan", href: "/services" },
-    { label: "Vehicle Loan", href: "/services" },
-    { label: "Group Loan", href: "/services" },
-    { label: "Mortgage Loan", href: "/services" },
-  ],
-  "Deposit Services": [
-    { label: "6 Month Deposit", href: "/deposits" },
-    { label: "1 Year Deposit", href: "/deposits" },
-    { label: "2-5 Year Deposits", href: "/deposits" },
-    { label: "Monthly Interest Plans", href: "/deposits" },
-    { label: "Maturity Plans", href: "/deposits" },
-    { label: "Deposit Calculator", href: "/deposits" },
-  ],
-  // Company: [
-  //   { label: "About MADECOOP", href: "/about" },
-  //   { label: "Our Mission", href: "/about" },
-  //   { label: "Farmer Stories", href: "/" },
-  //   { label: "Gallery", href: "/gallery" },
-  // ],
-  Support: [
-    { label: "FAQ", href: "/contact" },
-    { label: "Contact Us", href: "/contact" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms & Conditions", href: "#" },
-  ],
-};
-
 export default function Footer() {
   const navigate = useNavigate();
+  const { t } = useLang();
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const footerLinks: Record<string, { label: string; href: string }[]> = {
+    "Loan Services": [
+      { label: t.footer.exportLoan, href: "/services" },
+      { label: t.footer.landLoan, href: "/services" },
+      { label: t.footer.machineryLoan, href: "/services" },
+      { label: t.footer.vehicleLoan, href: "/services" },
+      { label: t.footer.groupLoan, href: "/services" },
+      { label: t.footer.mortgageLoan, href: "/services" },
+    ],
+    "Deposit Services": [
+      { label: t.footer.deposit6m, href: "/deposits" },
+      { label: t.footer.deposit1y, href: "/deposits" },
+      { label: t.footer.deposit25y, href: "/deposits" },
+      { label: t.footer.monthlyInterest, href: "/deposits" },
+      { label: t.footer.maturityPlans, href: "/deposits" },
+      { label: t.footer.calculator, href: "/deposits" },
+    ],
+
+    Support: [
+      { label: t.footer.faq, href: "/contact" },
+      { label: t.footer.contactUs, href: "/contact" },
+      { label: t.footer.privacy, href: "/privacy" },
+    ],
+  };
 
   const handleNavClick = (href: string) => {
     if (href === "#") return;
@@ -99,26 +91,25 @@ export default function Footer() {
           />
           <text fill="#F3F7F5" fontSize="11" letterSpacing="2">
             <textPath href="#footerStampCircle" startOffset="0%">
-              • EST. 2025 · MADECOOP · MATALE ·
+              • EST. 2025 · MADE Co-op Society · MATALE ·
             </textPath>
           </text>
         </svg>
       </div>
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-10 lg:py-5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-10 lg:py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
             <img
               src="/images/logo-white.png"
-              alt="MADECOOP Logo"
+              alt="MADE Co-op Society Logo"
               className="w-42 h-42"
             />
 
             <p className="text-gray-400 text-sm leading-relaxed mb-5">
-              Empowering Sri Lankan farmers with agricultural loans and
-              financial support to sell their products locally and globally.
+              {t.footer.tagline}
             </p>
 
             {/* Contact snippets - ledger-line style */}
@@ -131,7 +122,7 @@ export default function Footer() {
                 473 2926
               </a>
               <a
-                href="mailto:info@madecoopbank.com"
+                href="mailto:info@MADE Co-opbank.com"
                 className="flex items-center gap-2.5 text-gray-400 hover:text-white transition-colors text-sm"
               >
                 <FaEnvelope style={{ color: JADE }} className="text-xs" />{" "}
@@ -143,8 +134,7 @@ export default function Footer() {
                   className="text-xs mt-0.5"
                 />
                 <span>
-                  3/4, Yelakkare Junction, Dangan Place,
-                  <br /> Yatawatta, Matale.
+                  {t.contact.addressLine} <br />
                 </span>
               </div>
             </div>
@@ -152,7 +142,7 @@ export default function Footer() {
             {/* Social */}
             <div className="flex gap-3 mt-5">
               <a
-                href="https://www.facebook.com/madecoopsociety"
+                href="https://www.facebook.com/MADE Co-opsociety"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 border border-white/15 flex items-center justify-center text-gray-400 hover:border-transparent transition-all"
@@ -211,32 +201,24 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-300 text-sm">
-            © {new Date().getFullYear()} MADECOOP - Matale District Agriculture
+        <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col items-center gap-4">
+          <p className="text-gray-300 text-sm text-center">
+            © {new Date().getFullYear()} MADE Co-op Society - Matale District Agriculture
             Development and Export Cooperative Society Ltd. All rights reserved.
           </p>
-          <div className="flex items-center gap-5 text-[11px] uppercase tracking-wide text-gray-300">
-            <button className="hover:text-white transition-colors">
-              Privacy Policy
-            </button>
-            <button className="hover:text-white transition-colors">
-              Terms &amp; Conditions
-            </button>
-          </div>
         </div>
       </div>
 
       {/* Scroll to top */}
-      <motion.button
+      {/* <motion.button
         onClick={scrollToTop}
         whileHover={{ scale: 1.08, rotate: -4 }}
         whileTap={{ scale: 0.92 }}
-        className="fixed bottom-18 right-18 w-12 h-12 flex items-center justify-center shadow-xl z-20"
+        className="fixed bottom-4 right-4 w-12 h-12 flex items-center justify-center shadow-xl z-20"
         style={{ backgroundColor: JADE, color: " #fff" }}
       >
         <FaArrowUp size={16} />
-      </motion.button>
+      </motion.button> */}
     </footer>
   );
 }

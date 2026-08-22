@@ -1,14 +1,20 @@
-import { motion } from 'framer-motion';
-import { FaCalendar, FaMapMarkerAlt, FaArrowRight, FaNewspaper, FaGraduationCap, FaUsers, FaEnvelope } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import {
+  FaCalendar,
+  FaMapMarkerAlt,
+  FaArrowRight,
+  FaNewspaper,
+  FaGraduationCap,
+  FaUsers,
+  FaEnvelope,
+} from "react-icons/fa";
 
-const INK = '#1E2A38';
-const PAPER = '#F3F7F5';
-const JADE = '#2E9C82';
-const STEEL = '#3B72A6';
-const INDIGO = '#2B3A67';
+const INK = "#1E2A38";
+const PAPER = "#F3F7F5";
+const JADE = "#2E9C82";
+const STEEL = "#3B72A6";
+const INDIGO = "#2B3A67";
 
-// One color per category, not one per article - News/Training/Event each get
-// a consistent identity instead of a different random Tailwind color apiece.
 const typeStyles: Record<string, { color: string; icon: JSX.Element }> = {
   News: { color: STEEL, icon: <FaNewspaper /> },
   Training: { color: JADE, icon: <FaGraduationCap /> },
@@ -17,61 +23,69 @@ const typeStyles: Record<string, { color: string; icon: JSX.Element }> = {
 
 const news = [
   {
-    type: 'News',
-    date: 'December 15, 2024',
-    title: 'MADECOOP Achieves Record Export Revenue of Rs. 118 Million in 2024',
-    excerpt: "Matale District farmers celebrate a landmark year as MADECOOP's export partnerships delivered unprecedented returns, with cinnamon and pepper exports to Japan and Germany reaching new highs.",
-    location: 'Matale',
+    type: "News",
+    date: "December 15, 2024",
+    title:
+      "MADE Co-op Society Achieves Record Export Revenue of Rs. 118 Million in 2024",
+    excerpt:
+      "Matale District farmers celebrate a landmark year as MADE Co-op Society's export partnerships delivered unprecedented returns, with cinnamon and pepper exports to Japan and Germany reaching new highs.",
+    location: "Matale",
   },
   {
-    type: 'Training',
-    date: 'January 10, 2025',
-    title: 'Organic Farming Certification Workshop - January 2025',
-    excerpt: 'A comprehensive 3-day workshop on organic farming certification for export markets. Learn how to qualify for premium organic export pricing through our certified partners.',
-    location: 'MADECOOP Office, Matale',
+    type: "Training",
+    date: "January 10, 2025",
+    title: "Organic Farming Certification Workshop - January 2025",
+    excerpt:
+      "A comprehensive 3-day workshop on organic farming certification for export markets. Learn how to qualify for premium organic export pricing through our certified partners.",
+    location: "MADE Co-op Society Office, Matale",
   },
   {
-    type: 'Event',
-    date: 'January 25, 2025',
-    title: 'Annual Farmer Cooperative Meeting & Dividend Distribution',
-    excerpt: "MADECOOP's annual general meeting where farmer-members receive their cooperative dividends and vote on policy decisions for 2025.",
-    location: 'Matale Town Hall',
+    type: "Event",
+    date: "January 25, 2025",
+    title: "Annual Farmer Cooperative Meeting & Dividend Distribution",
+    excerpt:
+      "MADE Co-op Society's annual general meeting where farmer-members receive their cooperative dividends and vote on policy decisions for 2025.",
+    location: "Matale Town Hall",
   },
   {
-    type: 'News',
-    date: 'February 5, 2025',
-    title: 'New Partnership with Bio Foods to Expand Organic Export Range',
-    excerpt: 'MADECOOP announces expanded partnership with Bio Foods International, adding organic vegetables, herbs, and spices to the export portfolio.',
-    location: 'Colombo',
+    type: "News",
+    date: "February 5, 2025",
+    title:
+      "New Partnership with Bio Foods Agroventures to Expand Organic Export Range",
+    excerpt:
+      "MADE Co-op Society announces expanded partnership with Bio Foods Agroventures, adding organic vegetables, herbs, and spices to the export portfolio.",
+    location: "Colombo",
   },
   {
-    type: 'Training',
-    date: 'February 20, 2025',
-    title: 'Agricultural Export Seminar - Market Trends & Opportunities',
-    excerpt: 'Expert speakers from the Export Development Board and international buyers discuss 2025 global market trends and opportunities for Sri Lankan agricultural products.',
-    location: 'Hotel Matale',
+    type: "Training",
+    date: "February 20, 2025",
+    title: "Agricultural Export Seminar - Market Trends & Opportunities",
+    excerpt:
+      "Expert speakers from the Export Development Board and international buyers discuss 2025 global market trends and opportunities for Sri Lankan agricultural products.",
+    location: "Hotel Matale",
   },
   {
-    type: 'Event',
-    date: 'March 1, 2025',
-    title: 'Group Loan Inauguration Ceremony - New Batch of Farmer Groups',
-    excerpt: 'Welcoming 25 new 5-member farmer groups into the MADECOOP Group Loan program. Ceremony to be attended by Central Provincial Council representatives.',
-    location: 'MADECOOP Office, Matale',
+    type: "Event",
+    date: "March 1, 2025",
+    title: "Group Loan Inauguration Ceremony - New Batch of Farmer Groups",
+    excerpt:
+      "Welcoming 25 new 5-member farmer groups into the MADE Co-op Society Group Loan program. Ceremony to be attended by Central Provincial Council representatives.",
+    location: "MADE Co-op Society Office, Matale",
   },
 ];
 
 const upcomingEvents = [
-  { date: 'Jan 10', event: 'Organic Farming Workshop', type: 'Training' },
-  { date: 'Jan 25', event: 'Annual General Meeting', type: 'Event' },
-  { date: 'Feb 20', event: 'Export Seminar 2025', type: 'Seminar' },
-  { date: 'Mar 1', event: 'Group Loan Inauguration', type: 'Ceremony' },
-  { date: 'Mar 15', event: 'Machinery Loan Open Day', type: 'Event' },
+  { date: "Jan 10", event: "Organic Farming Workshop", type: "Training" },
+  { date: "Jan 25", event: "Annual General Meeting", type: "Event" },
+  { date: "Feb 20", event: "Export Seminar 2025", type: "Seminar" },
+  { date: "Mar 1", event: "Group Loan Inauguration", type: "Ceremony" },
+  { date: "Mar 15", event: "Machinery Loan Open Day", type: "Event" },
 ];
 
 const achievements = [
-  { label: 'New Farmers Enrolled', value: '847', color: STEEL },
-  { label: 'Training Sessions', value: '24', color: JADE },
-  { label: 'Export Shipments', value: '48', color: INDIGO },
+  { label: "New Farmers Enrolled", value: "847", color: STEEL },
+  { label: "Training Sessions", value: "24", color: JADE },
+  { label: "Export Shipments", value: "48", color: INDIGO },
 ];
 
 export default function NewsEvents() {
@@ -87,23 +101,29 @@ export default function NewsEvents() {
           className="text-center mb-16"
         >
           <span
-            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 -rotate-1 text-xs uppercase tracking-[0.15em]"
+            className="inline-flex items-center gap-2 border border-dashed px-4 py-1.5 mb-5 text-xs uppercase tracking-[0.15em]"
             style={{ borderColor: `${JADE}80`, color: JADE }}
           >
             <FaNewspaper size={11} /> News & Events
           </span>
-          <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: INK }}>
+          <h2
+            className="text-4xl font-semibold md:text-5xl font-black mb-5"
+            style={{ color: INK }}
+          >
             Stay Updated with
             <br />
             <span
               className="bg-clip-text text-transparent"
-              style={{ backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})` }}
+              style={{
+                backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})`,
+              }}
             >
-              MADECOOP
+              MADE Co-op Society
             </span>
           </h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: `${INK}99` }}>
-            Latest agricultural news, training programs, export seminars, and farmer workshops.
+            Latest agricultural news, training programs, export seminars, and
+            farmer workshops.
           </p>
         </motion.div>
 
@@ -122,16 +142,19 @@ export default function NewsEvents() {
                   whileHover={{ y: -3 }}
                   className="p-5 cursor-pointer group transition-all"
                   style={{
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: "#FFFFFF",
                     border: `1px solid ${INK}14`,
-                    borderLeftWidth: '3px',
+                    borderLeftWidth: "3px",
                     borderLeftColor: style.color,
                   }}
                 >
                   <div className="flex items-center justify-between mb-3">
                     <span
                       className="text-[10px] font-bold px-2.5 py-1 tracking-widest flex items-center gap-1.5"
-                      style={{ backgroundColor: `${style.color}18`, color: style.color }}
+                      style={{
+                        backgroundColor: `${style.color}18`,
+                        color: style.color,
+                      }}
                     >
                       {style.icon} {item.type.toUpperCase()}
                     </span>
@@ -152,12 +175,18 @@ export default function NewsEvents() {
                     {item.title}
                   </h3>
 
-                  <p className="text-xs leading-relaxed mb-4 line-clamp-3" style={{ color: `${INK}80` }}>
+                  <p
+                    className="text-xs leading-relaxed mb-4 line-clamp-3"
+                    style={{ color: `${INK}80` }}
+                  >
                     {item.excerpt}
                   </p>
 
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 text-xs" style={{ color: `${INK}66` }}>
+                    <div
+                      className="flex items-center gap-1.5 text-xs"
+                      style={{ color: `${INK}66` }}
+                    >
                       <FaMapMarkerAlt size={10} />
                       <span>{item.location}</span>
                     </div>
@@ -186,14 +215,15 @@ export default function NewsEvents() {
               className="relative overflow-hidden p-6 text-[#F3F7F5]"
               style={{
                 background: `linear-gradient(115deg, ${STEEL} 0%, ${INDIGO} 100%)`,
-                clipPath: 'polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
+                clipPath:
+                  "polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
               }}
             >
               <div
                 className="absolute inset-0 opacity-[0.06] pointer-events-none"
                 style={{
                   backgroundImage:
-                    'repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)',
+                    "repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #F3F7F5 34px)",
                 }}
               />
               <div className="relative z-10">
@@ -205,14 +235,23 @@ export default function NewsEvents() {
                     <div
                       key={event.event}
                       className="flex gap-3 p-3"
-                      style={{ backgroundColor: '#F3F7F5' + '1A', border: '1px solid #F3F7F51F' }}
+                      style={{
+                        backgroundColor: "#F3F7F5" + "1A",
+                        border: "1px solid #F3F7F51F",
+                      }}
                     >
                       <div className="text-center min-w-12">
-                        <div className="text-xs opacity-70 font-bold">{event.date.split(' ')[0]}</div>
-                        <div className="text-sm font-black">{event.date.split(' ')[1]}</div>
+                        <div className="text-xs opacity-70 font-bold">
+                          {event.date.split(" ")[0]}
+                        </div>
+                        <div className="text-sm font-black">
+                          {event.date.split(" ")[1]}
+                        </div>
                       </div>
                       <div>
-                        <div className="text-sm font-semibold leading-tight">{event.event}</div>
+                        <div className="text-sm font-semibold leading-tight">
+                          {event.event}
+                        </div>
                         <div className="text-xs opacity-70 mt-0.5">
                           {event.type.toUpperCase()}
                         </div>
@@ -224,11 +263,20 @@ export default function NewsEvents() {
             </div>
 
             {/* Newsletter */}
-            <div className="p-6" style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}>
+            <div
+              className="p-6"
+              style={{
+                backgroundColor: "#FFFFFF",
+                border: `1px solid ${INK}14`,
+              }}
+            >
               <FaEnvelope size={22} style={{ color: STEEL }} className="mb-2" />
-              <h3 className="font-bold mb-2" style={{ color: INK }}>Stay Informed</h3>
+              <h3 className="font-bold mb-2" style={{ color: INK }}>
+                Stay Informed
+              </h3>
               <p className="text-sm mb-4" style={{ color: `${INK}80` }}>
-                Get the latest farming tips, market prices, and MADECOOP updates.
+                Get the latest farming tips, market prices, and MADE Co-op
+                Society updates.
               </p>
               <div className="space-y-2">
                 <input
@@ -242,7 +290,8 @@ export default function NewsEvents() {
                   style={{
                     backgroundColor: STEEL,
                     color: PAPER,
-                    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 70%)',
+                    clipPath:
+                      "polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 70%)",
                   }}
                 >
                   Subscribe Newsletter
@@ -251,7 +300,13 @@ export default function NewsEvents() {
             </div>
 
             {/* Achievements - ledger rows instead of a fake progress bar */}
-            <div className="p-5" style={{ backgroundColor: '#FFFFFF', border: `1px solid ${INK}14` }}>
+            <div
+              className="p-5"
+              style={{
+                backgroundColor: "#FFFFFF",
+                border: `1px solid ${INK}14`,
+              }}
+            >
               <h3
                 className="text-xs font-bold uppercase tracking-wider mb-4"
                 style={{ color: INK }}
@@ -261,9 +316,20 @@ export default function NewsEvents() {
               <div className="space-y-3">
                 {achievements.map((item) => (
                   <div key={item.label} className="flex items-baseline gap-2">
-                    <span className="text-xs" style={{ color: `${INK}80` }}>{item.label}</span>
-                    <span className="flex-1 border-b border-dotted" style={{ borderColor: `${INK}26`, transform: 'translateY(-3px)' }} />
-                    <span className="text-lg font-black" style={{ color: item.color}}>
+                    <span className="text-xs" style={{ color: `${INK}80` }}>
+                      {item.label}
+                    </span>
+                    <span
+                      className="flex-1 border-b border-dotted"
+                      style={{
+                        borderColor: `${INK}26`,
+                        transform: "translateY(-3px)",
+                      }}
+                    />
+                    <span
+                      className="text-lg font-black"
+                      style={{ color: item.color }}
+                    >
                       {item.value}
                     </span>
                   </div>

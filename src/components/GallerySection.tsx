@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Expand } from "lucide-react";
 import { FaGlobeAsia } from "react-icons/fa";
+import { useLang } from "@/i18n/LanguageContext";
 
 const INK = "#1E2A38";
 const JADE = "var(--color-secondary)";
@@ -15,7 +16,7 @@ const galleryItems = [
   },
   {
     id: 2,
-    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad5.jpg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/1.webp",
     span: 2,
   },
   {
@@ -25,14 +26,16 @@ const galleryItems = [
   },
   {
     id: 4,
-    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad14.jpg",
-    span: 1,
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02236.webp",
+    span: 2,
   },
   {
     id: 5,
     src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad15.jpg",
     span: 1,
   },
+
+
   {
     id: 6,
     src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad16.jpeg",
@@ -41,7 +44,7 @@ const galleryItems = [
   {
     id: 7,
     src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad6.jpg",
-    span: 1,
+    span: 2,
   },
   {
     id: 8,
@@ -50,16 +53,44 @@ const galleryItems = [
   },
   {
     id: 9,
-    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad7.jpg",
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/made-bank_mad14.jpg",
     span: 1,
   },
+
+  {
+    id: 10,
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02486.webp",
+    span: 1,
+  },
+  {
+    id: 11,
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/BHA02719.webp",
+    span: 1,
+  },
+  {
+    id: 12,
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/paralax6.webp",
+    span: 1,
+  },
+  {
+    id: 13,
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/p23.webp",
+    span: 2,
+  },
+  {
+    id: 14,
+    src: "https://pub-8476bede5a4146e8b7731cfe515f1c3b.r2.dev/made-bank/paralax2.webp",
+    span: 2,
+}
+
 ];
 
 type Item = (typeof galleryItems)[0];
 
 export default function GallerySection() {
   const [selected, setSelected] = useState<Item | null>(null);
-
+  const { t } = useLang();
+  
   return (
     <section
       id="gallery"
@@ -82,13 +113,13 @@ export default function GallerySection() {
               color: JADE,
             }}
           >
-            <FaGlobeAsia size={11} /> Our Gallery
+            <FaGlobeAsia size={11} /> {t.gallery.badge}
           </span>
           <h2
-            className="text-4xl md:text-5xl font-black mb-4"
+            className="text-4xl font-semibold md:text-5xl font-black mb-4"
             style={{ color: INK }}
           >
-            Agriculture in Action
+           {t.gallery.title1}
             <br />
             <span
               className="bg-clip-text text-transparent"
@@ -96,12 +127,11 @@ export default function GallerySection() {
                 backgroundImage: `linear-gradient(90deg, ${STEEL}, ${JADE})`,
               }}
             >
-              The MADECOOP Story
+              {t.gallery.title2}
             </span>
           </h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: `${INK}99` }}>
-            A visual journey through the farms, harvests, and export operations
-            that define MADECOOP's work.
+          {t.gallery.sub}
           </p>
         </motion.div>
 

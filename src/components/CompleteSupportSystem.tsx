@@ -20,9 +20,9 @@ const stepColors = ['#3B72A6', '#3979A0', '#37809A', '#358794', '#328E8E', '#309
 const stages = [
   { step: 1, icon: Wallet, title: 'Need Money', desc: 'Farmer identifies cultivation opportunity but lacks capital' },
   { step: 2, icon: FileCheck2, title: 'Loan Approval', desc: 'Quick, fair agricultural loan approved within 5-7 days' },
-  { step: 3, icon: Sprout, title: 'Cultivation', desc: 'Farm with technical guidance from MADECOOP officers' },
+  { step: 3, icon: Sprout, title: 'Cultivation', desc: 'Farm with technical guidance from MADE Co-op Society officers' },
   { step: 4, icon: Warehouse, title: 'Harvest', desc: 'Bumper harvest achieved with proper farming practices' },
-  { step: 5, icon: Handshake, title: 'Guaranteed Purchase', desc: 'MADECOOP buys 100% of your harvest at fair prices' },
+  { step: 5, icon: Handshake, title: 'Guaranteed Purchase', desc: 'MADE Co-op Society buys 100% of your harvest at fair prices' },
   { step: 6, icon: Ship, title: 'Export', desc: 'Your produce shipped to global markets via export partners' },
   { step: 7, icon: TrendingUp, title: 'Profit', desc: 'Premium export income - repay loan, reinvest, prosper!' },
 ];
@@ -83,7 +83,7 @@ export default function CompleteSupportSystem() {
 
           <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: `${PAPER}B3` }}>
             From the moment a farmer needs money to the moment they receive export profits -
-            MADECOOP is with you at <strong style={{ color: PAPER }}>every single step</strong>.
+            MADE Co-op Society is with you at <strong style={{ color: PAPER }}>every single step</strong>.
           </p>
         </motion.div>
 
